@@ -17,12 +17,13 @@ trait Commonish {
   val experimentalModel = """Choice\["(.+)"\]""".r
   def typeLookup(s: String): String = s match {
     case fhirSystemType(x) => x
-    case "boolean" | "positiveInt" | "unsignedInt" | "base64Binary" | "canonical" | "code" | "id" | "markdown" | "string" =>
+    case "boolean" | "positiveInt" | "unsignedInt" | "base64Binary" | "canonical" | "code" | "id" | "markdown" =>
       s.capitalize
     case "integer64" | "Integer64" => "Long" // 4.6.0 json capitalises this code :shrug:
     case "integer"                 => "Int"
     case "decimal"                 => "BigDecimal"
     case "uuid" | "oid" | "xhtml"  => s.map(_.toUpper)
+    case "string"                  => "FHIRString"
     case "url"                     => "UrlStr"
     case "uri"                     => "UriStr"
     case "instant"                 => "ZonedDateTime"

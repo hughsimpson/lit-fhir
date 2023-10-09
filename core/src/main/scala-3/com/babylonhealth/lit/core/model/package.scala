@@ -73,7 +73,7 @@ package object model {
     "Duration"            -> DecoderAndTag[Duration](Duration.decoder(_), lTagOf[Duration]),
     "CodeableConcept"     -> DecoderAndTag[CodeableConcept](CodeableConcept.decoder(_), lTagOf[CodeableConcept]),
     "Address"             -> DecoderAndTag[Address](Address.decoder(_), lTagOf[Address]),
-    "String"              -> DecoderAndTag[String](_ => Decoder.decodeString, lTagOf[String]),
+    "String"              -> DecoderAndTag[FHIRString](_ => stringDecoder, lTagOf[FHIRString]),
     "Count"               -> DecoderAndTag[Count](Count.decoder(_), lTagOf[Count]),
     "Coding"              -> DecoderAndTag[Coding](Coding.decoder(_), lTagOf[Coding]),
     "Ratio"               -> DecoderAndTag[Ratio](Ratio.decoder(_), lTagOf[Ratio]),

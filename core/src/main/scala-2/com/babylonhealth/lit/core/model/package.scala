@@ -73,7 +73,7 @@ package object model {
     "Duration"            -> DecoderAndTag[Duration](Duration.decoder(_), lTagOf[Duration]),
     "CodeableConcept"     -> DecoderAndTag[CodeableConcept](CodeableConcept.decoder(_), lTagOf[CodeableConcept]),
     "Address"             -> DecoderAndTag[Address](Address.decoder(_), lTagOf[Address]),
-    "String"              -> DecoderAndTag[String](_ => Decoder.decodeString, lTagOf[String]),
+    "String"              -> DecoderAndTag[FHIRString](_ => stringDecoder, lTagOf[FHIRString]),
     "Count"               -> DecoderAndTag[Count](Count.decoder(_), lTagOf[Count]),
     "Coding"              -> DecoderAndTag[Coding](Coding.decoder(_), lTagOf[Coding]),
     "Ratio"               -> DecoderAndTag[Ratio](Ratio.decoder(_), lTagOf[Ratio]),
@@ -137,14 +137,14 @@ package object model {
 object UnionAliases {
   type Union01658422381 = FHIRDate \/ FHIRDateTime \/ Reference \/ Timing
   type UnionAll =
-    Address \/ Age \/ Annotation \/ Attachment \/ Base64Binary \/ BigDecimal \/ Boolean \/ Canonical \/ Code \/ CodeableConcept \/ Coding \/ ContactDetail \/ ContactPoint \/ Contributor \/ Count \/ DataRequirement \/ Distance \/ Dosage \/ Duration \/ Expression \/ FHIRDate \/ FHIRDateTime \/ HumanName \/ Id \/ Identifier \/ Int \/ LocalTime \/ Markdown \/ Meta \/ Money \/ OID \/ ParameterDefinition \/ Period \/ PositiveInt \/ Quantity \/ Range \/ Ratio \/ Reference \/ RelatedArtifact \/ SampledData \/ Signature \/ String \/ Timing \/ TriggerDefinition \/ UUID \/ UnsignedInt \/ UriStr \/ UrlStr \/ UsageContext \/ ZonedDateTime
+    Address \/ Age \/ Annotation \/ Attachment \/ Base64Binary \/ BigDecimal \/ Boolean \/ Canonical \/ Code \/ CodeableConcept \/ Coding \/ ContactDetail \/ ContactPoint \/ Contributor \/ Count \/ DataRequirement \/ Distance \/ Dosage \/ Duration \/ Expression \/ FHIRDate \/ FHIRDateTime \/ HumanName \/ Id \/ Identifier \/ Int \/ LocalTime \/ Markdown \/ Meta \/ Money \/ OID \/ ParameterDefinition \/ Period \/ PositiveInt \/ Quantity \/ Range \/ Ratio \/ Reference \/ RelatedArtifact \/ SampledData \/ Signature \/ FHIRString \/ Timing \/ TriggerDefinition \/ UUID \/ UnsignedInt \/ UriStr \/ UrlStr \/ UsageContext \/ ZonedDateTime
   type UnionBooleanOrCodeableConcept   = Boolean \/ CodeableConcept
   type UnionCodeableConceptOrReference = CodeableConcept \/ Reference
   type UnionDurationOrDateTimeOrPeriod = Duration \/ FHIRDateTime \/ Period
   type UnionDurationOrPeriodOrRange    = Duration \/ Period \/ Range
   type UnionQuantityOrRange            = Quantity \/ Range
   type UnionQuantityOrRangeOrRatio     = Quantity \/ Range \/ Ratio
-  type UnionReferenceOrString          = Reference \/ String
+  type UnionReferenceOrString          = Reference \/ FHIRString
   type Union_1548929031                = CodeableConcept \/ Quantity \/ Range \/ Reference
 
   val Union01658422381Tag: LTag[Union01658422381]                               = LTag[Union01658422381]

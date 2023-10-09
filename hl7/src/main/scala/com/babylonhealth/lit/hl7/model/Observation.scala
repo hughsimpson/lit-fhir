@@ -491,7 +491,7 @@ object Observation extends CompanionFor[Observation] {
         obj.component.flatMap(_.value).flatMap(_.as[Quantity]).toSeq ++
         obj.component.flatMap(_.value).flatMap(_.as[SampledData]).toSeq),
     "value-string" -> (obj =>
-      obj.value.flatMap(_.as[String]).toSeq ++
+      obj.value.flatMap(_.as[FHIRString]).toSeq ++
         obj.value.flatMap(_.as[CodeableConcept]).flatMap(_.text).toSeq),
     "combo-code-value-quantity" -> (obj => obj.component.toSeq),
     "focus"                     -> (obj => obj.focus.toSeq),

@@ -363,7 +363,7 @@ object Condition extends CompanionFor[Condition] {
     "onset-age" -> (obj =>
       obj.onset.flatMap(_.as[Age]).toSeq ++
         obj.onset.flatMap(_.as[Range]).toSeq),
-    "abatement-string"         -> (obj => obj.abatement.flatMap(_.as[String]).toSeq),
+    "abatement-string"         -> (obj => obj.abatement.flatMap(_.as[FHIRString]).toSeq),
     "stage"                    -> (obj => obj.stage.flatMap(_.summary).toSeq),
     "Example Search Parameter" -> (obj => Seq(obj.subject)),
     "subject"                  -> (obj => Seq(obj.subject)),
@@ -383,7 +383,7 @@ object Condition extends CompanionFor[Condition] {
     "asserter"            -> (obj => obj.asserter.toSeq),
     "patient"             -> (obj => obj.subject.seqIf(_.reference.exists(_.contains("Patient/"))).toSeq),
     "identifier"          -> (obj => obj.identifier.toSeq),
-    "onset-info"          -> (obj => obj.onset.flatMap(_.as[String]).toSeq),
+    "onset-info"          -> (obj => obj.onset.flatMap(_.as[FHIRString]).toSeq),
     "code"                -> (obj => obj.code.toSeq),
     "verification-status" -> (obj => obj.verificationStatus.toSeq),
     "abatement-age" -> (obj =>

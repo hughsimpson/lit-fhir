@@ -267,7 +267,7 @@ class TestFooTest extends AnyFreeSpec with Matchers with BaseFieldDecoders {
     val tStr = time.fmt
 
     "Annotation with authorString field" in {
-      val y1 = Annotation(Some("hi, I'm an ID"), Some(time), "asd".asInstanceOf[Markdown], LitSeq.empty, Some(choice("author!")))
+      val y1 = Annotation(Some("hi, I'm an ID"), Some(time), "asd".asInstanceOf[Markdown], LitSeq.empty, Some(choice("author!": FHIRString)))
       val jstr = y1.asJson.noSpaces
       println(jstr)
       val expected =

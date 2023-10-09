@@ -1,16 +1,14 @@
 package com.babylonhealth.lit.hl7
 
 import java.time.ZonedDateTime
-
 import io.circe.{ DecodingFailure, Json }
 import io.circe.parser.decode
 import org.scalatest.freespec.AnyFreeSpec
 import org.scalatest.matchers.should.Matchers
-
 import com.babylonhealth.lit.core.ChoiceImplicits._
 import com.babylonhealth.lit.core.model.{ CodeableConcept, Coding, Extension, Quantity, Reference, Resource }
 import com.babylonhealth.lit.core.serdes.objectDecoder
-import com.babylonhealth.lit.core._
+import com.babylonhealth.lit.core.{ FHIRString, _ }
 import com.babylonhealth.lit.hl7.OBSERVATION_STATUS
 import com.babylonhealth.lit.hl7.model.Observation
 
@@ -101,7 +99,7 @@ class Regressions extends AnyFreeSpec with Matchers {
           value = Some(283),
           code = Some("10*9/L"),
           system = Some("http://unitsofmeasure.org"),
-          extension = LitSeq(Extension(url = "http://extension.com/wat", value = Some(choice("wat"))))
+          extension = LitSeq(Extension(url = "http://extension.com/wat", value = Some(choice("wat": FHIRString))))
         ))),
       subject = Some(Reference(reference = Some("Patient/420420")))
     )

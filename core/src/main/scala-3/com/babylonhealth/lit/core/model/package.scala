@@ -103,7 +103,7 @@ package object model {
   val localClasses: Seq[LightTypeTag] = companionLookup.toSeq.sortBy(_._1).map(_._2.thisTypeTag.tag)
 
   val intSubSuffixes: Set[String]    = Set("Integer", "PositiveInt", "UnsignedInt")
-  val stringSubSuffixes: Set[String] = Set("String", "Canonical", "Code", "Id", "Markdown", "Oid", "Uri", "Url")
+  val stringSubSuffixes: Set[String] = Set("FHIRString", "Canonical", "Code", "Id", "Markdown", "Oid", "Uri", "Url")
   // cannot actually be a map because Type equality doesn't work 'right' -- need to do the .find(_ =:= ...) pattern...
   // TODO: Is this true? Can we make this more efficient plz?
   @deprecated("REALLY SLOW")

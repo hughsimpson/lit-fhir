@@ -38,7 +38,7 @@ class GenScalaTest extends AnyFreeSpec with Matchers {
     "obj.extension.filter(_.url == \"foo\").toSeq"
   }
   expect(Observation, "(Observation.value as string)") {
-    "obj.value.flatMap(_.as[String]).toSeq"
+    "obj.value.flatMap(_.as[FHIRString]).toSeq"
   }
   expect(Observation, "(Observation.value as CodeableConcept).text") {
     "obj.value.flatMap(_.as[CodeableConcept]).flatMap(_.text).toSeq"

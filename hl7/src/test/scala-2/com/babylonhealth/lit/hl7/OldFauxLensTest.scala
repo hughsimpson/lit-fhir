@@ -1,14 +1,12 @@
 package com.babylonhealth.lit.hl7
 
-import java.time.{ LocalTime, ZonedDateTime }
-
+import java.time.{LocalTime, ZonedDateTime}
 import org.scalatest.freespec.AnyFreeSpec
 import org.scalatest.matchers.should.Matchers
-
 import com.babylonhealth.lit.core.ChoiceImplicits._
 import com.babylonhealth.lit.core.PseudoLenses._
 import com.babylonhealth.lit.core.model._
-import com.babylonhealth.lit.core.{ Choice, LitSeq, \/ }
+import com.babylonhealth.lit.core.{Choice, FHIRString, LitSeq, toFHIRString, \/}
 import com.babylonhealth.lit.hl7.model._
 
 // Retaining for compatibility, and to enable a nicer Java API
@@ -122,7 +120,7 @@ class OldFauxLensTest extends AnyFreeSpec with Matchers {
             resource.updateIfExists(_.value)(
               _.mapValue((_: Int) + 49)
                 .orElse((b: Boolean) => !b)
-                .orElse((_: Quantity).value.getOrElse(0).toString)
+                .orElse((_: Quantity).value.getOrElse(0).toString: FHIRString)
                 .run)
           case x => x
         }

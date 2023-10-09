@@ -3,7 +3,7 @@ package com.babylonhealth.lit.usbase
 import enumeratum.{ CirceEnum, Enum, EnumEntry }
 
 import com.babylonhealth.lit.core.model.Coding
-import com.babylonhealth.lit.core.{ EnumeratumBase, FhirEnum, FhirCirceEnum, EnumWithFallback }
+import com.babylonhealth.lit.core.{ EnumeratumBase, FhirEnum, FhirCirceEnum, EnumWithFallback, toFHIRString }
 
 sealed abstract class CHOICE_LIST_ORIENTATION(override val entryName: String)
     extends EnumeratumBase
@@ -11,7 +11,8 @@ sealed abstract class CHOICE_LIST_ORIENTATION(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object CHOICE_LIST_ORIENTATION extends FhirEnum[CHOICE_LIST_ORIENTATION] with FhirCirceEnum[CHOICE_LIST_ORIENTATION] {
   val reference = "http://hl7.org/fhir/ValueSet/choice-list-orientation"
@@ -32,7 +33,8 @@ sealed abstract class CONFORMANCE_EXPECTATION(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object CONFORMANCE_EXPECTATION extends FhirEnum[CONFORMANCE_EXPECTATION] with FhirCirceEnum[CONFORMANCE_EXPECTATION] {
   val reference = "http://hl7.org/fhir/ValueSet/conformance-expectation"
@@ -61,7 +63,8 @@ sealed abstract class DATA_ABSENT_REASON(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object DATA_ABSENT_REASON extends FhirEnum[DATA_ABSENT_REASON] with FhirCirceEnum[DATA_ABSENT_REASON] {
   val reference = "http://hl7.org/fhir/ValueSet/data-absent-reason"
@@ -131,7 +134,8 @@ object DATA_ABSENT_REASON extends FhirEnum[DATA_ABSENT_REASON] with FhirCirceEnu
 sealed abstract class DATA_TYPES(override val entryName: String) extends EnumeratumBase with Product with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object DATA_TYPES extends FhirEnum[DATA_TYPES] with FhirCirceEnum[DATA_TYPES] {
   val reference = "http://hl7.org/fhir/ValueSet/data-types"
@@ -396,7 +400,8 @@ sealed abstract class EXPANSION_PARAMETER_SOURCE(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object EXPANSION_PARAMETER_SOURCE extends FhirEnum[EXPANSION_PARAMETER_SOURCE] with FhirCirceEnum[EXPANSION_PARAMETER_SOURCE] {
   val reference = "http://hl7.org/fhir/ValueSet/expansion-parameter-source"
@@ -421,7 +426,8 @@ sealed abstract class EXPANSION_PROCESSING_RULE(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object EXPANSION_PROCESSING_RULE extends FhirEnum[EXPANSION_PROCESSING_RULE] with FhirCirceEnum[EXPANSION_PROCESSING_RULE] {
   val reference = "http://hl7.org/fhir/ValueSet/expansion-processing-rule"
@@ -446,7 +452,8 @@ sealed abstract class HL7_WORK_GROUP(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object HL7_WORK_GROUP extends FhirEnum[HL7_WORK_GROUP] with FhirCirceEnum[HL7_WORK_GROUP] {
   val reference = "http://hl7.org/fhir/ValueSet/hl7-work-group"
@@ -555,7 +562,8 @@ sealed abstract class IMPLANTSTATUS(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object IMPLANTSTATUS extends FhirEnum[IMPLANTSTATUS] with FhirCirceEnum[IMPLANTSTATUS] {
   val reference = "http://hl7.org/fhir/ValueSet/implantStatus"
@@ -581,7 +589,8 @@ object IMPLANTSTATUS extends FhirEnum[IMPLANTSTATUS] with FhirCirceEnum[IMPLANTS
 sealed abstract class MATCH_GRADE(override val entryName: String) extends EnumeratumBase with Product with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object MATCH_GRADE extends FhirEnum[MATCH_GRADE] with FhirCirceEnum[MATCH_GRADE] {
   val reference = "http://hl7.org/fhir/ValueSet/match-grade"
@@ -610,7 +619,8 @@ sealed abstract class NAME_ASSEMBLY_ORDER(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object NAME_ASSEMBLY_ORDER extends FhirEnum[NAME_ASSEMBLY_ORDER] with FhirCirceEnum[NAME_ASSEMBLY_ORDER] {
   val reference = "http://hl7.org/fhir/ValueSet/name-assembly-order"
@@ -651,7 +661,8 @@ sealed abstract class NAME_PART_QUALIFIER(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object NAME_PART_QUALIFIER extends FhirEnum[NAME_PART_QUALIFIER] with FhirCirceEnum[NAME_PART_QUALIFIER] {
   val reference = "http://hl7.org/fhir/ValueSet/name-part-qualifier"
@@ -712,7 +723,8 @@ sealed abstract class NAME_V3_REPRESENTATION(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object NAME_V3_REPRESENTATION extends FhirEnum[NAME_V3_REPRESENTATION] with FhirCirceEnum[NAME_V3_REPRESENTATION] {
   val reference = "http://hl7.org/fhir/ValueSet/name-v3-representation"
@@ -737,7 +749,8 @@ sealed abstract class POSTAL_ADDRESS_USE(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object POSTAL_ADDRESS_USE extends FhirEnum[POSTAL_ADDRESS_USE] with FhirCirceEnum[POSTAL_ADDRESS_USE] {
   val reference = "http://hl7.org/fhir/ValueSet/postal-address-use"
@@ -782,7 +795,8 @@ sealed abstract class PROBABILITY_DISTRIBUTION_TYPE(override val entryName: Stri
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object PROBABILITY_DISTRIBUTION_TYPE
     extends FhirEnum[PROBABILITY_DISTRIBUTION_TYPE]
@@ -833,7 +847,8 @@ sealed abstract class QUESTIONNAIRE_USAGE_MODE(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object QUESTIONNAIRE_USAGE_MODE extends FhirEnum[QUESTIONNAIRE_USAGE_MODE] with FhirCirceEnum[QUESTIONNAIRE_USAGE_MODE] {
   val reference = "http://hl7.org/fhir/ValueSet/questionnaire-usage-mode"
@@ -866,7 +881,8 @@ sealed abstract class RESOURCE_SECURITY_CATEGORY(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object RESOURCE_SECURITY_CATEGORY extends FhirEnum[RESOURCE_SECURITY_CATEGORY] with FhirCirceEnum[RESOURCE_SECURITY_CATEGORY] {
   val reference = "http://hl7.org/fhir/ValueSet/resource-security-category"
@@ -899,7 +915,8 @@ sealed abstract class SMART_CAPABILITIES(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object SMART_CAPABILITIES extends FhirEnum[SMART_CAPABILITIES] with FhirCirceEnum[SMART_CAPABILITIES] {
   val reference = "http://hl7.org/fhir/ValueSet/smart-capabilities"
@@ -968,7 +985,8 @@ sealed abstract class STANDARDS_STATUS(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object STANDARDS_STATUS extends FhirEnum[STANDARDS_STATUS] with FhirCirceEnum[STANDARDS_STATUS] {
   val reference = "http://hl7.org/fhir/ValueSet/standards-status"
@@ -1005,7 +1023,8 @@ sealed abstract class TEMPLATE_STATUS_CODE(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object TEMPLATE_STATUS_CODE extends FhirEnum[TEMPLATE_STATUS_CODE] with FhirCirceEnum[TEMPLATE_STATUS_CODE] {
   val reference = "http://hl7.org/fhir/ValueSet/template-status-code"
@@ -1050,7 +1069,8 @@ sealed abstract class V3_ENTITYNAMEUSER2(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object V3_ENTITYNAMEUSER2 extends FhirEnum[V3_ENTITYNAMEUSER2] with FhirCirceEnum[V3_ENTITYNAMEUSER2] {
   val reference = "http://terminology.hl7.org/ValueSet/v3-EntityNameUseR2"
@@ -1135,7 +1155,8 @@ sealed abstract class V3_NULLFLAVOR(override val entryName: String)
     with java.io.Serializable {
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(entryName), display = display))
+  def toCoding: Option[Coding] =
+    system.map(s => Coding(system = Some(s), code = Some(entryName), display = display.map(toFHIRString)))
 }
 object V3_NULLFLAVOR extends FhirEnum[V3_NULLFLAVOR] with FhirCirceEnum[V3_NULLFLAVOR] {
   val reference = "http://terminology.hl7.org/ValueSet/v3-NullFlavor"

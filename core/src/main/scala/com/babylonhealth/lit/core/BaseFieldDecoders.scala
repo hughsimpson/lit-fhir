@@ -36,6 +36,9 @@ trait BaseFieldDecoders extends Utils {
   implicit val oidDecoder: Decoder[OID] =
     Decoder.instance[OID](c => c.as[String].flatMap(s => tryDecode(toOID(s), c)))
   implicit val oidEncoder: Encoder[OID] = Encoder.instance[OID](Json fromString _)
+  implicit val stringDecoder: Decoder[FHIRString] =
+    Decoder.instance[FHIRString](c => c.as[String].flatMap(s => tryDecode(toFHIRString(s), c)))
+  implicit val stringEncoder: Encoder[FHIRString] = Encoder.instance[FHIRString](Json fromString _)
   implicit val urlDecoder: Decoder[UrlStr] =
     Decoder.instance[UrlStr](c => c.as[String].flatMap(s => tryDecode(toUrlStr(s), c)))
   implicit val urlEncoder: Encoder[UrlStr] = Encoder.instance[UrlStr](Json fromString _)

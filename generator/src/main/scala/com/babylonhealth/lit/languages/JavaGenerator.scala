@@ -51,7 +51,7 @@ trait JavaGenerator extends Commonish {
     def eraseSubtypes(t: String, f: BaseField, builder: Boolean = false): String = t match {
       case "Code" if f.nearestValueSet.isDefined =>
         EnumerationUtils.valueSetToEnumName(f.nearestValueSet.get.valueSet)
-      case "Canonical" | "Code" | "Id" | "Markdown" | "OID" | "UriStr" | "UrlStr" | "XHTML" if !f.isGenerated =>
+      case "Canonical" | "Code" | "Id" | "Markdown" | "OID" | "FHIRString" | "UriStr" | "UrlStr" | "XHTML" if !f.isGenerated =>
         "String"
       case "Base64Binary"                                                 => "byte[]"
       case "PositiveInt" | "UnsignedInt" | "Int" if !f.isGenerated        => "Integer"
@@ -416,7 +416,7 @@ trait JavaGenerator extends Commonish {
   def generateModelFile(pkg: String, javaSuffix: String, unionTypes: Map[String, Seq[String]]): ClassGenInfo = {
 
     def eraseSubtypes(t: String): String = t match {
-      case "Canonical" | "Code" | "Id" | "Markdown" | "OID" | "UriStr" | "UrlStr" | "XHTML" =>
+      case "Canonical" | "Code" | "Id" | "Markdown" | "OID" | "FHIRString" | "UriStr" | "UrlStr" | "XHTML" =>
         "String"
       case "Base64Binary"                        => "byte[]"
       case "PositiveInt" | "UnsignedInt" | "Int" => "Integer"

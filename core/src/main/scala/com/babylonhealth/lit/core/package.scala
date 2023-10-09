@@ -18,6 +18,7 @@ package object core {
   type UriStr <: String
   type UrlStr <: String
   type XHTML <: String
+  type FHIRString <: String
   implicit def toUnsignedInt(s: Int): UnsignedInt = {
     assert(s >= 0, "`UnsignedInt`s must be >= 0")
     s.asInstanceOf[UnsignedInt]
@@ -31,6 +32,7 @@ package object core {
   implicit def toId(s: String): Id                                      = s.asInstanceOf[Id]
   implicit def toMarkdown(s: String): Markdown                          = s.asInstanceOf[Markdown]
   implicit def toOID(s: String): OID                                    = s.asInstanceOf[OID]
+  implicit def toFHIRString(s: String): FHIRString                      = s.asInstanceOf[FHIRString]
   implicit def toUri(s: String): UriStr                                 = s.asInstanceOf[UriStr]
   implicit def toUrlStr(s: String): UrlStr                              = s.asInstanceOf[UrlStr]
   implicit def toXHTML(s: String): XHTML                                = s.asInstanceOf[XHTML]

@@ -20,7 +20,7 @@ object TypescriptCodegen {
     def toTSType(s: String): String =
       (s match {
         case "PositiveInt" | "UnsignedInt" | "Int" | "BigDecimal" | "Integer64" => "number"
-        case "Base64Binary" | "Canonical" | "Code" | "Id" | "Markdown" | "OID" | "UriStr" | "UrlStr" | "XHTML" | "String" |
+        case "Base64Binary" | "Canonical" | "Code" | "Id" | "Markdown" | "OID" | "FHIRString" | "UriStr" | "UrlStr" | "XHTML" | "String" |
             "UUID" =>
           "string"
         case "ZonedDateTime" | "FHIRDateTime" | "LocalDate" | "LocalTime" => "Date"

@@ -47,7 +47,7 @@ trait BaseFieldImplicits {
           else if (!baseField.isGenerated && clashingClasses("Code")) "com.babylonhealth.lit.core.Code"
           else "Code"
         } else if (!baseField.isGenerated && clashingClasses(baseString)) baseString match {
-          case "UnsignedInt" | "PositiveInt" | "Base64Binary" | "Canonical" | "Code" | "Id" | "Markdown" | "OID" | "UriStr" |
+          case "UnsignedInt" | "PositiveInt" | "Base64Binary" | "Canonical" | "Code" | "Id" | "Markdown" | "OID" | "FHIRString" | "UriStr" |
               "UrlStr" | "XHTML" =>
             s"com.babylonhealth.lit.core.$baseString"
           case x => s"core.model.$x" // TODO: This isn't sound
@@ -823,7 +823,7 @@ object ScalaCodegen extends BaseFieldImplicits with Commonish {
       |    "Duration"          -> DecoderAndTag[Duration](Duration.decoder(_), lTagOf[Duration]),
       |    "CodeableConcept"   -> DecoderAndTag[CodeableConcept](CodeableConcept.decoder(_), lTagOf[CodeableConcept]),
       |    "Address"           -> DecoderAndTag[Address](Address.decoder(_), lTagOf[Address]),
-      |    "String"            -> DecoderAndTag[String](_ => Decoder.decodeString, lTagOf[String]),
+      |    "String"            -> DecoderAndTag[FHIRString](_ => stringDecoder, lTagOf[FHIRString]),
       |    "Count"             -> DecoderAndTag[Count](Count.decoder(_), lTagOf[Count]),
       |    "Coding"            -> DecoderAndTag[Coding](Coding.decoder(_), lTagOf[Coding]),
       |    "Ratio"             -> DecoderAndTag[Ratio](Ratio.decoder(_), lTagOf[Ratio]),

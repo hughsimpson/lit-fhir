@@ -39,6 +39,7 @@ trait Commonish {
   def inverseTypeLookup(s: String): String = s match {
     case "Boolean" | "PositiveInt" | "UnsignedInt" | "Base64Binary" | "Canonical" | "Code" | "Id" | "Markdown" | "String" =>
       s.head.toLower +: s.tail
+    case "FHIRString"             => "String"
     case "Long"                   => "Integer64"
     case "Int"                    => "integer"
     case "BigDecimal"             => "decimal"

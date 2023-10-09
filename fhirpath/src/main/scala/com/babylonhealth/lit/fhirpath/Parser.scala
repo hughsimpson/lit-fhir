@@ -2,6 +2,7 @@ package com.babylonhealth.lit.fhirpath
 
 import cats.parse.Parser._
 
+import com.babylonhealth.lit.core.toFHIRString
 import com.babylonhealth.lit.core.model.Quantity
 import com.babylonhealth.lit.fhirpath.Lexer.whitespaces0
 import com.babylonhealth.lit.fhirpath.Parser.ParseException

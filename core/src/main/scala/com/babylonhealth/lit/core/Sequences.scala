@@ -114,7 +114,8 @@ class LitSeqIterator[+T](private val xs: Array[_], initialIndex: Int = 0)
 }
 
 class LitSeq[+T] private[core] (protected val _contents: Array[Object])
-    extends scala.collection.IterableOps[T, LitSeq, LitSeq[T]]
+    extends scala.collection.Iterable[T]
+    with scala.collection.IterableOps[T, LitSeq, LitSeq[T]]
     with PartialFunction[Int, T]
     with JList[T @uncheckedVariance] {
   // extra constructors
@@ -193,14 +194,12 @@ class LitSeq[+T] private[core] (protected val _contents: Array[Object])
   override def iterator(): LitSeqIterator[T] = new LitSeqIterator(_contents)
 
   // From IterableOps
-  protected def coll: LitSeq[T] = this
-  protected def fromSpecific(coll: scala.collection.IterableOnce[T @uncheckedVariance]): LitSeq[T] =
+  override def empty: LitSeq[T] = LitSeq.empty[T]
+  override protected def fromSpecific(coll: scala.collection.IterableOnce[T @uncheckedVariance]): LitSeq[T] =
     if (coll.isEmpty) LitSeq.empty else new NonEmptyLitSeq[T](coll.iterator.toSeq)
-  def iterableFactory: scala.collection.IterableFactory[LitSeq] = LitSeq
-  protected def newSpecificBuilder: scala.collection.mutable.Builder[T @uncheckedVariance, LitSeq[T @uncheckedVariance]] =
+  override def iterableFactory: scala.collection.IterableFactory[LitSeq] = LitSeq
+  override protected def newSpecificBuilder: scala.collection.mutable.Builder[T @uncheckedVariance, LitSeq[T @uncheckedVariance]] =
     new LitSeqBuilder()
-
-  def toIterable: Iterable[T] = _contents.toIterable.asInstanceOf[Iterable[T]]
 
   def apply(i: Int): T = _contents(i).asInstanceOf[T]
 

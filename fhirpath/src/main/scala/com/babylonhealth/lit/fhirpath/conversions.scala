@@ -12,7 +12,7 @@ import cats.syntax.traverse._
 
 import scala.reflect.ClassTag
 
-import com.babylonhealth.lit.core.{ FHIRDate, FHIRDateTime, FHIRObject }
+import com.babylonhealth.lit.core.{ FHIRDate, FHIRDateTime, FHIRObject, toFHIRString }
 import com.babylonhealth.lit.core.model.Quantity
 import com.babylonhealth.lit.fhirpath.model.Expr
 

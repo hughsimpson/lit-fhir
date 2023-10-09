@@ -7,7 +7,7 @@ import cats.parse.Parser.string
 import cats.MonadError
 import cats.syntax.option._
 
-import com.babylonhealth.lit.core.{ FHIRComponentField, FHIRDate, FHIRDateSpecificity, FHIRDateTime, FHIRObject, LitSeq }
+import com.babylonhealth.lit.core.{ FHIRComponentField, FHIRDate, FHIRDateSpecificity, FHIRDateTime, FHIRObject, LitSeq, toFHIRString }
 import com.babylonhealth.lit.core.model.{ Quantity, Resource }
 import com.babylonhealth.lit.core.FHIRDateTimeSpecificity.Day
 

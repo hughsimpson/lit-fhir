@@ -4,7 +4,7 @@ import cats.instances.either._
 
 import com.babylonhealth.lit.core.ChoiceImplicits._
 import com.babylonhealth.lit.core.model._
-import com.babylonhealth.lit.core.{ toCode, FHIRDate, FHIRDateTime, LitSeq, toUri }
+import com.babylonhealth.lit.core.{ toCode, FHIRDate, FHIRDateTime, FHIRString, LitSeq, toFHIRString, toUri }
 import com.babylonhealth.lit.hl7.{ BUNDLE_TYPE, OBSERVATION_STATUS, QUESTIONNAIRE_ANSWERS_STATUS }
 import java.time.{ LocalTime, ZonedDateTime }
 
@@ -31,7 +31,7 @@ class FHIRPathTest extends AnyFreeSpec with Matchers {
   )
   val practitioner = Practitioner(
     id = Some("Practitioner"),
-    extension = LitSeq(Extension(url = "http://b.456", value = Some(choice("a practitioner extension")))))
+    extension = LitSeq(Extension(url = "http://b.456", value = Some(choice("a practitioner extension": FHIRString)))))
 
   val parser = Parser
 
@@ -407,7 +407,7 @@ class FHIRPathTest extends AnyFreeSpec with Matchers {
     val item2 = QuestionnaireResponse.Item(
       answer = LitSeq(QuestionnaireResponse.Item.Answer(value = Some(choice(Reference(reference = Some("NO LADDIE")))))),
       text = Some("not this, though"),
-      extension = LitSeq(Extension(url = ext_2, value = Some(choice("foooo")))),
+      extension = LitSeq(Extension(url = ext_2, value = Some(choice("foooo": FHIRString)))),
       linkId = "no thanks!"
     )
     val qr = QuestionnaireResponse(

@@ -41,12 +41,12 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
         id: Option[String] = None,
         length: Option[Int] = None,
         subunit: Option[Int] = None,
-        sequence: Option[String] = None,
+        sequence: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         sequenceAttachment: Option[Attachment] = None,
-        nTerminalModification: Option[String] = None,
-        cTerminalModification: Option[String] = None,
+        nTerminalModification: Option[FHIRString] = None,
+        cTerminalModification: Option[FHIRString] = None,
         nTerminalModificationId: Option[Identifier] = None,
         cTerminalModificationId: Option[Identifier] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -65,7 +65,7 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Subunit): Option[(Option[String], Option[Int], Option[Int], Option[String], LitSeq[Extension], LitSeq[Extension], Option[Attachment], Option[String], Option[String], Option[Identifier], Option[Identifier])] =
+        o: Subunit): Option[(Option[String], Option[Int], Option[Int], Option[FHIRString], LitSeq[Extension], LitSeq[Extension], Option[Attachment], Option[FHIRString], Option[FHIRString], Option[Identifier], Option[Identifier])] =
       Some(
         (
           o.id,
@@ -85,18 +85,18 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
       FHIRComponentFieldMeta("length", lTagOf[Option[Int]], false, lTagOf[Int])
     val subunit: FHIRComponentFieldMeta[Option[Int]] =
       FHIRComponentFieldMeta("subunit", lTagOf[Option[Int]], false, lTagOf[Int])
-    val sequence: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("sequence", lTagOf[Option[String]], false, lTagOf[String])
+    val sequence: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("sequence", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val sequenceAttachment: FHIRComponentFieldMeta[Option[Attachment]] =
       FHIRComponentFieldMeta("sequenceAttachment", lTagOf[Option[Attachment]], false, lTagOf[Attachment])
-    val nTerminalModification: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("nTerminalModification", lTagOf[Option[String]], false, lTagOf[String])
-    val cTerminalModification: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("cTerminalModification", lTagOf[Option[String]], false, lTagOf[String])
+    val nTerminalModification: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("nTerminalModification", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val cTerminalModification: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("cTerminalModification", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val nTerminalModificationId: FHIRComponentFieldMeta[Option[Identifier]] =
       FHIRComponentFieldMeta("nTerminalModificationId", lTagOf[Option[Identifier]], false, lTagOf[Identifier])
     val cTerminalModificationId: FHIRComponentFieldMeta[Option[Identifier]] =
@@ -119,12 +119,12 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[Int]](length, t.length),
       FHIRComponentField[Option[Int]](subunit, t.subunit),
-      FHIRComponentField[Option[String]](sequence, t.sequence),
+      FHIRComponentField[Option[FHIRString]](sequence, t.sequence),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[Attachment]](sequenceAttachment, t.sequenceAttachment),
-      FHIRComponentField[Option[String]](nTerminalModification, t.nTerminalModification),
-      FHIRComponentField[Option[String]](cTerminalModification, t.cTerminalModification),
+      FHIRComponentField[Option[FHIRString]](nTerminalModification, t.nTerminalModification),
+      FHIRComponentField[Option[FHIRString]](cTerminalModification, t.cTerminalModification),
       FHIRComponentField[Option[Identifier]](nTerminalModificationId, t.nTerminalModificationId),
       FHIRComponentField[Option[Identifier]](cTerminalModificationId, t.cTerminalModificationId)
     )
@@ -137,12 +137,12 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[Int]]("length", Some(None)),
             cursor.decodeAs[Option[Int]]("subunit", Some(None)),
-            cursor.decodeAs[Option[String]]("sequence", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("sequence", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Attachment]]("sequenceAttachment", Some(None)),
-            cursor.decodeAs[Option[String]]("nTerminalModification", Some(None)),
-            cursor.decodeAs[Option[String]]("cTerminalModification", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("nTerminalModification", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("cTerminalModification", Some(None)),
             cursor.decodeAs[Option[Identifier]]("nTerminalModificationId", Some(None)),
             cursor.decodeAs[Option[Identifier]]("cTerminalModificationId", Some(None)),
             decodeAttributes(cursor)
@@ -154,12 +154,12 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
       override val id: Option[String] = None,
       val length: Option[Int] = None,
       val subunit: Option[Int] = None,
-      val sequence: Option[String] = None,
+      val sequence: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val sequenceAttachment: Option[Attachment] = None,
-      val nTerminalModification: Option[String] = None,
-      val cTerminalModification: Option[String] = None,
+      val nTerminalModification: Option[FHIRString] = None,
+      val cTerminalModification: Option[FHIRString] = None,
       val nTerminalModificationId: Option[Identifier] = None,
       val cTerminalModificationId: Option[Identifier] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -174,7 +174,7 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
       sequenceType: Option[CodeableConcept] = None,
       implicitRules: Option[UriStr] = None,
       numberOfSubunits: Option[Int] = None,
-      disulfideLinkage: LitSeq[String] = LitSeq.empty,
+      disulfideLinkage: LitSeq[FHIRString] = LitSeq.empty,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       subunit: LitSeq[SubstanceProtein.Subunit] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -211,8 +211,8 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val numberOfSubunits: FHIRComponentFieldMeta[Option[Int]] =
     FHIRComponentFieldMeta("numberOfSubunits", lTagOf[Option[Int]], false, lTagOf[Int])
-  val disulfideLinkage: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("disulfideLinkage", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val disulfideLinkage: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("disulfideLinkage", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val subunit: FHIRComponentFieldMeta[LitSeq[SubstanceProtein.Subunit]] =
@@ -241,7 +241,7 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
     FHIRComponentField[Option[CodeableConcept]](sequenceType, t.sequenceType),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Option[Int]](numberOfSubunits, t.numberOfSubunits),
-    FHIRComponentField[LitSeq[String]](disulfideLinkage, t.disulfideLinkage),
+    FHIRComponentField[LitSeq[FHIRString]](disulfideLinkage, t.disulfideLinkage),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[SubstanceProtein.Subunit]](subunit, t.subunit)
   )
@@ -254,12 +254,12 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
   def extractSequenceType(t: SubstanceProtein): Option[CodeableConcept]     = t.sequenceType
   def extractImplicitRules(t: SubstanceProtein): Option[UriStr]             = t.implicitRules
   def extractNumberOfSubunits(t: SubstanceProtein): Option[Int]             = t.numberOfSubunits
-  def extractDisulfideLinkage(t: SubstanceProtein): LitSeq[String]          = t.disulfideLinkage
+  def extractDisulfideLinkage(t: SubstanceProtein): LitSeq[FHIRString]      = t.disulfideLinkage
   def extractModifierExtension(t: SubstanceProtein): LitSeq[Extension]      = t.modifierExtension
   def extractSubunit(t: SubstanceProtein): LitSeq[SubstanceProtein.Subunit] = t.subunit
   override val thisName: String                                             = "SubstanceProtein"
   def unapply(
-      o: SubstanceProtein): Option[(Option[String], Option[Meta], Option[Narrative], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[CodeableConcept], Option[UriStr], Option[Int], LitSeq[String], LitSeq[Extension], LitSeq[SubstanceProtein.Subunit])] =
+      o: SubstanceProtein): Option[(Option[String], Option[Meta], Option[Narrative], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[CodeableConcept], Option[UriStr], Option[Int], LitSeq[FHIRString], LitSeq[Extension], LitSeq[SubstanceProtein.Subunit])] =
     Some(
       (
         o.id,
@@ -287,7 +287,7 @@ object SubstanceProtein extends CompanionFor[SubstanceProtein] {
           cursor.decodeAs[Option[CodeableConcept]]("sequenceType", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[Int]]("numberOfSubunits", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("disulfideLinkage", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("disulfideLinkage", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[SubstanceProtein.Subunit]]("subunit", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -366,7 +366,7 @@ class SubstanceProtein(
     val sequenceType: Option[CodeableConcept] = None,
     override val implicitRules: Option[UriStr] = None,
     val numberOfSubunits: Option[Int] = None,
-    val disulfideLinkage: LitSeq[String] = LitSeq.empty,
+    val disulfideLinkage: LitSeq[FHIRString] = LitSeq.empty,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val subunit: LitSeq[SubstanceProtein.Subunit] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

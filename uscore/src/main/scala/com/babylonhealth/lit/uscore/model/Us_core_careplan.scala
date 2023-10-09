@@ -38,7 +38,7 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
       meta: Option[Meta] = Some(new Meta(profile = LitSeq("http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan"))),
       goal: LitSeq[Reference] = LitSeq.empty,
       note: LitSeq[Annotation] = LitSeq.empty,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       partOf: LitSeq[Reference] = LitSeq.empty,
       status: REQUEST_STATUS,
       intent: CARE_PLAN_INTENT,
@@ -56,7 +56,7 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
       encounter: Option[Reference] = None,
       addresses: LitSeq[Reference] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       contributor: LitSeq[Reference] = LitSeq.empty,
       implicitRules: Option[UriStr] = None,
       text: Narrative,
@@ -108,8 +108,8 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
     FHIRComponentFieldMeta("goal", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val note: FHIRComponentFieldMeta[LitSeq[Annotation]] =
     FHIRComponentFieldMeta("note", lTagOf[LitSeq[Annotation]], false, lTagOf[Annotation])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val partOf: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("partOf", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val status: FHIRComponentFieldMeta[REQUEST_STATUS] =
@@ -144,8 +144,8 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
     FHIRComponentFieldMeta("addresses", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contributor: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("contributor", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -201,7 +201,7 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
       FHIRComponentField[Option[Meta]](meta, t.meta),
       FHIRComponentField[LitSeq[Reference]](goal, t.goal),
       FHIRComponentField[LitSeq[Annotation]](note, t.note),
-      FHIRComponentField[Option[String]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
       FHIRComponentField[LitSeq[Reference]](partOf, t.partOf),
       FHIRComponentField[REQUEST_STATUS](status, t.status),
       FHIRComponentField[CARE_PLAN_INTENT](intent, t.intent),
@@ -219,7 +219,7 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
       FHIRComponentField[Option[Reference]](encounter, t.encounter),
       FHIRComponentField[LitSeq[Reference]](addresses, t.addresses),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Reference]](contributor, t.contributor),
       FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
       FHIRComponentField[Narrative](text, t.text.get),
@@ -234,7 +234,7 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
   def extractMeta(t: Us_core_careplan): Option[Meta]                        = t.meta
   def extractGoal(t: Us_core_careplan): LitSeq[Reference]                   = t.goal
   def extractNote(t: Us_core_careplan): LitSeq[Annotation]                  = t.note
-  def extractTitle(t: Us_core_careplan): Option[String]                     = t.title
+  def extractTitle(t: Us_core_careplan): Option[FHIRString]                 = t.title
   def extractPartOf(t: Us_core_careplan): LitSeq[Reference]                 = t.partOf
   def extractStatus(t: Us_core_careplan): REQUEST_STATUS                    = t.status
   def extractIntent(t: Us_core_careplan): CARE_PLAN_INTENT                  = t.intent
@@ -252,7 +252,7 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
   def extractEncounter(t: Us_core_careplan): Option[Reference]              = t.encounter
   def extractAddresses(t: Us_core_careplan): LitSeq[Reference]              = t.addresses
   def extractIdentifier(t: Us_core_careplan): LitSeq[Identifier]            = t.identifier
-  def extractDescription(t: Us_core_careplan): Option[String]               = t.description
+  def extractDescription(t: Us_core_careplan): Option[FHIRString]           = t.description
   def extractContributor(t: Us_core_careplan): LitSeq[Reference]            = t.contributor
   def extractImplicitRules(t: Us_core_careplan): Option[UriStr]             = t.implicitRules
   def extractText(t: Us_core_careplan): Narrative                           = t.text.get
@@ -271,7 +271,7 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("goal", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("partOf", Some(LitSeq.empty)),
           cursor.decodeAs[REQUEST_STATUS]("status", None),
           cursor.decodeAs[CARE_PLAN_INTENT]("intent", None),
@@ -289,7 +289,7 @@ object Us_core_careplan extends CompanionFor[Us_core_careplan] {
           cursor.decodeAs[Option[Reference]]("encounter", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("addresses", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("contributor", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Narrative]("text", None),
@@ -404,7 +404,7 @@ class Us_core_careplan(
       new Meta(profile = LitSeq("http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan"))),
     override val goal: LitSeq[Reference] = LitSeq.empty,
     override val note: LitSeq[Annotation] = LitSeq.empty,
-    override val title: Option[String] = None,
+    override val title: Option[FHIRString] = None,
     override val partOf: LitSeq[Reference] = LitSeq.empty,
     override val status: REQUEST_STATUS,
     override val intent: CARE_PLAN_INTENT,
@@ -422,7 +422,7 @@ class Us_core_careplan(
     override val encounter: Option[Reference] = None,
     override val addresses: LitSeq[Reference] = LitSeq.empty,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
-    override val description: Option[String] = None,
+    override val description: Option[FHIRString] = None,
     override val contributor: LitSeq[Reference] = LitSeq.empty,
     override val implicitRules: Option[UriStr] = None,
     text: Narrative,

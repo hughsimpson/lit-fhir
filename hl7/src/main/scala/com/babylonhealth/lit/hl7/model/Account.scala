@@ -176,7 +176,7 @@ object Account extends CompanionFor[Account] {
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
       `type`: Option[CodeableConcept] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       owner: Option[Reference] = None,
       status: ACCOUNT_STATUS,
       partOf: Option[Reference] = None,
@@ -185,7 +185,7 @@ object Account extends CompanionFor[Account] {
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       servicePeriod: Option[Period] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -222,8 +222,8 @@ object Account extends CompanionFor[Account] {
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
   val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val owner: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("owner", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val status: FHIRComponentFieldMeta[ACCOUNT_STATUS] =
@@ -240,8 +240,8 @@ object Account extends CompanionFor[Account] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val servicePeriod: FHIRComponentFieldMeta[Option[Period]] =
@@ -279,7 +279,7 @@ object Account extends CompanionFor[Account] {
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[Option[Reference]](owner, t.owner),
     FHIRComponentField[ACCOUNT_STATUS](status, t.status),
     FHIRComponentField[Option[Reference]](partOf, t.partOf),
@@ -288,7 +288,7 @@ object Account extends CompanionFor[Account] {
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Option[Period]](servicePeriod, t.servicePeriod),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -299,7 +299,7 @@ object Account extends CompanionFor[Account] {
   def extractMeta(t: Account): Option[Meta]                   = t.meta
   def extractText(t: Account): Option[Narrative]              = t.text
   def extractType(t: Account): Option[CodeableConcept]        = t.`type`
-  def extractName(t: Account): Option[String]                 = t.name
+  def extractName(t: Account): Option[FHIRString]             = t.name
   def extractOwner(t: Account): Option[Reference]             = t.owner
   def extractStatus(t: Account): ACCOUNT_STATUS               = t.status
   def extractPartOf(t: Account): Option[Reference]            = t.partOf
@@ -308,7 +308,7 @@ object Account extends CompanionFor[Account] {
   def extractContained(t: Account): LitSeq[Resource]          = t.contained
   def extractExtension(t: Account): LitSeq[Extension]         = t.extension
   def extractIdentifier(t: Account): LitSeq[Identifier]       = t.identifier
-  def extractDescription(t: Account): Option[String]          = t.description
+  def extractDescription(t: Account): Option[FHIRString]      = t.description
   def extractImplicitRules(t: Account): Option[UriStr]        = t.implicitRules
   def extractServicePeriod(t: Account): Option[Period]        = t.servicePeriod
   def extractModifierExtension(t: Account): LitSeq[Extension] = t.modifierExtension
@@ -326,7 +326,7 @@ object Account extends CompanionFor[Account] {
     "patient"    -> (obj => obj.subject.filter(_.reference.exists(_.contains("Patient/"))).toSeq)
   )
   def unapply(
-      o: Account): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], Option[String], Option[Reference], ACCOUNT_STATUS, Option[Reference], LitSeq[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[String], Option[UriStr], Option[Period], LitSeq[Extension], LitSeq[Account.Coverage], LitSeq[Account.Guarantor])] =
+      o: Account): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], Option[FHIRString], Option[Reference], ACCOUNT_STATUS, Option[Reference], LitSeq[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[FHIRString], Option[UriStr], Option[Period], LitSeq[Extension], LitSeq[Account.Coverage], LitSeq[Account.Guarantor])] =
     Some(
       (
         o.id,
@@ -356,7 +356,7 @@ object Account extends CompanionFor[Account] {
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[Reference]]("owner", Some(None)),
           cursor.decodeAs[ACCOUNT_STATUS]("status", None),
           cursor.decodeAs[Option[Reference]]("partOf", Some(None)),
@@ -365,7 +365,7 @@ object Account extends CompanionFor[Account] {
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[Period]]("servicePeriod", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -447,7 +447,7 @@ class Account(
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
     val `type`: Option[CodeableConcept] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val owner: Option[Reference] = None,
     val status: ACCOUNT_STATUS,
     val partOf: Option[Reference] = None,
@@ -456,7 +456,7 @@ class Account(
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     val servicePeriod: Option[Period] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,

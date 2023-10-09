@@ -35,7 +35,7 @@ object Composition_clinicaldocument_versionNumber extends CompanionFor[Compositi
     "http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber")
   def apply(
       id: Option[String] = None,
-      value: String,
+      value: FHIRString,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Composition_clinicaldocument_versionNumber = new Composition_clinicaldocument_versionNumber(
     id,
@@ -44,27 +44,27 @@ object Composition_clinicaldocument_versionNumber extends CompanionFor[Compositi
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val value: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("value", lTagOf[String], true, lTagOf[String])
+  val value: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("value", lTagOf[FHIRString], true, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, value)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Try(
     Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](value, t.value.get.toSubRefNonUnion[String])
+      FHIRComponentField[FHIRString](value, t.value.get.toSubRefNonUnion[FHIRString])
     ))
   override def fields(t: Composition_clinicaldocument_versionNumber): Seq[FHIRComponentField[_]] = fieldsFromParent(t).get
   def extractId(t: Composition_clinicaldocument_versionNumber): Option[String]                   = t.id
-  def extractValue(t: Composition_clinicaldocument_versionNumber): String = t.value.get.toSubRefNonUnion[String]
-  override val thisName: String                                           = "Composition_clinicaldocument_versionNumber"
+  def extractValue(t: Composition_clinicaldocument_versionNumber): FHIRString = t.value.get.toSubRefNonUnion[FHIRString]
+  override val thisName: String                                               = "Composition_clinicaldocument_versionNumber"
   override val searchParams: Map[String, Composition_clinicaldocument_versionNumber => Seq[Any]] = Extension.searchParams
-  def unapply(o: Composition_clinicaldocument_versionNumber): Option[(Option[String], String)] = Some(
-    (o.id, o.value.get.toSubRefNonUnion[String]))
+  def unapply(o: Composition_clinicaldocument_versionNumber): Option[(Option[String], FHIRString)] = Some(
+    (o.id, o.value.get.toSubRefNonUnion[FHIRString]))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Composition_clinicaldocument_versionNumber] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new Composition_clinicaldocument_versionNumber(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[String]("valueString", None),
+          cursor.decodeAs[FHIRString]("valueString", None),
           decodeAttributes(cursor)
         )
       ))
@@ -91,7 +91,7 @@ object Composition_clinicaldocument_versionNumber extends CompanionFor[Compositi
 @POJOBoilerplate
 class Composition_clinicaldocument_versionNumber(
     override val id: Option[String] = None,
-    value: String,
+    value: FHIRString,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Extension(
       id = id,

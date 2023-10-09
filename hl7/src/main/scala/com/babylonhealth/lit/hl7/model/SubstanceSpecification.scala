@@ -48,7 +48,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
           `type`: Option[CodeableConcept] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           attachment: Option[Attachment] = None,
-          representation: Option[String] = None,
+          representation: Option[FHIRString] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
       ): Representation = new Representation(
@@ -61,7 +61,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Representation): Option[(Option[String], Option[CodeableConcept], LitSeq[Extension], Option[Attachment], Option[String], LitSeq[Extension])] =
+          o: Representation): Option[(Option[String], Option[CodeableConcept], LitSeq[Extension], Option[Attachment], Option[FHIRString], LitSeq[Extension])] =
         Some((o.id, o.`type`, o.extension, o.attachment, o.representation, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -71,8 +71,8 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val attachment: FHIRComponentFieldMeta[Option[Attachment]] =
         FHIRComponentFieldMeta("attachment", lTagOf[Option[Attachment]], false, lTagOf[Attachment])
-      val representation: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("representation", lTagOf[Option[String]], false, lTagOf[String])
+      val representation: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("representation", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, `type`, extension, attachment, representation, modifierExtension)
@@ -82,7 +82,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Option[Attachment]](attachment, t.attachment),
-        FHIRComponentField[Option[String]](representation, t.representation),
+        FHIRComponentField[Option[FHIRString]](representation, t.representation),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
       )
       val baseType: CompanionFor[Representation] = this
@@ -95,7 +95,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
               cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Attachment]]("attachment", Some(None)),
-              cursor.decodeAs[Option[String]]("representation", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("representation", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
             )
@@ -107,7 +107,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         val `type`: Option[CodeableConcept] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val attachment: Option[Attachment] = None,
-        val representation: Option[String] = None,
+        val representation: Option[FHIRString] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -281,9 +281,9 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         stereochemistry: Option[CodeableConcept] = None,
         opticalActivity: Option[CodeableConcept] = None,
         molecularWeight: Option[SubstanceSpecification.Structure.Isotope.MolecularWeight] = None,
-        molecularFormula: Option[String] = None,
+        molecularFormula: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
-        molecularFormulaByMoiety: Option[String] = None,
+        molecularFormulaByMoiety: Option[FHIRString] = None,
         representation: LitSeq[Structure.Representation] = LitSeq.empty,
         isotope: LitSeq[Structure.Isotope] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -302,7 +302,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Structure): Option[(Option[String], LitSeq[Reference], LitSeq[Extension], Option[CodeableConcept], Option[CodeableConcept], Option[SubstanceSpecification.Structure.Isotope.MolecularWeight], Option[String], LitSeq[Extension], Option[String], LitSeq[Structure.Representation], LitSeq[Structure.Isotope])] =
+        o: Structure): Option[(Option[String], LitSeq[Reference], LitSeq[Extension], Option[CodeableConcept], Option[CodeableConcept], Option[SubstanceSpecification.Structure.Isotope.MolecularWeight], Option[FHIRString], LitSeq[Extension], Option[FHIRString], LitSeq[Structure.Representation], LitSeq[Structure.Isotope])] =
       Some(
         (
           o.id,
@@ -333,12 +333,12 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         false,
         lTagOf[SubstanceSpecification.Structure.Isotope.MolecularWeight]
       )
-    val molecularFormula: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("molecularFormula", lTagOf[Option[String]], false, lTagOf[String])
+    val molecularFormula: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("molecularFormula", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val molecularFormulaByMoiety: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("molecularFormulaByMoiety", lTagOf[Option[String]], false, lTagOf[String])
+    val molecularFormulaByMoiety: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("molecularFormulaByMoiety", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val representation: FHIRComponentFieldMeta[LitSeq[Structure.Representation]] =
       FHIRComponentFieldMeta("representation", lTagOf[LitSeq[Structure.Representation]], false, lTagOf[Structure.Representation])
     val isotope: FHIRComponentFieldMeta[LitSeq[Structure.Isotope]] =
@@ -364,9 +364,9 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       FHIRComponentField[Option[CodeableConcept]](stereochemistry, t.stereochemistry),
       FHIRComponentField[Option[CodeableConcept]](opticalActivity, t.opticalActivity),
       FHIRComponentField[Option[SubstanceSpecification.Structure.Isotope.MolecularWeight]](molecularWeight, t.molecularWeight),
-      FHIRComponentField[Option[String]](molecularFormula, t.molecularFormula),
+      FHIRComponentField[Option[FHIRString]](molecularFormula, t.molecularFormula),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-      FHIRComponentField[Option[String]](molecularFormulaByMoiety, t.molecularFormulaByMoiety),
+      FHIRComponentField[Option[FHIRString]](molecularFormulaByMoiety, t.molecularFormulaByMoiety),
       FHIRComponentField[LitSeq[Structure.Representation]](representation, t.representation),
       FHIRComponentField[LitSeq[Structure.Isotope]](isotope, t.isotope)
     )
@@ -382,9 +382,9 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
             cursor.decodeAs[Option[CodeableConcept]]("stereochemistry", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("opticalActivity", Some(None)),
             cursor.decodeAs[Option[SubstanceSpecification.Structure.Isotope.MolecularWeight]]("molecularWeight", Some(None)),
-            cursor.decodeAs[Option[String]]("molecularFormula", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("molecularFormula", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("molecularFormulaByMoiety", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("molecularFormulaByMoiety", Some(None)),
             cursor.decodeAs[LitSeq[Structure.Representation]]("representation", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Structure.Isotope]]("isotope", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -399,9 +399,9 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       val stereochemistry: Option[CodeableConcept] = None,
       val opticalActivity: Option[CodeableConcept] = None,
       val molecularWeight: Option[SubstanceSpecification.Structure.Isotope.MolecularWeight] = None,
-      val molecularFormula: Option[String] = None,
+      val molecularFormula: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      val molecularFormulaByMoiety: Option[String] = None,
+      val molecularFormulaByMoiety: Option[FHIRString] = None,
       val representation: LitSeq[Structure.Representation] = LitSeq.empty,
       val isotope: LitSeq[Structure.Isotope] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -412,7 +412,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     override type ResourceType = Relationship
     override type ParentType   = Relationship
     override val parentType: CompanionFor[ResourceType] = Relationship
-    type AmountChoice    = Choice[Union00133982841]
+    type AmountChoice    = Choice[Union00177902846]
     type SubstanceChoice = Choice[UnionCodeableConceptOrReference]
     def apply(
         id: Option[String] = None,
@@ -460,7 +460,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val amount: FHIRComponentFieldMeta[Option[Relationship.AmountChoice]] =
-      FHIRComponentFieldMeta("amount", lTagOf[Option[Relationship.AmountChoice]], true, lTagOf[Union00133982841])
+      FHIRComponentFieldMeta("amount", lTagOf[Option[Relationship.AmountChoice]], true, lTagOf[Union00177902846])
     val isDefining: FHIRComponentFieldMeta[Option[Boolean]] =
       FHIRComponentFieldMeta("isDefining", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
     val amountType: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -501,7 +501,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[LitSeq[Reference]]("source", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeOptRef[Union00133982841]("amount"),
+            cursor.decodeOptRef[Union00177902846]("amount"),
             cursor.decodeAs[Option[Boolean]]("isDefining", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("amountType", Some(None)),
             cursor.decodeOptRef[UnionCodeableConceptOrReference]("substance"),
@@ -608,7 +608,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
     def apply(
         id: Option[String] = None,
-        name: String,
+        name: FHIRString,
         `type`: Option[CodeableConcept] = None,
         status: Option[CodeableConcept] = None,
         domain: LitSeq[CodeableConcept] = LitSeq.empty,
@@ -640,7 +640,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Name): Option[(Option[String], String, Option[CodeableConcept], Option[CodeableConcept], LitSeq[CodeableConcept], LitSeq[Reference], LitSeq[SubstanceSpecification.Name], LitSeq[CodeableConcept], LitSeq[Extension], Option[Boolean], LitSeq[SubstanceSpecification.Name], LitSeq[CodeableConcept], LitSeq[Extension], LitSeq[Name.Official])] =
+        o: Name): Option[(Option[String], FHIRString, Option[CodeableConcept], Option[CodeableConcept], LitSeq[CodeableConcept], LitSeq[Reference], LitSeq[SubstanceSpecification.Name], LitSeq[CodeableConcept], LitSeq[Extension], Option[Boolean], LitSeq[SubstanceSpecification.Name], LitSeq[CodeableConcept], LitSeq[Extension], LitSeq[Name.Official])] =
       Some(
         (
           o.id,
@@ -659,8 +659,8 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
           o.official))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val status: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -707,7 +707,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Name): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](name, t.name),
+      FHIRComponentField[FHIRString](name, t.name),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
       FHIRComponentField[Option[CodeableConcept]](status, t.status),
       FHIRComponentField[LitSeq[CodeableConcept]](domain, t.domain),
@@ -728,7 +728,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         Try(
           new Name(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("name", None),
+            cursor.decodeAs[FHIRString]("name", None),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("status", Some(None)),
             cursor.decodeAs[LitSeq[CodeableConcept]]("domain", Some(LitSeq.empty)),
@@ -748,7 +748,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
   @POJOBoilerplate
   class Name(
       override val id: Option[String] = None,
-      val name: String,
+      val name: FHIRString,
       val `type`: Option[CodeableConcept] = None,
       val status: Option[CodeableConcept] = None,
       val domain: LitSeq[CodeableConcept] = LitSeq.empty,
@@ -769,7 +769,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     override type ResourceType = Property
     override type ParentType   = Property
     override val parentType: CompanionFor[ResourceType] = Property
-    type AmountChoice            = Choice[UnionQuantityOrString]
+    type AmountChoice            = Choice[UnionFHIRStringOrQuantity]
     type DefiningSubstanceChoice = Choice[UnionCodeableConceptOrReference]
     def apply(
         id: Option[String] = None,
@@ -777,7 +777,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         category: Option[CodeableConcept] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         amount: Option[Property.AmountChoice] = None,
-        parameters: Option[String] = None,
+        parameters: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         definingSubstance: Option[Property.DefiningSubstanceChoice] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -793,7 +793,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Property): Option[(Option[String], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Extension], Option[Property.AmountChoice], Option[String], LitSeq[Extension], Option[Property.DefiningSubstanceChoice])] =
+        o: Property): Option[(Option[String], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Extension], Option[Property.AmountChoice], Option[FHIRString], LitSeq[Extension], Option[Property.DefiningSubstanceChoice])] =
       Some((o.id, o.code, o.category, o.extension, o.amount, o.parameters, o.modifierExtension, o.definingSubstance))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -804,9 +804,9 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val amount: FHIRComponentFieldMeta[Option[Property.AmountChoice]] =
-      FHIRComponentFieldMeta("amount", lTagOf[Option[Property.AmountChoice]], true, lTagOf[UnionQuantityOrString])
-    val parameters: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("parameters", lTagOf[Option[String]], false, lTagOf[String])
+      FHIRComponentFieldMeta("amount", lTagOf[Option[Property.AmountChoice]], true, lTagOf[UnionFHIRStringOrQuantity])
+    val parameters: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("parameters", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val definingSubstance: FHIRComponentFieldMeta[Option[Property.DefiningSubstanceChoice]] =
@@ -824,7 +824,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       FHIRComponentField[Option[CodeableConcept]](category, t.category),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Property.AmountChoice]](amount, t.amount),
-      FHIRComponentField[Option[String]](parameters, t.parameters),
+      FHIRComponentField[Option[FHIRString]](parameters, t.parameters),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[Property.DefiningSubstanceChoice]](definingSubstance, t.definingSubstance)
     )
@@ -838,8 +838,8 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
             cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("category", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeOptRef[UnionQuantityOrString]("amount"),
-            cursor.decodeAs[Option[String]]("parameters", Some(None)),
+            cursor.decodeOptRef[UnionFHIRStringOrQuantity]("amount"),
+            cursor.decodeAs[Option[FHIRString]]("parameters", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeOptRef[UnionCodeableConceptOrReference]("definingSubstance"),
             decodeAttributes(cursor)
@@ -853,7 +853,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       val category: Option[CodeableConcept] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val amount: Option[Property.AmountChoice] = None,
-      val parameters: Option[String] = None,
+      val parameters: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val definingSubstance: Option[Property.DefiningSubstanceChoice] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -864,17 +864,17 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     override type ResourceType = Moiety
     override type ParentType   = Moiety
     override val parentType: CompanionFor[ResourceType] = Moiety
-    type AmountChoice = Choice[UnionQuantityOrString]
+    type AmountChoice = Choice[UnionFHIRStringOrQuantity]
     def apply(
         id: Option[String] = None,
         role: Option[CodeableConcept] = None,
-        name: Option[String] = None,
+        name: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         amount: Option[Moiety.AmountChoice] = None,
         identifier: Option[Identifier] = None,
         stereochemistry: Option[CodeableConcept] = None,
         opticalActivity: Option[CodeableConcept] = None,
-        molecularFormula: Option[String] = None,
+        molecularFormula: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Moiety = new Moiety(
@@ -891,7 +891,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Moiety): Option[(Option[String], Option[CodeableConcept], Option[String], LitSeq[Extension], Option[Moiety.AmountChoice], Option[Identifier], Option[CodeableConcept], Option[CodeableConcept], Option[String], LitSeq[Extension])] =
+        o: Moiety): Option[(Option[String], Option[CodeableConcept], Option[FHIRString], LitSeq[Extension], Option[Moiety.AmountChoice], Option[Identifier], Option[CodeableConcept], Option[CodeableConcept], Option[FHIRString], LitSeq[Extension])] =
       Some(
         (
           o.id,
@@ -908,20 +908,20 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val role: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("role", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val amount: FHIRComponentFieldMeta[Option[Moiety.AmountChoice]] =
-      FHIRComponentFieldMeta("amount", lTagOf[Option[Moiety.AmountChoice]], true, lTagOf[UnionQuantityOrString])
+      FHIRComponentFieldMeta("amount", lTagOf[Option[Moiety.AmountChoice]], true, lTagOf[UnionFHIRStringOrQuantity])
     val identifier: FHIRComponentFieldMeta[Option[Identifier]] =
       FHIRComponentFieldMeta("identifier", lTagOf[Option[Identifier]], false, lTagOf[Identifier])
     val stereochemistry: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("stereochemistry", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val opticalActivity: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("opticalActivity", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val molecularFormula: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("molecularFormula", lTagOf[Option[String]], false, lTagOf[String])
+    val molecularFormula: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("molecularFormula", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -930,13 +930,13 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     override def fields(t: Moiety): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[CodeableConcept]](role, t.role),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Moiety.AmountChoice]](amount, t.amount),
       FHIRComponentField[Option[Identifier]](identifier, t.identifier),
       FHIRComponentField[Option[CodeableConcept]](stereochemistry, t.stereochemistry),
       FHIRComponentField[Option[CodeableConcept]](opticalActivity, t.opticalActivity),
-      FHIRComponentField[Option[String]](molecularFormula, t.molecularFormula),
+      FHIRComponentField[Option[FHIRString]](molecularFormula, t.molecularFormula),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Moiety] = this
@@ -947,13 +947,13 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
           new Moiety(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("role", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeOptRef[UnionQuantityOrString]("amount"),
+            cursor.decodeOptRef[UnionFHIRStringOrQuantity]("amount"),
             cursor.decodeAs[Option[Identifier]]("identifier", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("stereochemistry", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("opticalActivity", Some(None)),
-            cursor.decodeAs[Option[String]]("molecularFormula", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("molecularFormula", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -963,13 +963,13 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
   class Moiety(
       override val id: Option[String] = None,
       val role: Option[CodeableConcept] = None,
-      val name: Option[String] = None,
+      val name: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val amount: Option[Moiety.AmountChoice] = None,
       val identifier: Option[Identifier] = None,
       val stereochemistry: Option[CodeableConcept] = None,
       val opticalActivity: Option[CodeableConcept] = None,
-      val molecularFormula: Option[String] = None,
+      val molecularFormula: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -984,7 +984,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
         code: Option[CodeableConcept] = None,
         status: Option[CodeableConcept] = None,
         source: LitSeq[Reference] = LitSeq.empty,
-        comment: Option[String] = None,
+        comment: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         statusDate: Option[FHIRDateTime] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -1001,7 +1001,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Code): Option[(Option[String], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Reference], Option[String], LitSeq[Extension], Option[FHIRDateTime], LitSeq[Extension])] =
+        o: Code): Option[(Option[String], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Reference], Option[FHIRString], LitSeq[Extension], Option[FHIRDateTime], LitSeq[Extension])] =
       Some((o.id, o.code, o.status, o.source, o.comment, o.extension, o.statusDate, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -1011,8 +1011,8 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       FHIRComponentFieldMeta("status", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val source: FHIRComponentFieldMeta[LitSeq[Reference]] =
       FHIRComponentFieldMeta("source", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
-    val comment: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+    val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val statusDate: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
@@ -1027,7 +1027,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       FHIRComponentField[Option[CodeableConcept]](code, t.code),
       FHIRComponentField[Option[CodeableConcept]](status, t.status),
       FHIRComponentField[LitSeq[Reference]](source, t.source),
-      FHIRComponentField[Option[String]](comment, t.comment),
+      FHIRComponentField[Option[FHIRString]](comment, t.comment),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[FHIRDateTime]](statusDate, t.statusDate),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -1042,7 +1042,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
             cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("status", Some(None)),
             cursor.decodeAs[LitSeq[Reference]]("source", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("comment", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[FHIRDateTime]]("statusDate", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -1056,7 +1056,7 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       val code: Option[CodeableConcept] = None,
       val status: Option[CodeableConcept] = None,
       val source: LitSeq[Reference] = LitSeq.empty,
-      val comment: Option[String] = None,
+      val comment: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val statusDate: Option[FHIRDateTime] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -1070,14 +1070,14 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
       status: Option[CodeableConcept] = None,
       domain: Option[CodeableConcept] = None,
       source: LitSeq[Reference] = LitSeq.empty,
-      comment: Option[String] = None,
+      comment: Option[FHIRString] = None,
       polymer: Option[Reference] = None,
       protein: Option[Reference] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       identifier: Option[Identifier] = None,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       nucleicAcid: Option[Reference] = None,
       implicitRules: Option[UriStr] = None,
       sourceMaterial: Option[Reference] = None,
@@ -1135,8 +1135,8 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     FHIRComponentFieldMeta("domain", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val source: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("source", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
-  val comment: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+  val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val polymer: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("polymer", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val protein: FHIRComponentFieldMeta[Option[Reference]] =
@@ -1149,8 +1149,8 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val identifier: FHIRComponentFieldMeta[Option[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[Option[Identifier]], false, lTagOf[Identifier])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val nucleicAcid: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("nucleicAcid", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -1230,14 +1230,14 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
     FHIRComponentField[Option[CodeableConcept]](status, t.status),
     FHIRComponentField[Option[CodeableConcept]](domain, t.domain),
     FHIRComponentField[LitSeq[Reference]](source, t.source),
-    FHIRComponentField[Option[String]](comment, t.comment),
+    FHIRComponentField[Option[FHIRString]](comment, t.comment),
     FHIRComponentField[Option[Reference]](polymer, t.polymer),
     FHIRComponentField[Option[Reference]](protein, t.protein),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[Reference]](nucleicAcid, t.nucleicAcid),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Option[Reference]](sourceMaterial, t.sourceMaterial),
@@ -1258,14 +1258,14 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
   def extractStatus(t: SubstanceSpecification): Option[CodeableConcept]   = t.status
   def extractDomain(t: SubstanceSpecification): Option[CodeableConcept]   = t.domain
   def extractSource(t: SubstanceSpecification): LitSeq[Reference]         = t.source
-  def extractComment(t: SubstanceSpecification): Option[String]           = t.comment
+  def extractComment(t: SubstanceSpecification): Option[FHIRString]       = t.comment
   def extractPolymer(t: SubstanceSpecification): Option[Reference]        = t.polymer
   def extractProtein(t: SubstanceSpecification): Option[Reference]        = t.protein
   def extractLanguage(t: SubstanceSpecification): Option[LANGUAGES]       = t.language
   def extractContained(t: SubstanceSpecification): LitSeq[Resource]       = t.contained
   def extractExtension(t: SubstanceSpecification): LitSeq[Extension]      = t.extension
   def extractIdentifier(t: SubstanceSpecification): Option[Identifier]    = t.identifier
-  def extractDescription(t: SubstanceSpecification): Option[String]       = t.description
+  def extractDescription(t: SubstanceSpecification): Option[FHIRString]   = t.description
   def extractNucleicAcid(t: SubstanceSpecification): Option[Reference]    = t.nucleicAcid
   def extractImplicitRules(t: SubstanceSpecification): Option[UriStr]     = t.implicitRules
   def extractSourceMaterial(t: SubstanceSpecification): Option[Reference] = t.sourceMaterial
@@ -1294,14 +1294,14 @@ object SubstanceSpecification extends CompanionFor[SubstanceSpecification] {
           cursor.decodeAs[Option[CodeableConcept]]("status", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("domain", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("source", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("comment", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
           cursor.decodeAs[Option[Reference]]("polymer", Some(None)),
           cursor.decodeAs[Option[Reference]]("protein", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Identifier]]("identifier", Some(None)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[Reference]]("nucleicAcid", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[Reference]]("sourceMaterial", Some(None)),
@@ -1407,14 +1407,14 @@ class SubstanceSpecification(
     val status: Option[CodeableConcept] = None,
     val domain: Option[CodeableConcept] = None,
     val source: LitSeq[Reference] = LitSeq.empty,
-    val comment: Option[String] = None,
+    val comment: Option[FHIRString] = None,
     val polymer: Option[Reference] = None,
     val protein: Option[Reference] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val identifier: Option[Identifier] = None,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     val nucleicAcid: Option[Reference] = None,
     override val implicitRules: Option[UriStr] = None,
     val sourceMaterial: Option[Reference] = None,

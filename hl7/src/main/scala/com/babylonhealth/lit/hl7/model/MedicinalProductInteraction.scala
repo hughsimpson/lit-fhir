@@ -103,7 +103,7 @@ object MedicinalProductInteraction extends CompanionFor[MedicinalProductInteract
       extension: LitSeq[Extension] = LitSeq.empty,
       incidence: Option[CodeableConcept] = None,
       management: Option[CodeableConcept] = None,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       interactant: LitSeq[MedicinalProductInteraction.Interactant] = LitSeq.empty,
@@ -148,8 +148,8 @@ object MedicinalProductInteraction extends CompanionFor[MedicinalProductInteract
     FHIRComponentFieldMeta("incidence", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val management: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("management", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -189,7 +189,7 @@ object MedicinalProductInteraction extends CompanionFor[MedicinalProductInteract
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[CodeableConcept]](incidence, t.incidence),
     FHIRComponentField[Option[CodeableConcept]](management, t.management),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[MedicinalProductInteraction.Interactant]](interactant, t.interactant)
@@ -205,7 +205,7 @@ object MedicinalProductInteraction extends CompanionFor[MedicinalProductInteract
   def extractExtension(t: MedicinalProductInteraction): LitSeq[Extension]                                 = t.extension
   def extractIncidence(t: MedicinalProductInteraction): Option[CodeableConcept]                           = t.incidence
   def extractManagement(t: MedicinalProductInteraction): Option[CodeableConcept]                          = t.management
-  def extractDescription(t: MedicinalProductInteraction): Option[String]                                  = t.description
+  def extractDescription(t: MedicinalProductInteraction): Option[FHIRString]                              = t.description
   def extractImplicitRules(t: MedicinalProductInteraction): Option[UriStr]                                = t.implicitRules
   def extractModifierExtension(t: MedicinalProductInteraction): LitSeq[Extension]                         = t.modifierExtension
   def extractInteractant(t: MedicinalProductInteraction): LitSeq[MedicinalProductInteraction.Interactant] = t.interactant
@@ -214,7 +214,7 @@ object MedicinalProductInteraction extends CompanionFor[MedicinalProductInteract
     "subject" -> (obj => obj.subject.toSeq)
   )
   def unapply(
-      o: MedicinalProductInteraction): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[CodeableConcept], Option[CodeableConcept], Option[String], Option[UriStr], LitSeq[Extension], LitSeq[MedicinalProductInteraction.Interactant])] =
+      o: MedicinalProductInteraction): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[CodeableConcept], Option[CodeableConcept], Option[FHIRString], Option[UriStr], LitSeq[Extension], LitSeq[MedicinalProductInteraction.Interactant])] =
     Some(
       (
         o.id,
@@ -247,7 +247,7 @@ object MedicinalProductInteraction extends CompanionFor[MedicinalProductInteract
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CodeableConcept]]("incidence", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("management", Some(None)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[MedicinalProductInteraction.Interactant]]("interactant", Some(LitSeq.empty)),
@@ -322,7 +322,7 @@ class MedicinalProductInteraction(
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val incidence: Option[CodeableConcept] = None,
     val management: Option[CodeableConcept] = None,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val interactant: LitSeq[MedicinalProductInteraction.Interactant] = LitSeq.empty,

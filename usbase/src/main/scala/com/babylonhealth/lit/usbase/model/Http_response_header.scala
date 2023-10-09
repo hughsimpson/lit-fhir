@@ -33,7 +33,7 @@ object Http_response_header extends CompanionFor[Http_response_header] {
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/http-response-header")
   def apply(
       id: Option[String] = None,
-      value: String,
+      value: FHIRString,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Http_response_header = new Http_response_header(
     id,
@@ -42,26 +42,27 @@ object Http_response_header extends CompanionFor[Http_response_header] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val value: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("value", lTagOf[String], true, lTagOf[String])
+  val value: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("value", lTagOf[FHIRString], true, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, value)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Try(
     Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](value, t.value.get.toSubRefNonUnion[String])
+      FHIRComponentField[FHIRString](value, t.value.get.toSubRefNonUnion[FHIRString])
     ))
   override def fields(t: Http_response_header): Seq[FHIRComponentField[_]] = fieldsFromParent(t).get
   def extractId(t: Http_response_header): Option[String]                   = t.id
-  def extractValue(t: Http_response_header): String                        = t.value.get.toSubRefNonUnion[String]
+  def extractValue(t: Http_response_header): FHIRString                    = t.value.get.toSubRefNonUnion[FHIRString]
   override val thisName: String                                            = "Http_response_header"
   override val searchParams: Map[String, Http_response_header => Seq[Any]] = Extension.searchParams
-  def unapply(o: Http_response_header): Option[(Option[String], String)]   = Some((o.id, o.value.get.toSubRefNonUnion[String]))
+  def unapply(o: Http_response_header): Option[(Option[String], FHIRString)] = Some(
+    (o.id, o.value.get.toSubRefNonUnion[FHIRString]))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Http_response_header] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new Http_response_header(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[String]("valueString", None),
+          cursor.decodeAs[FHIRString]("valueString", None),
           decodeAttributes(cursor)
         )
       ))
@@ -88,7 +89,7 @@ object Http_response_header extends CompanionFor[Http_response_header] {
 @POJOBoilerplate
 class Http_response_header(
     override val id: Option[String] = None,
-    value: String,
+    value: FHIRString,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Extension(
       id = id,

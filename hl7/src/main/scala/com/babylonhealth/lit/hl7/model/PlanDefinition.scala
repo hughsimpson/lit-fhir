@@ -190,7 +190,7 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
       override val parentType: CompanionFor[ResourceType] = DynamicValue
       def apply(
           id: Option[String] = None,
-          path: Option[String] = None,
+          path: Option[FHIRString] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           expression: Option[Expression] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -204,12 +204,12 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: DynamicValue): Option[(Option[String], Option[String], LitSeq[Extension], Option[Expression], LitSeq[Extension])] =
+          o: DynamicValue): Option[(Option[String], Option[FHIRString], LitSeq[Extension], Option[Expression], LitSeq[Extension])] =
         Some((o.id, o.path, o.extension, o.expression, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val path: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("path", lTagOf[Option[String]], false, lTagOf[String])
+      val path: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("path", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val expression: FHIRComponentFieldMeta[Option[Expression]] =
@@ -220,7 +220,7 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: DynamicValue): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[Option[String]](path, t.path),
+        FHIRComponentField[Option[FHIRString]](path, t.path),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Option[Expression]](expression, t.expression),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -232,7 +232,7 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
           Try(
             new DynamicValue(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[Option[String]]("path", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("path", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Expression]]("expression", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -243,7 +243,7 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
     @POJOBoilerplate
     class DynamicValue(
         override val id: Option[String] = None,
-        val path: Option[String] = None,
+        val path: Option[FHIRString] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val expression: Option[Expression] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -331,9 +331,9 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
         id: Option[String] = None,
         code: LitSeq[CodeableConcept] = LitSeq.empty,
         `type`: Option[CodeableConcept] = None,
-        title: Option[String] = None,
+        title: Option[FHIRString] = None,
         input: LitSeq[DataRequirement] = LitSeq.empty,
-        prefix: Option[String] = None,
+        prefix: Option[FHIRString] = None,
         reason: LitSeq[CodeableConcept] = LitSeq.empty,
         goalId: LitSeq[Id] = LitSeq.empty,
         output: LitSeq[DataRequirement] = LitSeq.empty,
@@ -344,10 +344,10 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
         timing: Option[Action.TimingChoice] = None,
         transform: Option[Canonical] = None,
         subject: Option[Action.SubjectChoice] = None,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         documentation: LitSeq[RelatedArtifact] = LitSeq.empty,
         definition: Option[Action.DefinitionChoice] = None,
-        textEquivalent: Option[String] = None,
+        textEquivalent: Option[FHIRString] = None,
         groupingBehavior: Option[ACTION_GROUPING_BEHAVIOR] = None,
         requiredBehavior: Option[ACTION_REQUIRED_BEHAVIOR] = None,
         precheckBehavior: Option[ACTION_PRECHECK_BEHAVIOR] = None,
@@ -398,12 +398,12 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
       FHIRComponentFieldMeta("code", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
     val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val title: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+    val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val input: FHIRComponentFieldMeta[LitSeq[DataRequirement]] =
       FHIRComponentFieldMeta("input", lTagOf[LitSeq[DataRequirement]], false, lTagOf[DataRequirement])
-    val prefix: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("prefix", lTagOf[Option[String]], false, lTagOf[String])
+    val prefix: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("prefix", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val reason: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
       FHIRComponentFieldMeta("reason", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
     val goalId: FHIRComponentFieldMeta[LitSeq[Id]] =
@@ -424,14 +424,14 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
       FHIRComponentFieldMeta("transform", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
     val subject: FHIRComponentFieldMeta[Option[Action.SubjectChoice]] =
       FHIRComponentFieldMeta("subject", lTagOf[Option[Action.SubjectChoice]], true, lTagOf[UnionCodeableConceptOrReference])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val documentation: FHIRComponentFieldMeta[LitSeq[RelatedArtifact]] =
       FHIRComponentFieldMeta("documentation", lTagOf[LitSeq[RelatedArtifact]], false, lTagOf[RelatedArtifact])
     val definition: FHIRComponentFieldMeta[Option[Action.DefinitionChoice]] =
       FHIRComponentFieldMeta("definition", lTagOf[Option[Action.DefinitionChoice]], true, lTagOf[UnionCanonicalOrUri])
-    val textEquivalent: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("textEquivalent", lTagOf[Option[String]], false, lTagOf[String])
+    val textEquivalent: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("textEquivalent", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val groupingBehavior: FHIRComponentFieldMeta[Option[ACTION_GROUPING_BEHAVIOR]] =
       FHIRComponentFieldMeta(
         "groupingBehavior",
@@ -509,9 +509,9 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[LitSeq[CodeableConcept]](code, t.code),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-      FHIRComponentField[Option[String]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
       FHIRComponentField[LitSeq[DataRequirement]](input, t.input),
-      FHIRComponentField[Option[String]](prefix, t.prefix),
+      FHIRComponentField[Option[FHIRString]](prefix, t.prefix),
       FHIRComponentField[LitSeq[CodeableConcept]](reason, t.reason),
       FHIRComponentField[LitSeq[Id]](goalId, t.goalId),
       FHIRComponentField[LitSeq[DataRequirement]](output, t.output),
@@ -522,10 +522,10 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
       FHIRComponentField[Option[Action.TimingChoice]](timing, t.timing),
       FHIRComponentField[Option[Canonical]](transform, t.transform),
       FHIRComponentField[Option[Action.SubjectChoice]](subject, t.subject),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[RelatedArtifact]](documentation, t.documentation),
       FHIRComponentField[Option[Action.DefinitionChoice]](definition, t.definition),
-      FHIRComponentField[Option[String]](textEquivalent, t.textEquivalent),
+      FHIRComponentField[Option[FHIRString]](textEquivalent, t.textEquivalent),
       FHIRComponentField[Option[ACTION_GROUPING_BEHAVIOR]](groupingBehavior, t.groupingBehavior),
       FHIRComponentField[Option[ACTION_REQUIRED_BEHAVIOR]](requiredBehavior, t.requiredBehavior),
       FHIRComponentField[Option[ACTION_PRECHECK_BEHAVIOR]](precheckBehavior, t.precheckBehavior),
@@ -546,9 +546,9 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[LitSeq[CodeableConcept]]("code", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-            cursor.decodeAs[Option[String]]("title", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
             cursor.decodeAs[LitSeq[DataRequirement]]("input", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("prefix", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("prefix", Some(None)),
             cursor.decodeAs[LitSeq[CodeableConcept]]("reason", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Id]]("goalId", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[DataRequirement]]("output", Some(LitSeq.empty)),
@@ -559,10 +559,10 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
             cursor.decodeOptRef[Union01405873694]("timing"),
             cursor.decodeAs[Option[Canonical]]("transform", Some(None)),
             cursor.decodeOptRef[UnionCodeableConceptOrReference]("subject"),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[RelatedArtifact]]("documentation", Some(LitSeq.empty)),
             cursor.decodeOptRef[UnionCanonicalOrUri]("definition"),
-            cursor.decodeAs[Option[String]]("textEquivalent", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("textEquivalent", Some(None)),
             cursor.decodeAs[Option[ACTION_GROUPING_BEHAVIOR]]("groupingBehavior", Some(None)),
             cursor.decodeAs[Option[ACTION_REQUIRED_BEHAVIOR]]("requiredBehavior", Some(None)),
             cursor.decodeAs[Option[ACTION_PRECHECK_BEHAVIOR]]("precheckBehavior", Some(None)),
@@ -582,9 +582,9 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
       override val id: Option[String] = None,
       val code: LitSeq[CodeableConcept] = LitSeq.empty,
       val `type`: Option[CodeableConcept] = None,
-      val title: Option[String] = None,
+      val title: Option[FHIRString] = None,
       val input: LitSeq[DataRequirement] = LitSeq.empty,
-      val prefix: Option[String] = None,
+      val prefix: Option[FHIRString] = None,
       val reason: LitSeq[CodeableConcept] = LitSeq.empty,
       val goalId: LitSeq[Id] = LitSeq.empty,
       val output: LitSeq[DataRequirement] = LitSeq.empty,
@@ -595,10 +595,10 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
       val timing: Option[Action.TimingChoice] = None,
       val transform: Option[Canonical] = None,
       val subject: Option[Action.SubjectChoice] = None,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       val documentation: LitSeq[RelatedArtifact] = LitSeq.empty,
       val definition: Option[Action.DefinitionChoice] = None,
-      val textEquivalent: Option[String] = None,
+      val textEquivalent: Option[FHIRString] = None,
       val groupingBehavior: Option[ACTION_GROUPING_BEHAVIOR] = None,
       val requiredBehavior: Option[ACTION_REQUIRED_BEHAVIOR] = None,
       val precheckBehavior: Option[ACTION_PRECHECK_BEHAVIOR] = None,
@@ -806,26 +806,26 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       `type`: Option[CodeableConcept] = None,
       date: Option[FHIRDateTime] = None,
-      title: Option[String] = None,
-      usage: Option[String] = None,
+      title: Option[FHIRString] = None,
+      usage: Option[FHIRString] = None,
       topic: LitSeq[CodeableConcept] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       author: LitSeq[ContactDetail] = LitSeq.empty,
       editor: LitSeq[ContactDetail] = LitSeq.empty,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       library: LitSeq[Canonical] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
-      subtitle: Option[String] = None,
+      subtitle: Option[FHIRString] = None,
       reviewer: LitSeq[ContactDetail] = LitSeq.empty,
       endorser: LitSeq[ContactDetail] = LitSeq.empty,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       subject: Option[PlanDefinition.SubjectChoice] = None,
@@ -892,16 +892,16 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
-  val usage: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("usage", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val usage: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("usage", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val topic: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("topic", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
@@ -910,8 +910,8 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
     FHIRComponentFieldMeta("author", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val editor: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("editor", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -920,8 +920,8 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
     FHIRComponentFieldMeta("library", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
-  val subtitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("subtitle", lTagOf[Option[String]], false, lTagOf[String])
+  val subtitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("subtitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val reviewer: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("reviewer", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val endorser: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
@@ -930,8 +930,8 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
@@ -1009,26 +1009,26 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
-    FHIRComponentField[Option[String]](title, t.title),
-    FHIRComponentField[Option[String]](usage, t.usage),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](usage, t.usage),
     FHIRComponentField[LitSeq[CodeableConcept]](topic, t.topic),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[LitSeq[ContactDetail]](author, t.author),
     FHIRComponentField[LitSeq[ContactDetail]](editor, t.editor),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[LitSeq[Canonical]](library, t.library),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
-    FHIRComponentField[Option[String]](subtitle, t.subtitle),
+    FHIRComponentField[Option[FHIRString]](subtitle, t.subtitle),
     FHIRComponentField[LitSeq[ContactDetail]](reviewer, t.reviewer),
     FHIRComponentField[LitSeq[ContactDetail]](endorser, t.endorser),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[Option[PlanDefinition.SubjectChoice]](subject, t.subject),
@@ -1049,26 +1049,26 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
   def extractUrl(t: PlanDefinition): Option[UriStr]                           = t.url
   def extractMeta(t: PlanDefinition): Option[Meta]                            = t.meta
   def extractText(t: PlanDefinition): Option[Narrative]                       = t.text
-  def extractName(t: PlanDefinition): Option[String]                          = t.name
+  def extractName(t: PlanDefinition): Option[FHIRString]                      = t.name
   def extractType(t: PlanDefinition): Option[CodeableConcept]                 = t.`type`
   def extractDate(t: PlanDefinition): Option[FHIRDateTime]                    = t.date
-  def extractTitle(t: PlanDefinition): Option[String]                         = t.title
-  def extractUsage(t: PlanDefinition): Option[String]                         = t.usage
+  def extractTitle(t: PlanDefinition): Option[FHIRString]                     = t.title
+  def extractUsage(t: PlanDefinition): Option[FHIRString]                     = t.usage
   def extractTopic(t: PlanDefinition): LitSeq[CodeableConcept]                = t.topic
   def extractStatus(t: PlanDefinition): PUBLICATION_STATUS                    = t.status
   def extractAuthor(t: PlanDefinition): LitSeq[ContactDetail]                 = t.author
   def extractEditor(t: PlanDefinition): LitSeq[ContactDetail]                 = t.editor
-  def extractVersion(t: PlanDefinition): Option[String]                       = t.version
+  def extractVersion(t: PlanDefinition): Option[FHIRString]                   = t.version
   def extractContact(t: PlanDefinition): LitSeq[ContactDetail]                = t.contact
   def extractPurpose(t: PlanDefinition): Option[Markdown]                     = t.purpose
   def extractLibrary(t: PlanDefinition): LitSeq[Canonical]                    = t.library
   def extractLanguage(t: PlanDefinition): Option[LANGUAGES]                   = t.language
-  def extractSubtitle(t: PlanDefinition): Option[String]                      = t.subtitle
+  def extractSubtitle(t: PlanDefinition): Option[FHIRString]                  = t.subtitle
   def extractReviewer(t: PlanDefinition): LitSeq[ContactDetail]               = t.reviewer
   def extractEndorser(t: PlanDefinition): LitSeq[ContactDetail]               = t.endorser
   def extractContained(t: PlanDefinition): LitSeq[Resource]                   = t.contained
   def extractExtension(t: PlanDefinition): LitSeq[Extension]                  = t.extension
-  def extractPublisher(t: PlanDefinition): Option[String]                     = t.publisher
+  def extractPublisher(t: PlanDefinition): Option[FHIRString]                 = t.publisher
   def extractCopyright(t: PlanDefinition): Option[Markdown]                   = t.copyright
   def extractIdentifier(t: PlanDefinition): LitSeq[Identifier]                = t.identifier
   def extractSubject(t: PlanDefinition): Option[PlanDefinition.SubjectChoice] = t.subject
@@ -1123,26 +1123,26 @@ object PlanDefinition extends CompanionFor[PlanDefinition] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
-          cursor.decodeAs[Option[String]]("usage", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("usage", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("topic", Some(LitSeq.empty)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[LitSeq[ContactDetail]]("author", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactDetail]]("editor", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[LitSeq[Canonical]]("library", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
-          cursor.decodeAs[Option[String]]("subtitle", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("subtitle", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("reviewer", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactDetail]]("endorser", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeOptRef[UnionCodeableConceptOrReference]("subject"),
@@ -1296,26 +1296,26 @@ class PlanDefinition(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val `type`: Option[CodeableConcept] = None,
     val date: Option[FHIRDateTime] = None,
-    val title: Option[String] = None,
-    val usage: Option[String] = None,
+    val title: Option[FHIRString] = None,
+    val usage: Option[FHIRString] = None,
     val topic: LitSeq[CodeableConcept] = LitSeq.empty,
     val status: PUBLICATION_STATUS,
     val author: LitSeq[ContactDetail] = LitSeq.empty,
     val editor: LitSeq[ContactDetail] = LitSeq.empty,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     val library: LitSeq[Canonical] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
-    val subtitle: Option[String] = None,
+    val subtitle: Option[FHIRString] = None,
     val reviewer: LitSeq[ContactDetail] = LitSeq.empty,
     val endorser: LitSeq[ContactDetail] = LitSeq.empty,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val subject: Option[PlanDefinition.SubjectChoice] = None,

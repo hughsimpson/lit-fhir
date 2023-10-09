@@ -31,24 +31,24 @@ public interface ProcedureBuilder extends DomainResourceBuilder {
     return new Impl(status, subject.build());
   }
 
-  public static Choice01474038381 performed(Age a) {
-    return new Choice01474038381(a);
+  public static Choice_0461247536 performed(Age a) {
+    return new Choice_0461247536(a);
   }
 
-  public static Choice01474038381 performed(FHIRDateTime f) {
-    return new Choice01474038381(f);
+  public static Choice_0461247536 performed(FHIRDateTime f) {
+    return new Choice_0461247536(f);
   }
 
-  public static Choice01474038381 performed(Period p) {
-    return new Choice01474038381(p);
+  public static Choice_0461247536 performed(String s) {
+    return new Choice_0461247536(s);
   }
 
-  public static Choice01474038381 performed(Range r) {
-    return new Choice01474038381(r);
+  public static Choice_0461247536 performed(Period p) {
+    return new Choice_0461247536(p);
   }
 
-  public static Choice01474038381 performed(String s) {
-    return new Choice01474038381(s);
+  public static Choice_0461247536 performed(Range r) {
+    return new Choice_0461247536(r);
   }
 
   public class Impl implements ProcedureBuilder {
@@ -77,7 +77,7 @@ public interface ProcedureBuilder extends DomainResourceBuilder {
     private Collection<Identifier> identifier = Collections.emptyList();
     private Collection<CodeableConcept> reasonCode = Collections.emptyList();
     private Optional<CodeableConcept> statusReason = Optional.empty();
-    private Optional<Choice01474038381> performed = Optional.empty();
+    private Optional<Choice_0461247536> performed = Optional.empty();
     private Collection<CodeableConcept> complication = Collections.emptyList();
     private Optional<String> implicitRules = Optional.empty();
     private Collection<Reference> usedReference = Collections.emptyList();
@@ -465,10 +465,10 @@ public interface ProcedureBuilder extends DomainResourceBuilder {
      * @param performed - Estimated or actual date, date-time, period, or age when the procedure was
      *     performed. Allows a period to support complex procedures that span more than one date,
      *     and also allows for the length of the procedure to be captured. Field is a 'choice'
-     *     field. Type should be one of Age, FHIRDateTime, Period, Range, String. To pass the value
+     *     field. Type should be one of Age, FHIRDateTime, String, Period, Range. To pass the value
      *     in, wrap with one of the ProcedureBuilder.performed static methods
      */
-    public ProcedureBuilder.Impl withPerformed(@NonNull Choice01474038381 performed) {
+    public ProcedureBuilder.Impl withPerformed(@NonNull Choice_0461247536 performed) {
       this.performed = Optional.of(performed);
       return this;
     }

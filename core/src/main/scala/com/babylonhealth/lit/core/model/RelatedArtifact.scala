@@ -32,8 +32,8 @@ object RelatedArtifact extends CompanionFor[RelatedArtifact] {
       id: Option[String] = None,
       url: Option[UrlStr] = None,
       `type`: RELATED_ARTIFACT_TYPE,
-      label: Option[String] = None,
-      display: Option[String] = None,
+      label: Option[FHIRString] = None,
+      display: Option[FHIRString] = None,
       citation: Option[Markdown] = None,
       document: Option[Attachment] = None,
       resource: Option[Canonical] = None,
@@ -57,10 +57,10 @@ object RelatedArtifact extends CompanionFor[RelatedArtifact] {
     FHIRComponentFieldMeta("url", lTagOf[Option[UrlStr]], false, lTagOf[UrlStr])
   val `type`: FHIRComponentFieldMeta[RELATED_ARTIFACT_TYPE] =
     FHIRComponentFieldMeta("type", lTagOf[RELATED_ARTIFACT_TYPE], false, lTagOf[RELATED_ARTIFACT_TYPE])
-  val label: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("label", lTagOf[Option[String]], false, lTagOf[String])
-  val display: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("display", lTagOf[Option[String]], false, lTagOf[String])
+  val label: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("label", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val display: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("display", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val citation: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("citation", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val document: FHIRComponentFieldMeta[Option[Attachment]] =
@@ -75,8 +75,8 @@ object RelatedArtifact extends CompanionFor[RelatedArtifact] {
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[UrlStr]](url, t.url),
     FHIRComponentField[RELATED_ARTIFACT_TYPE](`type`, t.`type`),
-    FHIRComponentField[Option[String]](label, t.label),
-    FHIRComponentField[Option[String]](display, t.display),
+    FHIRComponentField[Option[FHIRString]](label, t.label),
+    FHIRComponentField[Option[FHIRString]](display, t.display),
     FHIRComponentField[Option[Markdown]](citation, t.citation),
     FHIRComponentField[Option[Attachment]](document, t.document),
     FHIRComponentField[Option[Canonical]](resource, t.resource),
@@ -85,15 +85,15 @@ object RelatedArtifact extends CompanionFor[RelatedArtifact] {
   def extractId(t: RelatedArtifact): Option[String]           = t.id
   def extractUrl(t: RelatedArtifact): Option[UrlStr]          = t.url
   def extractType(t: RelatedArtifact): RELATED_ARTIFACT_TYPE  = t.`type`
-  def extractLabel(t: RelatedArtifact): Option[String]        = t.label
-  def extractDisplay(t: RelatedArtifact): Option[String]      = t.display
+  def extractLabel(t: RelatedArtifact): Option[FHIRString]    = t.label
+  def extractDisplay(t: RelatedArtifact): Option[FHIRString]  = t.display
   def extractCitation(t: RelatedArtifact): Option[Markdown]   = t.citation
   def extractDocument(t: RelatedArtifact): Option[Attachment] = t.document
   def extractResource(t: RelatedArtifact): Option[Canonical]  = t.resource
   def extractExtension(t: RelatedArtifact): LitSeq[Extension] = t.extension
   override val thisName: String                               = "RelatedArtifact"
   def unapply(
-      o: RelatedArtifact): Option[(Option[String], Option[UrlStr], RELATED_ARTIFACT_TYPE, Option[String], Option[String], Option[Markdown], Option[Attachment], Option[Canonical], LitSeq[Extension])] =
+      o: RelatedArtifact): Option[(Option[String], Option[UrlStr], RELATED_ARTIFACT_TYPE, Option[FHIRString], Option[FHIRString], Option[Markdown], Option[Attachment], Option[Canonical], LitSeq[Extension])] =
     Some((o.id, o.url, o.`type`, o.label, o.display, o.citation, o.document, o.resource, o.extension))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[RelatedArtifact] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -102,8 +102,8 @@ object RelatedArtifact extends CompanionFor[RelatedArtifact] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[UrlStr]]("url", Some(None)),
           cursor.decodeAs[RELATED_ARTIFACT_TYPE]("type", None),
-          cursor.decodeAs[Option[String]]("label", Some(None)),
-          cursor.decodeAs[Option[String]]("display", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("label", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("display", Some(None)),
           cursor.decodeAs[Option[Markdown]]("citation", Some(None)),
           cursor.decodeAs[Option[Attachment]]("document", Some(None)),
           cursor.decodeAs[Option[Canonical]]("resource", Some(None)),
@@ -150,8 +150,8 @@ class RelatedArtifact(
     override val id: Option[String] = None,
     val url: Option[UrlStr] = None,
     val `type`: RELATED_ARTIFACT_TYPE,
-    val label: Option[String] = None,
-    val display: Option[String] = None,
+    val label: Option[FHIRString] = None,
+    val display: Option[FHIRString] = None,
     val citation: Option[Markdown] = None,
     val document: Option[Attachment] = None,
     val resource: Option[Canonical] = None,

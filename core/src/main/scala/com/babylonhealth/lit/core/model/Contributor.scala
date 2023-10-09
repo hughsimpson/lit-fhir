@@ -31,7 +31,7 @@ object Contributor extends CompanionFor[Contributor] {
   def apply(
       id: Option[String] = None,
       `type`: CONTRIBUTOR_TYPE,
-      name: String,
+      name: FHIRString,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -47,8 +47,8 @@ object Contributor extends CompanionFor[Contributor] {
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
   val `type`: FHIRComponentFieldMeta[CONTRIBUTOR_TYPE] =
     FHIRComponentFieldMeta("type", lTagOf[CONTRIBUTOR_TYPE], false, lTagOf[CONTRIBUTOR_TYPE])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -58,17 +58,17 @@ object Contributor extends CompanionFor[Contributor] {
   override def fields(t: Contributor): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[CONTRIBUTOR_TYPE](`type`, t.`type`),
-    FHIRComponentField[String](name, t.name),
+    FHIRComponentField[FHIRString](name, t.name),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension)
   )
   def extractId(t: Contributor): Option[String]             = t.id
   def extractType(t: Contributor): CONTRIBUTOR_TYPE         = t.`type`
-  def extractName(t: Contributor): String                   = t.name
+  def extractName(t: Contributor): FHIRString               = t.name
   def extractContact(t: Contributor): LitSeq[ContactDetail] = t.contact
   def extractExtension(t: Contributor): LitSeq[Extension]   = t.extension
   override val thisName: String                             = "Contributor"
-  def unapply(o: Contributor): Option[(Option[String], CONTRIBUTOR_TYPE, String, LitSeq[ContactDetail], LitSeq[Extension])] =
+  def unapply(o: Contributor): Option[(Option[String], CONTRIBUTOR_TYPE, FHIRString, LitSeq[ContactDetail], LitSeq[Extension])] =
     Some((o.id, o.`type`, o.name, o.contact, o.extension))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Contributor] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -76,7 +76,7 @@ object Contributor extends CompanionFor[Contributor] {
         new Contributor(
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[CONTRIBUTOR_TYPE]("type", None),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -111,7 +111,7 @@ object Contributor extends CompanionFor[Contributor] {
 class Contributor(
     override val id: Option[String] = None,
     val `type`: CONTRIBUTOR_TYPE,
-    val name: String,
+    val name: FHIRString,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

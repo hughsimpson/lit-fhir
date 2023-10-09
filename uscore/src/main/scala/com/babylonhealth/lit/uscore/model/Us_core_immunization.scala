@@ -33,7 +33,7 @@ object Us_core_immunization extends CompanionFor[Us_core_immunization] {
   override val baseType: CompanionFor[ResourceType] = Immunization
   override val parentType: CompanionFor[ParentType] = Immunization
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization")
-  type OccurrenceChoice = Choice[UnionDateTimeOrString]
+  type OccurrenceChoice = Choice[UnionDateTimeOrFHIRString]
   def apply(
       id: Option[String] = None,
       meta: Option[Meta] = Some(
@@ -50,7 +50,7 @@ object Us_core_immunization extends CompanionFor[Us_core_immunization] {
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       encounter: Option[Reference] = None,
-      lotNumber: Option[String] = None,
+      lotNumber: Option[FHIRString] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
       vaccineCode: CodeableConcept,
@@ -140,8 +140,8 @@ object Us_core_immunization extends CompanionFor[Us_core_immunization] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val encounter: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("encounter", lTagOf[Option[Reference]], false, lTagOf[Reference])
-  val lotNumber: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("lotNumber", lTagOf[Option[String]], false, lTagOf[String])
+  val lotNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("lotNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
   val reasonCode: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -161,7 +161,7 @@ object Us_core_immunization extends CompanionFor[Us_core_immunization] {
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val occurrence: FHIRComponentFieldMeta[Us_core_immunization.OccurrenceChoice] =
-    FHIRComponentFieldMeta("occurrence", lTagOf[Us_core_immunization.OccurrenceChoice], true, lTagOf[UnionDateTimeOrString])
+    FHIRComponentFieldMeta("occurrence", lTagOf[Us_core_immunization.OccurrenceChoice], true, lTagOf[UnionDateTimeOrFHIRString])
   val primarySource: FHIRComponentFieldMeta[Boolean] =
     FHIRComponentFieldMeta("primarySource", lTagOf[Boolean], false, lTagOf[Boolean])
   val fundingSource: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -242,7 +242,7 @@ object Us_core_immunization extends CompanionFor[Us_core_immunization] {
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Reference]](encounter, t.encounter),
-      FHIRComponentField[Option[String]](lotNumber, t.lotNumber),
+      FHIRComponentField[Option[FHIRString]](lotNumber, t.lotNumber),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
       FHIRComponentField[LitSeq[CodeableConcept]](reasonCode, t.reasonCode),
       FHIRComponentField[CodeableConcept](vaccineCode, t.vaccineCode),
@@ -280,7 +280,7 @@ object Us_core_immunization extends CompanionFor[Us_core_immunization] {
   def extractContained(t: Us_core_immunization): LitSeq[Resource]                           = t.contained
   def extractExtension(t: Us_core_immunization): LitSeq[Extension]                          = t.extension
   def extractEncounter(t: Us_core_immunization): Option[Reference]                          = t.encounter
-  def extractLotNumber(t: Us_core_immunization): Option[String]                             = t.lotNumber
+  def extractLotNumber(t: Us_core_immunization): Option[FHIRString]                         = t.lotNumber
   def extractIdentifier(t: Us_core_immunization): LitSeq[Identifier]                        = t.identifier
   def extractReasonCode(t: Us_core_immunization): LitSeq[CodeableConcept]                   = t.reasonCode
   def extractVaccineCode(t: Us_core_immunization): CodeableConcept                          = t.vaccineCode
@@ -322,7 +322,7 @@ object Us_core_immunization extends CompanionFor[Us_core_immunization] {
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("encounter", Some(None)),
-          cursor.decodeAs[Option[String]]("lotNumber", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("lotNumber", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("reasonCode", Some(LitSeq.empty)),
           cursor.decodeAs[CodeableConcept]("vaccineCode", None),
@@ -332,7 +332,7 @@ object Us_core_immunization extends CompanionFor[Us_core_immunization] {
           cursor.decodeAs[Option[Reference]]("manufacturer", Some(None)),
           cursor.decodeAs[Option[Quantity]]("doseQuantity", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
-          cursor.decodeRef[UnionDateTimeOrString]("occurrence"),
+          cursor.decodeRef[UnionDateTimeOrFHIRString]("occurrence"),
           cursor.decodeAs[Boolean]("primarySource", None),
           cursor.decodeAs[Option[CodeableConcept]]("fundingSource", Some(None)),
           cursor.decodeAs[Option[FHIRDate]]("expirationDate", Some(None)),
@@ -469,7 +469,7 @@ class Us_core_immunization(
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     override val encounter: Option[Reference] = None,
-    override val lotNumber: Option[String] = None,
+    override val lotNumber: Option[FHIRString] = None,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
     override val reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
     override val vaccineCode: CodeableConcept,

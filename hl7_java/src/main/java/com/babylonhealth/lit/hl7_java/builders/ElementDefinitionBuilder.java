@@ -199,6 +199,10 @@ public interface ElementDefinitionBuilder extends BackboneElementBuilder {
     return ChoiceAll.ChoiceAllCode(s);
   }
 
+  public static ChoiceAll fixedFHIRString(String s) {
+    return ChoiceAll.ChoiceAllFHIRString(s);
+  }
+
   public static ChoiceAll fixedId(String s) {
     return ChoiceAll.ChoiceAllId(s);
   }
@@ -217,10 +221,6 @@ public interface ElementDefinitionBuilder extends BackboneElementBuilder {
 
   public static ChoiceAll fixedPositiveInt(Integer i) {
     return ChoiceAll.ChoiceAllPositiveInt(i);
-  }
-
-  public static ChoiceAll fixedString(String s) {
-    return ChoiceAll.ChoiceAllString(s);
   }
 
   public static ChoiceAll fixedUnsignedInt(Integer i) {
@@ -399,6 +399,10 @@ public interface ElementDefinitionBuilder extends BackboneElementBuilder {
     return ChoiceAll.ChoiceAllCode(s);
   }
 
+  public static ChoiceAll patternFHIRString(String s) {
+    return ChoiceAll.ChoiceAllFHIRString(s);
+  }
+
   public static ChoiceAll patternId(String s) {
     return ChoiceAll.ChoiceAllId(s);
   }
@@ -417,10 +421,6 @@ public interface ElementDefinitionBuilder extends BackboneElementBuilder {
 
   public static ChoiceAll patternPositiveInt(Integer i) {
     return ChoiceAll.ChoiceAllPositiveInt(i);
-  }
-
-  public static ChoiceAll patternString(String s) {
-    return ChoiceAll.ChoiceAllString(s);
   }
 
   public static ChoiceAll patternUnsignedInt(Integer i) {
@@ -671,6 +671,10 @@ public interface ElementDefinitionBuilder extends BackboneElementBuilder {
     return ChoiceAll.ChoiceAllCode(s);
   }
 
+  public static ChoiceAll defaultValueFHIRString(String s) {
+    return ChoiceAll.ChoiceAllFHIRString(s);
+  }
+
   public static ChoiceAll defaultValueId(String s) {
     return ChoiceAll.ChoiceAllId(s);
   }
@@ -689,10 +693,6 @@ public interface ElementDefinitionBuilder extends BackboneElementBuilder {
 
   public static ChoiceAll defaultValuePositiveInt(Integer i) {
     return ChoiceAll.ChoiceAllPositiveInt(i);
-  }
-
-  public static ChoiceAll defaultValueString(String s) {
-    return ChoiceAll.ChoiceAllString(s);
   }
 
   public static ChoiceAll defaultValueUnsignedInt(Integer i) {

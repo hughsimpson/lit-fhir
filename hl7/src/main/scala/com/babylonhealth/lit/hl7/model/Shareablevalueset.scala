@@ -36,17 +36,17 @@ object Shareablevalueset extends CompanionFor[Shareablevalueset] {
       url: UriStr,
       meta: Option[Meta] = Some(new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/shareablevalueset"))),
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       date: Option[FHIRDateTime] = None,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       status: PUBLICATION_STATUS,
-      version: String,
+      version: FHIRString,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: String,
+      publisher: FHIRString,
       immutable: Option[Boolean] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
@@ -96,16 +96,16 @@ object Shareablevalueset extends CompanionFor[Shareablevalueset] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
-  val version: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("version", lTagOf[String], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("version", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -116,8 +116,8 @@ object Shareablevalueset extends CompanionFor[Shareablevalueset] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("publisher", lTagOf[String], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("publisher", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val immutable: FHIRComponentFieldMeta[Option[Boolean]] =
     FHIRComponentFieldMeta("immutable", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -174,17 +174,17 @@ object Shareablevalueset extends CompanionFor[Shareablevalueset] {
       FHIRComponentField[UriStr](url, t.url.get),
       FHIRComponentField[Option[Meta]](meta, t.meta),
       FHIRComponentField[Option[Narrative]](text, t.text),
-      FHIRComponentField[String](name, t.name.get),
+      FHIRComponentField[FHIRString](name, t.name.get),
       FHIRComponentField[Option[FHIRDateTime]](date, t.date),
-      FHIRComponentField[Option[String]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
       FHIRComponentField[PUBLICATION_STATUS](status, t.status),
-      FHIRComponentField[String](version, t.version.get),
+      FHIRComponentField[FHIRString](version, t.version.get),
       FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
       FHIRComponentField[Option[Markdown]](purpose, t.purpose),
       FHIRComponentField[Option[LANGUAGES]](language, t.language),
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[String](publisher, t.publisher.get),
+      FHIRComponentField[FHIRString](publisher, t.publisher.get),
       FHIRComponentField[Option[Boolean]](immutable, t.immutable),
       FHIRComponentField[Option[Markdown]](copyright, t.copyright),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
@@ -202,17 +202,17 @@ object Shareablevalueset extends CompanionFor[Shareablevalueset] {
   def extractUrl(t: Shareablevalueset): UriStr                           = t.url.get
   def extractMeta(t: Shareablevalueset): Option[Meta]                    = t.meta
   def extractText(t: Shareablevalueset): Option[Narrative]               = t.text
-  def extractName(t: Shareablevalueset): String                          = t.name.get
+  def extractName(t: Shareablevalueset): FHIRString                      = t.name.get
   def extractDate(t: Shareablevalueset): Option[FHIRDateTime]            = t.date
-  def extractTitle(t: Shareablevalueset): Option[String]                 = t.title
+  def extractTitle(t: Shareablevalueset): Option[FHIRString]             = t.title
   def extractStatus(t: Shareablevalueset): PUBLICATION_STATUS            = t.status
-  def extractVersion(t: Shareablevalueset): String                       = t.version.get
+  def extractVersion(t: Shareablevalueset): FHIRString                   = t.version.get
   def extractContact(t: Shareablevalueset): LitSeq[ContactDetail]        = t.contact
   def extractPurpose(t: Shareablevalueset): Option[Markdown]             = t.purpose
   def extractLanguage(t: Shareablevalueset): Option[LANGUAGES]           = t.language
   def extractContained(t: Shareablevalueset): LitSeq[Resource]           = t.contained
   def extractExtension(t: Shareablevalueset): LitSeq[Extension]          = t.extension
-  def extractPublisher(t: Shareablevalueset): String                     = t.publisher.get
+  def extractPublisher(t: Shareablevalueset): FHIRString                 = t.publisher.get
   def extractImmutable(t: Shareablevalueset): Option[Boolean]            = t.immutable
   def extractCopyright(t: Shareablevalueset): Option[Markdown]           = t.copyright
   def extractIdentifier(t: Shareablevalueset): LitSeq[Identifier]        = t.identifier
@@ -234,17 +234,17 @@ object Shareablevalueset extends CompanionFor[Shareablevalueset] {
           cursor.decodeAs[UriStr]("url", None),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
-          cursor.decodeAs[String]("version", None),
+          cursor.decodeAs[FHIRString]("version", None),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[String]("publisher", None),
+          cursor.decodeAs[FHIRString]("publisher", None),
           cursor.decodeAs[Option[Boolean]]("immutable", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
@@ -365,17 +365,17 @@ class Shareablevalueset(
     override val meta: Option[Meta] = Some(
       new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/shareablevalueset"))),
     override val text: Option[Narrative] = None,
-    name: String,
+    name: FHIRString,
     override val date: Option[FHIRDateTime] = None,
-    override val title: Option[String] = None,
+    override val title: Option[FHIRString] = None,
     override val status: PUBLICATION_STATUS,
-    version: String,
+    version: FHIRString,
     override val contact: LitSeq[ContactDetail] = LitSeq.empty,
     override val purpose: Option[Markdown] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    publisher: String,
+    publisher: FHIRString,
     override val immutable: Option[Boolean] = None,
     override val copyright: Option[Markdown] = None,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,

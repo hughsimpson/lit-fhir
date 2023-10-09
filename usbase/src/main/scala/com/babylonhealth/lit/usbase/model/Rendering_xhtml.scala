@@ -33,7 +33,7 @@ object Rendering_xhtml extends CompanionFor[Rendering_xhtml] {
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/rendering-xhtml")
   def apply(
       id: Option[String] = None,
-      value: String,
+      value: FHIRString,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Rendering_xhtml = new Rendering_xhtml(
     id,
@@ -42,26 +42,26 @@ object Rendering_xhtml extends CompanionFor[Rendering_xhtml] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val value: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("value", lTagOf[String], true, lTagOf[String])
+  val value: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("value", lTagOf[FHIRString], true, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, value)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Try(
     Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](value, t.value.get.toSubRefNonUnion[String])
+      FHIRComponentField[FHIRString](value, t.value.get.toSubRefNonUnion[FHIRString])
     ))
-  override def fields(t: Rendering_xhtml): Seq[FHIRComponentField[_]] = fieldsFromParent(t).get
-  def extractId(t: Rendering_xhtml): Option[String]                   = t.id
-  def extractValue(t: Rendering_xhtml): String                        = t.value.get.toSubRefNonUnion[String]
-  override val thisName: String                                       = "Rendering_xhtml"
-  override val searchParams: Map[String, Rendering_xhtml => Seq[Any]] = Extension.searchParams
-  def unapply(o: Rendering_xhtml): Option[(Option[String], String)]   = Some((o.id, o.value.get.toSubRefNonUnion[String]))
+  override def fields(t: Rendering_xhtml): Seq[FHIRComponentField[_]]   = fieldsFromParent(t).get
+  def extractId(t: Rendering_xhtml): Option[String]                     = t.id
+  def extractValue(t: Rendering_xhtml): FHIRString                      = t.value.get.toSubRefNonUnion[FHIRString]
+  override val thisName: String                                         = "Rendering_xhtml"
+  override val searchParams: Map[String, Rendering_xhtml => Seq[Any]]   = Extension.searchParams
+  def unapply(o: Rendering_xhtml): Option[(Option[String], FHIRString)] = Some((o.id, o.value.get.toSubRefNonUnion[FHIRString]))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Rendering_xhtml] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new Rendering_xhtml(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[String]("valueString", None),
+          cursor.decodeAs[FHIRString]("valueString", None),
           decodeAttributes(cursor)
         )
       ))
@@ -90,7 +90,7 @@ object Rendering_xhtml extends CompanionFor[Rendering_xhtml] {
 @POJOBoilerplate
 class Rendering_xhtml(
     override val id: Option[String] = None,
-    value: String,
+    value: FHIRString,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Extension(
       id = id,

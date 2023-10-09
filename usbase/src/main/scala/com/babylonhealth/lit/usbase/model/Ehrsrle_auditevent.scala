@@ -45,7 +45,7 @@ object Ehrsrle_auditevent extends CompanionFor[Ehrsrle_auditevent] {
       recorded: ZonedDateTime,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      outcomeDesc: Option[String] = None,
+      outcomeDesc: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       purposeOfEvent: LitSeq[CodeableConcept] = LitSeq.empty,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -99,8 +99,8 @@ object Ehrsrle_auditevent extends CompanionFor[Ehrsrle_auditevent] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val outcomeDesc: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("outcomeDesc", lTagOf[Option[String]], false, lTagOf[String])
+  val outcomeDesc: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("outcomeDesc", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val purposeOfEvent: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -148,7 +148,7 @@ object Ehrsrle_auditevent extends CompanionFor[Ehrsrle_auditevent] {
       FHIRComponentField[ZonedDateTime](recorded, t.recorded),
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](outcomeDesc, t.outcomeDesc),
+      FHIRComponentField[Option[FHIRString]](outcomeDesc, t.outcomeDesc),
       FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
       FHIRComponentField[LitSeq[CodeableConcept]](purposeOfEvent, t.purposeOfEvent),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -169,7 +169,7 @@ object Ehrsrle_auditevent extends CompanionFor[Ehrsrle_auditevent] {
   def extractRecorded(t: Ehrsrle_auditevent): ZonedDateTime                 = t.recorded
   def extractContained(t: Ehrsrle_auditevent): LitSeq[Resource]             = t.contained
   def extractExtension(t: Ehrsrle_auditevent): LitSeq[Extension]            = t.extension
-  def extractOutcomeDesc(t: Ehrsrle_auditevent): Option[String]             = t.outcomeDesc
+  def extractOutcomeDesc(t: Ehrsrle_auditevent): Option[FHIRString]         = t.outcomeDesc
   def extractImplicitRules(t: Ehrsrle_auditevent): Option[UriStr]           = t.implicitRules
   def extractPurposeOfEvent(t: Ehrsrle_auditevent): LitSeq[CodeableConcept] = t.purposeOfEvent
   def extractModifierExtension(t: Ehrsrle_auditevent): LitSeq[Extension]    = t.modifierExtension
@@ -179,7 +179,7 @@ object Ehrsrle_auditevent extends CompanionFor[Ehrsrle_auditevent] {
   override val thisName: String                                             = "Ehrsrle_auditevent"
   override val searchParams: Map[String, Ehrsrle_auditevent => Seq[Any]]    = AuditEvent.searchParams
   def unapply(
-      o: Ehrsrle_auditevent): Option[(Option[String], Option[Meta], Option[Narrative], Coding, Option[AUDIT_EVENT_ACTION], Option[Period], LitSeq[Coding], Option[AUDIT_EVENT_OUTCOME], Option[LANGUAGES], ZonedDateTime, LitSeq[Resource], LitSeq[Extension], Option[String], Option[UriStr], LitSeq[CodeableConcept], LitSeq[Extension], AuditEvent.Source, NonEmptyLitSeq[AuditEvent.Agent], LitSeq[AuditEvent.Entity])] =
+      o: Ehrsrle_auditevent): Option[(Option[String], Option[Meta], Option[Narrative], Coding, Option[AUDIT_EVENT_ACTION], Option[Period], LitSeq[Coding], Option[AUDIT_EVENT_OUTCOME], Option[LANGUAGES], ZonedDateTime, LitSeq[Resource], LitSeq[Extension], Option[FHIRString], Option[UriStr], LitSeq[CodeableConcept], LitSeq[Extension], AuditEvent.Source, NonEmptyLitSeq[AuditEvent.Agent], LitSeq[AuditEvent.Entity])] =
     Some(
       (
         o.id,
@@ -217,7 +217,7 @@ object Ehrsrle_auditevent extends CompanionFor[Ehrsrle_auditevent] {
           cursor.decodeAs[ZonedDateTime]("recorded", None),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("outcomeDesc", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("outcomeDesc", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("purposeOfEvent", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -308,7 +308,7 @@ class Ehrsrle_auditevent(
     override val recorded: ZonedDateTime,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    override val outcomeDesc: Option[String] = None,
+    override val outcomeDesc: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val purposeOfEvent: LitSeq[CodeableConcept] = LitSeq.empty,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,

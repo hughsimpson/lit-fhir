@@ -32,58 +32,58 @@ public interface QuestionnaireResponse_Item_AnswerBuilder {
     return new Impl();
   }
 
-  public static Choice01113166363 value(Attachment a) {
-    return new Choice01113166363(a);
+  public static Choice_1180501282 value(Attachment a) {
+    return new Choice_1180501282(a);
   }
 
-  public static Choice01113166363 value(BigDecimal b) {
-    return new Choice01113166363(b);
+  public static Choice_1180501282 value(BigDecimal b) {
+    return new Choice_1180501282(b);
   }
 
-  public static Choice01113166363 value(Boolean b) {
-    return new Choice01113166363(b);
+  public static Choice_1180501282 value(Boolean b) {
+    return new Choice_1180501282(b);
   }
 
-  public static Choice01113166363 value(Coding c) {
-    return new Choice01113166363(c);
+  public static Choice_1180501282 value(Coding c) {
+    return new Choice_1180501282(c);
   }
 
-  public static Choice01113166363 value(FHIRDate f) {
-    return new Choice01113166363(f);
+  public static Choice_1180501282 value(FHIRDate f) {
+    return new Choice_1180501282(f);
   }
 
-  public static Choice01113166363 value(FHIRDateTime f) {
-    return new Choice01113166363(f);
+  public static Choice_1180501282 value(FHIRDateTime f) {
+    return new Choice_1180501282(f);
   }
 
-  public static Choice01113166363 value(Integer i) {
-    return new Choice01113166363(i);
+  public static Choice_1180501282 value(Integer i) {
+    return new Choice_1180501282(i);
   }
 
-  public static Choice01113166363 value(LocalTime l) {
-    return new Choice01113166363(l);
+  public static Choice_1180501282 value(LocalTime l) {
+    return new Choice_1180501282(l);
   }
 
-  public static Choice01113166363 value(Quantity q) {
-    return new Choice01113166363(q);
+  public static Choice_1180501282 value(Quantity q) {
+    return new Choice_1180501282(q);
   }
 
-  public static Choice01113166363 value(Reference r) {
-    return new Choice01113166363(r);
+  public static Choice_1180501282 value(Reference r) {
+    return new Choice_1180501282(r);
   }
 
-  public static Choice01113166363 valueString(String s) {
-    return Choice01113166363.Choice01113166363String(s);
+  public static Choice_1180501282 valueFHIRString(String s) {
+    return Choice_1180501282.Choice_1180501282FHIRString(s);
   }
 
-  public static Choice01113166363 valueUri(String s) {
-    return Choice01113166363.Choice01113166363UriStr(s);
+  public static Choice_1180501282 valueUri(String s) {
+    return Choice_1180501282.Choice_1180501282UriStr(s);
   }
 
   public class Impl implements QuestionnaireResponse_Item_AnswerBuilder {
     private Optional<String> id = Optional.empty();
     private Collection<QuestionnaireResponse.Item> item = Collections.emptyList();
-    private Optional<Choice01113166363> value = Optional.empty();
+    private Optional<Choice_1180501282> value = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
     private Collection<Extension> modifierExtension = Collections.emptyList();
 
@@ -124,12 +124,12 @@ public interface QuestionnaireResponse_Item_AnswerBuilder {
     }
     /**
      * @param value Field is a 'choice' field. Type should be one of Attachment, BigDecimal,
-     *     Boolean, Coding, FHIRDate, FHIRDateTime, Integer, LocalTime, Quantity, Reference, String.
+     *     Boolean, Coding, FHIRDate, FHIRDateTime, String, Integer, LocalTime, Quantity, Reference.
      *     To pass the value in, wrap with one of the QuestionnaireResponse_Item_AnswerBuilder.value
      *     static methods
      */
     public QuestionnaireResponse_Item_AnswerBuilder.Impl withValue(
-        @NonNull Choice01113166363 value) {
+        @NonNull Choice_1180501282 value) {
       this.value = Optional.of(value);
       return this;
     }

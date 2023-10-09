@@ -28,26 +28,26 @@ public interface MedicationKnowledge_DrugCharacteristicBuilder {
     return new Impl();
   }
 
-  public static Choice_0600299688 value(byte[] b) {
-    return new Choice_0600299688(b);
+  public static Choice_1173468863 value(byte[] b) {
+    return new Choice_1173468863(b);
   }
 
-  public static Choice_0600299688 value(CodeableConcept c) {
-    return new Choice_0600299688(c);
+  public static Choice_1173468863 value(CodeableConcept c) {
+    return new Choice_1173468863(c);
   }
 
-  public static Choice_0600299688 value(Quantity q) {
-    return new Choice_0600299688(q);
+  public static Choice_1173468863 value(String s) {
+    return new Choice_1173468863(s);
   }
 
-  public static Choice_0600299688 value(String s) {
-    return new Choice_0600299688(s);
+  public static Choice_1173468863 value(Quantity q) {
+    return new Choice_1173468863(q);
   }
 
   public class Impl implements MedicationKnowledge_DrugCharacteristicBuilder {
     private Optional<String> id = Optional.empty();
     private Optional<CodeableConcept> _type = Optional.empty();
-    private Optional<Choice_0600299688> value = Optional.empty();
+    private Optional<Choice_1173468863> value = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
     private Collection<Extension> modifierExtension = Collections.emptyList();
 
@@ -76,11 +76,11 @@ public interface MedicationKnowledge_DrugCharacteristicBuilder {
     }
     /**
      * @param value Field is a 'choice' field. Type should be one of byte[], CodeableConcept,
-     *     Quantity, String. To pass the value in, wrap with one of the
+     *     String, Quantity. To pass the value in, wrap with one of the
      *     MedicationKnowledge_DrugCharacteristicBuilder.value static methods
      */
     public MedicationKnowledge_DrugCharacteristicBuilder.Impl withValue(
-        @NonNull Choice_0600299688 value) {
+        @NonNull Choice_1173468863 value) {
       this.value = Optional.of(value);
       return this;
     }

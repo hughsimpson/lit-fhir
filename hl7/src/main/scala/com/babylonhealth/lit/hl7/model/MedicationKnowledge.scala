@@ -115,7 +115,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
       type CharacteristicChoice = Choice[UnionCodeableConceptOrQuantity]
       def apply(
           id: Option[String] = None,
-          value: LitSeq[String] = LitSeq.empty,
+          value: LitSeq[FHIRString] = LitSeq.empty,
           extension: LitSeq[Extension] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           characteristic: PatientCharacteristics.CharacteristicChoice,
@@ -129,12 +129,12 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: PatientCharacteristics): Option[(Option[String], LitSeq[String], LitSeq[Extension], LitSeq[Extension], PatientCharacteristics.CharacteristicChoice)] =
+          o: PatientCharacteristics): Option[(Option[String], LitSeq[FHIRString], LitSeq[Extension], LitSeq[Extension], PatientCharacteristics.CharacteristicChoice)] =
         Some((o.id, o.value, o.extension, o.modifierExtension, o.characteristic))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val value: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("value", lTagOf[LitSeq[String]], false, lTagOf[String])
+      val value: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("value", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -149,7 +149,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: PatientCharacteristics): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[LitSeq[String]](value, t.value),
+        FHIRComponentField[LitSeq[FHIRString]](value, t.value),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
         FHIRComponentField[PatientCharacteristics.CharacteristicChoice](characteristic, t.characteristic)
@@ -161,7 +161,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
           Try(
             new PatientCharacteristics(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[LitSeq[String]]("value", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("value", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               cursor.decodeRef[UnionCodeableConceptOrQuantity]("characteristic"),
@@ -172,7 +172,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
     @POJOBoilerplate
     class PatientCharacteristics(
         override val id: Option[String] = None,
-        val value: LitSeq[String] = LitSeq.empty,
+        val value: LitSeq[FHIRString] = LitSeq.empty,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         val characteristic: PatientCharacteristics.CharacteristicChoice,
@@ -679,7 +679,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
     override type ResourceType = DrugCharacteristic
     override type ParentType   = DrugCharacteristic
     override val parentType: CompanionFor[ResourceType] = DrugCharacteristic
-    type ValueChoice = Choice[Union_0600299688]
+    type ValueChoice = Choice[Union_1173468863]
     def apply(
         id: Option[String] = None,
         `type`: Option[CodeableConcept] = None,
@@ -703,7 +703,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
     val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val value: FHIRComponentFieldMeta[Option[DrugCharacteristic.ValueChoice]] =
-      FHIRComponentFieldMeta("value", lTagOf[Option[DrugCharacteristic.ValueChoice]], true, lTagOf[Union_0600299688])
+      FHIRComponentFieldMeta("value", lTagOf[Option[DrugCharacteristic.ValueChoice]], true, lTagOf[Union_1173468863])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -725,7 +725,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
           new DrugCharacteristic(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-            cursor.decodeOptRef[Union_0600299688]("value"),
+            cursor.decodeOptRef[Union_1173468863]("value"),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -750,7 +750,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
     def apply(
         id: Option[String] = None,
         `type`: Option[CodeableConcept] = None,
-        name: Option[String] = None,
+        name: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -763,14 +763,14 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: MonitoringProgram): Option[(Option[String], Option[CodeableConcept], Option[String], LitSeq[Extension], LitSeq[Extension])] =
+        o: MonitoringProgram): Option[(Option[String], Option[CodeableConcept], Option[FHIRString], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.`type`, o.name, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -780,7 +780,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
     override def fields(t: MonitoringProgram): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -792,7 +792,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
           new MonitoringProgram(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -803,7 +803,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
   class MonitoringProgram(
       override val id: Option[String] = None,
       val `type`: Option[CodeableConcept] = None,
-      val name: Option[String] = None,
+      val name: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -1102,7 +1102,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
         id: Option[String] = None,
         `type`: CodeableConcept,
         cost: Money,
-        source: Option[String] = None,
+        source: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -1115,7 +1115,8 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Cost): Option[(Option[String], CodeableConcept, Money, Option[String], LitSeq[Extension], LitSeq[Extension])] =
+    def unapply(
+        o: Cost): Option[(Option[String], CodeableConcept, Money, Option[FHIRString], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.`type`, o.cost, o.source, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -1123,8 +1124,8 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
       FHIRComponentFieldMeta("type", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
     val cost: FHIRComponentFieldMeta[Money] =
       FHIRComponentFieldMeta("cost", lTagOf[Money], false, lTagOf[Money])
-    val source: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("source", lTagOf[Option[String]], false, lTagOf[String])
+    val source: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("source", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -1135,7 +1136,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[CodeableConcept](`type`, t.`type`),
       FHIRComponentField[Money](cost, t.cost),
-      FHIRComponentField[Option[String]](source, t.source),
+      FHIRComponentField[Option[FHIRString]](source, t.source),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -1148,7 +1149,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[CodeableConcept]("type", None),
             cursor.decodeAs[Money]("cost", None),
-            cursor.decodeAs[Option[String]]("source", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("source", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -1160,7 +1161,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
       override val id: Option[String] = None,
       val `type`: CodeableConcept,
       val cost: Money,
-      val source: Option[String] = None,
+      val source: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -1172,7 +1173,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
       code: Option[CodeableConcept] = None,
       status: Option[MEDICATIONKNOWLEDGE_STATUS] = None,
       amount: Option[Quantity] = None,
-      synonym: LitSeq[String] = LitSeq.empty,
+      synonym: LitSeq[FHIRString] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
       doseForm: Option[CodeableConcept] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
@@ -1242,8 +1243,8 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
     FHIRComponentFieldMeta("status", lTagOf[Option[MEDICATIONKNOWLEDGE_STATUS]], false, lTagOf[MEDICATIONKNOWLEDGE_STATUS])
   val amount: FHIRComponentFieldMeta[Option[Quantity]] =
     FHIRComponentFieldMeta("amount", lTagOf[Option[Quantity]], false, lTagOf[Quantity])
-  val synonym: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("synonym", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val synonym: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("synonym", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
   val doseForm: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -1367,7 +1368,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
     FHIRComponentField[Option[CodeableConcept]](code, t.code),
     FHIRComponentField[Option[MEDICATIONKNOWLEDGE_STATUS]](status, t.status),
     FHIRComponentField[Option[Quantity]](amount, t.amount),
-    FHIRComponentField[LitSeq[String]](synonym, t.synonym),
+    FHIRComponentField[LitSeq[FHIRString]](synonym, t.synonym),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[Option[CodeableConcept]](doseForm, t.doseForm),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
@@ -1400,7 +1401,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
   def extractCode(t: MedicationKnowledge): Option[CodeableConcept]                                      = t.code
   def extractStatus(t: MedicationKnowledge): Option[MEDICATIONKNOWLEDGE_STATUS]                         = t.status
   def extractAmount(t: MedicationKnowledge): Option[Quantity]                                           = t.amount
-  def extractSynonym(t: MedicationKnowledge): LitSeq[String]                                            = t.synonym
+  def extractSynonym(t: MedicationKnowledge): LitSeq[FHIRString]                                        = t.synonym
   def extractLanguage(t: MedicationKnowledge): Option[LANGUAGES]                                        = t.language
   def extractDoseForm(t: MedicationKnowledge): Option[CodeableConcept]                                  = t.doseForm
   def extractContained(t: MedicationKnowledge): LitSeq[Resource]                                        = t.contained
@@ -1453,7 +1454,7 @@ object MedicationKnowledge extends CompanionFor[MedicationKnowledge] {
         cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
         cursor.decodeAs[Option[MEDICATIONKNOWLEDGE_STATUS]]("status", Some(None)),
         cursor.decodeAs[Option[Quantity]]("amount", Some(None)),
-        cursor.decodeAs[LitSeq[String]]("synonym", Some(LitSeq.empty)),
+        cursor.decodeAs[LitSeq[FHIRString]]("synonym", Some(LitSeq.empty)),
         cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
         cursor.decodeAs[Option[CodeableConcept]]("doseForm", Some(None)),
         cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
@@ -1587,7 +1588,7 @@ class MedicationKnowledge(
     val code: Option[CodeableConcept] = None,
     val status: Option[MEDICATIONKNOWLEDGE_STATUS] = None,
     val amount: Option[Quantity] = None,
-    val synonym: LitSeq[String] = LitSeq.empty,
+    val synonym: LitSeq[FHIRString] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
     val doseForm: Option[CodeableConcept] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,

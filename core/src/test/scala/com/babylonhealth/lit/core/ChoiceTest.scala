@@ -12,15 +12,15 @@ class ChoiceTest extends AnyFreeSpec with Matchers {
     val code: Extension.ValueChoice = choice("code": Code)
     val extractedCode               = code.as[Code]
     extractedCode shouldEqual Some("code": Code)
-    val string: Extension.ValueChoice = choice("string")
-    val extractedString               = string.as[String]
-    extractedString shouldEqual Some("string")
+    val string: Extension.ValueChoice = choice("string": FHIRString)
+    val extractedString               = string.as[FHIRString]
+    extractedString shouldEqual Some("string": FHIRString)
   }
   "doesn't extract the value from a choice if doesn't match" in {
     val code: Extension.ValueChoice = choice("code": Code)
-    val unextractedCode             = code.as[String]
+    val unextractedCode             = code.as[FHIRString]
     unextractedCode shouldEqual None
-    val string: Extension.ValueChoice = choice("string")
+    val string: Extension.ValueChoice = choice("string": FHIRString)
     val unextractedString             = string.as[Code]
     unextractedString shouldEqual None
   }

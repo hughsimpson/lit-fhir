@@ -34,7 +34,7 @@ object Structuredefinition_display_hint extends CompanionFor[Structuredefinition
   override val profileUrl: Option[String] = Some("http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint")
   def apply(
       id: Option[String] = None,
-      value: String,
+      value: FHIRString,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Structuredefinition_display_hint = new Structuredefinition_display_hint(
     id,
@@ -43,27 +43,27 @@ object Structuredefinition_display_hint extends CompanionFor[Structuredefinition
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val value: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("value", lTagOf[String], true, lTagOf[String])
+  val value: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("value", lTagOf[FHIRString], true, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, value)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Try(
     Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](value, t.value.get.toSubRefNonUnion[String])
+      FHIRComponentField[FHIRString](value, t.value.get.toSubRefNonUnion[FHIRString])
     ))
   override def fields(t: Structuredefinition_display_hint): Seq[FHIRComponentField[_]] = fieldsFromParent(t).get
   def extractId(t: Structuredefinition_display_hint): Option[String]                   = t.id
-  def extractValue(t: Structuredefinition_display_hint): String                        = t.value.get.toSubRefNonUnion[String]
+  def extractValue(t: Structuredefinition_display_hint): FHIRString                    = t.value.get.toSubRefNonUnion[FHIRString]
   override val thisName: String                                                        = "Structuredefinition_display_hint"
   override val searchParams: Map[String, Structuredefinition_display_hint => Seq[Any]] = Extension.searchParams
-  def unapply(o: Structuredefinition_display_hint): Option[(Option[String], String)] = Some(
-    (o.id, o.value.get.toSubRefNonUnion[String]))
+  def unapply(o: Structuredefinition_display_hint): Option[(Option[String], FHIRString)] = Some(
+    (o.id, o.value.get.toSubRefNonUnion[FHIRString]))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Structuredefinition_display_hint] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new Structuredefinition_display_hint(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[String]("valueString", None),
+          cursor.decodeAs[FHIRString]("valueString", None),
           decodeAttributes(cursor)
         )
       ))
@@ -90,7 +90,7 @@ object Structuredefinition_display_hint extends CompanionFor[Structuredefinition
 @POJOBoilerplate
 class Structuredefinition_display_hint(
     override val id: Option[String] = None,
-    value: String,
+    value: FHIRString,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Extension(
       id = id,

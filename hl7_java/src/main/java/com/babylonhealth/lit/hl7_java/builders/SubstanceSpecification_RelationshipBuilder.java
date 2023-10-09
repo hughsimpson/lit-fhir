@@ -28,20 +28,20 @@ public interface SubstanceSpecification_RelationshipBuilder {
     return new Impl();
   }
 
-  public static Choice00133982841 amount(Quantity q) {
-    return new Choice00133982841(q);
+  public static Choice00177902846 amount(String s) {
+    return new Choice00177902846(s);
   }
 
-  public static Choice00133982841 amount(Range r) {
-    return new Choice00133982841(r);
+  public static Choice00177902846 amount(Quantity q) {
+    return new Choice00177902846(q);
   }
 
-  public static Choice00133982841 amount(Ratio r) {
-    return new Choice00133982841(r);
+  public static Choice00177902846 amount(Range r) {
+    return new Choice00177902846(r);
   }
 
-  public static Choice00133982841 amount(String s) {
-    return new Choice00133982841(s);
+  public static Choice00177902846 amount(Ratio r) {
+    return new Choice00177902846(r);
   }
 
   public static ChoiceCodeableConceptOrReference substance(CodeableConcept c) {
@@ -56,7 +56,7 @@ public interface SubstanceSpecification_RelationshipBuilder {
     private Optional<String> id = Optional.empty();
     private Collection<Reference> source = Collections.emptyList();
     private Collection<Extension> extension = Collections.emptyList();
-    private Optional<Choice00133982841> amount = Optional.empty();
+    private Optional<Choice00177902846> amount = Optional.empty();
     private Optional<Boolean> isDefining = Optional.empty();
     private Optional<CodeableConcept> amountType = Optional.empty();
     private Optional<ChoiceCodeableConceptOrReference> substance = Optional.empty();
@@ -124,12 +124,12 @@ public interface SubstanceSpecification_RelationshipBuilder {
       return this;
     }
     /**
-     * @param amount Field is a 'choice' field. Type should be one of Quantity, Range, Ratio,
-     *     String. To pass the value in, wrap with one of the
+     * @param amount Field is a 'choice' field. Type should be one of String, Quantity, Range,
+     *     Ratio. To pass the value in, wrap with one of the
      *     SubstanceSpecification_RelationshipBuilder.amount static methods
      */
     public SubstanceSpecification_RelationshipBuilder.Impl withAmount(
-        @NonNull Choice00133982841 amount) {
+        @NonNull Choice00177902846 amount) {
       this.amount = Optional.of(amount);
       return this;
     }

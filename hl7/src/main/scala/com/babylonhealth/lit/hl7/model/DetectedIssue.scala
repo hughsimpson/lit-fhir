@@ -180,7 +180,7 @@ object DetectedIssue extends CompanionFor[DetectedIssue] {
       code: Option[CodeableConcept] = None,
       status: OBSERVATION_STATUS,
       author: Option[Reference] = None,
-      detail: Option[String] = None,
+      detail: Option[FHIRString] = None,
       patient: Option[Reference] = None,
       language: Option[LANGUAGES] = None,
       severity: Option[DETECTEDISSUE_SEVERITY] = None,
@@ -230,8 +230,8 @@ object DetectedIssue extends CompanionFor[DetectedIssue] {
     FHIRComponentFieldMeta("status", lTagOf[OBSERVATION_STATUS], false, lTagOf[OBSERVATION_STATUS])
   val author: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("author", lTagOf[Option[Reference]], false, lTagOf[Reference])
-  val detail: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("detail", lTagOf[Option[String]], false, lTagOf[String])
+  val detail: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("detail", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val patient: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("patient", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
@@ -288,7 +288,7 @@ object DetectedIssue extends CompanionFor[DetectedIssue] {
     FHIRComponentField[Option[CodeableConcept]](code, t.code),
     FHIRComponentField[OBSERVATION_STATUS](status, t.status),
     FHIRComponentField[Option[Reference]](author, t.author),
-    FHIRComponentField[Option[String]](detail, t.detail),
+    FHIRComponentField[Option[FHIRString]](detail, t.detail),
     FHIRComponentField[Option[Reference]](patient, t.patient),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[Option[DETECTEDISSUE_SEVERITY]](severity, t.severity),
@@ -309,7 +309,7 @@ object DetectedIssue extends CompanionFor[DetectedIssue] {
   def extractCode(t: DetectedIssue): Option[CodeableConcept]                      = t.code
   def extractStatus(t: DetectedIssue): OBSERVATION_STATUS                         = t.status
   def extractAuthor(t: DetectedIssue): Option[Reference]                          = t.author
-  def extractDetail(t: DetectedIssue): Option[String]                             = t.detail
+  def extractDetail(t: DetectedIssue): Option[FHIRString]                         = t.detail
   def extractPatient(t: DetectedIssue): Option[Reference]                         = t.patient
   def extractLanguage(t: DetectedIssue): Option[LANGUAGES]                        = t.language
   def extractSeverity(t: DetectedIssue): Option[DETECTEDISSUE_SEVERITY]           = t.severity
@@ -333,7 +333,7 @@ object DetectedIssue extends CompanionFor[DetectedIssue] {
     "author"     -> (obj => obj.author.toSeq)
   )
   def unapply(
-      o: DetectedIssue): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], OBSERVATION_STATUS, Option[Reference], Option[String], Option[Reference], Option[LANGUAGES], Option[DETECTEDISSUE_SEVERITY], LitSeq[Resource], LitSeq[Extension], Option[UriStr], LitSeq[Identifier], LitSeq[Reference], Option[UriStr], Option[DetectedIssue.IdentifiedChoice], LitSeq[Extension], LitSeq[DetectedIssue.Evidence], LitSeq[DetectedIssue.Mitigation])] =
+      o: DetectedIssue): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], OBSERVATION_STATUS, Option[Reference], Option[FHIRString], Option[Reference], Option[LANGUAGES], Option[DETECTEDISSUE_SEVERITY], LitSeq[Resource], LitSeq[Extension], Option[UriStr], LitSeq[Identifier], LitSeq[Reference], Option[UriStr], Option[DetectedIssue.IdentifiedChoice], LitSeq[Extension], LitSeq[DetectedIssue.Evidence], LitSeq[DetectedIssue.Mitigation])] =
     Some(
       (
         o.id,
@@ -366,7 +366,7 @@ object DetectedIssue extends CompanionFor[DetectedIssue] {
           cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
           cursor.decodeAs[OBSERVATION_STATUS]("status", None),
           cursor.decodeAs[Option[Reference]]("author", Some(None)),
-          cursor.decodeAs[Option[String]]("detail", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("detail", Some(None)),
           cursor.decodeAs[Option[Reference]]("patient", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[Option[DETECTEDISSUE_SEVERITY]]("severity", Some(None)),
@@ -462,7 +462,7 @@ class DetectedIssue(
     val code: Option[CodeableConcept] = None,
     val status: OBSERVATION_STATUS,
     val author: Option[Reference] = None,
-    val detail: Option[String] = None,
+    val detail: Option[FHIRString] = None,
     val patient: Option[Reference] = None,
     override val language: Option[LANGUAGES] = None,
     val severity: Option[DETECTEDISSUE_SEVERITY] = None,

@@ -53,7 +53,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       def apply(
           id: Option[String] = None,
           `type`: DISCRIMINATOR_TYPE,
-          path: String,
+          path: FHIRString,
           extension: LitSeq[Extension] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
       ): Discriminator = new Discriminator(
@@ -63,14 +63,14 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
         extension,
         primitiveAttributes = primitiveAttributes
       )
-      def unapply(o: Discriminator): Option[(Option[String], DISCRIMINATOR_TYPE, String, LitSeq[Extension])] = Some(
+      def unapply(o: Discriminator): Option[(Option[String], DISCRIMINATOR_TYPE, FHIRString, LitSeq[Extension])] = Some(
         (o.id, o.`type`, o.path, o.extension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
       val `type`: FHIRComponentFieldMeta[DISCRIMINATOR_TYPE] =
         FHIRComponentFieldMeta("type", lTagOf[DISCRIMINATOR_TYPE], false, lTagOf[DISCRIMINATOR_TYPE])
-      val path: FHIRComponentFieldMeta[String] =
-        FHIRComponentFieldMeta("path", lTagOf[String], false, lTagOf[String])
+      val path: FHIRComponentFieldMeta[FHIRString] =
+        FHIRComponentFieldMeta("path", lTagOf[FHIRString], false, lTagOf[FHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]]                                  = Seq(id, `type`, path, extension)
@@ -78,7 +78,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       override def fields(t: Discriminator): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[DISCRIMINATOR_TYPE](`type`, t.`type`),
-        FHIRComponentField[String](path, t.path),
+        FHIRComponentField[FHIRString](path, t.path),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension)
       )
       val baseType: CompanionFor[Discriminator] = this
@@ -89,7 +89,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
             new Discriminator(
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[DISCRIMINATOR_TYPE]("type", None),
-              cursor.decodeAs[String]("path", None),
+              cursor.decodeAs[FHIRString]("path", None),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
             )
@@ -99,7 +99,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     class Discriminator(
         override val id: Option[String] = None,
         val `type`: DISCRIMINATOR_TYPE,
-        val path: String,
+        val path: FHIRString,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
         extends Element(id = id, extension = extension)
@@ -108,7 +108,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
         rules: RESOURCE_SLICING_RULES,
         ordered: Option[Boolean] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         discriminator: LitSeq[Slicing.Discriminator] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Slicing = new Slicing(
@@ -121,7 +121,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Slicing): Option[(Option[String], RESOURCE_SLICING_RULES, Option[Boolean], LitSeq[Extension], Option[String], LitSeq[Slicing.Discriminator])] =
+        o: Slicing): Option[(Option[String], RESOURCE_SLICING_RULES, Option[Boolean], LitSeq[Extension], Option[FHIRString], LitSeq[Slicing.Discriminator])] =
       Some((o.id, o.rules, o.ordered, o.extension, o.description, o.discriminator))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -131,8 +131,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       FHIRComponentFieldMeta("ordered", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val discriminator: FHIRComponentFieldMeta[LitSeq[Slicing.Discriminator]] =
       FHIRComponentFieldMeta("discriminator", lTagOf[LitSeq[Slicing.Discriminator]], false, lTagOf[Slicing.Discriminator])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, rules, ordered, extension, description, discriminator)
@@ -142,7 +142,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       FHIRComponentField[RESOURCE_SLICING_RULES](rules, t.rules),
       FHIRComponentField[Option[Boolean]](ordered, t.ordered),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Slicing.Discriminator]](discriminator, t.discriminator)
     )
     val baseType: CompanionFor[Slicing] = this
@@ -155,7 +155,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
             cursor.decodeAs[RESOURCE_SLICING_RULES]("rules", None),
             cursor.decodeAs[Option[Boolean]]("ordered", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Slicing.Discriminator]]("discriminator", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -167,7 +167,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       val rules: RESOURCE_SLICING_RULES,
       val ordered: Option[Boolean] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       val discriminator: LitSeq[Slicing.Discriminator] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends Element(id = id, extension = extension)
@@ -180,13 +180,13 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     def apply(
         id: Option[String] = None,
         key: Id,
-        human: String,
-        xpath: Option[String] = None,
+        human: FHIRString,
+        xpath: Option[FHIRString] = None,
         source: Option[Canonical] = None,
         severity: CONSTRAINT_SEVERITY,
         extension: LitSeq[Extension] = LitSeq.empty,
-        expression: Option[String] = None,
-        requirements: Option[String] = None,
+        expression: Option[FHIRString] = None,
+        requirements: Option[FHIRString] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Constraint = new Constraint(
       id,
@@ -201,39 +201,39 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Constraint): Option[(Option[String], Id, String, Option[String], Option[Canonical], CONSTRAINT_SEVERITY, LitSeq[Extension], Option[String], Option[String])] =
+        o: Constraint): Option[(Option[String], Id, FHIRString, Option[FHIRString], Option[Canonical], CONSTRAINT_SEVERITY, LitSeq[Extension], Option[FHIRString], Option[FHIRString])] =
       Some((o.id, o.key, o.human, o.xpath, o.source, o.severity, o.extension, o.expression, o.requirements))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val key: FHIRComponentFieldMeta[Id] =
       FHIRComponentFieldMeta("key", lTagOf[Id], false, lTagOf[Id])
-    val human: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("human", lTagOf[String], false, lTagOf[String])
-    val xpath: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("xpath", lTagOf[Option[String]], false, lTagOf[String])
+    val human: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("human", lTagOf[FHIRString], false, lTagOf[FHIRString])
+    val xpath: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("xpath", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val source: FHIRComponentFieldMeta[Option[Canonical]] =
       FHIRComponentFieldMeta("source", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
     val severity: FHIRComponentFieldMeta[CONSTRAINT_SEVERITY] =
       FHIRComponentFieldMeta("severity", lTagOf[CONSTRAINT_SEVERITY], false, lTagOf[CONSTRAINT_SEVERITY])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val expression: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("expression", lTagOf[Option[String]], false, lTagOf[String])
-    val requirements: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("requirements", lTagOf[Option[String]], false, lTagOf[String])
+    val expression: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("expression", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val requirements: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("requirements", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
       Seq(id, key, human, xpath, source, severity, extension, expression, requirements)
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Constraint): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Id](key, t.key),
-      FHIRComponentField[String](human, t.human),
-      FHIRComponentField[Option[String]](xpath, t.xpath),
+      FHIRComponentField[FHIRString](human, t.human),
+      FHIRComponentField[Option[FHIRString]](xpath, t.xpath),
       FHIRComponentField[Option[Canonical]](source, t.source),
       FHIRComponentField[CONSTRAINT_SEVERITY](severity, t.severity),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](expression, t.expression),
-      FHIRComponentField[Option[String]](requirements, t.requirements)
+      FHIRComponentField[Option[FHIRString]](expression, t.expression),
+      FHIRComponentField[Option[FHIRString]](requirements, t.requirements)
     )
     val baseType: CompanionFor[Constraint] = this
     val thisName: String                   = "Constraint"
@@ -243,13 +243,13 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
           new Constraint(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Id]("key", None),
-            cursor.decodeAs[String]("human", None),
-            cursor.decodeAs[Option[String]]("xpath", Some(None)),
+            cursor.decodeAs[FHIRString]("human", None),
+            cursor.decodeAs[Option[FHIRString]]("xpath", Some(None)),
             cursor.decodeAs[Option[Canonical]]("source", Some(None)),
             cursor.decodeAs[CONSTRAINT_SEVERITY]("severity", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("expression", Some(None)),
-            cursor.decodeAs[Option[String]]("requirements", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("expression", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("requirements", Some(None)),
             decodeAttributes(cursor)
           )
         ))
@@ -258,13 +258,13 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
   class Constraint(
       override val id: Option[String] = None,
       val key: Id,
-      val human: String,
-      val xpath: Option[String] = None,
+      val human: FHIRString,
+      val xpath: Option[FHIRString] = None,
       val source: Option[Canonical] = None,
       val severity: CONSTRAINT_SEVERITY,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val expression: Option[String] = None,
-      val requirements: Option[String] = None,
+      val expression: Option[FHIRString] = None,
+      val requirements: Option[FHIRString] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends Element(id = id, extension = extension)
   object Binding extends CompanionFor[Binding] {
@@ -278,7 +278,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
         strength: BINDING_STRENGTH,
         valueSet: Option[Canonical] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Binding = new Binding(
       id,
@@ -288,8 +288,9 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       description,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Binding): Option[(Option[String], BINDING_STRENGTH, Option[Canonical], LitSeq[Extension], Option[String])] =
-      Some((o.id, o.strength, o.valueSet, o.extension, o.description))
+    def unapply(
+        o: Binding): Option[(Option[String], BINDING_STRENGTH, Option[Canonical], LitSeq[Extension], Option[FHIRString])] = Some(
+      (o.id, o.strength, o.valueSet, o.extension, o.description))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val strength: FHIRComponentFieldMeta[BINDING_STRENGTH] =
@@ -298,8 +299,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       FHIRComponentFieldMeta("valueSet", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, strength, valueSet, extension, description)
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Binding): Seq[FHIRComponentField[_]] = Seq(
@@ -307,7 +308,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       FHIRComponentField[BINDING_STRENGTH](strength, t.strength),
       FHIRComponentField[Option[Canonical]](valueSet, t.valueSet),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description)
+      FHIRComponentField[Option[FHIRString]](description, t.description)
     )
     val baseType: CompanionFor[Binding] = this
     val thisName: String                = "Binding"
@@ -319,7 +320,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
             cursor.decodeAs[BINDING_STRENGTH]("strength", None),
             cursor.decodeAs[Option[Canonical]]("valueSet", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             decodeAttributes(cursor)
           )
         ))
@@ -330,7 +331,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       val strength: BINDING_STRENGTH,
       val valueSet: Option[Canonical] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends Element(id = id, extension = extension)
   object Type extends CompanionFor[Type] {
@@ -422,8 +423,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     override val parentType: CompanionFor[ResourceType] = Mapping
     def apply(
         id: Option[String] = None,
-        map: String,
-        comment: Option[String] = None,
+        map: FHIRString,
+        comment: Option[FHIRString] = None,
         identity: Id,
         language: Option[Code] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
@@ -437,14 +438,14 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       extension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Mapping): Option[(Option[String], String, Option[String], Id, Option[Code], LitSeq[Extension])] = Some(
+    def unapply(o: Mapping): Option[(Option[String], FHIRString, Option[FHIRString], Id, Option[Code], LitSeq[Extension])] = Some(
       (o.id, o.map, o.comment, o.identity, o.language, o.extension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val map: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("map", lTagOf[String], false, lTagOf[String])
-    val comment: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+    val map: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("map", lTagOf[FHIRString], false, lTagOf[FHIRString])
+    val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val identity: FHIRComponentFieldMeta[Id] =
       FHIRComponentFieldMeta("identity", lTagOf[Id], false, lTagOf[Id])
     val language: FHIRComponentFieldMeta[Option[Code]] =
@@ -455,8 +456,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Mapping): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](map, t.map),
-      FHIRComponentField[Option[String]](comment, t.comment),
+      FHIRComponentField[FHIRString](map, t.map),
+      FHIRComponentField[Option[FHIRString]](comment, t.comment),
       FHIRComponentField[Id](identity, t.identity),
       FHIRComponentField[Option[Code]](language, t.language),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension)
@@ -468,8 +469,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
         Try(
           new Mapping(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("map", None),
-            cursor.decodeAs[Option[String]]("comment", Some(None)),
+            cursor.decodeAs[FHIRString]("map", None),
+            cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
             cursor.decodeAs[Id]("identity", None),
             cursor.decodeAs[Option[Code]]("language", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -480,8 +481,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
   @POJOBoilerplate
   class Mapping(
       override val id: Option[String] = None,
-      val map: String,
-      val comment: Option[String] = None,
+      val map: FHIRString,
+      val comment: Option[FHIRString] = None,
       val identity: Id,
       val language: Option[Code] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
@@ -496,7 +497,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     type ValueChoice = Choice[UnionAll]
     def apply(
         id: Option[String] = None,
-        label: String,
+        label: FHIRString,
         value: Example.ValueChoice,
         extension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -507,12 +508,12 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       extension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Example): Option[(Option[String], String, Example.ValueChoice, LitSeq[Extension])] = Some(
+    def unapply(o: Example): Option[(Option[String], FHIRString, Example.ValueChoice, LitSeq[Extension])] = Some(
       (o.id, o.label, o.value, o.extension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val label: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("label", lTagOf[String], false, lTagOf[String])
+    val label: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("label", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val value: FHIRComponentFieldMeta[Example.ValueChoice] =
       FHIRComponentFieldMeta("value", lTagOf[Example.ValueChoice], true, lTagOf[UnionAll])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -521,7 +522,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Example): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](label, t.label),
+      FHIRComponentField[FHIRString](label, t.label),
       FHIRComponentField[Example.ValueChoice](value, t.value),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension)
     )
@@ -532,7 +533,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
         Try(
           new Example(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("label", None),
+            cursor.decodeAs[FHIRString]("label", None),
             cursor.decodeRef[UnionAll]("value"),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -542,7 +543,7 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
   @POJOBoilerplate
   class Example(
       override val id: Option[String] = None,
-      val label: String,
+      val label: FHIRString,
       val value: Example.ValueChoice,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -556,8 +557,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     def apply(
         id: Option[String] = None,
         min: UnsignedInt,
-        max: String,
-        path: String,
+        max: FHIRString,
+        path: FHIRString,
         extension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Base = new Base(
@@ -568,16 +569,16 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       extension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Base): Option[(Option[String], UnsignedInt, String, String, LitSeq[Extension])] = Some(
+    def unapply(o: Base): Option[(Option[String], UnsignedInt, FHIRString, FHIRString, LitSeq[Extension])] = Some(
       (o.id, o.min, o.max, o.path, o.extension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val min: FHIRComponentFieldMeta[UnsignedInt] =
       FHIRComponentFieldMeta("min", lTagOf[UnsignedInt], false, lTagOf[UnsignedInt])
-    val max: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("max", lTagOf[String], false, lTagOf[String])
-    val path: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("path", lTagOf[String], false, lTagOf[String])
+    val max: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("max", lTagOf[FHIRString], false, lTagOf[FHIRString])
+    val path: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("path", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]]                                  = Seq(id, min, max, path, extension)
@@ -585,8 +586,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     override def fields(t: Base): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[UnsignedInt](min, t.min),
-      FHIRComponentField[String](max, t.max),
-      FHIRComponentField[String](path, t.path),
+      FHIRComponentField[FHIRString](max, t.max),
+      FHIRComponentField[FHIRString](path, t.path),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension)
     )
     val baseType: CompanionFor[Base] = this
@@ -597,8 +598,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
           new Base(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[UnsignedInt]("min", None),
-            cursor.decodeAs[String]("max", None),
-            cursor.decodeAs[String]("path", None),
+            cursor.decodeAs[FHIRString]("max", None),
+            cursor.decodeAs[FHIRString]("path", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -608,8 +609,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
   class Base(
       override val id: Option[String] = None,
       val min: UnsignedInt,
-      val max: String,
-      val path: String,
+      val max: FHIRString,
+      val path: FHIRString,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends Element(id = id, extension = extension)
@@ -621,16 +622,16 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
   def apply(
       id: Option[String] = None,
       min: Option[UnsignedInt] = None,
-      max: Option[String] = None,
-      path: String,
+      max: Option[FHIRString] = None,
+      path: FHIRString,
       code: LitSeq[Coding] = LitSeq.empty,
-      label: Option[String] = None,
-      short: Option[String] = None,
-      alias: LitSeq[String] = LitSeq.empty,
+      label: Option[FHIRString] = None,
+      short: Option[FHIRString] = None,
+      alias: LitSeq[FHIRString] = LitSeq.empty,
       comment: Option[Markdown] = None,
       fixed: Option[ElementDefinition.FixedChoice] = None,
       extension: LitSeq[Extension] = LitSeq.empty,
-      sliceName: Option[String] = None,
+      sliceName: Option[FHIRString] = None,
       maxLength: Option[Int] = None,
       condition: LitSeq[Id] = LitSeq.empty,
       isSummary: Option[Boolean] = None,
@@ -641,12 +642,12 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
       maxValue: Option[ElementDefinition.MaxValueChoice] = None,
       mustSupport: Option[Boolean] = None,
       requirements: Option[Markdown] = None,
-      orderMeaning: Option[String] = None,
+      orderMeaning: Option[FHIRString] = None,
       representation: LitSeq[PROPERTY_REPRESENTATION] = LitSeq.empty,
       base: Option[ElementDefinition.Base] = None,
       defaultValue: Option[ElementDefinition.DefaultValueChoice] = None,
       contentReference: Option[UriStr] = None,
-      isModifierReason: Option[String] = None,
+      isModifierReason: Option[FHIRString] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       example: LitSeq[ElementDefinition.Example] = LitSeq.empty,
       mapping: LitSeq[ElementDefinition.Mapping] = LitSeq.empty,
@@ -701,26 +702,26 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
   val min: FHIRComponentFieldMeta[Option[UnsignedInt]] =
     FHIRComponentFieldMeta("min", lTagOf[Option[UnsignedInt]], false, lTagOf[UnsignedInt])
-  val max: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("max", lTagOf[Option[String]], false, lTagOf[String])
-  val path: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("path", lTagOf[String], false, lTagOf[String])
+  val max: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("max", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val path: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("path", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val code: FHIRComponentFieldMeta[LitSeq[Coding]] =
     FHIRComponentFieldMeta("code", lTagOf[LitSeq[Coding]], false, lTagOf[Coding])
-  val label: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("label", lTagOf[Option[String]], false, lTagOf[String])
-  val short: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("short", lTagOf[Option[String]], false, lTagOf[String])
-  val alias: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val label: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("label", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val short: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("short", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val alias: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val comment: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("comment", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val fixed: FHIRComponentFieldMeta[Option[ElementDefinition.FixedChoice]] =
     FHIRComponentFieldMeta("fixed", lTagOf[Option[ElementDefinition.FixedChoice]], true, lTagOf[UnionAll])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val sliceName: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("sliceName", lTagOf[Option[String]], false, lTagOf[String])
+  val sliceName: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("sliceName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val maxLength: FHIRComponentFieldMeta[Option[Int]] =
     FHIRComponentFieldMeta("maxLength", lTagOf[Option[Int]], false, lTagOf[Int])
   val condition: FHIRComponentFieldMeta[LitSeq[Id]] =
@@ -741,8 +742,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     FHIRComponentFieldMeta("mustSupport", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
   val requirements: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("requirements", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
-  val orderMeaning: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("orderMeaning", lTagOf[Option[String]], false, lTagOf[String])
+  val orderMeaning: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("orderMeaning", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val representation: FHIRComponentFieldMeta[LitSeq[PROPERTY_REPRESENTATION]] =
     FHIRComponentFieldMeta("representation", lTagOf[LitSeq[PROPERTY_REPRESENTATION]], false, lTagOf[PROPERTY_REPRESENTATION])
   val base: FHIRComponentFieldMeta[Option[ElementDefinition.Base]] =
@@ -751,8 +752,8 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     FHIRComponentFieldMeta("defaultValue", lTagOf[Option[ElementDefinition.DefaultValueChoice]], true, lTagOf[UnionAll])
   val contentReference: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("contentReference", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
-  val isModifierReason: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("isModifierReason", lTagOf[Option[String]], false, lTagOf[String])
+  val isModifierReason: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("isModifierReason", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val example: FHIRComponentFieldMeta[LitSeq[ElementDefinition.Example]] =
@@ -818,16 +819,16 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
   override def fields(t: ElementDefinition): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[UnsignedInt]](min, t.min),
-    FHIRComponentField[Option[String]](max, t.max),
-    FHIRComponentField[String](path, t.path),
+    FHIRComponentField[Option[FHIRString]](max, t.max),
+    FHIRComponentField[FHIRString](path, t.path),
     FHIRComponentField[LitSeq[Coding]](code, t.code),
-    FHIRComponentField[Option[String]](label, t.label),
-    FHIRComponentField[Option[String]](short, t.short),
-    FHIRComponentField[LitSeq[String]](alias, t.alias),
+    FHIRComponentField[Option[FHIRString]](label, t.label),
+    FHIRComponentField[Option[FHIRString]](short, t.short),
+    FHIRComponentField[LitSeq[FHIRString]](alias, t.alias),
     FHIRComponentField[Option[Markdown]](comment, t.comment),
     FHIRComponentField[Option[ElementDefinition.FixedChoice]](fixed, t.fixed),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](sliceName, t.sliceName),
+    FHIRComponentField[Option[FHIRString]](sliceName, t.sliceName),
     FHIRComponentField[Option[Int]](maxLength, t.maxLength),
     FHIRComponentField[LitSeq[Id]](condition, t.condition),
     FHIRComponentField[Option[Boolean]](isSummary, t.isSummary),
@@ -838,12 +839,12 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
     FHIRComponentField[Option[ElementDefinition.MaxValueChoice]](maxValue, t.maxValue),
     FHIRComponentField[Option[Boolean]](mustSupport, t.mustSupport),
     FHIRComponentField[Option[Markdown]](requirements, t.requirements),
-    FHIRComponentField[Option[String]](orderMeaning, t.orderMeaning),
+    FHIRComponentField[Option[FHIRString]](orderMeaning, t.orderMeaning),
     FHIRComponentField[LitSeq[PROPERTY_REPRESENTATION]](representation, t.representation),
     FHIRComponentField[Option[ElementDefinition.Base]](base, t.base),
     FHIRComponentField[Option[ElementDefinition.DefaultValueChoice]](defaultValue, t.defaultValue),
     FHIRComponentField[Option[UriStr]](contentReference, t.contentReference),
-    FHIRComponentField[Option[String]](isModifierReason, t.isModifierReason),
+    FHIRComponentField[Option[FHIRString]](isModifierReason, t.isModifierReason),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[ElementDefinition.Example]](example, t.example),
     FHIRComponentField[LitSeq[ElementDefinition.Mapping]](mapping, t.mapping),
@@ -856,16 +857,16 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
   )
   def extractId(t: ElementDefinition): Option[String]                                         = t.id
   def extractMin(t: ElementDefinition): Option[UnsignedInt]                                   = t.min
-  def extractMax(t: ElementDefinition): Option[String]                                        = t.max
-  def extractPath(t: ElementDefinition): String                                               = t.path
+  def extractMax(t: ElementDefinition): Option[FHIRString]                                    = t.max
+  def extractPath(t: ElementDefinition): FHIRString                                           = t.path
   def extractCode(t: ElementDefinition): LitSeq[Coding]                                       = t.code
-  def extractLabel(t: ElementDefinition): Option[String]                                      = t.label
-  def extractShort(t: ElementDefinition): Option[String]                                      = t.short
-  def extractAlias(t: ElementDefinition): LitSeq[String]                                      = t.alias
+  def extractLabel(t: ElementDefinition): Option[FHIRString]                                  = t.label
+  def extractShort(t: ElementDefinition): Option[FHIRString]                                  = t.short
+  def extractAlias(t: ElementDefinition): LitSeq[FHIRString]                                  = t.alias
   def extractComment(t: ElementDefinition): Option[Markdown]                                  = t.comment
   def extractFixed(t: ElementDefinition): Option[ElementDefinition.FixedChoice]               = t.fixed
   def extractExtension(t: ElementDefinition): LitSeq[Extension]                               = t.extension
-  def extractSliceName(t: ElementDefinition): Option[String]                                  = t.sliceName
+  def extractSliceName(t: ElementDefinition): Option[FHIRString]                              = t.sliceName
   def extractMaxLength(t: ElementDefinition): Option[Int]                                     = t.maxLength
   def extractCondition(t: ElementDefinition): LitSeq[Id]                                      = t.condition
   def extractIsSummary(t: ElementDefinition): Option[Boolean]                                 = t.isSummary
@@ -876,12 +877,12 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
   def extractMaxValue(t: ElementDefinition): Option[ElementDefinition.MaxValueChoice]         = t.maxValue
   def extractMustSupport(t: ElementDefinition): Option[Boolean]                               = t.mustSupport
   def extractRequirements(t: ElementDefinition): Option[Markdown]                             = t.requirements
-  def extractOrderMeaning(t: ElementDefinition): Option[String]                               = t.orderMeaning
+  def extractOrderMeaning(t: ElementDefinition): Option[FHIRString]                           = t.orderMeaning
   def extractRepresentation(t: ElementDefinition): LitSeq[PROPERTY_REPRESENTATION]            = t.representation
   def extractBase(t: ElementDefinition): Option[ElementDefinition.Base]                       = t.base
   def extractDefaultValue(t: ElementDefinition): Option[ElementDefinition.DefaultValueChoice] = t.defaultValue
   def extractContentReference(t: ElementDefinition): Option[UriStr]                           = t.contentReference
-  def extractIsModifierReason(t: ElementDefinition): Option[String]                           = t.isModifierReason
+  def extractIsModifierReason(t: ElementDefinition): Option[FHIRString]                       = t.isModifierReason
   def extractModifierExtension(t: ElementDefinition): LitSeq[Extension]                       = t.modifierExtension
   def extractExample(t: ElementDefinition): LitSeq[ElementDefinition.Example]                 = t.example
   def extractMapping(t: ElementDefinition): LitSeq[ElementDefinition.Mapping]                 = t.mapping
@@ -898,16 +899,16 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
         new ElementDefinition(
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[UnsignedInt]]("min", Some(None)),
-          cursor.decodeAs[Option[String]]("max", Some(None)),
-          cursor.decodeAs[String]("path", None),
+          cursor.decodeAs[Option[FHIRString]]("max", Some(None)),
+          cursor.decodeAs[FHIRString]("path", None),
           cursor.decodeAs[LitSeq[Coding]]("code", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("label", Some(None)),
-          cursor.decodeAs[Option[String]]("short", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("alias", Some(LitSeq.empty)),
+          cursor.decodeAs[Option[FHIRString]]("label", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("short", Some(None)),
+          cursor.decodeAs[LitSeq[FHIRString]]("alias", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("comment", Some(None)),
           cursor.decodeOptRef[UnionAll]("fixed"),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("sliceName", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("sliceName", Some(None)),
           cursor.decodeAs[Option[Int]]("maxLength", Some(None)),
           cursor.decodeAs[LitSeq[Id]]("condition", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Boolean]]("isSummary", Some(None)),
@@ -918,12 +919,12 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
           cursor.decodeOptRef[Union01480857620]("maxValue"),
           cursor.decodeAs[Option[Boolean]]("mustSupport", Some(None)),
           cursor.decodeAs[Option[Markdown]]("requirements", Some(None)),
-          cursor.decodeAs[Option[String]]("orderMeaning", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("orderMeaning", Some(None)),
           cursor.decodeAs[LitSeq[PROPERTY_REPRESENTATION]]("representation", Some(LitSeq.empty)),
           cursor.decodeAs[Option[ElementDefinition.Base]]("base", Some(None)),
           cursor.decodeOptRef[UnionAll]("defaultValue"),
           cursor.decodeAs[Option[UriStr]]("contentReference", Some(None)),
-          cursor.decodeAs[Option[String]]("isModifierReason", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("isModifierReason", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ElementDefinition.Example]]("example", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ElementDefinition.Mapping]]("mapping", Some(LitSeq.empty)),
@@ -1080,16 +1081,16 @@ object ElementDefinition extends CompanionFor[ElementDefinition] {
 class ElementDefinition(
     override val id: Option[String] = None,
     val min: Option[UnsignedInt] = None,
-    val max: Option[String] = None,
-    val path: String,
+    val max: Option[FHIRString] = None,
+    val path: FHIRString,
     val code: LitSeq[Coding] = LitSeq.empty,
-    val label: Option[String] = None,
-    val short: Option[String] = None,
-    val alias: LitSeq[String] = LitSeq.empty,
+    val label: Option[FHIRString] = None,
+    val short: Option[FHIRString] = None,
+    val alias: LitSeq[FHIRString] = LitSeq.empty,
     val comment: Option[Markdown] = None,
     val fixed: Option[ElementDefinition.FixedChoice] = None,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val sliceName: Option[String] = None,
+    val sliceName: Option[FHIRString] = None,
     val maxLength: Option[Int] = None,
     val condition: LitSeq[Id] = LitSeq.empty,
     val isSummary: Option[Boolean] = None,
@@ -1100,12 +1101,12 @@ class ElementDefinition(
     val maxValue: Option[ElementDefinition.MaxValueChoice] = None,
     val mustSupport: Option[Boolean] = None,
     val requirements: Option[Markdown] = None,
-    val orderMeaning: Option[String] = None,
+    val orderMeaning: Option[FHIRString] = None,
     val representation: LitSeq[PROPERTY_REPRESENTATION] = LitSeq.empty,
     val base: Option[ElementDefinition.Base] = None,
     val defaultValue: Option[ElementDefinition.DefaultValueChoice] = None,
     val contentReference: Option[UriStr] = None,
-    val isModifierReason: Option[String] = None,
+    val isModifierReason: Option[FHIRString] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val example: LitSeq[ElementDefinition.Example] = LitSeq.empty,
     val mapping: LitSeq[ElementDefinition.Mapping] = LitSeq.empty,

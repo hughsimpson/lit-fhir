@@ -52,7 +52,7 @@ object ValueSet extends CompanionFor[ValueSet] {
         def apply(
             id: Option[String] = None,
             op: FILTER_OPERATOR,
-            value: String,
+            value: FHIRString,
             property: Code,
             extension: LitSeq[Extension] = LitSeq.empty,
             modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -66,14 +66,15 @@ object ValueSet extends CompanionFor[ValueSet] {
           modifierExtension,
           primitiveAttributes = primitiveAttributes
         )
-        def unapply(o: Filter): Option[(Option[String], FILTER_OPERATOR, String, Code, LitSeq[Extension], LitSeq[Extension])] =
-          Some((o.id, o.op, o.value, o.property, o.extension, o.modifierExtension))
+        def unapply(
+            o: Filter): Option[(Option[String], FILTER_OPERATOR, FHIRString, Code, LitSeq[Extension], LitSeq[Extension])] = Some(
+          (o.id, o.op, o.value, o.property, o.extension, o.modifierExtension))
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
         val op: FHIRComponentFieldMeta[FILTER_OPERATOR] =
           FHIRComponentFieldMeta("op", lTagOf[FILTER_OPERATOR], false, lTagOf[FILTER_OPERATOR])
-        val value: FHIRComponentFieldMeta[String] =
-          FHIRComponentFieldMeta("value", lTagOf[String], false, lTagOf[String])
+        val value: FHIRComponentFieldMeta[FHIRString] =
+          FHIRComponentFieldMeta("value", lTagOf[FHIRString], false, lTagOf[FHIRString])
         val property: FHIRComponentFieldMeta[Code] =
           FHIRComponentFieldMeta("property", lTagOf[Code], false, lTagOf[Code])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -85,7 +86,7 @@ object ValueSet extends CompanionFor[ValueSet] {
         override def fields(t: Filter): Seq[FHIRComponentField[_]] = Seq(
           FHIRComponentField[Option[String]](id, t.id),
           FHIRComponentField[FILTER_OPERATOR](op, t.op),
-          FHIRComponentField[String](value, t.value),
+          FHIRComponentField[FHIRString](value, t.value),
           FHIRComponentField[Code](property, t.property),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -98,7 +99,7 @@ object ValueSet extends CompanionFor[ValueSet] {
               new Filter(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
                 cursor.decodeAs[FILTER_OPERATOR]("op", None),
-                cursor.decodeAs[String]("value", None),
+                cursor.decodeAs[FHIRString]("value", None),
                 cursor.decodeAs[Code]("property", None),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -110,7 +111,7 @@ object ValueSet extends CompanionFor[ValueSet] {
       class Filter(
           override val id: Option[String] = None,
           val op: FILTER_OPERATOR,
-          val value: String,
+          val value: FHIRString,
           val property: Code,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -131,7 +132,7 @@ object ValueSet extends CompanionFor[ValueSet] {
           def apply(
               id: Option[String] = None,
               use: Option[Coding] = None,
-              value: String,
+              value: FHIRString,
               language: Option[LANGUAGES] = None,
               extension: LitSeq[Extension] = LitSeq.empty,
               modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -146,14 +147,14 @@ object ValueSet extends CompanionFor[ValueSet] {
             primitiveAttributes = primitiveAttributes
           )
           def unapply(
-              o: Designation): Option[(Option[String], Option[Coding], String, Option[LANGUAGES], LitSeq[Extension], LitSeq[Extension])] =
+              o: Designation): Option[(Option[String], Option[Coding], FHIRString, Option[LANGUAGES], LitSeq[Extension], LitSeq[Extension])] =
             Some((o.id, o.use, o.value, o.language, o.extension, o.modifierExtension))
           val id: FHIRComponentFieldMeta[Option[String]] =
             FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
           val use: FHIRComponentFieldMeta[Option[Coding]] =
             FHIRComponentFieldMeta("use", lTagOf[Option[Coding]], false, lTagOf[Coding])
-          val value: FHIRComponentFieldMeta[String] =
-            FHIRComponentFieldMeta("value", lTagOf[String], false, lTagOf[String])
+          val value: FHIRComponentFieldMeta[FHIRString] =
+            FHIRComponentFieldMeta("value", lTagOf[FHIRString], false, lTagOf[FHIRString])
           val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
             FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
           val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -165,7 +166,7 @@ object ValueSet extends CompanionFor[ValueSet] {
           override def fields(t: Designation): Seq[FHIRComponentField[_]] = Seq(
             FHIRComponentField[Option[String]](id, t.id),
             FHIRComponentField[Option[Coding]](use, t.use),
-            FHIRComponentField[String](value, t.value),
+            FHIRComponentField[FHIRString](value, t.value),
             FHIRComponentField[Option[LANGUAGES]](language, t.language),
             FHIRComponentField[LitSeq[Extension]](extension, t.extension),
             FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -178,7 +179,7 @@ object ValueSet extends CompanionFor[ValueSet] {
                 new Designation(
                   cursor.decodeAs[Option[String]]("id", Some(None)),
                   cursor.decodeAs[Option[Coding]]("use", Some(None)),
-                  cursor.decodeAs[String]("value", None),
+                  cursor.decodeAs[FHIRString]("value", None),
                   cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
                   cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                   cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -190,7 +191,7 @@ object ValueSet extends CompanionFor[ValueSet] {
         class Designation(
             override val id: Option[String] = None,
             val use: Option[Coding] = None,
-            val value: String,
+            val value: FHIRString,
             val language: Option[LANGUAGES] = None,
             override val extension: LitSeq[Extension] = LitSeq.empty,
             override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -199,7 +200,7 @@ object ValueSet extends CompanionFor[ValueSet] {
         def apply(
             id: Option[String] = None,
             code: Code,
-            display: Option[String] = None,
+            display: Option[FHIRString] = None,
             extension: LitSeq[Extension] = LitSeq.empty,
             modifierExtension: LitSeq[Extension] = LitSeq.empty,
             designation: LitSeq[Concept.Designation] = LitSeq.empty,
@@ -214,14 +215,14 @@ object ValueSet extends CompanionFor[ValueSet] {
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: Concept): Option[(Option[String], Code, Option[String], LitSeq[Extension], LitSeq[Extension], LitSeq[Concept.Designation])] =
+            o: Concept): Option[(Option[String], Code, Option[FHIRString], LitSeq[Extension], LitSeq[Extension], LitSeq[Concept.Designation])] =
           Some((o.id, o.code, o.display, o.extension, o.modifierExtension, o.designation))
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
         val code: FHIRComponentFieldMeta[Code] =
           FHIRComponentFieldMeta("code", lTagOf[Code], false, lTagOf[Code])
-        val display: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("display", lTagOf[Option[String]], false, lTagOf[String])
+        val display: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("display", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -233,7 +234,7 @@ object ValueSet extends CompanionFor[ValueSet] {
         override def fields(t: Concept): Seq[FHIRComponentField[_]] = Seq(
           FHIRComponentField[Option[String]](id, t.id),
           FHIRComponentField[Code](code, t.code),
-          FHIRComponentField[Option[String]](display, t.display),
+          FHIRComponentField[Option[FHIRString]](display, t.display),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
           FHIRComponentField[LitSeq[Concept.Designation]](designation, t.designation)
@@ -246,7 +247,7 @@ object ValueSet extends CompanionFor[ValueSet] {
               new Concept(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
                 cursor.decodeAs[Code]("code", None),
-                cursor.decodeAs[Option[String]]("display", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("display", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
                 cursor.decodeAs[LitSeq[Concept.Designation]]("designation", Some(LitSeq.empty)),
@@ -258,7 +259,7 @@ object ValueSet extends CompanionFor[ValueSet] {
       class Concept(
           override val id: Option[String] = None,
           val code: Code,
-          val display: Option[String] = None,
+          val display: Option[FHIRString] = None,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
           val designation: LitSeq[Concept.Designation] = LitSeq.empty,
@@ -267,7 +268,7 @@ object ValueSet extends CompanionFor[ValueSet] {
       def apply(
           id: Option[String] = None,
           system: Option[UriStr] = None,
-          version: Option[String] = None,
+          version: Option[FHIRString] = None,
           valueSet: LitSeq[Canonical] = LitSeq.empty,
           extension: LitSeq[Extension] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -286,14 +287,14 @@ object ValueSet extends CompanionFor[ValueSet] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Include): Option[(Option[String], Option[UriStr], Option[String], LitSeq[Canonical], LitSeq[Extension], LitSeq[Extension], LitSeq[Include.Filter], LitSeq[Include.Concept])] =
+          o: Include): Option[(Option[String], Option[UriStr], Option[FHIRString], LitSeq[Canonical], LitSeq[Extension], LitSeq[Extension], LitSeq[Include.Filter], LitSeq[Include.Concept])] =
         Some((o.id, o.system, o.version, o.valueSet, o.extension, o.modifierExtension, o.filter, o.concept))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
       val system: FHIRComponentFieldMeta[Option[UriStr]] =
         FHIRComponentFieldMeta("system", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
-      val version: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+      val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val valueSet: FHIRComponentFieldMeta[LitSeq[Canonical]] =
         FHIRComponentFieldMeta("valueSet", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -310,7 +311,7 @@ object ValueSet extends CompanionFor[ValueSet] {
       override def fields(t: Include): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[Option[UriStr]](system, t.system),
-        FHIRComponentField[Option[String]](version, t.version),
+        FHIRComponentField[Option[FHIRString]](version, t.version),
         FHIRComponentField[LitSeq[Canonical]](valueSet, t.valueSet),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -325,7 +326,7 @@ object ValueSet extends CompanionFor[ValueSet] {
             new Include(
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[Option[UriStr]]("system", Some(None)),
-              cursor.decodeAs[Option[String]]("version", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
               cursor.decodeAs[LitSeq[Canonical]]("valueSet", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -339,7 +340,7 @@ object ValueSet extends CompanionFor[ValueSet] {
     class Include(
         override val id: Option[String] = None,
         val system: Option[UriStr] = None,
-        val version: Option[String] = None,
+        val version: Option[FHIRString] = None,
         val valueSet: LitSeq[Canonical] = LitSeq.empty,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -438,8 +439,8 @@ object ValueSet extends CompanionFor[ValueSet] {
           id: Option[String] = None,
           code: Option[Code] = None,
           system: Option[UriStr] = None,
-          version: Option[String] = None,
-          display: Option[String] = None,
+          version: Option[FHIRString] = None,
+          display: Option[FHIRString] = None,
           `abstract`: Option[Boolean] = None,
           inactive: Option[Boolean] = None,
           contains: LitSeq[ValueSet.Expansion.Contains] = LitSeq.empty,
@@ -462,7 +463,7 @@ object ValueSet extends CompanionFor[ValueSet] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Contains): Option[(Option[String], Option[Code], Option[UriStr], Option[String], Option[String], Option[Boolean], Option[Boolean], LitSeq[ValueSet.Expansion.Contains], LitSeq[Extension], LitSeq[ValueSet.Compose.Include.Concept.Designation], LitSeq[Extension])] =
+          o: Contains): Option[(Option[String], Option[Code], Option[UriStr], Option[FHIRString], Option[FHIRString], Option[Boolean], Option[Boolean], LitSeq[ValueSet.Expansion.Contains], LitSeq[Extension], LitSeq[ValueSet.Compose.Include.Concept.Designation], LitSeq[Extension])] =
         Some(
           (
             o.id,
@@ -482,10 +483,10 @@ object ValueSet extends CompanionFor[ValueSet] {
         FHIRComponentFieldMeta("code", lTagOf[Option[Code]], false, lTagOf[Code])
       val system: FHIRComponentFieldMeta[Option[UriStr]] =
         FHIRComponentFieldMeta("system", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
-      val version: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
-      val display: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("display", lTagOf[Option[String]], false, lTagOf[String])
+      val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+      val display: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("display", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val `abstract`: FHIRComponentFieldMeta[Option[Boolean]] =
         FHIRComponentFieldMeta("abstract", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
       val inactive: FHIRComponentFieldMeta[Option[Boolean]] =
@@ -513,8 +514,8 @@ object ValueSet extends CompanionFor[ValueSet] {
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[Option[Code]](code, t.code),
         FHIRComponentField[Option[UriStr]](system, t.system),
-        FHIRComponentField[Option[String]](version, t.version),
-        FHIRComponentField[Option[String]](display, t.display),
+        FHIRComponentField[Option[FHIRString]](version, t.version),
+        FHIRComponentField[Option[FHIRString]](display, t.display),
         FHIRComponentField[Option[Boolean]](`abstract`, t.`abstract`),
         FHIRComponentField[Option[Boolean]](inactive, t.inactive),
         FHIRComponentField[LitSeq[ValueSet.Expansion.Contains]](contains, t.contains),
@@ -531,8 +532,8 @@ object ValueSet extends CompanionFor[ValueSet] {
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[Option[Code]]("code", Some(None)),
               cursor.decodeAs[Option[UriStr]]("system", Some(None)),
-              cursor.decodeAs[Option[String]]("version", Some(None)),
-              cursor.decodeAs[Option[String]]("display", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("display", Some(None)),
               cursor.decodeAs[Option[Boolean]]("abstract", Some(None)),
               cursor.decodeAs[Option[Boolean]]("inactive", Some(None)),
               cursor.decodeAs[LitSeq[ValueSet.Expansion.Contains]]("contains", Some(LitSeq.empty)),
@@ -548,8 +549,8 @@ object ValueSet extends CompanionFor[ValueSet] {
         override val id: Option[String] = None,
         val code: Option[Code] = None,
         val system: Option[UriStr] = None,
-        val version: Option[String] = None,
-        val display: Option[String] = None,
+        val version: Option[FHIRString] = None,
+        val display: Option[FHIRString] = None,
         val `abstract`: Option[Boolean] = None,
         val inactive: Option[Boolean] = None,
         val contains: LitSeq[ValueSet.Expansion.Contains] = LitSeq.empty,
@@ -564,10 +565,10 @@ object ValueSet extends CompanionFor[ValueSet] {
       override type ResourceType = Parameter
       override type ParentType   = Parameter
       override val parentType: CompanionFor[ResourceType] = Parameter
-      type ValueChoice = Choice[Union01475253842]
+      type ValueChoice = Choice[Union_0245096255]
       def apply(
           id: Option[String] = None,
-          name: String,
+          name: FHIRString,
           value: Option[Parameter.ValueChoice] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -581,14 +582,14 @@ object ValueSet extends CompanionFor[ValueSet] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Parameter): Option[(Option[String], String, Option[Parameter.ValueChoice], LitSeq[Extension], LitSeq[Extension])] =
+          o: Parameter): Option[(Option[String], FHIRString, Option[Parameter.ValueChoice], LitSeq[Extension], LitSeq[Extension])] =
         Some((o.id, o.name, o.value, o.extension, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val name: FHIRComponentFieldMeta[String] =
-        FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+      val name: FHIRComponentFieldMeta[FHIRString] =
+        FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
       val value: FHIRComponentFieldMeta[Option[Parameter.ValueChoice]] =
-        FHIRComponentFieldMeta("value", lTagOf[Option[Parameter.ValueChoice]], true, lTagOf[Union01475253842])
+        FHIRComponentFieldMeta("value", lTagOf[Option[Parameter.ValueChoice]], true, lTagOf[Union_0245096255])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -597,7 +598,7 @@ object ValueSet extends CompanionFor[ValueSet] {
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: Parameter): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[String](name, t.name),
+        FHIRComponentField[FHIRString](name, t.name),
         FHIRComponentField[Option[Parameter.ValueChoice]](value, t.value),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -609,8 +610,8 @@ object ValueSet extends CompanionFor[ValueSet] {
           Try(
             new Parameter(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[String]("name", None),
-              cursor.decodeOptRef[Union01475253842]("value"),
+              cursor.decodeAs[FHIRString]("name", None),
+              cursor.decodeOptRef[Union_0245096255]("value"),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
@@ -620,7 +621,7 @@ object ValueSet extends CompanionFor[ValueSet] {
     @POJOBoilerplate
     class Parameter(
         override val id: Option[String] = None,
-        val name: String,
+        val name: FHIRString,
         val value: Option[Parameter.ValueChoice] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -721,17 +722,17 @@ object ValueSet extends CompanionFor[ValueSet] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       date: Option[FHIRDateTime] = None,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       status: PUBLICATION_STATUS,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       immutable: Option[Boolean] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
@@ -781,16 +782,16 @@ object ValueSet extends CompanionFor[ValueSet] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -801,8 +802,8 @@ object ValueSet extends CompanionFor[ValueSet] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val immutable: FHIRComponentFieldMeta[Option[Boolean]] =
     FHIRComponentFieldMeta("immutable", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -859,17 +860,17 @@ object ValueSet extends CompanionFor[ValueSet] {
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Boolean]](immutable, t.immutable),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
@@ -886,17 +887,17 @@ object ValueSet extends CompanionFor[ValueSet] {
   def extractUrl(t: ValueSet): Option[UriStr]                   = t.url
   def extractMeta(t: ValueSet): Option[Meta]                    = t.meta
   def extractText(t: ValueSet): Option[Narrative]               = t.text
-  def extractName(t: ValueSet): Option[String]                  = t.name
+  def extractName(t: ValueSet): Option[FHIRString]              = t.name
   def extractDate(t: ValueSet): Option[FHIRDateTime]            = t.date
-  def extractTitle(t: ValueSet): Option[String]                 = t.title
+  def extractTitle(t: ValueSet): Option[FHIRString]             = t.title
   def extractStatus(t: ValueSet): PUBLICATION_STATUS            = t.status
-  def extractVersion(t: ValueSet): Option[String]               = t.version
+  def extractVersion(t: ValueSet): Option[FHIRString]           = t.version
   def extractContact(t: ValueSet): LitSeq[ContactDetail]        = t.contact
   def extractPurpose(t: ValueSet): Option[Markdown]             = t.purpose
   def extractLanguage(t: ValueSet): Option[LANGUAGES]           = t.language
   def extractContained(t: ValueSet): LitSeq[Resource]           = t.contained
   def extractExtension(t: ValueSet): LitSeq[Extension]          = t.extension
-  def extractPublisher(t: ValueSet): Option[String]             = t.publisher
+  def extractPublisher(t: ValueSet): Option[FHIRString]         = t.publisher
   def extractImmutable(t: ValueSet): Option[Boolean]            = t.immutable
   def extractCopyright(t: ValueSet): Option[Markdown]           = t.copyright
   def extractIdentifier(t: ValueSet): LitSeq[Identifier]        = t.identifier
@@ -941,17 +942,17 @@ object ValueSet extends CompanionFor[ValueSet] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Boolean]]("immutable", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
@@ -1069,17 +1070,17 @@ class ValueSet(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val date: Option[FHIRDateTime] = None,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val status: PUBLICATION_STATUS,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val immutable: Option[Boolean] = None,
     val copyright: Option[Markdown] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,

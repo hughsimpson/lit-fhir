@@ -52,19 +52,19 @@ object Us_core_implantable_device extends CompanionFor[Us_core_implantable_devic
       location: Option[Reference] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      lotNumber: Option[String] = None,
+      lotNumber: Option[FHIRString] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       definition: Option[Reference] = None,
-      partNumber: Option[String] = None,
-      modelNumber: Option[String] = None,
+      partNumber: Option[FHIRString] = None,
+      modelNumber: Option[FHIRString] = None,
       statusReason: LitSeq[CodeableConcept] = LitSeq.empty,
-      manufacturer: Option[String] = None,
-      serialNumber: Option[String] = None,
+      manufacturer: Option[FHIRString] = None,
+      serialNumber: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       expirationDate: Option[FHIRDateTime] = None,
       manufactureDate: Option[FHIRDateTime] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      distinctIdentifier: Option[String] = None,
+      distinctIdentifier: Option[FHIRString] = None,
       version: LitSeq[Device.Version] = LitSeq.empty,
       property: LitSeq[Device.Property] = LitSeq.empty,
       udiCarrier: Option[Device.UdiCarrier] = None,
@@ -140,22 +140,22 @@ object Us_core_implantable_device extends CompanionFor[Us_core_implantable_devic
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val lotNumber: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("lotNumber", lTagOf[Option[String]], false, lTagOf[String])
+  val lotNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("lotNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
   val definition: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("definition", lTagOf[Option[Reference]], false, lTagOf[Reference])
-  val partNumber: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("partNumber", lTagOf[Option[String]], false, lTagOf[String])
-  val modelNumber: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("modelNumber", lTagOf[Option[String]], false, lTagOf[String])
+  val partNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("partNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val modelNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("modelNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val statusReason: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("statusReason", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val manufacturer: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("manufacturer", lTagOf[Option[String]], false, lTagOf[String])
-  val serialNumber: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("serialNumber", lTagOf[Option[String]], false, lTagOf[String])
+  val manufacturer: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("manufacturer", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val serialNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("serialNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val expirationDate: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
@@ -164,8 +164,8 @@ object Us_core_implantable_device extends CompanionFor[Us_core_implantable_devic
     FHIRComponentFieldMeta("manufactureDate", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val distinctIdentifier: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("distinctIdentifier", lTagOf[Option[String]], false, lTagOf[String])
+  val distinctIdentifier: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("distinctIdentifier", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val version: FHIRComponentFieldMeta[LitSeq[Device.Version]] =
     FHIRComponentFieldMeta("version", lTagOf[LitSeq[Device.Version]], false, lTagOf[Device.Version])
   val property: FHIRComponentFieldMeta[LitSeq[Device.Property]] =
@@ -230,19 +230,19 @@ object Us_core_implantable_device extends CompanionFor[Us_core_implantable_devic
       FHIRComponentField[Option[Reference]](location, t.location),
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](lotNumber, t.lotNumber),
+      FHIRComponentField[Option[FHIRString]](lotNumber, t.lotNumber),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
       FHIRComponentField[Option[Reference]](definition, t.definition),
-      FHIRComponentField[Option[String]](partNumber, t.partNumber),
-      FHIRComponentField[Option[String]](modelNumber, t.modelNumber),
+      FHIRComponentField[Option[FHIRString]](partNumber, t.partNumber),
+      FHIRComponentField[Option[FHIRString]](modelNumber, t.modelNumber),
       FHIRComponentField[LitSeq[CodeableConcept]](statusReason, t.statusReason),
-      FHIRComponentField[Option[String]](manufacturer, t.manufacturer),
-      FHIRComponentField[Option[String]](serialNumber, t.serialNumber),
+      FHIRComponentField[Option[FHIRString]](manufacturer, t.manufacturer),
+      FHIRComponentField[Option[FHIRString]](serialNumber, t.serialNumber),
       FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
       FHIRComponentField[Option[FHIRDateTime]](expirationDate, t.expirationDate),
       FHIRComponentField[Option[FHIRDateTime]](manufactureDate, t.manufactureDate),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-      FHIRComponentField[Option[String]](distinctIdentifier, t.distinctIdentifier),
+      FHIRComponentField[Option[FHIRString]](distinctIdentifier, t.distinctIdentifier),
       FHIRComponentField[LitSeq[Device.Version]](version, t.version),
       FHIRComponentField[LitSeq[Device.Property]](property, t.property),
       FHIRComponentField[Option[Device.UdiCarrier]](udiCarrier, t.udiCarrier.headOption),
@@ -266,19 +266,19 @@ object Us_core_implantable_device extends CompanionFor[Us_core_implantable_devic
   def extractLocation(t: Us_core_implantable_device): Option[Reference]                   = t.location
   def extractContained(t: Us_core_implantable_device): LitSeq[Resource]                   = t.contained
   def extractExtension(t: Us_core_implantable_device): LitSeq[Extension]                  = t.extension
-  def extractLotNumber(t: Us_core_implantable_device): Option[String]                     = t.lotNumber
+  def extractLotNumber(t: Us_core_implantable_device): Option[FHIRString]                 = t.lotNumber
   def extractIdentifier(t: Us_core_implantable_device): LitSeq[Identifier]                = t.identifier
   def extractDefinition(t: Us_core_implantable_device): Option[Reference]                 = t.definition
-  def extractPartNumber(t: Us_core_implantable_device): Option[String]                    = t.partNumber
-  def extractModelNumber(t: Us_core_implantable_device): Option[String]                   = t.modelNumber
+  def extractPartNumber(t: Us_core_implantable_device): Option[FHIRString]                = t.partNumber
+  def extractModelNumber(t: Us_core_implantable_device): Option[FHIRString]               = t.modelNumber
   def extractStatusReason(t: Us_core_implantable_device): LitSeq[CodeableConcept]         = t.statusReason
-  def extractManufacturer(t: Us_core_implantable_device): Option[String]                  = t.manufacturer
-  def extractSerialNumber(t: Us_core_implantable_device): Option[String]                  = t.serialNumber
+  def extractManufacturer(t: Us_core_implantable_device): Option[FHIRString]              = t.manufacturer
+  def extractSerialNumber(t: Us_core_implantable_device): Option[FHIRString]              = t.serialNumber
   def extractImplicitRules(t: Us_core_implantable_device): Option[UriStr]                 = t.implicitRules
   def extractExpirationDate(t: Us_core_implantable_device): Option[FHIRDateTime]          = t.expirationDate
   def extractManufactureDate(t: Us_core_implantable_device): Option[FHIRDateTime]         = t.manufactureDate
   def extractModifierExtension(t: Us_core_implantable_device): LitSeq[Extension]          = t.modifierExtension
-  def extractDistinctIdentifier(t: Us_core_implantable_device): Option[String]            = t.distinctIdentifier
+  def extractDistinctIdentifier(t: Us_core_implantable_device): Option[FHIRString]        = t.distinctIdentifier
   def extractVersion(t: Us_core_implantable_device): LitSeq[Device.Version]               = t.version
   def extractProperty(t: Us_core_implantable_device): LitSeq[Device.Property]             = t.property
   def extractUdiCarrier(t: Us_core_implantable_device): Option[Device.UdiCarrier]         = t.udiCarrier.headOption
@@ -306,19 +306,19 @@ object Us_core_implantable_device extends CompanionFor[Us_core_implantable_devic
           cursor.decodeAs[Option[Reference]]("location", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("lotNumber", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("lotNumber", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("definition", Some(None)),
-          cursor.decodeAs[Option[String]]("partNumber", Some(None)),
-          cursor.decodeAs[Option[String]]("modelNumber", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("partNumber", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("modelNumber", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("statusReason", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("manufacturer", Some(None)),
-          cursor.decodeAs[Option[String]]("serialNumber", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("manufacturer", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("serialNumber", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("expirationDate", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("manufactureDate", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("distinctIdentifier", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("distinctIdentifier", Some(None)),
           cursor.decodeAs[LitSeq[Device.Version]]("version", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Device.Property]]("property", Some(LitSeq.empty)),
           cursor.decodeFromListAs[Option[Device.UdiCarrier]]("udiCarrier", Some(None)),
@@ -447,19 +447,19 @@ class Us_core_implantable_device(
     override val location: Option[Reference] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    override val lotNumber: Option[String] = None,
+    override val lotNumber: Option[FHIRString] = None,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
     override val definition: Option[Reference] = None,
-    override val partNumber: Option[String] = None,
-    override val modelNumber: Option[String] = None,
+    override val partNumber: Option[FHIRString] = None,
+    override val modelNumber: Option[FHIRString] = None,
     override val statusReason: LitSeq[CodeableConcept] = LitSeq.empty,
-    override val manufacturer: Option[String] = None,
-    override val serialNumber: Option[String] = None,
+    override val manufacturer: Option[FHIRString] = None,
+    override val serialNumber: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val expirationDate: Option[FHIRDateTime] = None,
     override val manufactureDate: Option[FHIRDateTime] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-    override val distinctIdentifier: Option[String] = None,
+    override val distinctIdentifier: Option[FHIRString] = None,
     override val version: LitSeq[Device.Version] = LitSeq.empty,
     override val property: LitSeq[Device.Property] = LitSeq.empty,
     udiCarrier: Option[Device.UdiCarrier] = None,

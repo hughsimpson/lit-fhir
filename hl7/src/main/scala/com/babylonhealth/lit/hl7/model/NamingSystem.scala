@@ -40,9 +40,9 @@ object NamingSystem extends CompanionFor[NamingSystem] {
     def apply(
         id: Option[String] = None,
         `type`: NAMINGSYSTEM_IDENTIFIER_TYPE,
-        value: String,
+        value: FHIRString,
         period: Option[Period] = None,
-        comment: Option[String] = None,
+        comment: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         preferred: Option[Boolean] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -59,18 +59,18 @@ object NamingSystem extends CompanionFor[NamingSystem] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: UniqueId): Option[(Option[String], NAMINGSYSTEM_IDENTIFIER_TYPE, String, Option[Period], Option[String], LitSeq[Extension], Option[Boolean], LitSeq[Extension])] =
+        o: UniqueId): Option[(Option[String], NAMINGSYSTEM_IDENTIFIER_TYPE, FHIRString, Option[Period], Option[FHIRString], LitSeq[Extension], Option[Boolean], LitSeq[Extension])] =
       Some((o.id, o.`type`, o.value, o.period, o.comment, o.extension, o.preferred, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val `type`: FHIRComponentFieldMeta[NAMINGSYSTEM_IDENTIFIER_TYPE] =
       FHIRComponentFieldMeta("type", lTagOf[NAMINGSYSTEM_IDENTIFIER_TYPE], false, lTagOf[NAMINGSYSTEM_IDENTIFIER_TYPE])
-    val value: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("value", lTagOf[String], false, lTagOf[String])
+    val value: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("value", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val period: FHIRComponentFieldMeta[Option[Period]] =
       FHIRComponentFieldMeta("period", lTagOf[Option[Period]], false, lTagOf[Period])
-    val comment: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+    val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val preferred: FHIRComponentFieldMeta[Option[Boolean]] =
@@ -83,9 +83,9 @@ object NamingSystem extends CompanionFor[NamingSystem] {
     override def fields(t: UniqueId): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[NAMINGSYSTEM_IDENTIFIER_TYPE](`type`, t.`type`),
-      FHIRComponentField[String](value, t.value),
+      FHIRComponentField[FHIRString](value, t.value),
       FHIRComponentField[Option[Period]](period, t.period),
-      FHIRComponentField[Option[String]](comment, t.comment),
+      FHIRComponentField[Option[FHIRString]](comment, t.comment),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Boolean]](preferred, t.preferred),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -98,9 +98,9 @@ object NamingSystem extends CompanionFor[NamingSystem] {
           new UniqueId(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[NAMINGSYSTEM_IDENTIFIER_TYPE]("type", None),
-            cursor.decodeAs[String]("value", None),
+            cursor.decodeAs[FHIRString]("value", None),
             cursor.decodeAs[Option[Period]]("period", Some(None)),
-            cursor.decodeAs[Option[String]]("comment", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Boolean]]("preferred", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -112,9 +112,9 @@ object NamingSystem extends CompanionFor[NamingSystem] {
   class UniqueId(
       override val id: Option[String] = None,
       val `type`: NAMINGSYSTEM_IDENTIFIER_TYPE,
-      val value: String,
+      val value: FHIRString,
       val period: Option[Period] = None,
-      val comment: Option[String] = None,
+      val comment: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val preferred: Option[Boolean] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -124,19 +124,19 @@ object NamingSystem extends CompanionFor[NamingSystem] {
       id: Option[String] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       kind: NAMINGSYSTEM_TYPE,
       date: FHIRDateTime,
       `type`: Option[CodeableConcept] = None,
-      usage: Option[String] = None,
+      usage: Option[FHIRString] = None,
       status: PUBLICATION_STATUS,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
-      responsible: Option[String] = None,
+      responsible: Option[FHIRString] = None,
       description: Option[Markdown] = None,
       jurisdiction: LitSeq[CodeableConcept] = LitSeq.empty,
       implicitRules: Option[UriStr] = None,
@@ -173,16 +173,16 @@ object NamingSystem extends CompanionFor[NamingSystem] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val kind: FHIRComponentFieldMeta[NAMINGSYSTEM_TYPE] =
     FHIRComponentFieldMeta("kind", lTagOf[NAMINGSYSTEM_TYPE], false, lTagOf[NAMINGSYSTEM_TYPE])
   val date: FHIRComponentFieldMeta[FHIRDateTime] =
     FHIRComponentFieldMeta("date", lTagOf[FHIRDateTime], false, lTagOf[FHIRDateTime])
   val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val usage: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("usage", lTagOf[Option[String]], false, lTagOf[String])
+  val usage: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("usage", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
@@ -193,12 +193,12 @@ object NamingSystem extends CompanionFor[NamingSystem] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val useContext: FHIRComponentFieldMeta[LitSeq[UsageContext]] =
     FHIRComponentFieldMeta("useContext", lTagOf[LitSeq[UsageContext]], false, lTagOf[UsageContext])
-  val responsible: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("responsible", lTagOf[Option[String]], false, lTagOf[String])
+  val responsible: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("responsible", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val description: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("description", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val jurisdiction: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -237,19 +237,19 @@ object NamingSystem extends CompanionFor[NamingSystem] {
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[String](name, t.name),
+    FHIRComponentField[FHIRString](name, t.name),
     FHIRComponentField[NAMINGSYSTEM_TYPE](kind, t.kind),
     FHIRComponentField[FHIRDateTime](date, t.date),
     FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-    FHIRComponentField[Option[String]](usage, t.usage),
+    FHIRComponentField[Option[FHIRString]](usage, t.usage),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
-    FHIRComponentField[Option[String]](responsible, t.responsible),
+    FHIRComponentField[Option[FHIRString]](responsible, t.responsible),
     FHIRComponentField[Option[Markdown]](description, t.description),
     FHIRComponentField[LitSeq[CodeableConcept]](jurisdiction, t.jurisdiction),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
@@ -259,19 +259,19 @@ object NamingSystem extends CompanionFor[NamingSystem] {
   def extractId(t: NamingSystem): Option[String]                              = t.id
   def extractMeta(t: NamingSystem): Option[Meta]                              = t.meta
   def extractText(t: NamingSystem): Option[Narrative]                         = t.text
-  def extractName(t: NamingSystem): String                                    = t.name
+  def extractName(t: NamingSystem): FHIRString                                = t.name
   def extractKind(t: NamingSystem): NAMINGSYSTEM_TYPE                         = t.kind
   def extractDate(t: NamingSystem): FHIRDateTime                              = t.date
   def extractType(t: NamingSystem): Option[CodeableConcept]                   = t.`type`
-  def extractUsage(t: NamingSystem): Option[String]                           = t.usage
+  def extractUsage(t: NamingSystem): Option[FHIRString]                       = t.usage
   def extractStatus(t: NamingSystem): PUBLICATION_STATUS                      = t.status
   def extractContact(t: NamingSystem): LitSeq[ContactDetail]                  = t.contact
   def extractLanguage(t: NamingSystem): Option[LANGUAGES]                     = t.language
   def extractContained(t: NamingSystem): LitSeq[Resource]                     = t.contained
   def extractExtension(t: NamingSystem): LitSeq[Extension]                    = t.extension
-  def extractPublisher(t: NamingSystem): Option[String]                       = t.publisher
+  def extractPublisher(t: NamingSystem): Option[FHIRString]                   = t.publisher
   def extractUseContext(t: NamingSystem): LitSeq[UsageContext]                = t.useContext
-  def extractResponsible(t: NamingSystem): Option[String]                     = t.responsible
+  def extractResponsible(t: NamingSystem): Option[FHIRString]                 = t.responsible
   def extractDescription(t: NamingSystem): Option[Markdown]                   = t.description
   def extractJurisdiction(t: NamingSystem): LitSeq[CodeableConcept]           = t.jurisdiction
   def extractImplicitRules(t: NamingSystem): Option[UriStr]                   = t.implicitRules
@@ -302,7 +302,7 @@ object NamingSystem extends CompanionFor[NamingSystem] {
     "period"       -> (obj => obj.uniqueId.flatMap(_.period).toSeq)
   )
   def unapply(
-      o: NamingSystem): Option[(Option[String], Option[Meta], Option[Narrative], String, NAMINGSYSTEM_TYPE, FHIRDateTime, Option[CodeableConcept], Option[String], PUBLICATION_STATUS, LitSeq[ContactDetail], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[String], LitSeq[UsageContext], Option[String], Option[Markdown], LitSeq[CodeableConcept], Option[UriStr], LitSeq[Extension], NonEmptyLitSeq[NamingSystem.UniqueId])] =
+      o: NamingSystem): Option[(Option[String], Option[Meta], Option[Narrative], FHIRString, NAMINGSYSTEM_TYPE, FHIRDateTime, Option[CodeableConcept], Option[FHIRString], PUBLICATION_STATUS, LitSeq[ContactDetail], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[FHIRString], LitSeq[UsageContext], Option[FHIRString], Option[Markdown], LitSeq[CodeableConcept], Option[UriStr], LitSeq[Extension], NonEmptyLitSeq[NamingSystem.UniqueId])] =
     Some(
       (
         o.id,
@@ -333,19 +333,19 @@ object NamingSystem extends CompanionFor[NamingSystem] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[NAMINGSYSTEM_TYPE]("kind", None),
           cursor.decodeAs[FHIRDateTime]("date", None),
           cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-          cursor.decodeAs[Option[String]]("usage", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("usage", Some(None)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("responsible", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("responsible", Some(None)),
           cursor.decodeAs[Option[Markdown]]("description", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("jurisdiction", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
@@ -436,19 +436,19 @@ class NamingSystem(
     override val id: Option[String] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: String,
+    val name: FHIRString,
     val kind: NAMINGSYSTEM_TYPE,
     val date: FHIRDateTime,
     val `type`: Option[CodeableConcept] = None,
-    val usage: Option[String] = None,
+    val usage: Option[FHIRString] = None,
     val status: PUBLICATION_STATUS,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,
-    val responsible: Option[String] = None,
+    val responsible: Option[FHIRString] = None,
     val description: Option[Markdown] = None,
     val jurisdiction: LitSeq[CodeableConcept] = LitSeq.empty,
     override val implicitRules: Option[UriStr] = None,

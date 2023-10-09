@@ -5,13 +5,14 @@ import scala.util.{ Success, Try }
 
 import io.circe.{ Decoder, DecodingFailure, Encoder, HCursor, Json }
 
+import com.babylonhealth.lit.core.toFHIRString
 import com.babylonhealth.lit.core.model.Coding
 
 trait ToCodingAble extends EnumBase {
   def name: String
   def display: Option[String]
   def system: Option[String]
-  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(name), display = display))
+  def toCoding: Option[Coding] = system.map(s => Coding(system = Some(s), code = Some(name), display = display.map(toFHIRString)))
 }
 
 trait EType[A <: ToCodingAble](val reference: String) {

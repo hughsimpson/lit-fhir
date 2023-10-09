@@ -115,7 +115,7 @@ object Medication extends CompanionFor[Medication] {
     def apply(
         id: Option[String] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        lotNumber: Option[String] = None,
+        lotNumber: Option[FHIRString] = None,
         expirationDate: Option[FHIRDateTime] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -127,14 +127,15 @@ object Medication extends CompanionFor[Medication] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Batch): Option[(Option[String], LitSeq[Extension], Option[String], Option[FHIRDateTime], LitSeq[Extension])] =
+    def unapply(
+        o: Batch): Option[(Option[String], LitSeq[Extension], Option[FHIRString], Option[FHIRDateTime], LitSeq[Extension])] =
       Some((o.id, o.extension, o.lotNumber, o.expirationDate, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val lotNumber: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("lotNumber", lTagOf[Option[String]], false, lTagOf[String])
+    val lotNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("lotNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val expirationDate: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
       FHIRComponentFieldMeta("expirationDate", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -144,7 +145,7 @@ object Medication extends CompanionFor[Medication] {
     override def fields(t: Batch): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](lotNumber, t.lotNumber),
+      FHIRComponentField[Option[FHIRString]](lotNumber, t.lotNumber),
       FHIRComponentField[Option[FHIRDateTime]](expirationDate, t.expirationDate),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -156,7 +157,7 @@ object Medication extends CompanionFor[Medication] {
           new Batch(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("lotNumber", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("lotNumber", Some(None)),
             cursor.decodeAs[Option[FHIRDateTime]]("expirationDate", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -167,7 +168,7 @@ object Medication extends CompanionFor[Medication] {
   class Batch(
       override val id: Option[String] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val lotNumber: Option[String] = None,
+      val lotNumber: Option[FHIRString] = None,
       val expirationDate: Option[FHIRDateTime] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)

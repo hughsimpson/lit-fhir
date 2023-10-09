@@ -43,7 +43,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
         id: Option[String] = None,
         time: Option[Manipulation.TimeChoice] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Manipulation = new Manipulation(
@@ -55,7 +55,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Manipulation): Option[(Option[String], Option[Manipulation.TimeChoice], LitSeq[Extension], Option[String], LitSeq[Extension])] =
+        o: Manipulation): Option[(Option[String], Option[Manipulation.TimeChoice], LitSeq[Extension], Option[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.time, o.extension, o.description, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -63,8 +63,8 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       FHIRComponentFieldMeta("time", lTagOf[Option[Manipulation.TimeChoice]], true, lTagOf[UnionDateTimeOrPeriod])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, time, extension, description, modifierExtension)
@@ -73,7 +73,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[Manipulation.TimeChoice]](time, t.time),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Manipulation] = this
@@ -85,7 +85,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeOptRef[UnionDateTimeOrPeriod]("time"),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -96,7 +96,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       override val id: Option[String] = None,
       val time: Option[Manipulation.TimeChoice] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -113,7 +113,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
         additive: Option[Reference] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         procedure: Option[CodeableConcept] = None,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Processing = new Processing(
@@ -127,7 +127,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Processing): Option[(Option[String], Option[Processing.TimeChoice], Option[Reference], LitSeq[Extension], Option[CodeableConcept], Option[String], LitSeq[Extension])] =
+        o: Processing): Option[(Option[String], Option[Processing.TimeChoice], Option[Reference], LitSeq[Extension], Option[CodeableConcept], Option[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.time, o.additive, o.extension, o.procedure, o.description, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -139,8 +139,8 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val procedure: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("procedure", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, time, additive, extension, procedure, description, modifierExtension)
@@ -151,7 +151,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       FHIRComponentField[Option[Reference]](additive, t.additive),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[CodeableConcept]](procedure, t.procedure),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Processing] = this
@@ -165,7 +165,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
             cursor.decodeAs[Option[Reference]]("additive", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("procedure", Some(None)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -178,7 +178,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       val additive: Option[Reference] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val procedure: Option[CodeableConcept] = None,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -268,7 +268,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
         scale: Option[PRODUCT_STORAGE_SCALE] = None,
         duration: Option[Period] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         temperature: Option[BigDecimal] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -283,7 +283,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Storage): Option[(Option[String], Option[PRODUCT_STORAGE_SCALE], Option[Period], LitSeq[Extension], Option[String], Option[BigDecimal], LitSeq[Extension])] =
+        o: Storage): Option[(Option[String], Option[PRODUCT_STORAGE_SCALE], Option[Period], LitSeq[Extension], Option[FHIRString], Option[BigDecimal], LitSeq[Extension])] =
       Some((o.id, o.scale, o.duration, o.extension, o.description, o.temperature, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -293,8 +293,8 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       FHIRComponentFieldMeta("duration", lTagOf[Option[Period]], false, lTagOf[Period])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val temperature: FHIRComponentFieldMeta[Option[BigDecimal]] =
       FHIRComponentFieldMeta("temperature", lTagOf[Option[BigDecimal]], false, lTagOf[BigDecimal])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -307,7 +307,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       FHIRComponentField[Option[PRODUCT_STORAGE_SCALE]](scale, t.scale),
       FHIRComponentField[Option[Period]](duration, t.duration),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[Option[BigDecimal]](temperature, t.temperature),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -321,7 +321,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
             cursor.decodeAs[Option[PRODUCT_STORAGE_SCALE]]("scale", Some(None)),
             cursor.decodeAs[Option[Period]]("duration", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[Option[BigDecimal]]("temperature", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -334,7 +334,7 @@ object BiologicallyDerivedProduct extends CompanionFor[BiologicallyDerivedProduc
       val scale: Option[PRODUCT_STORAGE_SCALE] = None,
       val duration: Option[Period] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       val temperature: Option[BigDecimal] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)

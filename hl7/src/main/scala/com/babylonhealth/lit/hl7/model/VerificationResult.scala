@@ -47,8 +47,8 @@ object VerificationResult extends CompanionFor[VerificationResult] {
         sourceSignature: Option[Signature] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         communicationMethod: Option[CodeableConcept] = None,
-        proxyIdentityCertificate: Option[String] = None,
-        sourceIdentityCertificate: Option[String] = None,
+        proxyIdentityCertificate: Option[FHIRString] = None,
+        sourceIdentityCertificate: Option[FHIRString] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Attestation = new Attestation(
       id,
@@ -65,7 +65,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Attestation): Option[(Option[String], Option[Reference], Option[FHIRDate], LitSeq[Extension], Option[Reference], Option[Signature], Option[Signature], LitSeq[Extension], Option[CodeableConcept], Option[String], Option[String])] =
+        o: Attestation): Option[(Option[String], Option[Reference], Option[FHIRDate], LitSeq[Extension], Option[Reference], Option[Signature], Option[Signature], LitSeq[Extension], Option[CodeableConcept], Option[FHIRString], Option[FHIRString])] =
       Some(
         (
           o.id,
@@ -97,10 +97,10 @@ object VerificationResult extends CompanionFor[VerificationResult] {
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val communicationMethod: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("communicationMethod", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val proxyIdentityCertificate: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("proxyIdentityCertificate", lTagOf[Option[String]], false, lTagOf[String])
-    val sourceIdentityCertificate: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("sourceIdentityCertificate", lTagOf[Option[String]], false, lTagOf[String])
+    val proxyIdentityCertificate: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("proxyIdentityCertificate", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val sourceIdentityCertificate: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("sourceIdentityCertificate", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(
       id,
       who,
@@ -125,8 +125,8 @@ object VerificationResult extends CompanionFor[VerificationResult] {
       FHIRComponentField[Option[Signature]](sourceSignature, t.sourceSignature),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[CodeableConcept]](communicationMethod, t.communicationMethod),
-      FHIRComponentField[Option[String]](proxyIdentityCertificate, t.proxyIdentityCertificate),
-      FHIRComponentField[Option[String]](sourceIdentityCertificate, t.sourceIdentityCertificate)
+      FHIRComponentField[Option[FHIRString]](proxyIdentityCertificate, t.proxyIdentityCertificate),
+      FHIRComponentField[Option[FHIRString]](sourceIdentityCertificate, t.sourceIdentityCertificate)
     )
     val baseType: CompanionFor[Attestation] = this
     val thisName: String                    = "Attestation"
@@ -143,8 +143,8 @@ object VerificationResult extends CompanionFor[VerificationResult] {
             cursor.decodeAs[Option[Signature]]("sourceSignature", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("communicationMethod", Some(None)),
-            cursor.decodeAs[Option[String]]("proxyIdentityCertificate", Some(None)),
-            cursor.decodeAs[Option[String]]("sourceIdentityCertificate", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("proxyIdentityCertificate", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("sourceIdentityCertificate", Some(None)),
             decodeAttributes(cursor)
           )
         ))
@@ -160,8 +160,8 @@ object VerificationResult extends CompanionFor[VerificationResult] {
       val sourceSignature: Option[Signature] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val communicationMethod: Option[CodeableConcept] = None,
-      val proxyIdentityCertificate: Option[String] = None,
-      val sourceIdentityCertificate: Option[String] = None,
+      val proxyIdentityCertificate: Option[FHIRString] = None,
+      val sourceIdentityCertificate: Option[FHIRString] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
   object PrimarySource extends CompanionFor[PrimarySource] {
@@ -298,7 +298,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
         extension: LitSeq[Extension] = LitSeq.empty,
         organization: Reference,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
-        identityCertificate: Option[String] = None,
+        identityCertificate: Option[FHIRString] = None,
         attestationSignature: Option[Signature] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Validator = new Validator(
@@ -311,7 +311,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Validator): Option[(Option[String], LitSeq[Extension], Reference, LitSeq[Extension], Option[String], Option[Signature])] =
+        o: Validator): Option[(Option[String], LitSeq[Extension], Reference, LitSeq[Extension], Option[FHIRString], Option[Signature])] =
       Some((o.id, o.extension, o.organization, o.modifierExtension, o.identityCertificate, o.attestationSignature))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -321,8 +321,8 @@ object VerificationResult extends CompanionFor[VerificationResult] {
       FHIRComponentFieldMeta("organization", lTagOf[Reference], false, lTagOf[Reference])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val identityCertificate: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("identityCertificate", lTagOf[Option[String]], false, lTagOf[String])
+    val identityCertificate: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("identityCertificate", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val attestationSignature: FHIRComponentFieldMeta[Option[Signature]] =
       FHIRComponentFieldMeta("attestationSignature", lTagOf[Option[Signature]], false, lTagOf[Signature])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -333,7 +333,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Reference](organization, t.organization),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-      FHIRComponentField[Option[String]](identityCertificate, t.identityCertificate),
+      FHIRComponentField[Option[FHIRString]](identityCertificate, t.identityCertificate),
       FHIRComponentField[Option[Signature]](attestationSignature, t.attestationSignature)
     )
     val baseType: CompanionFor[Validator] = this
@@ -346,7 +346,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Reference]("organization", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("identityCertificate", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("identityCertificate", Some(None)),
             cursor.decodeAs[Option[Signature]]("attestationSignature", Some(None)),
             decodeAttributes(cursor)
           )
@@ -358,7 +358,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val organization: Reference,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      val identityCertificate: Option[String] = None,
+      val identityCertificate: Option[FHIRString] = None,
       val attestationSignature: Option[Signature] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -378,7 +378,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
       lastPerformed: Option[FHIRDateTime] = None,
       nextScheduled: Option[FHIRDate] = None,
       failureAction: Option[CodeableConcept] = None,
-      targetLocation: LitSeq[String] = LitSeq.empty,
+      targetLocation: LitSeq[FHIRString] = LitSeq.empty,
       validationType: Option[CodeableConcept] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       validationProcess: LitSeq[CodeableConcept] = LitSeq.empty,
@@ -441,8 +441,8 @@ object VerificationResult extends CompanionFor[VerificationResult] {
     FHIRComponentFieldMeta("nextScheduled", lTagOf[Option[FHIRDate]], false, lTagOf[FHIRDate])
   val failureAction: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("failureAction", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val targetLocation: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("targetLocation", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val targetLocation: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("targetLocation", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val validationType: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("validationType", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -504,7 +504,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
     FHIRComponentField[Option[FHIRDateTime]](lastPerformed, t.lastPerformed),
     FHIRComponentField[Option[FHIRDate]](nextScheduled, t.nextScheduled),
     FHIRComponentField[Option[CodeableConcept]](failureAction, t.failureAction),
-    FHIRComponentField[LitSeq[String]](targetLocation, t.targetLocation),
+    FHIRComponentField[LitSeq[FHIRString]](targetLocation, t.targetLocation),
     FHIRComponentField[Option[CodeableConcept]](validationType, t.validationType),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[CodeableConcept]](validationProcess, t.validationProcess),
@@ -527,7 +527,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
   def extractLastPerformed(t: VerificationResult): Option[FHIRDateTime]                     = t.lastPerformed
   def extractNextScheduled(t: VerificationResult): Option[FHIRDate]                         = t.nextScheduled
   def extractFailureAction(t: VerificationResult): Option[CodeableConcept]                  = t.failureAction
-  def extractTargetLocation(t: VerificationResult): LitSeq[String]                          = t.targetLocation
+  def extractTargetLocation(t: VerificationResult): LitSeq[FHIRString]                      = t.targetLocation
   def extractValidationType(t: VerificationResult): Option[CodeableConcept]                 = t.validationType
   def extractModifierExtension(t: VerificationResult): LitSeq[Extension]                    = t.modifierExtension
   def extractValidationProcess(t: VerificationResult): LitSeq[CodeableConcept]              = t.validationProcess
@@ -539,7 +539,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
     "target" -> (obj => obj.target.toSeq)
   )
   def unapply(
-      o: VerificationResult): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], LitSeq[Reference], VERIFICATIONRESULT_STATUS, Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[Timing], Option[FHIRDateTime], Option[UriStr], Option[FHIRDateTime], Option[FHIRDate], Option[CodeableConcept], LitSeq[String], Option[CodeableConcept], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[VerificationResult.Validator], LitSeq[VerificationResult.PrimarySource], Option[VerificationResult.Attestation])] =
+      o: VerificationResult): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], LitSeq[Reference], VERIFICATIONRESULT_STATUS, Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[Timing], Option[FHIRDateTime], Option[UriStr], Option[FHIRDateTime], Option[FHIRDate], Option[CodeableConcept], LitSeq[FHIRString], Option[CodeableConcept], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[VerificationResult.Validator], LitSeq[VerificationResult.PrimarySource], Option[VerificationResult.Attestation])] =
     Some(
       (
         o.id,
@@ -583,7 +583,7 @@ object VerificationResult extends CompanionFor[VerificationResult] {
           cursor.decodeAs[Option[FHIRDateTime]]("lastPerformed", Some(None)),
           cursor.decodeAs[Option[FHIRDate]]("nextScheduled", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("failureAction", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("targetLocation", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("targetLocation", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CodeableConcept]]("validationType", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("validationProcess", Some(LitSeq.empty)),
@@ -682,7 +682,7 @@ class VerificationResult(
     val lastPerformed: Option[FHIRDateTime] = None,
     val nextScheduled: Option[FHIRDate] = None,
     val failureAction: Option[CodeableConcept] = None,
-    val targetLocation: LitSeq[String] = LitSeq.empty,
+    val targetLocation: LitSeq[FHIRString] = LitSeq.empty,
     val validationType: Option[CodeableConcept] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val validationProcess: LitSeq[CodeableConcept] = LitSeq.empty,

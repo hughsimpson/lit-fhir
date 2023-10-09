@@ -38,7 +38,7 @@ object Clinicaldocument extends CompanionFor[Clinicaldocument] {
       text: Option[Narrative] = None,
       `type`: CodeableConcept,
       date: FHIRDateTime,
-      title: String,
+      title: FHIRString,
       status: COMPOSITION_STATUS,
       author: NonEmptyLitSeq[Reference],
       subject: Option[Reference] = None,
@@ -93,8 +93,8 @@ object Clinicaldocument extends CompanionFor[Clinicaldocument] {
     FHIRComponentFieldMeta("type", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
   val date: FHIRComponentFieldMeta[FHIRDateTime] =
     FHIRComponentFieldMeta("date", lTagOf[FHIRDateTime], false, lTagOf[FHIRDateTime])
-  val title: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("title", lTagOf[String], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("title", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[COMPOSITION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[COMPOSITION_STATUS], false, lTagOf[COMPOSITION_STATUS])
   val author: FHIRComponentFieldMeta[NonEmptyLitSeq[Reference]] =
@@ -165,7 +165,7 @@ object Clinicaldocument extends CompanionFor[Clinicaldocument] {
       FHIRComponentField[Option[Narrative]](text, t.text),
       FHIRComponentField[CodeableConcept](`type`, t.`type`),
       FHIRComponentField[FHIRDateTime](date, t.date),
-      FHIRComponentField[String](title, t.title),
+      FHIRComponentField[FHIRString](title, t.title),
       FHIRComponentField[COMPOSITION_STATUS](status, t.status),
       FHIRComponentField[NonEmptyLitSeq[Reference]](author, t.author),
       FHIRComponentField[Option[Reference]](subject, t.subject),
@@ -190,7 +190,7 @@ object Clinicaldocument extends CompanionFor[Clinicaldocument] {
   def extractText(t: Clinicaldocument): Option[Narrative]                                   = t.text
   def extractType(t: Clinicaldocument): CodeableConcept                                     = t.`type`
   def extractDate(t: Clinicaldocument): FHIRDateTime                                        = t.date
-  def extractTitle(t: Clinicaldocument): String                                             = t.title
+  def extractTitle(t: Clinicaldocument): FHIRString                                         = t.title
   def extractStatus(t: Clinicaldocument): COMPOSITION_STATUS                                = t.status
   def extractAuthor(t: Clinicaldocument): NonEmptyLitSeq[Reference]                         = t.author
   def extractSubject(t: Clinicaldocument): Option[Reference]                                = t.subject
@@ -219,7 +219,7 @@ object Clinicaldocument extends CompanionFor[Clinicaldocument] {
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[CodeableConcept]("type", None),
           cursor.decodeAs[FHIRDateTime]("date", None),
-          cursor.decodeAs[String]("title", None),
+          cursor.decodeAs[FHIRString]("title", None),
           cursor.decodeAs[COMPOSITION_STATUS]("status", None),
           cursor.decodeAs[NonEmptyLitSeq[Reference]]("author", None),
           cursor.decodeAs[Option[Reference]]("subject", Some(None)),
@@ -331,7 +331,7 @@ class Clinicaldocument(
     override val text: Option[Narrative] = None,
     override val `type`: CodeableConcept,
     override val date: FHIRDateTime,
-    override val title: String,
+    override val title: FHIRString,
     override val status: COMPOSITION_STATUS,
     override val author: NonEmptyLitSeq[Reference],
     override val subject: Option[Reference] = None,

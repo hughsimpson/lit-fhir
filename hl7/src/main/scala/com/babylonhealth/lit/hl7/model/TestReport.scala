@@ -52,7 +52,7 @@ object TestReport extends CompanionFor[TestReport] {
         def apply(
             id: Option[String] = None,
             result: REPORT_ACTION_RESULT_CODES,
-            detail: Option[String] = None,
+            detail: Option[FHIRString] = None,
             message: Option[Markdown] = None,
             extension: LitSeq[Extension] = LitSeq.empty,
             modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -67,14 +67,14 @@ object TestReport extends CompanionFor[TestReport] {
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: Assert): Option[(Option[String], REPORT_ACTION_RESULT_CODES, Option[String], Option[Markdown], LitSeq[Extension], LitSeq[Extension])] =
+            o: Assert): Option[(Option[String], REPORT_ACTION_RESULT_CODES, Option[FHIRString], Option[Markdown], LitSeq[Extension], LitSeq[Extension])] =
           Some((o.id, o.result, o.detail, o.message, o.extension, o.modifierExtension))
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
         val result: FHIRComponentFieldMeta[REPORT_ACTION_RESULT_CODES] =
           FHIRComponentFieldMeta("result", lTagOf[REPORT_ACTION_RESULT_CODES], false, lTagOf[REPORT_ACTION_RESULT_CODES])
-        val detail: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("detail", lTagOf[Option[String]], false, lTagOf[String])
+        val detail: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("detail", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val message: FHIRComponentFieldMeta[Option[Markdown]] =
           FHIRComponentFieldMeta("message", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -86,7 +86,7 @@ object TestReport extends CompanionFor[TestReport] {
         override def fields(t: Assert): Seq[FHIRComponentField[_]] = Seq(
           FHIRComponentField[Option[String]](id, t.id),
           FHIRComponentField[REPORT_ACTION_RESULT_CODES](result, t.result),
-          FHIRComponentField[Option[String]](detail, t.detail),
+          FHIRComponentField[Option[FHIRString]](detail, t.detail),
           FHIRComponentField[Option[Markdown]](message, t.message),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -99,7 +99,7 @@ object TestReport extends CompanionFor[TestReport] {
               new Assert(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
                 cursor.decodeAs[REPORT_ACTION_RESULT_CODES]("result", None),
-                cursor.decodeAs[Option[String]]("detail", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("detail", Some(None)),
                 cursor.decodeAs[Option[Markdown]]("message", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -111,7 +111,7 @@ object TestReport extends CompanionFor[TestReport] {
       class Assert(
           override val id: Option[String] = None,
           val result: REPORT_ACTION_RESULT_CODES,
-          val detail: Option[String] = None,
+          val detail: Option[FHIRString] = None,
           val message: Option[Markdown] = None,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -510,9 +510,9 @@ object TestReport extends CompanionFor[TestReport] {
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
     def apply(
         id: Option[String] = None,
-        name: Option[String] = None,
+        name: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         action: NonEmptyLitSeq[Test.Action],
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -526,16 +526,16 @@ object TestReport extends CompanionFor[TestReport] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Test): Option[(Option[String], Option[String], LitSeq[Extension], Option[String], LitSeq[Extension], NonEmptyLitSeq[Test.Action])] =
+        o: Test): Option[(Option[String], Option[FHIRString], LitSeq[Extension], Option[FHIRString], LitSeq[Extension], NonEmptyLitSeq[Test.Action])] =
       Some((o.id, o.name, o.extension, o.description, o.modifierExtension, o.action))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val action: FHIRComponentFieldMeta[NonEmptyLitSeq[Test.Action]] =
@@ -544,9 +544,9 @@ object TestReport extends CompanionFor[TestReport] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Test): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[NonEmptyLitSeq[Test.Action]](action, t.action)
     )
@@ -557,9 +557,9 @@ object TestReport extends CompanionFor[TestReport] {
         Try(
           new Test(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[NonEmptyLitSeq[Test.Action]]("action", None),
             decodeAttributes(cursor)
@@ -569,9 +569,9 @@ object TestReport extends CompanionFor[TestReport] {
   @POJOBoilerplate
   class Test(
       override val id: Option[String] = None,
-      val name: Option[String] = None,
+      val name: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val action: NonEmptyLitSeq[Test.Action],
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -586,7 +586,7 @@ object TestReport extends CompanionFor[TestReport] {
         id: Option[String] = None,
         uri: UriStr,
         `type`: REPORT_PARTICIPANT_TYPE,
-        display: Option[String] = None,
+        display: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -600,7 +600,7 @@ object TestReport extends CompanionFor[TestReport] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Participant): Option[(Option[String], UriStr, REPORT_PARTICIPANT_TYPE, Option[String], LitSeq[Extension], LitSeq[Extension])] =
+        o: Participant): Option[(Option[String], UriStr, REPORT_PARTICIPANT_TYPE, Option[FHIRString], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.uri, o.`type`, o.display, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -608,8 +608,8 @@ object TestReport extends CompanionFor[TestReport] {
       FHIRComponentFieldMeta("uri", lTagOf[UriStr], false, lTagOf[UriStr])
     val `type`: FHIRComponentFieldMeta[REPORT_PARTICIPANT_TYPE] =
       FHIRComponentFieldMeta("type", lTagOf[REPORT_PARTICIPANT_TYPE], false, lTagOf[REPORT_PARTICIPANT_TYPE])
-    val display: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("display", lTagOf[Option[String]], false, lTagOf[String])
+    val display: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("display", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -620,7 +620,7 @@ object TestReport extends CompanionFor[TestReport] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[UriStr](uri, t.uri),
       FHIRComponentField[REPORT_PARTICIPANT_TYPE](`type`, t.`type`),
-      FHIRComponentField[Option[String]](display, t.display),
+      FHIRComponentField[Option[FHIRString]](display, t.display),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -633,7 +633,7 @@ object TestReport extends CompanionFor[TestReport] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[UriStr]("uri", None),
             cursor.decodeAs[REPORT_PARTICIPANT_TYPE]("type", None),
-            cursor.decodeAs[Option[String]]("display", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("display", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -645,7 +645,7 @@ object TestReport extends CompanionFor[TestReport] {
       override val id: Option[String] = None,
       val uri: UriStr,
       val `type`: REPORT_PARTICIPANT_TYPE,
-      val display: Option[String] = None,
+      val display: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -654,11 +654,11 @@ object TestReport extends CompanionFor[TestReport] {
       id: Option[String] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       score: Option[BigDecimal] = None,
       status: REPORT_STATUS_CODES,
       result: REPORT_RESULT_CODES,
-      tester: Option[String] = None,
+      tester: Option[FHIRString] = None,
       issued: Option[FHIRDateTime] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
@@ -701,16 +701,16 @@ object TestReport extends CompanionFor[TestReport] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val score: FHIRComponentFieldMeta[Option[BigDecimal]] =
     FHIRComponentFieldMeta("score", lTagOf[Option[BigDecimal]], false, lTagOf[BigDecimal])
   val status: FHIRComponentFieldMeta[REPORT_STATUS_CODES] =
     FHIRComponentFieldMeta("status", lTagOf[REPORT_STATUS_CODES], false, lTagOf[REPORT_STATUS_CODES])
   val result: FHIRComponentFieldMeta[REPORT_RESULT_CODES] =
     FHIRComponentFieldMeta("result", lTagOf[REPORT_RESULT_CODES], false, lTagOf[REPORT_RESULT_CODES])
-  val tester: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("tester", lTagOf[Option[String]], false, lTagOf[String])
+  val tester: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("tester", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val issued: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("issued", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
@@ -762,11 +762,11 @@ object TestReport extends CompanionFor[TestReport] {
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[Option[BigDecimal]](score, t.score),
     FHIRComponentField[REPORT_STATUS_CODES](status, t.status),
     FHIRComponentField[REPORT_RESULT_CODES](result, t.result),
-    FHIRComponentField[Option[String]](tester, t.tester),
+    FHIRComponentField[Option[FHIRString]](tester, t.tester),
     FHIRComponentField[Option[FHIRDateTime]](issued, t.issued),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
@@ -783,11 +783,11 @@ object TestReport extends CompanionFor[TestReport] {
   def extractId(t: TestReport): Option[String]                          = t.id
   def extractMeta(t: TestReport): Option[Meta]                          = t.meta
   def extractText(t: TestReport): Option[Narrative]                     = t.text
-  def extractName(t: TestReport): Option[String]                        = t.name
+  def extractName(t: TestReport): Option[FHIRString]                    = t.name
   def extractScore(t: TestReport): Option[BigDecimal]                   = t.score
   def extractStatus(t: TestReport): REPORT_STATUS_CODES                 = t.status
   def extractResult(t: TestReport): REPORT_RESULT_CODES                 = t.result
-  def extractTester(t: TestReport): Option[String]                      = t.tester
+  def extractTester(t: TestReport): Option[FHIRString]                  = t.tester
   def extractIssued(t: TestReport): Option[FHIRDateTime]                = t.issued
   def extractLanguage(t: TestReport): Option[LANGUAGES]                 = t.language
   def extractContained(t: TestReport): LitSeq[Resource]                 = t.contained
@@ -810,7 +810,7 @@ object TestReport extends CompanionFor[TestReport] {
     "participant" -> (obj => obj.participant.map(_.uri).toSeq)
   )
   def unapply(
-      o: TestReport): Option[(Option[String], Option[Meta], Option[Narrative], Option[String], Option[BigDecimal], REPORT_STATUS_CODES, REPORT_RESULT_CODES, Option[String], Option[FHIRDateTime], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[Identifier], Reference, Option[UriStr], LitSeq[Extension], LitSeq[TestReport.Participant], LitSeq[TestReport.Test], Option[TestReport.Teardown], Option[TestReport.Setup])] =
+      o: TestReport): Option[(Option[String], Option[Meta], Option[Narrative], Option[FHIRString], Option[BigDecimal], REPORT_STATUS_CODES, REPORT_RESULT_CODES, Option[FHIRString], Option[FHIRDateTime], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[Identifier], Reference, Option[UriStr], LitSeq[Extension], LitSeq[TestReport.Participant], LitSeq[TestReport.Test], Option[TestReport.Teardown], Option[TestReport.Setup])] =
     Some(
       (
         o.id,
@@ -840,11 +840,11 @@ object TestReport extends CompanionFor[TestReport] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[BigDecimal]]("score", Some(None)),
           cursor.decodeAs[REPORT_STATUS_CODES]("status", None),
           cursor.decodeAs[REPORT_RESULT_CODES]("result", None),
-          cursor.decodeAs[Option[String]]("tester", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("tester", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("issued", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
@@ -933,11 +933,11 @@ class TestReport(
     override val id: Option[String] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val score: Option[BigDecimal] = None,
     val status: REPORT_STATUS_CODES,
     val result: REPORT_RESULT_CODES,
-    val tester: Option[String] = None,
+    val tester: Option[FHIRString] = None,
     val issued: Option[FHIRDateTime] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,

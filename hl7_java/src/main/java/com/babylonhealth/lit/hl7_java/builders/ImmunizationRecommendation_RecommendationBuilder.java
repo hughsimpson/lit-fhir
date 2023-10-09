@@ -28,20 +28,20 @@ public interface ImmunizationRecommendation_RecommendationBuilder {
     return new Impl(forecastStatus.build());
   }
 
-  public static ChoicePositiveIntOrString doseNumber(Integer i) {
-    return new ChoicePositiveIntOrString(i);
+  public static ChoiceFHIRStringOrPositiveInt doseNumber(String s) {
+    return new ChoiceFHIRStringOrPositiveInt(s);
   }
 
-  public static ChoicePositiveIntOrString doseNumber(String s) {
-    return new ChoicePositiveIntOrString(s);
+  public static ChoiceFHIRStringOrPositiveInt doseNumber(Integer i) {
+    return new ChoiceFHIRStringOrPositiveInt(i);
   }
 
-  public static ChoicePositiveIntOrString seriesDoses(Integer i) {
-    return new ChoicePositiveIntOrString(i);
+  public static ChoiceFHIRStringOrPositiveInt seriesDoses(String s) {
+    return new ChoiceFHIRStringOrPositiveInt(s);
   }
 
-  public static ChoicePositiveIntOrString seriesDoses(String s) {
-    return new ChoicePositiveIntOrString(s);
+  public static ChoiceFHIRStringOrPositiveInt seriesDoses(Integer i) {
+    return new ChoiceFHIRStringOrPositiveInt(i);
   }
 
   public class Impl implements ImmunizationRecommendation_RecommendationBuilder {
@@ -51,10 +51,10 @@ public interface ImmunizationRecommendation_RecommendationBuilder {
     private Collection<CodeableConcept> vaccineCode = Collections.emptyList();
     private Optional<String> description = Optional.empty();
     private Optional<CodeableConcept> targetDisease = Optional.empty();
-    private Optional<ChoicePositiveIntOrString> doseNumber = Optional.empty();
+    private Optional<ChoiceFHIRStringOrPositiveInt> doseNumber = Optional.empty();
     private CodeableConcept forecastStatus;
     private Collection<CodeableConcept> forecastReason = Collections.emptyList();
-    private Optional<ChoicePositiveIntOrString> seriesDoses = Optional.empty();
+    private Optional<ChoiceFHIRStringOrPositiveInt> seriesDoses = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
     private Collection<Reference> supportingImmunization = Collections.emptyList();
     private Collection<CodeableConcept> contraindicatedVaccineCode = Collections.emptyList();
@@ -152,12 +152,12 @@ public interface ImmunizationRecommendation_RecommendationBuilder {
       return this;
     }
     /**
-     * @param doseNumber Field is a 'choice' field. Type should be one of Integer, String. To pass
+     * @param doseNumber Field is a 'choice' field. Type should be one of String, Integer. To pass
      *     the value in, wrap with one of the
      *     ImmunizationRecommendation_RecommendationBuilder.doseNumber static methods
      */
     public ImmunizationRecommendation_RecommendationBuilder.Impl withDoseNumber(
-        @NonNull ChoicePositiveIntOrString doseNumber) {
+        @NonNull ChoiceFHIRStringOrPositiveInt doseNumber) {
       this.doseNumber = Optional.of(doseNumber);
       return this;
     }
@@ -180,12 +180,12 @@ public interface ImmunizationRecommendation_RecommendationBuilder {
       return this;
     }
     /**
-     * @param seriesDoses Field is a 'choice' field. Type should be one of Integer, String. To pass
+     * @param seriesDoses Field is a 'choice' field. Type should be one of String, Integer. To pass
      *     the value in, wrap with one of the
      *     ImmunizationRecommendation_RecommendationBuilder.seriesDoses static methods
      */
     public ImmunizationRecommendation_RecommendationBuilder.Impl withSeriesDoses(
-        @NonNull ChoicePositiveIntOrString seriesDoses) {
+        @NonNull ChoiceFHIRStringOrPositiveInt seriesDoses) {
       this.seriesDoses = Optional.of(seriesDoses);
       return this;
     }

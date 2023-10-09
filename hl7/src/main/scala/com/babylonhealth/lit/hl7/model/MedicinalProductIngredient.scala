@@ -56,7 +56,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
             extension: LitSeq[Extension] = LitSeq.empty,
             substance: Option[CodeableConcept] = None,
             strengthLowLimit: Option[Ratio] = None,
-            measurementPoint: Option[String] = None,
+            measurementPoint: Option[FHIRString] = None,
             modifierExtension: LitSeq[Extension] = LitSeq.empty,
             primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
         ): ReferenceStrength = new ReferenceStrength(
@@ -71,7 +71,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: ReferenceStrength): Option[(Option[String], LitSeq[CodeableConcept], Ratio, LitSeq[Extension], Option[CodeableConcept], Option[Ratio], Option[String], LitSeq[Extension])] =
+            o: ReferenceStrength): Option[(Option[String], LitSeq[CodeableConcept], Ratio, LitSeq[Extension], Option[CodeableConcept], Option[Ratio], Option[FHIRString], LitSeq[Extension])] =
           Some(
             (o.id, o.country, o.strength, o.extension, o.substance, o.strengthLowLimit, o.measurementPoint, o.modifierExtension))
         val id: FHIRComponentFieldMeta[Option[String]] =
@@ -86,8 +86,8 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
           FHIRComponentFieldMeta("substance", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
         val strengthLowLimit: FHIRComponentFieldMeta[Option[Ratio]] =
           FHIRComponentFieldMeta("strengthLowLimit", lTagOf[Option[Ratio]], false, lTagOf[Ratio])
-        val measurementPoint: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("measurementPoint", lTagOf[Option[String]], false, lTagOf[String])
+        val measurementPoint: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("measurementPoint", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -100,7 +100,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[Option[CodeableConcept]](substance, t.substance),
           FHIRComponentField[Option[Ratio]](strengthLowLimit, t.strengthLowLimit),
-          FHIRComponentField[Option[String]](measurementPoint, t.measurementPoint),
+          FHIRComponentField[Option[FHIRString]](measurementPoint, t.measurementPoint),
           FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
         )
         val baseType: CompanionFor[ReferenceStrength] = this
@@ -115,7 +115,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[Option[CodeableConcept]]("substance", Some(None)),
                 cursor.decodeAs[Option[Ratio]]("strengthLowLimit", Some(None)),
-                cursor.decodeAs[Option[String]]("measurementPoint", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("measurementPoint", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
                 decodeAttributes(cursor)
               )
@@ -129,7 +129,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
           override val extension: LitSeq[Extension] = LitSeq.empty,
           val substance: Option[CodeableConcept] = None,
           val strengthLowLimit: Option[Ratio] = None,
-          val measurementPoint: Option[String] = None,
+          val measurementPoint: Option[FHIRString] = None,
           override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
           override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
           extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -139,7 +139,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
           extension: LitSeq[Extension] = LitSeq.empty,
           presentation: Ratio,
           concentration: Option[Ratio] = None,
-          measurementPoint: Option[String] = None,
+          measurementPoint: Option[FHIRString] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           presentationLowLimit: Option[Ratio] = None,
           concentrationLowLimit: Option[Ratio] = None,
@@ -159,7 +159,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Strength): Option[(Option[String], LitSeq[CodeableConcept], LitSeq[Extension], Ratio, Option[Ratio], Option[String], LitSeq[Extension], Option[Ratio], Option[Ratio], LitSeq[Strength.ReferenceStrength])] =
+          o: Strength): Option[(Option[String], LitSeq[CodeableConcept], LitSeq[Extension], Ratio, Option[Ratio], Option[FHIRString], LitSeq[Extension], Option[Ratio], Option[Ratio], LitSeq[Strength.ReferenceStrength])] =
         Some(
           (
             o.id,
@@ -182,8 +182,8 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
         FHIRComponentFieldMeta("presentation", lTagOf[Ratio], false, lTagOf[Ratio])
       val concentration: FHIRComponentFieldMeta[Option[Ratio]] =
         FHIRComponentFieldMeta("concentration", lTagOf[Option[Ratio]], false, lTagOf[Ratio])
-      val measurementPoint: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("measurementPoint", lTagOf[Option[String]], false, lTagOf[String])
+      val measurementPoint: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("measurementPoint", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val presentationLowLimit: FHIRComponentFieldMeta[Option[Ratio]] =
@@ -214,7 +214,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Ratio](presentation, t.presentation),
         FHIRComponentField[Option[Ratio]](concentration, t.concentration),
-        FHIRComponentField[Option[String]](measurementPoint, t.measurementPoint),
+        FHIRComponentField[Option[FHIRString]](measurementPoint, t.measurementPoint),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
         FHIRComponentField[Option[Ratio]](presentationLowLimit, t.presentationLowLimit),
         FHIRComponentField[Option[Ratio]](concentrationLowLimit, t.concentrationLowLimit),
@@ -231,7 +231,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Ratio]("presentation", None),
               cursor.decodeAs[Option[Ratio]]("concentration", Some(None)),
-              cursor.decodeAs[Option[String]]("measurementPoint", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("measurementPoint", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Ratio]]("presentationLowLimit", Some(None)),
               cursor.decodeAs[Option[Ratio]]("concentrationLowLimit", Some(None)),
@@ -247,7 +247,7 @@ object MedicinalProductIngredient extends CompanionFor[MedicinalProductIngredien
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val presentation: Ratio,
         val concentration: Option[Ratio] = None,
-        val measurementPoint: Option[String] = None,
+        val measurementPoint: Option[FHIRString] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         val presentationLowLimit: Option[Ratio] = None,
         val concentrationLowLimit: Option[Ratio] = None,

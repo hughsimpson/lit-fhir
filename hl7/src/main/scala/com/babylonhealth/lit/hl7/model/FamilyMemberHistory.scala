@@ -37,7 +37,7 @@ object FamilyMemberHistory extends CompanionFor[FamilyMemberHistory] {
     override type ResourceType = Condition
     override type ParentType   = Condition
     override val parentType: CompanionFor[ResourceType] = Condition
-    type OnsetChoice = Choice[Union_1204024681]
+    type OnsetChoice = Choice[Union01155656698]
     def apply(
         id: Option[String] = None,
         code: CodeableConcept,
@@ -71,7 +71,7 @@ object FamilyMemberHistory extends CompanionFor[FamilyMemberHistory] {
     val outcome: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("outcome", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val onset: FHIRComponentFieldMeta[Option[Condition.OnsetChoice]] =
-      FHIRComponentFieldMeta("onset", lTagOf[Option[Condition.OnsetChoice]], true, lTagOf[Union_1204024681])
+      FHIRComponentFieldMeta("onset", lTagOf[Option[Condition.OnsetChoice]], true, lTagOf[Union01155656698])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -101,7 +101,7 @@ object FamilyMemberHistory extends CompanionFor[FamilyMemberHistory] {
             cursor.decodeAs[CodeableConcept]("code", None),
             cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("outcome", Some(None)),
-            cursor.decodeOptRef[Union_1204024681]("onset"),
+            cursor.decodeOptRef[Union01155656698]("onset"),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Boolean]]("contributedToDeath", Some(None)),
@@ -121,16 +121,16 @@ object FamilyMemberHistory extends CompanionFor[FamilyMemberHistory] {
       val contributedToDeath: Option[Boolean] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
-  type AgeChoice      = Choice[UnionAgeOrRangeOrString]
-  type BornChoice     = Choice[UnionDateOrPeriodOrString]
-  type DeceasedChoice = Choice[Union00659500323]
+  type AgeChoice      = Choice[UnionAgeOrFHIRStringOrRange]
+  type BornChoice     = Choice[UnionDateOrFHIRStringOrPeriod]
+  type DeceasedChoice = Choice[Union_0231587408]
   def apply(
       id: Option[String] = None,
       sex: Option[CodeableConcept] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
       date: Option[FHIRDateTime] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       note: LitSeq[Annotation] = LitSeq.empty,
       status: HISTORY_STATUS,
       age: Option[FamilyMemberHistory.AgeChoice] = None,
@@ -191,18 +191,18 @@ object FamilyMemberHistory extends CompanionFor[FamilyMemberHistory] {
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val note: FHIRComponentFieldMeta[LitSeq[Annotation]] =
     FHIRComponentFieldMeta("note", lTagOf[LitSeq[Annotation]], false, lTagOf[Annotation])
   val status: FHIRComponentFieldMeta[HISTORY_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[HISTORY_STATUS], false, lTagOf[HISTORY_STATUS])
   val age: FHIRComponentFieldMeta[Option[FamilyMemberHistory.AgeChoice]] =
-    FHIRComponentFieldMeta("age", lTagOf[Option[FamilyMemberHistory.AgeChoice]], true, lTagOf[UnionAgeOrRangeOrString])
+    FHIRComponentFieldMeta("age", lTagOf[Option[FamilyMemberHistory.AgeChoice]], true, lTagOf[UnionAgeOrFHIRStringOrRange])
   val patient: FHIRComponentFieldMeta[Reference] =
     FHIRComponentFieldMeta("patient", lTagOf[Reference], false, lTagOf[Reference])
   val born: FHIRComponentFieldMeta[Option[FamilyMemberHistory.BornChoice]] =
-    FHIRComponentFieldMeta("born", lTagOf[Option[FamilyMemberHistory.BornChoice]], true, lTagOf[UnionDateOrPeriodOrString])
+    FHIRComponentFieldMeta("born", lTagOf[Option[FamilyMemberHistory.BornChoice]], true, lTagOf[UnionDateOrFHIRStringOrPeriod])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
   val contained: FHIRComponentFieldMeta[LitSeq[Resource]] =
@@ -214,7 +214,7 @@ object FamilyMemberHistory extends CompanionFor[FamilyMemberHistory] {
   val reasonCode: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("reasonCode", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val deceased: FHIRComponentFieldMeta[Option[FamilyMemberHistory.DeceasedChoice]] =
-    FHIRComponentFieldMeta("deceased", lTagOf[Option[FamilyMemberHistory.DeceasedChoice]], true, lTagOf[Union00659500323])
+    FHIRComponentFieldMeta("deceased", lTagOf[Option[FamilyMemberHistory.DeceasedChoice]], true, lTagOf[Union_0231587408])
   val relationship: FHIRComponentFieldMeta[CodeableConcept] =
     FHIRComponentFieldMeta("relationship", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
   val estimatedAge: FHIRComponentFieldMeta[Option[Boolean]] =
@@ -272,7 +272,7 @@ object FamilyMemberHistory extends CompanionFor[FamilyMemberHistory] {
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[LitSeq[Annotation]](note, t.note),
     FHIRComponentField[HISTORY_STATUS](status, t.status),
     FHIRComponentField[Option[FamilyMemberHistory.AgeChoice]](age, t.age),
@@ -299,7 +299,7 @@ object FamilyMemberHistory extends CompanionFor[FamilyMemberHistory] {
   def extractMeta(t: FamilyMemberHistory): Option[Meta]                                   = t.meta
   def extractText(t: FamilyMemberHistory): Option[Narrative]                              = t.text
   def extractDate(t: FamilyMemberHistory): Option[FHIRDateTime]                           = t.date
-  def extractName(t: FamilyMemberHistory): Option[String]                                 = t.name
+  def extractName(t: FamilyMemberHistory): Option[FHIRString]                             = t.name
   def extractNote(t: FamilyMemberHistory): LitSeq[Annotation]                             = t.note
   def extractStatus(t: FamilyMemberHistory): HISTORY_STATUS                               = t.status
   def extractAge(t: FamilyMemberHistory): Option[FamilyMemberHistory.AgeChoice]           = t.age
@@ -341,18 +341,18 @@ object FamilyMemberHistory extends CompanionFor[FamilyMemberHistory] {
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
           cursor.decodeAs[HISTORY_STATUS]("status", None),
-          cursor.decodeOptRef[UnionAgeOrRangeOrString]("age"),
+          cursor.decodeOptRef[UnionAgeOrFHIRStringOrRange]("age"),
           cursor.decodeAs[Reference]("patient", None),
-          cursor.decodeOptRef[UnionDateOrPeriodOrString]("born"),
+          cursor.decodeOptRef[UnionDateOrFHIRStringOrPeriod]("born"),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("reasonCode", Some(LitSeq.empty)),
-          cursor.decodeOptRef[Union00659500323]("deceased"),
+          cursor.decodeOptRef[Union_0231587408]("deceased"),
           cursor.decodeAs[CodeableConcept]("relationship", None),
           cursor.decodeAs[Option[Boolean]]("estimatedAge", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
@@ -456,7 +456,7 @@ class FamilyMemberHistory(
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
     val date: Option[FHIRDateTime] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val note: LitSeq[Annotation] = LitSeq.empty,
     val status: HISTORY_STATUS,
     val age: Option[FamilyMemberHistory.AgeChoice] = None,

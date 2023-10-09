@@ -55,48 +55,48 @@ public interface VitalspanelBuilder extends VitalsignsBuilder {
         code.build());
   }
 
-  public static Choice02118820890 value(Boolean b) {
-    return new Choice02118820890(b);
+  public static Choice02087996915 value(Boolean b) {
+    return new Choice02087996915(b);
   }
 
-  public static Choice02118820890 value(CodeableConcept c) {
-    return new Choice02118820890(c);
+  public static Choice02087996915 value(CodeableConcept c) {
+    return new Choice02087996915(c);
   }
 
-  public static Choice02118820890 value(FHIRDateTime f) {
-    return new Choice02118820890(f);
+  public static Choice02087996915 value(FHIRDateTime f) {
+    return new Choice02087996915(f);
   }
 
-  public static Choice02118820890 value(Integer i) {
-    return new Choice02118820890(i);
+  public static Choice02087996915 value(String s) {
+    return new Choice02087996915(s);
   }
 
-  public static Choice02118820890 value(LocalTime l) {
-    return new Choice02118820890(l);
+  public static Choice02087996915 value(Integer i) {
+    return new Choice02087996915(i);
   }
 
-  public static Choice02118820890 value(Period p) {
-    return new Choice02118820890(p);
+  public static Choice02087996915 value(LocalTime l) {
+    return new Choice02087996915(l);
   }
 
-  public static Choice02118820890 value(Quantity q) {
-    return new Choice02118820890(q);
+  public static Choice02087996915 value(Period p) {
+    return new Choice02087996915(p);
   }
 
-  public static Choice02118820890 value(Range r) {
-    return new Choice02118820890(r);
+  public static Choice02087996915 value(Quantity q) {
+    return new Choice02087996915(q);
   }
 
-  public static Choice02118820890 value(Ratio r) {
-    return new Choice02118820890(r);
+  public static Choice02087996915 value(Range r) {
+    return new Choice02087996915(r);
   }
 
-  public static Choice02118820890 value(SampledData s) {
-    return new Choice02118820890(s);
+  public static Choice02087996915 value(Ratio r) {
+    return new Choice02087996915(r);
   }
 
-  public static Choice02118820890 value(String s) {
-    return new Choice02118820890(s);
+  public static Choice02087996915 value(SampledData s) {
+    return new Choice02087996915(s);
   }
 
   public static ChoiceDateTimeOrPeriod effective(FHIRDateTime f) {

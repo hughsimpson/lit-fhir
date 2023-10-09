@@ -39,26 +39,26 @@ object Computableplandefinition extends CompanionFor[Computableplandefinition] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = Some(new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/computableplandefinition"))),
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       `type`: Option[CodeableConcept] = None,
       date: Option[FHIRDateTime] = None,
-      title: Option[String] = None,
-      usage: Option[String] = None,
+      title: Option[FHIRString] = None,
+      usage: Option[FHIRString] = None,
       topic: LitSeq[CodeableConcept] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       author: LitSeq[ContactDetail] = LitSeq.empty,
       editor: LitSeq[ContactDetail] = LitSeq.empty,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       library: Canonical,
       language: Option[LANGUAGES] = None,
-      subtitle: Option[String] = None,
+      subtitle: Option[FHIRString] = None,
       reviewer: LitSeq[ContactDetail] = LitSeq.empty,
       endorser: LitSeq[ContactDetail] = LitSeq.empty,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       subject: Option[Computableplandefinition.SubjectChoice] = None,
@@ -125,16 +125,16 @@ object Computableplandefinition extends CompanionFor[Computableplandefinition] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
-  val usage: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("usage", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val usage: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("usage", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val topic: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("topic", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
@@ -143,8 +143,8 @@ object Computableplandefinition extends CompanionFor[Computableplandefinition] {
     FHIRComponentFieldMeta("author", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val editor: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("editor", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -153,8 +153,8 @@ object Computableplandefinition extends CompanionFor[Computableplandefinition] {
     FHIRComponentFieldMeta("library", lTagOf[Canonical], false, lTagOf[Canonical])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
-  val subtitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("subtitle", lTagOf[Option[String]], false, lTagOf[String])
+  val subtitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("subtitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val reviewer: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("reviewer", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val endorser: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
@@ -163,8 +163,8 @@ object Computableplandefinition extends CompanionFor[Computableplandefinition] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
@@ -246,26 +246,26 @@ object Computableplandefinition extends CompanionFor[Computableplandefinition] {
       FHIRComponentField[Option[UriStr]](url, t.url),
       FHIRComponentField[Option[Meta]](meta, t.meta),
       FHIRComponentField[Option[Narrative]](text, t.text),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
       FHIRComponentField[Option[FHIRDateTime]](date, t.date),
-      FHIRComponentField[Option[String]](title, t.title),
-      FHIRComponentField[Option[String]](usage, t.usage),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](usage, t.usage),
       FHIRComponentField[LitSeq[CodeableConcept]](topic, t.topic),
       FHIRComponentField[PUBLICATION_STATUS](status, t.status),
       FHIRComponentField[LitSeq[ContactDetail]](author, t.author),
       FHIRComponentField[LitSeq[ContactDetail]](editor, t.editor),
-      FHIRComponentField[Option[String]](version, t.version),
+      FHIRComponentField[Option[FHIRString]](version, t.version),
       FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
       FHIRComponentField[Option[Markdown]](purpose, t.purpose),
       FHIRComponentField[Canonical](library, t.library.head),
       FHIRComponentField[Option[LANGUAGES]](language, t.language),
-      FHIRComponentField[Option[String]](subtitle, t.subtitle),
+      FHIRComponentField[Option[FHIRString]](subtitle, t.subtitle),
       FHIRComponentField[LitSeq[ContactDetail]](reviewer, t.reviewer),
       FHIRComponentField[LitSeq[ContactDetail]](endorser, t.endorser),
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](publisher, t.publisher),
+      FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
       FHIRComponentField[Option[Markdown]](copyright, t.copyright),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
       FHIRComponentField[Option[Computableplandefinition.SubjectChoice]](subject, t.subject),
@@ -287,26 +287,26 @@ object Computableplandefinition extends CompanionFor[Computableplandefinition] {
   def extractUrl(t: Computableplandefinition): Option[UriStr]                                     = t.url
   def extractMeta(t: Computableplandefinition): Option[Meta]                                      = t.meta
   def extractText(t: Computableplandefinition): Option[Narrative]                                 = t.text
-  def extractName(t: Computableplandefinition): Option[String]                                    = t.name
+  def extractName(t: Computableplandefinition): Option[FHIRString]                                = t.name
   def extractType(t: Computableplandefinition): Option[CodeableConcept]                           = t.`type`
   def extractDate(t: Computableplandefinition): Option[FHIRDateTime]                              = t.date
-  def extractTitle(t: Computableplandefinition): Option[String]                                   = t.title
-  def extractUsage(t: Computableplandefinition): Option[String]                                   = t.usage
+  def extractTitle(t: Computableplandefinition): Option[FHIRString]                               = t.title
+  def extractUsage(t: Computableplandefinition): Option[FHIRString]                               = t.usage
   def extractTopic(t: Computableplandefinition): LitSeq[CodeableConcept]                          = t.topic
   def extractStatus(t: Computableplandefinition): PUBLICATION_STATUS                              = t.status
   def extractAuthor(t: Computableplandefinition): LitSeq[ContactDetail]                           = t.author
   def extractEditor(t: Computableplandefinition): LitSeq[ContactDetail]                           = t.editor
-  def extractVersion(t: Computableplandefinition): Option[String]                                 = t.version
+  def extractVersion(t: Computableplandefinition): Option[FHIRString]                             = t.version
   def extractContact(t: Computableplandefinition): LitSeq[ContactDetail]                          = t.contact
   def extractPurpose(t: Computableplandefinition): Option[Markdown]                               = t.purpose
   def extractLibrary(t: Computableplandefinition): Canonical                                      = t.library.head
   def extractLanguage(t: Computableplandefinition): Option[LANGUAGES]                             = t.language
-  def extractSubtitle(t: Computableplandefinition): Option[String]                                = t.subtitle
+  def extractSubtitle(t: Computableplandefinition): Option[FHIRString]                            = t.subtitle
   def extractReviewer(t: Computableplandefinition): LitSeq[ContactDetail]                         = t.reviewer
   def extractEndorser(t: Computableplandefinition): LitSeq[ContactDetail]                         = t.endorser
   def extractContained(t: Computableplandefinition): LitSeq[Resource]                             = t.contained
   def extractExtension(t: Computableplandefinition): LitSeq[Extension]                            = t.extension
-  def extractPublisher(t: Computableplandefinition): Option[String]                               = t.publisher
+  def extractPublisher(t: Computableplandefinition): Option[FHIRString]                           = t.publisher
   def extractCopyright(t: Computableplandefinition): Option[Markdown]                             = t.copyright
   def extractIdentifier(t: Computableplandefinition): LitSeq[Identifier]                          = t.identifier
   def extractSubject(t: Computableplandefinition): Option[Computableplandefinition.SubjectChoice] = t.subject
@@ -332,26 +332,26 @@ object Computableplandefinition extends CompanionFor[Computableplandefinition] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
-          cursor.decodeAs[Option[String]]("usage", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("usage", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("topic", Some(LitSeq.empty)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[LitSeq[ContactDetail]]("author", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactDetail]]("editor", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeFromListAs[Canonical]("library", None),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
-          cursor.decodeAs[Option[String]]("subtitle", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("subtitle", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("reviewer", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactDetail]]("endorser", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeOptRef[UnionCodeableConceptOrReference]("subject"),
@@ -505,26 +505,26 @@ class Computableplandefinition(
     override val meta: Option[Meta] = Some(
       new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/computableplandefinition"))),
     override val text: Option[Narrative] = None,
-    override val name: Option[String] = None,
+    override val name: Option[FHIRString] = None,
     override val `type`: Option[CodeableConcept] = None,
     override val date: Option[FHIRDateTime] = None,
-    override val title: Option[String] = None,
-    override val usage: Option[String] = None,
+    override val title: Option[FHIRString] = None,
+    override val usage: Option[FHIRString] = None,
     override val topic: LitSeq[CodeableConcept] = LitSeq.empty,
     override val status: PUBLICATION_STATUS,
     override val author: LitSeq[ContactDetail] = LitSeq.empty,
     override val editor: LitSeq[ContactDetail] = LitSeq.empty,
-    override val version: Option[String] = None,
+    override val version: Option[FHIRString] = None,
     override val contact: LitSeq[ContactDetail] = LitSeq.empty,
     override val purpose: Option[Markdown] = None,
     library: Canonical,
     override val language: Option[LANGUAGES] = None,
-    override val subtitle: Option[String] = None,
+    override val subtitle: Option[FHIRString] = None,
     override val reviewer: LitSeq[ContactDetail] = LitSeq.empty,
     override val endorser: LitSeq[ContactDetail] = LitSeq.empty,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    override val publisher: Option[String] = None,
+    override val publisher: Option[FHIRString] = None,
     override val copyright: Option[Markdown] = None,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
     override val subject: Option[Computableplandefinition.SubjectChoice] = None,

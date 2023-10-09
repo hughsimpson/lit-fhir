@@ -114,7 +114,7 @@ object DocumentManifest extends CompanionFor[DocumentManifest] {
       extension: LitSeq[Extension] = LitSeq.empty,
       recipient: LitSeq[Reference] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       masterIdentifier: Option[Identifier] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -173,8 +173,8 @@ object DocumentManifest extends CompanionFor[DocumentManifest] {
     FHIRComponentFieldMeta("recipient", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val masterIdentifier: FHIRComponentFieldMeta[Option[Identifier]] =
@@ -222,7 +222,7 @@ object DocumentManifest extends CompanionFor[DocumentManifest] {
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[LitSeq[Reference]](recipient, t.recipient),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Option[Identifier]](masterIdentifier, t.masterIdentifier),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -243,7 +243,7 @@ object DocumentManifest extends CompanionFor[DocumentManifest] {
   def extractExtension(t: DocumentManifest): LitSeq[Extension]              = t.extension
   def extractRecipient(t: DocumentManifest): LitSeq[Reference]              = t.recipient
   def extractIdentifier(t: DocumentManifest): LitSeq[Identifier]            = t.identifier
-  def extractDescription(t: DocumentManifest): Option[String]               = t.description
+  def extractDescription(t: DocumentManifest): Option[FHIRString]           = t.description
   def extractImplicitRules(t: DocumentManifest): Option[UriStr]             = t.implicitRules
   def extractMasterIdentifier(t: DocumentManifest): Option[Identifier]      = t.masterIdentifier
   def extractModifierExtension(t: DocumentManifest): LitSeq[Extension]      = t.modifierExtension
@@ -267,7 +267,7 @@ object DocumentManifest extends CompanionFor[DocumentManifest] {
     "item"        -> (obj => obj.content.toSeq)
   )
   def unapply(
-      o: DocumentManifest): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], DOCUMENT_REFERENCE_STATUS, LitSeq[Reference], Option[UriStr], Option[Reference], Option[FHIRDateTime], NonEmptyLitSeq[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Reference], LitSeq[Identifier], Option[String], Option[UriStr], Option[Identifier], LitSeq[Extension], LitSeq[DocumentManifest.Related])] =
+      o: DocumentManifest): Option[(Option[String], Option[Meta], Option[Narrative], Option[CodeableConcept], DOCUMENT_REFERENCE_STATUS, LitSeq[Reference], Option[UriStr], Option[Reference], Option[FHIRDateTime], NonEmptyLitSeq[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Reference], LitSeq[Identifier], Option[FHIRString], Option[UriStr], Option[Identifier], LitSeq[Extension], LitSeq[DocumentManifest.Related])] =
     Some(
       (
         o.id,
@@ -309,7 +309,7 @@ object DocumentManifest extends CompanionFor[DocumentManifest] {
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Reference]]("recipient", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[Identifier]]("masterIdentifier", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -406,7 +406,7 @@ class DocumentManifest(
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val recipient: LitSeq[Reference] = LitSeq.empty,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     val masterIdentifier: Option[Identifier] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,

@@ -37,18 +37,18 @@ object Cqf_questionnaire extends CompanionFor[Cqf_questionnaire] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = Some(new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/cqf-questionnaire"))),
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       date: Option[FHIRDateTime] = None,
       code: LitSeq[Coding] = LitSeq.empty,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       status: PUBLICATION_STATUS,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
@@ -105,18 +105,18 @@ object Cqf_questionnaire extends CompanionFor[Cqf_questionnaire] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val code: FHIRComponentFieldMeta[LitSeq[Coding]] =
     FHIRComponentFieldMeta("code", lTagOf[LitSeq[Coding]], false, lTagOf[Coding])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -127,8 +127,8 @@ object Cqf_questionnaire extends CompanionFor[Cqf_questionnaire] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
@@ -195,18 +195,18 @@ object Cqf_questionnaire extends CompanionFor[Cqf_questionnaire] {
       FHIRComponentField[Option[UriStr]](url, t.url),
       FHIRComponentField[Option[Meta]](meta, t.meta),
       FHIRComponentField[Option[Narrative]](text, t.text),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[Option[FHIRDateTime]](date, t.date),
       FHIRComponentField[LitSeq[Coding]](code, t.code),
-      FHIRComponentField[Option[String]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
       FHIRComponentField[PUBLICATION_STATUS](status, t.status),
-      FHIRComponentField[Option[String]](version, t.version),
+      FHIRComponentField[Option[FHIRString]](version, t.version),
       FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
       FHIRComponentField[Option[Markdown]](purpose, t.purpose),
       FHIRComponentField[Option[LANGUAGES]](language, t.language),
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](publisher, t.publisher),
+      FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
       FHIRComponentField[Option[Markdown]](copyright, t.copyright),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
       FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
@@ -227,18 +227,18 @@ object Cqf_questionnaire extends CompanionFor[Cqf_questionnaire] {
   def extractUrl(t: Cqf_questionnaire): Option[UriStr]                   = t.url
   def extractMeta(t: Cqf_questionnaire): Option[Meta]                    = t.meta
   def extractText(t: Cqf_questionnaire): Option[Narrative]               = t.text
-  def extractName(t: Cqf_questionnaire): Option[String]                  = t.name
+  def extractName(t: Cqf_questionnaire): Option[FHIRString]              = t.name
   def extractDate(t: Cqf_questionnaire): Option[FHIRDateTime]            = t.date
   def extractCode(t: Cqf_questionnaire): LitSeq[Coding]                  = t.code
-  def extractTitle(t: Cqf_questionnaire): Option[String]                 = t.title
+  def extractTitle(t: Cqf_questionnaire): Option[FHIRString]             = t.title
   def extractStatus(t: Cqf_questionnaire): PUBLICATION_STATUS            = t.status
-  def extractVersion(t: Cqf_questionnaire): Option[String]               = t.version
+  def extractVersion(t: Cqf_questionnaire): Option[FHIRString]           = t.version
   def extractContact(t: Cqf_questionnaire): LitSeq[ContactDetail]        = t.contact
   def extractPurpose(t: Cqf_questionnaire): Option[Markdown]             = t.purpose
   def extractLanguage(t: Cqf_questionnaire): Option[LANGUAGES]           = t.language
   def extractContained(t: Cqf_questionnaire): LitSeq[Resource]           = t.contained
   def extractExtension(t: Cqf_questionnaire): LitSeq[Extension]          = t.extension
-  def extractPublisher(t: Cqf_questionnaire): Option[String]             = t.publisher
+  def extractPublisher(t: Cqf_questionnaire): Option[FHIRString]         = t.publisher
   def extractCopyright(t: Cqf_questionnaire): Option[Markdown]           = t.copyright
   def extractIdentifier(t: Cqf_questionnaire): LitSeq[Identifier]        = t.identifier
   def extractUseContext(t: Cqf_questionnaire): LitSeq[UsageContext]      = t.useContext
@@ -263,18 +263,18 @@ object Cqf_questionnaire extends CompanionFor[Cqf_questionnaire] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[LitSeq[Coding]]("code", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
@@ -399,18 +399,18 @@ class Cqf_questionnaire(
     override val meta: Option[Meta] = Some(
       new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/cqf-questionnaire"))),
     override val text: Option[Narrative] = None,
-    override val name: Option[String] = None,
+    override val name: Option[FHIRString] = None,
     override val date: Option[FHIRDateTime] = None,
     override val code: LitSeq[Coding] = LitSeq.empty,
-    override val title: Option[String] = None,
+    override val title: Option[FHIRString] = None,
     override val status: PUBLICATION_STATUS,
-    override val version: Option[String] = None,
+    override val version: Option[FHIRString] = None,
     override val contact: LitSeq[ContactDetail] = LitSeq.empty,
     override val purpose: Option[Markdown] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    override val publisher: Option[String] = None,
+    override val publisher: Option[FHIRString] = None,
     override val copyright: Option[Markdown] = None,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
     override val useContext: LitSeq[UsageContext] = LitSeq.empty,

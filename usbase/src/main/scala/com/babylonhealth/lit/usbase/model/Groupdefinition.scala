@@ -38,7 +38,7 @@ object Groupdefinition extends CompanionFor[Groupdefinition] {
       text: Option[Narrative] = None,
       `type`: GROUP_TYPE,
       code: Option[CodeableConcept] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       active: Option[Boolean] = None,
       actual: Boolean,
       language: Option[LANGUAGES] = None,
@@ -81,8 +81,8 @@ object Groupdefinition extends CompanionFor[Groupdefinition] {
     FHIRComponentFieldMeta("type", lTagOf[GROUP_TYPE], false, lTagOf[GROUP_TYPE])
   val code: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("code", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val active: FHIRComponentFieldMeta[Option[Boolean]] =
     FHIRComponentFieldMeta("active", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
   val actual: FHIRComponentFieldMeta[Boolean] =
@@ -131,7 +131,7 @@ object Groupdefinition extends CompanionFor[Groupdefinition] {
       FHIRComponentField[Option[Narrative]](text, t.text),
       FHIRComponentField[GROUP_TYPE](`type`, t.`type`),
       FHIRComponentField[Option[CodeableConcept]](code, t.code),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[Option[Boolean]](active, t.active),
       FHIRComponentField[Boolean](actual, t.actual),
       FHIRComponentField[Option[LANGUAGES]](language, t.language),
@@ -150,7 +150,7 @@ object Groupdefinition extends CompanionFor[Groupdefinition] {
   def extractText(t: Groupdefinition): Option[Narrative]                      = t.text
   def extractType(t: Groupdefinition): GROUP_TYPE                             = t.`type`
   def extractCode(t: Groupdefinition): Option[CodeableConcept]                = t.code
-  def extractName(t: Groupdefinition): Option[String]                         = t.name
+  def extractName(t: Groupdefinition): Option[FHIRString]                     = t.name
   def extractActive(t: Groupdefinition): Option[Boolean]                      = t.active
   def extractActual(t: Groupdefinition): Boolean                              = t.actual
   def extractLanguage(t: Groupdefinition): Option[LANGUAGES]                  = t.language
@@ -165,7 +165,7 @@ object Groupdefinition extends CompanionFor[Groupdefinition] {
   override val thisName: String                                               = "Groupdefinition"
   override val searchParams: Map[String, Groupdefinition => Seq[Any]]         = Group.searchParams
   def unapply(
-      o: Groupdefinition): Option[(Option[String], Option[Meta], Option[Narrative], GROUP_TYPE, Option[CodeableConcept], Option[String], Option[Boolean], Boolean, Option[LANGUAGES], Option[UnsignedInt], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[UriStr], Option[Reference], LitSeq[Extension], LitSeq[Group.Characteristic])] =
+      o: Groupdefinition): Option[(Option[String], Option[Meta], Option[Narrative], GROUP_TYPE, Option[CodeableConcept], Option[FHIRString], Option[Boolean], Boolean, Option[LANGUAGES], Option[UnsignedInt], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[UriStr], Option[Reference], LitSeq[Extension], LitSeq[Group.Characteristic])] =
     Some(
       (
         o.id,
@@ -194,7 +194,7 @@ object Groupdefinition extends CompanionFor[Groupdefinition] {
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[GROUP_TYPE]("type", None),
           cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[Boolean]]("active", Some(None)),
           cursor.decodeAs[Boolean]("actual", None),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
@@ -278,7 +278,7 @@ class Groupdefinition(
     override val text: Option[Narrative] = None,
     override val `type`: GROUP_TYPE,
     override val code: Option[CodeableConcept] = None,
-    override val name: Option[String] = None,
+    override val name: Option[FHIRString] = None,
     override val active: Option[Boolean] = None,
     override val actual: Boolean,
     override val language: Option[LANGUAGES] = None,

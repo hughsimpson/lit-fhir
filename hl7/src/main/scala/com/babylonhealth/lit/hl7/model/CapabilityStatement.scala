@@ -426,7 +426,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         override val parentType: CompanionFor[ResourceType] = Operation
         def apply(
             id: Option[String] = None,
-            name: String,
+            name: FHIRString,
             extension: LitSeq[Extension] = LitSeq.empty,
             definition: Canonical,
             documentation: Option[Markdown] = None,
@@ -442,12 +442,12 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: Operation): Option[(Option[String], String, LitSeq[Extension], Canonical, Option[Markdown], LitSeq[Extension])] =
+            o: Operation): Option[(Option[String], FHIRString, LitSeq[Extension], Canonical, Option[Markdown], LitSeq[Extension])] =
           Some((o.id, o.name, o.extension, o.definition, o.documentation, o.modifierExtension))
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-        val name: FHIRComponentFieldMeta[String] =
-          FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+        val name: FHIRComponentFieldMeta[FHIRString] =
+          FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val definition: FHIRComponentFieldMeta[Canonical] =
@@ -460,7 +460,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
         override def fields(t: Operation): Seq[FHIRComponentField[_]] = Seq(
           FHIRComponentField[Option[String]](id, t.id),
-          FHIRComponentField[String](name, t.name),
+          FHIRComponentField[FHIRString](name, t.name),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[Canonical](definition, t.definition),
           FHIRComponentField[Option[Markdown]](documentation, t.documentation),
@@ -473,7 +473,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
             Try(
               new Operation(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
-                cursor.decodeAs[String]("name", None),
+                cursor.decodeAs[FHIRString]("name", None),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[Canonical]("definition", None),
                 cursor.decodeAs[Option[Markdown]]("documentation", Some(None)),
@@ -485,7 +485,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
       @POJOBoilerplate
       class Operation(
           override val id: Option[String] = None,
-          val name: String,
+          val name: FHIRString,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           val definition: Canonical,
           val documentation: Option[Markdown] = None,
@@ -567,7 +567,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         override val parentType: CompanionFor[ResourceType] = SearchParam
         def apply(
             id: Option[String] = None,
-            name: String,
+            name: FHIRString,
             `type`: SEARCH_PARAM_TYPE,
             extension: LitSeq[Extension] = LitSeq.empty,
             definition: Option[Canonical] = None,
@@ -585,12 +585,12 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: SearchParam): Option[(Option[String], String, SEARCH_PARAM_TYPE, LitSeq[Extension], Option[Canonical], Option[Markdown], LitSeq[Extension])] =
+            o: SearchParam): Option[(Option[String], FHIRString, SEARCH_PARAM_TYPE, LitSeq[Extension], Option[Canonical], Option[Markdown], LitSeq[Extension])] =
           Some((o.id, o.name, o.`type`, o.extension, o.definition, o.documentation, o.modifierExtension))
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-        val name: FHIRComponentFieldMeta[String] =
-          FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+        val name: FHIRComponentFieldMeta[FHIRString] =
+          FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
         val `type`: FHIRComponentFieldMeta[SEARCH_PARAM_TYPE] =
           FHIRComponentFieldMeta("type", lTagOf[SEARCH_PARAM_TYPE], false, lTagOf[SEARCH_PARAM_TYPE])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -606,7 +606,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
         override def fields(t: SearchParam): Seq[FHIRComponentField[_]] = Seq(
           FHIRComponentField[Option[String]](id, t.id),
-          FHIRComponentField[String](name, t.name),
+          FHIRComponentField[FHIRString](name, t.name),
           FHIRComponentField[SEARCH_PARAM_TYPE](`type`, t.`type`),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[Option[Canonical]](definition, t.definition),
@@ -620,7 +620,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
             Try(
               new SearchParam(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
-                cursor.decodeAs[String]("name", None),
+                cursor.decodeAs[FHIRString]("name", None),
                 cursor.decodeAs[SEARCH_PARAM_TYPE]("type", None),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[Option[Canonical]]("definition", Some(None)),
@@ -633,7 +633,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
       @POJOBoilerplate
       class SearchParam(
           override val id: Option[String] = None,
-          val name: String,
+          val name: FHIRString,
           val `type`: SEARCH_PARAM_TYPE,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           val definition: Option[Canonical] = None,
@@ -650,11 +650,11 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
           readHistory: Option[Boolean] = None,
           updateCreate: Option[Boolean] = None,
           documentation: Option[Markdown] = None,
-          searchInclude: LitSeq[String] = LitSeq.empty,
+          searchInclude: LitSeq[FHIRString] = LitSeq.empty,
           conditionalRead: Option[CONDITIONAL_READ_STATUS] = None,
           referencePolicy: LitSeq[REFERENCE_HANDLING_POLICY] = LitSeq.empty,
           supportedProfile: LitSeq[Canonical] = LitSeq.empty,
-          searchRevInclude: LitSeq[String] = LitSeq.empty,
+          searchRevInclude: LitSeq[FHIRString] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           conditionalCreate: Option[Boolean] = None,
           conditionalUpdate: Option[Boolean] = None,
@@ -687,7 +687,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Resource): Option[(Option[String], RESOURCE_TYPES, Option[Canonical], LitSeq[Extension], Option[VERSIONING_POLICY], Option[Boolean], Option[Boolean], Option[Markdown], LitSeq[String], Option[CONDITIONAL_READ_STATUS], LitSeq[REFERENCE_HANDLING_POLICY], LitSeq[Canonical], LitSeq[String], LitSeq[Extension], Option[Boolean], Option[Boolean], Option[CONDITIONAL_DELETE_STATUS], LitSeq[Resource.Operation], LitSeq[Resource.Interaction], LitSeq[Resource.SearchParam])] =
+          o: Resource): Option[(Option[String], RESOURCE_TYPES, Option[Canonical], LitSeq[Extension], Option[VERSIONING_POLICY], Option[Boolean], Option[Boolean], Option[Markdown], LitSeq[FHIRString], Option[CONDITIONAL_READ_STATUS], LitSeq[REFERENCE_HANDLING_POLICY], LitSeq[Canonical], LitSeq[FHIRString], LitSeq[Extension], Option[Boolean], Option[Boolean], Option[CONDITIONAL_DELETE_STATUS], LitSeq[Resource.Operation], LitSeq[Resource.Interaction], LitSeq[Resource.SearchParam])] =
         Some(
           (
             o.id,
@@ -726,8 +726,8 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         FHIRComponentFieldMeta("updateCreate", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
       val documentation: FHIRComponentFieldMeta[Option[Markdown]] =
         FHIRComponentFieldMeta("documentation", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
-      val searchInclude: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("searchInclude", lTagOf[LitSeq[String]], false, lTagOf[String])
+      val searchInclude: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("searchInclude", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
       val conditionalRead: FHIRComponentFieldMeta[Option[CONDITIONAL_READ_STATUS]] =
         FHIRComponentFieldMeta("conditionalRead", lTagOf[Option[CONDITIONAL_READ_STATUS]], false, lTagOf[CONDITIONAL_READ_STATUS])
       val referencePolicy: FHIRComponentFieldMeta[LitSeq[REFERENCE_HANDLING_POLICY]] =
@@ -738,8 +738,8 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
           lTagOf[REFERENCE_HANDLING_POLICY])
       val supportedProfile: FHIRComponentFieldMeta[LitSeq[Canonical]] =
         FHIRComponentFieldMeta("supportedProfile", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
-      val searchRevInclude: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("searchRevInclude", lTagOf[LitSeq[String]], false, lTagOf[String])
+      val searchRevInclude: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("searchRevInclude", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val conditionalCreate: FHIRComponentFieldMeta[Option[Boolean]] =
@@ -790,11 +790,11 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         FHIRComponentField[Option[Boolean]](readHistory, t.readHistory),
         FHIRComponentField[Option[Boolean]](updateCreate, t.updateCreate),
         FHIRComponentField[Option[Markdown]](documentation, t.documentation),
-        FHIRComponentField[LitSeq[String]](searchInclude, t.searchInclude),
+        FHIRComponentField[LitSeq[FHIRString]](searchInclude, t.searchInclude),
         FHIRComponentField[Option[CONDITIONAL_READ_STATUS]](conditionalRead, t.conditionalRead),
         FHIRComponentField[LitSeq[REFERENCE_HANDLING_POLICY]](referencePolicy, t.referencePolicy),
         FHIRComponentField[LitSeq[Canonical]](supportedProfile, t.supportedProfile),
-        FHIRComponentField[LitSeq[String]](searchRevInclude, t.searchRevInclude),
+        FHIRComponentField[LitSeq[FHIRString]](searchRevInclude, t.searchRevInclude),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
         FHIRComponentField[Option[Boolean]](conditionalCreate, t.conditionalCreate),
         FHIRComponentField[Option[Boolean]](conditionalUpdate, t.conditionalUpdate),
@@ -817,11 +817,11 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
               cursor.decodeAs[Option[Boolean]]("readHistory", Some(None)),
               cursor.decodeAs[Option[Boolean]]("updateCreate", Some(None)),
               cursor.decodeAs[Option[Markdown]]("documentation", Some(None)),
-              cursor.decodeAs[LitSeq[String]]("searchInclude", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("searchInclude", Some(LitSeq.empty)),
               cursor.decodeAs[Option[CONDITIONAL_READ_STATUS]]("conditionalRead", Some(None)),
               cursor.decodeAs[LitSeq[REFERENCE_HANDLING_POLICY]]("referencePolicy", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Canonical]]("supportedProfile", Some(LitSeq.empty)),
-              cursor.decodeAs[LitSeq[String]]("searchRevInclude", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("searchRevInclude", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Boolean]]("conditionalCreate", Some(None)),
               cursor.decodeAs[Option[Boolean]]("conditionalUpdate", Some(None)),
@@ -843,11 +843,11 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         val readHistory: Option[Boolean] = None,
         val updateCreate: Option[Boolean] = None,
         val documentation: Option[Markdown] = None,
-        val searchInclude: LitSeq[String] = LitSeq.empty,
+        val searchInclude: LitSeq[FHIRString] = LitSeq.empty,
         val conditionalRead: Option[CONDITIONAL_READ_STATUS] = None,
         val referencePolicy: LitSeq[REFERENCE_HANDLING_POLICY] = LitSeq.empty,
         val supportedProfile: LitSeq[Canonical] = LitSeq.empty,
-        val searchRevInclude: LitSeq[String] = LitSeq.empty,
+        val searchRevInclude: LitSeq[FHIRString] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         val conditionalCreate: Option[Boolean] = None,
         val conditionalUpdate: Option[Boolean] = None,
@@ -1002,7 +1002,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         url: Option[UrlStr] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         custodian: Option[Reference] = None,
-        description: String,
+        description: FHIRString,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Implementation = new Implementation(
@@ -1015,7 +1015,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Implementation): Option[(Option[String], Option[UrlStr], LitSeq[Extension], Option[Reference], String, LitSeq[Extension])] =
+        o: Implementation): Option[(Option[String], Option[UrlStr], LitSeq[Extension], Option[Reference], FHIRString, LitSeq[Extension])] =
       Some((o.id, o.url, o.extension, o.custodian, o.description, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -1025,8 +1025,8 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val custodian: FHIRComponentFieldMeta[Option[Reference]] =
       FHIRComponentFieldMeta("custodian", lTagOf[Option[Reference]], false, lTagOf[Reference])
-    val description: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("description", lTagOf[String], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("description", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, url, extension, custodian, description, modifierExtension)
@@ -1036,7 +1036,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
       FHIRComponentField[Option[UrlStr]](url, t.url),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Reference]](custodian, t.custodian),
-      FHIRComponentField[String](description, t.description),
+      FHIRComponentField[FHIRString](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Implementation] = this
@@ -1049,7 +1049,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
             cursor.decodeAs[Option[UrlStr]]("url", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Reference]]("custodian", Some(None)),
-            cursor.decodeAs[String]("description", None),
+            cursor.decodeAs[FHIRString]("description", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -1061,7 +1061,7 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
       val url: Option[UrlStr] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val custodian: Option[Reference] = None,
-      val description: String,
+      val description: FHIRString,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -1147,8 +1147,8 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
     override val parentType: CompanionFor[ResourceType] = Software
     def apply(
         id: Option[String] = None,
-        name: String,
-        version: Option[String] = None,
+        name: FHIRString,
+        version: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         releaseDate: Option[FHIRDateTime] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -1163,14 +1163,14 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Software): Option[(Option[String], String, Option[String], LitSeq[Extension], Option[FHIRDateTime], LitSeq[Extension])] =
+        o: Software): Option[(Option[String], FHIRString, Option[FHIRString], LitSeq[Extension], Option[FHIRDateTime], LitSeq[Extension])] =
       Some((o.id, o.name, o.version, o.extension, o.releaseDate, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
-    val version: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
+    val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val releaseDate: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
@@ -1181,8 +1181,8 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Software): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](name, t.name),
-      FHIRComponentField[Option[String]](version, t.version),
+      FHIRComponentField[FHIRString](name, t.name),
+      FHIRComponentField[Option[FHIRString]](version, t.version),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[FHIRDateTime]](releaseDate, t.releaseDate),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -1194,8 +1194,8 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
         Try(
           new Software(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("name", None),
-            cursor.decodeAs[Option[String]]("version", Some(None)),
+            cursor.decodeAs[FHIRString]("name", None),
+            cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[FHIRDateTime]]("releaseDate", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -1206,8 +1206,8 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
   @POJOBoilerplate
   class Software(
       override val id: Option[String] = None,
-      val name: String,
-      val version: Option[String] = None,
+      val name: FHIRString,
+      val version: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val releaseDate: Option[FHIRDateTime] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -1218,20 +1218,20 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       date: FHIRDateTime,
       kind: CAPABILITY_STATEMENT_KIND,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       status: PUBLICATION_STATUS,
       format: NonEmptyLitSeq[Code],
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       imports: LitSeq[Canonical] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
       description: Option[Markdown] = None,
@@ -1294,20 +1294,20 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[FHIRDateTime] =
     FHIRComponentFieldMeta("date", lTagOf[FHIRDateTime], false, lTagOf[FHIRDateTime])
   val kind: FHIRComponentFieldMeta[CAPABILITY_STATEMENT_KIND] =
     FHIRComponentFieldMeta("kind", lTagOf[CAPABILITY_STATEMENT_KIND], false, lTagOf[CAPABILITY_STATEMENT_KIND])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
   val format: FHIRComponentFieldMeta[NonEmptyLitSeq[Code]] =
     FHIRComponentFieldMeta("format", lTagOf[NonEmptyLitSeq[Code]], false, lTagOf[Code])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -1320,8 +1320,8 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val useContext: FHIRComponentFieldMeta[LitSeq[UsageContext]] =
@@ -1404,20 +1404,20 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[FHIRDateTime](date, t.date),
     FHIRComponentField[CAPABILITY_STATEMENT_KIND](kind, t.kind),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[NonEmptyLitSeq[Code]](format, t.format),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[LitSeq[Canonical]](imports, t.imports),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
     FHIRComponentField[Option[Markdown]](description, t.description),
@@ -1439,20 +1439,20 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
   def extractUrl(t: CapabilityStatement): Option[UriStr]                                        = t.url
   def extractMeta(t: CapabilityStatement): Option[Meta]                                         = t.meta
   def extractText(t: CapabilityStatement): Option[Narrative]                                    = t.text
-  def extractName(t: CapabilityStatement): Option[String]                                       = t.name
+  def extractName(t: CapabilityStatement): Option[FHIRString]                                   = t.name
   def extractDate(t: CapabilityStatement): FHIRDateTime                                         = t.date
   def extractKind(t: CapabilityStatement): CAPABILITY_STATEMENT_KIND                            = t.kind
-  def extractTitle(t: CapabilityStatement): Option[String]                                      = t.title
+  def extractTitle(t: CapabilityStatement): Option[FHIRString]                                  = t.title
   def extractStatus(t: CapabilityStatement): PUBLICATION_STATUS                                 = t.status
   def extractFormat(t: CapabilityStatement): NonEmptyLitSeq[Code]                               = t.format
-  def extractVersion(t: CapabilityStatement): Option[String]                                    = t.version
+  def extractVersion(t: CapabilityStatement): Option[FHIRString]                                = t.version
   def extractContact(t: CapabilityStatement): LitSeq[ContactDetail]                             = t.contact
   def extractPurpose(t: CapabilityStatement): Option[Markdown]                                  = t.purpose
   def extractImports(t: CapabilityStatement): LitSeq[Canonical]                                 = t.imports
   def extractLanguage(t: CapabilityStatement): Option[LANGUAGES]                                = t.language
   def extractContained(t: CapabilityStatement): LitSeq[Resource]                                = t.contained
   def extractExtension(t: CapabilityStatement): LitSeq[Extension]                               = t.extension
-  def extractPublisher(t: CapabilityStatement): Option[String]                                  = t.publisher
+  def extractPublisher(t: CapabilityStatement): Option[FHIRString]                              = t.publisher
   def extractCopyright(t: CapabilityStatement): Option[Markdown]                                = t.copyright
   def extractUseContext(t: CapabilityStatement): LitSeq[UsageContext]                           = t.useContext
   def extractDescription(t: CapabilityStatement): Option[Markdown]                              = t.description
@@ -1505,20 +1505,20 @@ object CapabilityStatement extends CompanionFor[CapabilityStatement] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[FHIRDateTime]("date", None),
           cursor.decodeAs[CAPABILITY_STATEMENT_KIND]("kind", None),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[NonEmptyLitSeq[Code]]("format", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[LitSeq[Canonical]]("imports", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("description", Some(None)),
@@ -1663,20 +1663,20 @@ class CapabilityStatement(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val date: FHIRDateTime,
     val kind: CAPABILITY_STATEMENT_KIND,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val status: PUBLICATION_STATUS,
     val format: NonEmptyLitSeq[Code],
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     val imports: LitSeq[Canonical] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,
     val description: Option[Markdown] = None,

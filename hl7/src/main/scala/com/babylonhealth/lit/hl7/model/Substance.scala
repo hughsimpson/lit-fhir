@@ -184,7 +184,7 @@ object Substance extends CompanionFor[Substance] {
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       instance: LitSeq[Substance.Instance] = LitSeq.empty,
@@ -228,8 +228,8 @@ object Substance extends CompanionFor[Substance] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -266,7 +266,7 @@ object Substance extends CompanionFor[Substance] {
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[Substance.Instance]](instance, t.instance),
@@ -282,7 +282,7 @@ object Substance extends CompanionFor[Substance] {
   def extractContained(t: Substance): LitSeq[Resource]              = t.contained
   def extractExtension(t: Substance): LitSeq[Extension]             = t.extension
   def extractIdentifier(t: Substance): LitSeq[Identifier]           = t.identifier
-  def extractDescription(t: Substance): Option[String]              = t.description
+  def extractDescription(t: Substance): Option[FHIRString]          = t.description
   def extractImplicitRules(t: Substance): Option[UriStr]            = t.implicitRules
   def extractModifierExtension(t: Substance): LitSeq[Extension]     = t.modifierExtension
   def extractInstance(t: Substance): LitSeq[Substance.Instance]     = t.instance
@@ -301,7 +301,7 @@ object Substance extends CompanionFor[Substance] {
     "expiry"              -> (obj => obj.instance.flatMap(_.expiry).toSeq)
   )
   def unapply(
-      o: Substance): Option[(Option[String], Option[Meta], Option[Narrative], CodeableConcept, Option[SUBSTANCE_STATUS], Option[LANGUAGES], LitSeq[CodeableConcept], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[String], Option[UriStr], LitSeq[Extension], LitSeq[Substance.Instance], LitSeq[Substance.Ingredient])] =
+      o: Substance): Option[(Option[String], Option[Meta], Option[Narrative], CodeableConcept, Option[SUBSTANCE_STATUS], Option[LANGUAGES], LitSeq[CodeableConcept], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[FHIRString], Option[UriStr], LitSeq[Extension], LitSeq[Substance.Instance], LitSeq[Substance.Ingredient])] =
     Some(
       (
         o.id,
@@ -333,7 +333,7 @@ object Substance extends CompanionFor[Substance] {
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Substance.Instance]]("instance", Some(LitSeq.empty)),
@@ -408,7 +408,7 @@ class Substance(
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val instance: LitSeq[Substance.Instance] = LitSeq.empty,

@@ -120,10 +120,10 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
         baseFormulaType: Option[CodeableConcept] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         maxVolumeToDeliver: Option[Quantity] = None,
-        additiveProductName: Option[String] = None,
+        additiveProductName: Option[FHIRString] = None,
         routeofAdministration: Option[CodeableConcept] = None,
-        baseFormulaProductName: Option[String] = None,
-        administrationInstruction: Option[String] = None,
+        baseFormulaProductName: Option[FHIRString] = None,
+        administrationInstruction: Option[FHIRString] = None,
         administration: LitSeq[EnteralFormula.Administration] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): EnteralFormula = new EnteralFormula(
@@ -142,7 +142,7 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: EnteralFormula): Option[(Option[String], LitSeq[Extension], Option[CodeableConcept], Option[Quantity], Option[CodeableConcept], LitSeq[Extension], Option[Quantity], Option[String], Option[CodeableConcept], Option[String], Option[String], LitSeq[EnteralFormula.Administration])] =
+        o: EnteralFormula): Option[(Option[String], LitSeq[Extension], Option[CodeableConcept], Option[Quantity], Option[CodeableConcept], LitSeq[Extension], Option[Quantity], Option[FHIRString], Option[CodeableConcept], Option[FHIRString], Option[FHIRString], LitSeq[EnteralFormula.Administration])] =
       Some(
         (
           o.id,
@@ -171,14 +171,14 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val maxVolumeToDeliver: FHIRComponentFieldMeta[Option[Quantity]] =
       FHIRComponentFieldMeta("maxVolumeToDeliver", lTagOf[Option[Quantity]], false, lTagOf[Quantity])
-    val additiveProductName: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("additiveProductName", lTagOf[Option[String]], false, lTagOf[String])
+    val additiveProductName: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("additiveProductName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val routeofAdministration: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("routeofAdministration", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val baseFormulaProductName: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("baseFormulaProductName", lTagOf[Option[String]], false, lTagOf[String])
-    val administrationInstruction: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("administrationInstruction", lTagOf[Option[String]], false, lTagOf[String])
+    val baseFormulaProductName: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("baseFormulaProductName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val administrationInstruction: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("administrationInstruction", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val administration: FHIRComponentFieldMeta[LitSeq[EnteralFormula.Administration]] =
       FHIRComponentFieldMeta(
         "administration",
@@ -208,10 +208,10 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       FHIRComponentField[Option[CodeableConcept]](baseFormulaType, t.baseFormulaType),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[Quantity]](maxVolumeToDeliver, t.maxVolumeToDeliver),
-      FHIRComponentField[Option[String]](additiveProductName, t.additiveProductName),
+      FHIRComponentField[Option[FHIRString]](additiveProductName, t.additiveProductName),
       FHIRComponentField[Option[CodeableConcept]](routeofAdministration, t.routeofAdministration),
-      FHIRComponentField[Option[String]](baseFormulaProductName, t.baseFormulaProductName),
-      FHIRComponentField[Option[String]](administrationInstruction, t.administrationInstruction),
+      FHIRComponentField[Option[FHIRString]](baseFormulaProductName, t.baseFormulaProductName),
+      FHIRComponentField[Option[FHIRString]](administrationInstruction, t.administrationInstruction),
       FHIRComponentField[LitSeq[EnteralFormula.Administration]](administration, t.administration)
     )
     val baseType: CompanionFor[EnteralFormula] = this
@@ -227,10 +227,10 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
             cursor.decodeAs[Option[CodeableConcept]]("baseFormulaType", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Quantity]]("maxVolumeToDeliver", Some(None)),
-            cursor.decodeAs[Option[String]]("additiveProductName", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("additiveProductName", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("routeofAdministration", Some(None)),
-            cursor.decodeAs[Option[String]]("baseFormulaProductName", Some(None)),
-            cursor.decodeAs[Option[String]]("administrationInstruction", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("baseFormulaProductName", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("administrationInstruction", Some(None)),
             cursor.decodeAs[LitSeq[EnteralFormula.Administration]]("administration", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -245,10 +245,10 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       val baseFormulaType: Option[CodeableConcept] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val maxVolumeToDeliver: Option[Quantity] = None,
-      val additiveProductName: Option[String] = None,
+      val additiveProductName: Option[FHIRString] = None,
       val routeofAdministration: Option[CodeableConcept] = None,
-      val baseFormulaProductName: Option[String] = None,
-      val administrationInstruction: Option[String] = None,
+      val baseFormulaProductName: Option[FHIRString] = None,
+      val administrationInstruction: Option[FHIRString] = None,
       val administration: LitSeq[EnteralFormula.Administration] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -397,7 +397,7 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
         `type`: LitSeq[CodeableConcept] = LitSeq.empty,
         schedule: LitSeq[Timing] = LitSeq.empty,
         extension: LitSeq[Extension] = LitSeq.empty,
-        instruction: Option[String] = None,
+        instruction: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         fluidConsistencyType: LitSeq[CodeableConcept] = LitSeq.empty,
         texture: LitSeq[OralDiet.Texture] = LitSeq.empty,
@@ -416,7 +416,7 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: OralDiet): Option[(Option[String], LitSeq[CodeableConcept], LitSeq[Timing], LitSeq[Extension], Option[String], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[OralDiet.Texture], LitSeq[OralDiet.Nutrient])] =
+        o: OralDiet): Option[(Option[String], LitSeq[CodeableConcept], LitSeq[Timing], LitSeq[Extension], Option[FHIRString], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[OralDiet.Texture], LitSeq[OralDiet.Nutrient])] =
       Some(
         (
           o.id,
@@ -436,8 +436,8 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       FHIRComponentFieldMeta("schedule", lTagOf[LitSeq[Timing]], false, lTagOf[Timing])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val instruction: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("instruction", lTagOf[Option[String]], false, lTagOf[String])
+    val instruction: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("instruction", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fluidConsistencyType: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -454,7 +454,7 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       FHIRComponentField[LitSeq[CodeableConcept]](`type`, t.`type`),
       FHIRComponentField[LitSeq[Timing]](schedule, t.schedule),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](instruction, t.instruction),
+      FHIRComponentField[Option[FHIRString]](instruction, t.instruction),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[LitSeq[CodeableConcept]](fluidConsistencyType, t.fluidConsistencyType),
       FHIRComponentField[LitSeq[OralDiet.Texture]](texture, t.texture),
@@ -470,7 +470,7 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
             cursor.decodeAs[LitSeq[CodeableConcept]]("type", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Timing]]("schedule", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("instruction", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("instruction", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[CodeableConcept]]("fluidConsistencyType", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[OralDiet.Texture]]("texture", Some(LitSeq.empty)),
@@ -485,7 +485,7 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       val `type`: LitSeq[CodeableConcept] = LitSeq.empty,
       val schedule: LitSeq[Timing] = LitSeq.empty,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val instruction: Option[String] = None,
+      val instruction: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val fluidConsistencyType: LitSeq[CodeableConcept] = LitSeq.empty,
       val texture: LitSeq[OralDiet.Texture] = LitSeq.empty,
@@ -504,8 +504,8 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
         schedule: LitSeq[Timing] = LitSeq.empty,
         quantity: Option[Quantity] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        productName: Option[String] = None,
-        instruction: Option[String] = None,
+        productName: Option[FHIRString] = None,
+        instruction: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Supplement = new Supplement(
@@ -520,7 +520,7 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Supplement): Option[(Option[String], Option[CodeableConcept], LitSeq[Timing], Option[Quantity], LitSeq[Extension], Option[String], Option[String], LitSeq[Extension])] =
+        o: Supplement): Option[(Option[String], Option[CodeableConcept], LitSeq[Timing], Option[Quantity], LitSeq[Extension], Option[FHIRString], Option[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.`type`, o.schedule, o.quantity, o.extension, o.productName, o.instruction, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -532,10 +532,10 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       FHIRComponentFieldMeta("quantity", lTagOf[Option[Quantity]], false, lTagOf[Quantity])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val productName: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("productName", lTagOf[Option[String]], false, lTagOf[String])
-    val instruction: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("instruction", lTagOf[Option[String]], false, lTagOf[String])
+    val productName: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("productName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val instruction: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("instruction", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -547,8 +547,8 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       FHIRComponentField[LitSeq[Timing]](schedule, t.schedule),
       FHIRComponentField[Option[Quantity]](quantity, t.quantity),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](productName, t.productName),
-      FHIRComponentField[Option[String]](instruction, t.instruction),
+      FHIRComponentField[Option[FHIRString]](productName, t.productName),
+      FHIRComponentField[Option[FHIRString]](instruction, t.instruction),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Supplement] = this
@@ -562,8 +562,8 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
             cursor.decodeAs[LitSeq[Timing]]("schedule", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Quantity]]("quantity", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("productName", Some(None)),
-            cursor.decodeAs[Option[String]]("instruction", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("productName", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("instruction", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -576,8 +576,8 @@ object NutritionOrder extends CompanionFor[NutritionOrder] {
       val schedule: LitSeq[Timing] = LitSeq.empty,
       val quantity: Option[Quantity] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val productName: Option[String] = None,
-      val instruction: Option[String] = None,
+      val productName: Option[FHIRString] = None,
+      val instruction: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)

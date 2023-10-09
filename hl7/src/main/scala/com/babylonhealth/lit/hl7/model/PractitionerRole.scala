@@ -122,7 +122,7 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
         id: Option[String] = None,
         during: Option[Period] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: String,
+        description: FHIRString,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): NotAvailable = new NotAvailable(
@@ -133,16 +133,16 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: NotAvailable): Option[(Option[String], Option[Period], LitSeq[Extension], String, LitSeq[Extension])] = Some(
-      (o.id, o.during, o.extension, o.description, o.modifierExtension))
+    def unapply(o: NotAvailable): Option[(Option[String], Option[Period], LitSeq[Extension], FHIRString, LitSeq[Extension])] =
+      Some((o.id, o.during, o.extension, o.description, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val during: FHIRComponentFieldMeta[Option[Period]] =
       FHIRComponentFieldMeta("during", lTagOf[Option[Period]], false, lTagOf[Period])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("description", lTagOf[String], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("description", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, during, extension, description, modifierExtension)
@@ -151,7 +151,7 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[Period]](during, t.during),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[String](description, t.description),
+      FHIRComponentField[FHIRString](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[NotAvailable] = this
@@ -163,7 +163,7 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[Period]]("during", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[String]("description", None),
+            cursor.decodeAs[FHIRString]("description", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -174,7 +174,7 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
       override val id: Option[String] = None,
       val during: Option[Period] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: String,
+      val description: FHIRString,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -198,7 +198,7 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
       implicitRules: Option[UriStr] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       healthcareService: LitSeq[Reference] = LitSeq.empty,
-      availabilityExceptions: Option[String] = None,
+      availabilityExceptions: Option[FHIRString] = None,
       notAvailable: LitSeq[PractitionerRole.NotAvailable] = LitSeq.empty,
       availableTime: LitSeq[PractitionerRole.AvailableTime] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -265,8 +265,8 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val healthcareService: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("healthcareService", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
-  val availabilityExceptions: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("availabilityExceptions", lTagOf[Option[String]], false, lTagOf[String])
+  val availabilityExceptions: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("availabilityExceptions", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val notAvailable: FHIRComponentFieldMeta[LitSeq[PractitionerRole.NotAvailable]] =
     FHIRComponentFieldMeta(
       "notAvailable",
@@ -324,7 +324,7 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[Reference]](healthcareService, t.healthcareService),
-    FHIRComponentField[Option[String]](availabilityExceptions, t.availabilityExceptions),
+    FHIRComponentField[Option[FHIRString]](availabilityExceptions, t.availabilityExceptions),
     FHIRComponentField[LitSeq[PractitionerRole.NotAvailable]](notAvailable, t.notAvailable),
     FHIRComponentField[LitSeq[PractitionerRole.AvailableTime]](availableTime, t.availableTime)
   )
@@ -347,7 +347,7 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
   def extractImplicitRules(t: PractitionerRole): Option[UriStr]                         = t.implicitRules
   def extractModifierExtension(t: PractitionerRole): LitSeq[Extension]                  = t.modifierExtension
   def extractHealthcareService(t: PractitionerRole): LitSeq[Reference]                  = t.healthcareService
-  def extractAvailabilityExceptions(t: PractitionerRole): Option[String]                = t.availabilityExceptions
+  def extractAvailabilityExceptions(t: PractitionerRole): Option[FHIRString]            = t.availabilityExceptions
   def extractNotAvailable(t: PractitionerRole): LitSeq[PractitionerRole.NotAvailable]   = t.notAvailable
   def extractAvailableTime(t: PractitionerRole): LitSeq[PractitionerRole.AvailableTime] = t.availableTime
   override val thisName: String                                                         = "PractitionerRole"
@@ -367,7 +367,7 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
     "active"       -> (obj => obj.active.toSeq)
   )
   def unapply(
-      o: PractitionerRole): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[CodeableConcept], Option[Boolean], Option[Period], LitSeq[ContactPoint], Option[LANGUAGES], LitSeq[Reference], LitSeq[Reference], LitSeq[Resource], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[Identifier], Option[Reference], Option[Reference], Option[UriStr], LitSeq[Extension], LitSeq[Reference], Option[String], LitSeq[PractitionerRole.NotAvailable], LitSeq[PractitionerRole.AvailableTime])] =
+      o: PractitionerRole): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[CodeableConcept], Option[Boolean], Option[Period], LitSeq[ContactPoint], Option[LANGUAGES], LitSeq[Reference], LitSeq[Reference], LitSeq[Resource], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[Identifier], Option[Reference], Option[Reference], Option[UriStr], LitSeq[Extension], LitSeq[Reference], Option[FHIRString], LitSeq[PractitionerRole.NotAvailable], LitSeq[PractitionerRole.AvailableTime])] =
     Some(
       (
         o.id,
@@ -415,7 +415,7 @@ object PractitionerRole extends CompanionFor[PractitionerRole] {
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Reference]]("healthcareService", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("availabilityExceptions", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("availabilityExceptions", Some(None)),
           cursor.decodeAs[LitSeq[PractitionerRole.NotAvailable]]("notAvailable", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[PractitionerRole.AvailableTime]]("availableTime", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -514,7 +514,7 @@ class PractitionerRole(
     override val implicitRules: Option[UriStr] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val healthcareService: LitSeq[Reference] = LitSeq.empty,
-    val availabilityExceptions: Option[String] = None,
+    val availabilityExceptions: Option[FHIRString] = None,
     val notAvailable: LitSeq[PractitionerRole.NotAvailable] = LitSeq.empty,
     val availableTime: LitSeq[PractitionerRole.AvailableTime] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

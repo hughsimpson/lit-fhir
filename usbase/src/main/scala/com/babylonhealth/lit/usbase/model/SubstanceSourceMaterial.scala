@@ -49,7 +49,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
           extension: LitSeq[Extension] = LitSeq.empty,
           authorType: Option[CodeableConcept] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
-          authorDescription: Option[String] = None,
+          authorDescription: Option[FHIRString] = None,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
       ): Author = new Author(
         id,
@@ -60,7 +60,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Author): Option[(Option[String], LitSeq[Extension], Option[CodeableConcept], LitSeq[Extension], Option[String])] =
+          o: Author): Option[(Option[String], LitSeq[Extension], Option[CodeableConcept], LitSeq[Extension], Option[FHIRString])] =
         Some((o.id, o.extension, o.authorType, o.modifierExtension, o.authorDescription))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -70,8 +70,8 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         FHIRComponentFieldMeta("authorType", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-      val authorDescription: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("authorDescription", lTagOf[Option[String]], false, lTagOf[String])
+      val authorDescription: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("authorDescription", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, extension, authorType, modifierExtension, authorDescription)
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: Author): Seq[FHIRComponentField[_]] = Seq(
@@ -79,7 +79,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Option[CodeableConcept]](authorType, t.authorType),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-        FHIRComponentField[Option[String]](authorDescription, t.authorDescription)
+        FHIRComponentField[Option[FHIRString]](authorDescription, t.authorDescription)
       )
       val baseType: CompanionFor[Author] = this
       val thisName: String               = "Author"
@@ -91,7 +91,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[CodeableConcept]]("authorType", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("authorDescription", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("authorDescription", Some(None)),
               decodeAttributes(cursor)
             )
           ))
@@ -102,7 +102,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val authorType: Option[CodeableConcept] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-        val authorDescription: Option[String] = None,
+        val authorDescription: Option[FHIRString] = None,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
     object Hybrid extends CompanionFor[Hybrid] {
@@ -116,10 +116,10 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
           extension: LitSeq[Extension] = LitSeq.empty,
           hybridType: Option[CodeableConcept] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
-          maternalOrganismId: Option[String] = None,
-          paternalOrganismId: Option[String] = None,
-          maternalOrganismName: Option[String] = None,
-          paternalOrganismName: Option[String] = None,
+          maternalOrganismId: Option[FHIRString] = None,
+          paternalOrganismId: Option[FHIRString] = None,
+          maternalOrganismName: Option[FHIRString] = None,
+          paternalOrganismName: Option[FHIRString] = None,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
       ): Hybrid = new Hybrid(
         id,
@@ -133,7 +133,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Hybrid): Option[(Option[String], LitSeq[Extension], Option[CodeableConcept], LitSeq[Extension], Option[String], Option[String], Option[String], Option[String])] =
+          o: Hybrid): Option[(Option[String], LitSeq[Extension], Option[CodeableConcept], LitSeq[Extension], Option[FHIRString], Option[FHIRString], Option[FHIRString], Option[FHIRString])] =
         Some(
           (
             o.id,
@@ -152,14 +152,14 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         FHIRComponentFieldMeta("hybridType", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-      val maternalOrganismId: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("maternalOrganismId", lTagOf[Option[String]], false, lTagOf[String])
-      val paternalOrganismId: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("paternalOrganismId", lTagOf[Option[String]], false, lTagOf[String])
-      val maternalOrganismName: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("maternalOrganismName", lTagOf[Option[String]], false, lTagOf[String])
-      val paternalOrganismName: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("paternalOrganismName", lTagOf[Option[String]], false, lTagOf[String])
+      val maternalOrganismId: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("maternalOrganismId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+      val paternalOrganismId: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("paternalOrganismId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+      val maternalOrganismName: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("maternalOrganismName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+      val paternalOrganismName: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("paternalOrganismName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(
         id,
         extension,
@@ -175,10 +175,10 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Option[CodeableConcept]](hybridType, t.hybridType),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-        FHIRComponentField[Option[String]](maternalOrganismId, t.maternalOrganismId),
-        FHIRComponentField[Option[String]](paternalOrganismId, t.paternalOrganismId),
-        FHIRComponentField[Option[String]](maternalOrganismName, t.maternalOrganismName),
-        FHIRComponentField[Option[String]](paternalOrganismName, t.paternalOrganismName)
+        FHIRComponentField[Option[FHIRString]](maternalOrganismId, t.maternalOrganismId),
+        FHIRComponentField[Option[FHIRString]](paternalOrganismId, t.paternalOrganismId),
+        FHIRComponentField[Option[FHIRString]](maternalOrganismName, t.maternalOrganismName),
+        FHIRComponentField[Option[FHIRString]](paternalOrganismName, t.paternalOrganismName)
       )
       val baseType: CompanionFor[Hybrid] = this
       val thisName: String               = "Hybrid"
@@ -190,10 +190,10 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[CodeableConcept]]("hybridType", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("maternalOrganismId", Some(None)),
-              cursor.decodeAs[Option[String]]("paternalOrganismId", Some(None)),
-              cursor.decodeAs[Option[String]]("maternalOrganismName", Some(None)),
-              cursor.decodeAs[Option[String]]("paternalOrganismName", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("maternalOrganismId", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("paternalOrganismId", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("maternalOrganismName", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("paternalOrganismName", Some(None)),
               decodeAttributes(cursor)
             )
           ))
@@ -204,10 +204,10 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val hybridType: Option[CodeableConcept] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-        val maternalOrganismId: Option[String] = None,
-        val paternalOrganismId: Option[String] = None,
-        val maternalOrganismName: Option[String] = None,
-        val paternalOrganismName: Option[String] = None,
+        val maternalOrganismId: Option[FHIRString] = None,
+        val paternalOrganismId: Option[FHIRString] = None,
+        val maternalOrganismName: Option[FHIRString] = None,
+        val paternalOrganismName: Option[FHIRString] = None,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
     object OrganismGeneral extends CompanionFor[OrganismGeneral] {
@@ -299,7 +299,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         intraspecificType: Option[CodeableConcept] = None,
-        intraspecificDescription: Option[String] = None,
+        intraspecificDescription: Option[FHIRString] = None,
         author: LitSeq[Organism.Author] = LitSeq.empty,
         hybrid: Option[Organism.Hybrid] = None,
         organismGeneral: Option[Organism.OrganismGeneral] = None,
@@ -319,7 +319,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Organism): Option[(Option[String], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Extension], LitSeq[Extension], Option[CodeableConcept], Option[String], LitSeq[Organism.Author], Option[Organism.Hybrid], Option[Organism.OrganismGeneral])] =
+        o: Organism): Option[(Option[String], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Extension], LitSeq[Extension], Option[CodeableConcept], Option[FHIRString], LitSeq[Organism.Author], Option[Organism.Hybrid], Option[Organism.OrganismGeneral])] =
       Some(
         (
           o.id,
@@ -347,8 +347,8 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val intraspecificType: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("intraspecificType", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val intraspecificDescription: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("intraspecificDescription", lTagOf[Option[String]], false, lTagOf[String])
+    val intraspecificDescription: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("intraspecificDescription", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val author: FHIRComponentFieldMeta[LitSeq[Organism.Author]] =
       FHIRComponentFieldMeta("author", lTagOf[LitSeq[Organism.Author]], false, lTagOf[Organism.Author])
     val hybrid: FHIRComponentFieldMeta[Option[Organism.Hybrid]] =
@@ -376,7 +376,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[CodeableConcept]](intraspecificType, t.intraspecificType),
-      FHIRComponentField[Option[String]](intraspecificDescription, t.intraspecificDescription),
+      FHIRComponentField[Option[FHIRString]](intraspecificDescription, t.intraspecificDescription),
       FHIRComponentField[LitSeq[Organism.Author]](author, t.author),
       FHIRComponentField[Option[Organism.Hybrid]](hybrid, t.hybrid),
       FHIRComponentField[Option[Organism.OrganismGeneral]](organismGeneral, t.organismGeneral)
@@ -394,7 +394,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("intraspecificType", Some(None)),
-            cursor.decodeAs[Option[String]]("intraspecificDescription", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("intraspecificDescription", Some(None)),
             cursor.decodeAs[LitSeq[Organism.Author]]("author", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Organism.Hybrid]]("hybrid", Some(None)),
             cursor.decodeAs[Option[Organism.OrganismGeneral]]("organismGeneral", Some(None)),
@@ -411,7 +411,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val intraspecificType: Option[CodeableConcept] = None,
-      val intraspecificDescription: Option[String] = None,
+      val intraspecificDescription: Option[FHIRString] = None,
       val author: LitSeq[Organism.Author] = LitSeq.empty,
       val hybrid: Option[Organism.Hybrid] = None,
       val organismGeneral: Option[Organism.OrganismGeneral] = None,
@@ -425,7 +425,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
     override val parentType: CompanionFor[ResourceType] = FractionDescription
     def apply(
         id: Option[String] = None,
-        fraction: Option[String] = None,
+        fraction: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         materialType: Option[CodeableConcept] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -439,12 +439,12 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: FractionDescription): Option[(Option[String], Option[String], LitSeq[Extension], Option[CodeableConcept], LitSeq[Extension])] =
+        o: FractionDescription): Option[(Option[String], Option[FHIRString], LitSeq[Extension], Option[CodeableConcept], LitSeq[Extension])] =
       Some((o.id, o.fraction, o.extension, o.materialType, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val fraction: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("fraction", lTagOf[Option[String]], false, lTagOf[String])
+    val fraction: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("fraction", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val materialType: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -455,7 +455,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: FractionDescription): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](fraction, t.fraction),
+      FHIRComponentField[Option[FHIRString]](fraction, t.fraction),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[CodeableConcept]](materialType, t.materialType),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -467,7 +467,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
         Try(
           new FractionDescription(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("fraction", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("fraction", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("materialType", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -478,7 +478,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
   @POJOBoilerplate
   class FractionDescription(
       override val id: Option[String] = None,
-      val fraction: Option[String] = None,
+      val fraction: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val materialType: Option[CodeableConcept] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -559,7 +559,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       organismId: Option[Identifier] = None,
-      organismName: Option[String] = None,
+      organismName: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       countryOfOrigin: LitSeq[CodeableConcept] = LitSeq.empty,
       developmentStage: Option[CodeableConcept] = None,
@@ -568,8 +568,8 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
       sourceMaterialType: Option[CodeableConcept] = None,
       sourceMaterialClass: Option[CodeableConcept] = None,
       sourceMaterialState: Option[CodeableConcept] = None,
-      parentSubstanceName: LitSeq[String] = LitSeq.empty,
-      geographicalLocation: LitSeq[String] = LitSeq.empty,
+      parentSubstanceName: LitSeq[FHIRString] = LitSeq.empty,
+      geographicalLocation: LitSeq[FHIRString] = LitSeq.empty,
       partDescription: LitSeq[SubstanceSourceMaterial.PartDescription] = LitSeq.empty,
       fractionDescription: LitSeq[SubstanceSourceMaterial.FractionDescription] = LitSeq.empty,
       organism: Option[SubstanceSourceMaterial.Organism] = None,
@@ -612,8 +612,8 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val organismId: FHIRComponentFieldMeta[Option[Identifier]] =
     FHIRComponentFieldMeta("organismId", lTagOf[Option[Identifier]], false, lTagOf[Identifier])
-  val organismName: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("organismName", lTagOf[Option[String]], false, lTagOf[String])
+  val organismName: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("organismName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val countryOfOrigin: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -630,10 +630,10 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
     FHIRComponentFieldMeta("sourceMaterialClass", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val sourceMaterialState: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("sourceMaterialState", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val parentSubstanceName: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("parentSubstanceName", lTagOf[LitSeq[String]], false, lTagOf[String])
-  val geographicalLocation: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("geographicalLocation", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val parentSubstanceName: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("parentSubstanceName", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
+  val geographicalLocation: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("geographicalLocation", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val partDescription: FHIRComponentFieldMeta[LitSeq[SubstanceSourceMaterial.PartDescription]] =
     FHIRComponentFieldMeta(
       "partDescription",
@@ -684,7 +684,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[Identifier]](organismId, t.organismId),
-    FHIRComponentField[Option[String]](organismName, t.organismName),
+    FHIRComponentField[Option[FHIRString]](organismName, t.organismName),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[CodeableConcept]](countryOfOrigin, t.countryOfOrigin),
     FHIRComponentField[Option[CodeableConcept]](developmentStage, t.developmentStage),
@@ -693,8 +693,8 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
     FHIRComponentField[Option[CodeableConcept]](sourceMaterialType, t.sourceMaterialType),
     FHIRComponentField[Option[CodeableConcept]](sourceMaterialClass, t.sourceMaterialClass),
     FHIRComponentField[Option[CodeableConcept]](sourceMaterialState, t.sourceMaterialState),
-    FHIRComponentField[LitSeq[String]](parentSubstanceName, t.parentSubstanceName),
-    FHIRComponentField[LitSeq[String]](geographicalLocation, t.geographicalLocation),
+    FHIRComponentField[LitSeq[FHIRString]](parentSubstanceName, t.parentSubstanceName),
+    FHIRComponentField[LitSeq[FHIRString]](geographicalLocation, t.geographicalLocation),
     FHIRComponentField[LitSeq[SubstanceSourceMaterial.PartDescription]](partDescription, t.partDescription),
     FHIRComponentField[LitSeq[SubstanceSourceMaterial.FractionDescription]](fractionDescription, t.fractionDescription),
     FHIRComponentField[Option[SubstanceSourceMaterial.Organism]](organism, t.organism)
@@ -706,7 +706,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
   def extractContained(t: SubstanceSourceMaterial): LitSeq[Resource]                                      = t.contained
   def extractExtension(t: SubstanceSourceMaterial): LitSeq[Extension]                                     = t.extension
   def extractOrganismId(t: SubstanceSourceMaterial): Option[Identifier]                                   = t.organismId
-  def extractOrganismName(t: SubstanceSourceMaterial): Option[String]                                     = t.organismName
+  def extractOrganismName(t: SubstanceSourceMaterial): Option[FHIRString]                                 = t.organismName
   def extractImplicitRules(t: SubstanceSourceMaterial): Option[UriStr]                                    = t.implicitRules
   def extractCountryOfOrigin(t: SubstanceSourceMaterial): LitSeq[CodeableConcept]                         = t.countryOfOrigin
   def extractDevelopmentStage(t: SubstanceSourceMaterial): Option[CodeableConcept]                        = t.developmentStage
@@ -715,15 +715,15 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
   def extractSourceMaterialType(t: SubstanceSourceMaterial): Option[CodeableConcept]                      = t.sourceMaterialType
   def extractSourceMaterialClass(t: SubstanceSourceMaterial): Option[CodeableConcept]                     = t.sourceMaterialClass
   def extractSourceMaterialState(t: SubstanceSourceMaterial): Option[CodeableConcept]                     = t.sourceMaterialState
-  def extractParentSubstanceName(t: SubstanceSourceMaterial): LitSeq[String]                              = t.parentSubstanceName
-  def extractGeographicalLocation(t: SubstanceSourceMaterial): LitSeq[String]                             = t.geographicalLocation
+  def extractParentSubstanceName(t: SubstanceSourceMaterial): LitSeq[FHIRString]                          = t.parentSubstanceName
+  def extractGeographicalLocation(t: SubstanceSourceMaterial): LitSeq[FHIRString]                         = t.geographicalLocation
   def extractPartDescription(t: SubstanceSourceMaterial): LitSeq[SubstanceSourceMaterial.PartDescription] = t.partDescription
   def extractFractionDescription(t: SubstanceSourceMaterial): LitSeq[SubstanceSourceMaterial.FractionDescription] =
     t.fractionDescription
   def extractOrganism(t: SubstanceSourceMaterial): Option[SubstanceSourceMaterial.Organism] = t.organism
   override val thisName: String                                                             = "SubstanceSourceMaterial"
   def unapply(
-      o: SubstanceSourceMaterial): Option[(Option[String], Option[Meta], Option[Narrative], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[Identifier], Option[String], Option[UriStr], LitSeq[CodeableConcept], Option[CodeableConcept], LitSeq[Extension], LitSeq[Identifier], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], LitSeq[String], LitSeq[String], LitSeq[SubstanceSourceMaterial.PartDescription], LitSeq[SubstanceSourceMaterial.FractionDescription], Option[SubstanceSourceMaterial.Organism])] =
+      o: SubstanceSourceMaterial): Option[(Option[String], Option[Meta], Option[Narrative], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[Identifier], Option[FHIRString], Option[UriStr], LitSeq[CodeableConcept], Option[CodeableConcept], LitSeq[Extension], LitSeq[Identifier], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], LitSeq[FHIRString], LitSeq[FHIRString], LitSeq[SubstanceSourceMaterial.PartDescription], LitSeq[SubstanceSourceMaterial.FractionDescription], Option[SubstanceSourceMaterial.Organism])] =
     Some(
       (
         o.id,
@@ -758,7 +758,7 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Identifier]]("organismId", Some(None)),
-          cursor.decodeAs[Option[String]]("organismName", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("organismName", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("countryOfOrigin", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CodeableConcept]]("developmentStage", Some(None)),
@@ -767,8 +767,8 @@ object SubstanceSourceMaterial extends CompanionFor[SubstanceSourceMaterial] {
           cursor.decodeAs[Option[CodeableConcept]]("sourceMaterialType", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("sourceMaterialClass", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("sourceMaterialState", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("parentSubstanceName", Some(LitSeq.empty)),
-          cursor.decodeAs[LitSeq[String]]("geographicalLocation", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("parentSubstanceName", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("geographicalLocation", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[SubstanceSourceMaterial.PartDescription]]("partDescription", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[SubstanceSourceMaterial.FractionDescription]]("fractionDescription", Some(LitSeq.empty)),
           cursor.decodeAs[Option[SubstanceSourceMaterial.Organism]]("organism", Some(None)),
@@ -871,7 +871,7 @@ class SubstanceSourceMaterial(
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val organismId: Option[Identifier] = None,
-    val organismName: Option[String] = None,
+    val organismName: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     val countryOfOrigin: LitSeq[CodeableConcept] = LitSeq.empty,
     val developmentStage: Option[CodeableConcept] = None,
@@ -880,8 +880,8 @@ class SubstanceSourceMaterial(
     val sourceMaterialType: Option[CodeableConcept] = None,
     val sourceMaterialClass: Option[CodeableConcept] = None,
     val sourceMaterialState: Option[CodeableConcept] = None,
-    val parentSubstanceName: LitSeq[String] = LitSeq.empty,
-    val geographicalLocation: LitSeq[String] = LitSeq.empty,
+    val parentSubstanceName: LitSeq[FHIRString] = LitSeq.empty,
+    val geographicalLocation: LitSeq[FHIRString] = LitSeq.empty,
     val partDescription: LitSeq[SubstanceSourceMaterial.PartDescription] = LitSeq.empty,
     val fractionDescription: LitSeq[SubstanceSourceMaterial.FractionDescription] = LitSeq.empty,
     val organism: Option[SubstanceSourceMaterial.Organism] = None,

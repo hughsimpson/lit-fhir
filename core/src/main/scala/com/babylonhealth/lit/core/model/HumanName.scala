@@ -31,11 +31,11 @@ object HumanName extends CompanionFor[HumanName] {
   def apply(
       id: Option[String] = None,
       use: Option[NAME_USE] = None,
-      text: Option[String] = None,
-      `given`: LitSeq[String] = LitSeq.empty,
-      family: Option[String] = None,
-      prefix: LitSeq[String] = LitSeq.empty,
-      suffix: LitSeq[String] = LitSeq.empty,
+      text: Option[FHIRString] = None,
+      `given`: LitSeq[FHIRString] = LitSeq.empty,
+      family: Option[FHIRString] = None,
+      prefix: LitSeq[FHIRString] = LitSeq.empty,
+      suffix: LitSeq[FHIRString] = LitSeq.empty,
       period: Option[Period] = None,
       extension: LitSeq[Extension] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -55,16 +55,16 @@ object HumanName extends CompanionFor[HumanName] {
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
   val use: FHIRComponentFieldMeta[Option[NAME_USE]] =
     FHIRComponentFieldMeta("use", lTagOf[Option[NAME_USE]], false, lTagOf[NAME_USE])
-  val text: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
-  val `given`: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("given", lTagOf[LitSeq[String]], false, lTagOf[String])
-  val family: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("family", lTagOf[Option[String]], false, lTagOf[String])
-  val prefix: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("prefix", lTagOf[LitSeq[String]], false, lTagOf[String])
-  val suffix: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("suffix", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val `given`: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("given", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
+  val family: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("family", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val prefix: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("prefix", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
+  val suffix: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("suffix", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val period: FHIRComponentFieldMeta[Option[Period]] =
     FHIRComponentFieldMeta("period", lTagOf[Option[Period]], false, lTagOf[Period])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -74,26 +74,26 @@ object HumanName extends CompanionFor[HumanName] {
   override def fields(t: HumanName): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[NAME_USE]](use, t.use),
-    FHIRComponentField[Option[String]](text, t.text),
-    FHIRComponentField[LitSeq[String]](`given`, t.`given`),
-    FHIRComponentField[Option[String]](family, t.family),
-    FHIRComponentField[LitSeq[String]](prefix, t.prefix),
-    FHIRComponentField[LitSeq[String]](suffix, t.suffix),
+    FHIRComponentField[Option[FHIRString]](text, t.text),
+    FHIRComponentField[LitSeq[FHIRString]](`given`, t.`given`),
+    FHIRComponentField[Option[FHIRString]](family, t.family),
+    FHIRComponentField[LitSeq[FHIRString]](prefix, t.prefix),
+    FHIRComponentField[LitSeq[FHIRString]](suffix, t.suffix),
     FHIRComponentField[Option[Period]](period, t.period),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension)
   )
   def extractId(t: HumanName): Option[String]           = t.id
   def extractUse(t: HumanName): Option[NAME_USE]        = t.use
-  def extractText(t: HumanName): Option[String]         = t.text
-  def extractGiven(t: HumanName): LitSeq[String]        = t.`given`
-  def extractFamily(t: HumanName): Option[String]       = t.family
-  def extractPrefix(t: HumanName): LitSeq[String]       = t.prefix
-  def extractSuffix(t: HumanName): LitSeq[String]       = t.suffix
+  def extractText(t: HumanName): Option[FHIRString]     = t.text
+  def extractGiven(t: HumanName): LitSeq[FHIRString]    = t.`given`
+  def extractFamily(t: HumanName): Option[FHIRString]   = t.family
+  def extractPrefix(t: HumanName): LitSeq[FHIRString]   = t.prefix
+  def extractSuffix(t: HumanName): LitSeq[FHIRString]   = t.suffix
   def extractPeriod(t: HumanName): Option[Period]       = t.period
   def extractExtension(t: HumanName): LitSeq[Extension] = t.extension
   override val thisName: String                         = "HumanName"
   def unapply(
-      o: HumanName): Option[(Option[String], Option[NAME_USE], Option[String], LitSeq[String], Option[String], LitSeq[String], LitSeq[String], Option[Period], LitSeq[Extension])] =
+      o: HumanName): Option[(Option[String], Option[NAME_USE], Option[FHIRString], LitSeq[FHIRString], Option[FHIRString], LitSeq[FHIRString], LitSeq[FHIRString], Option[Period], LitSeq[Extension])] =
     Some((o.id, o.use, o.text, o.`given`, o.family, o.prefix, o.suffix, o.period, o.extension))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[HumanName] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -101,11 +101,11 @@ object HumanName extends CompanionFor[HumanName] {
         new HumanName(
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[NAME_USE]]("use", Some(None)),
-          cursor.decodeAs[Option[String]]("text", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("given", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("family", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("prefix", Some(LitSeq.empty)),
-          cursor.decodeAs[LitSeq[String]]("suffix", Some(LitSeq.empty)),
+          cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
+          cursor.decodeAs[LitSeq[FHIRString]]("given", Some(LitSeq.empty)),
+          cursor.decodeAs[Option[FHIRString]]("family", Some(None)),
+          cursor.decodeAs[LitSeq[FHIRString]]("prefix", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("suffix", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Period]]("period", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -151,11 +151,11 @@ object HumanName extends CompanionFor[HumanName] {
 class HumanName(
     override val id: Option[String] = None,
     val use: Option[NAME_USE] = None,
-    val text: Option[String] = None,
-    val `given`: LitSeq[String] = LitSeq.empty,
-    val family: Option[String] = None,
-    val prefix: LitSeq[String] = LitSeq.empty,
-    val suffix: LitSeq[String] = LitSeq.empty,
+    val text: Option[FHIRString] = None,
+    val `given`: LitSeq[FHIRString] = LitSeq.empty,
+    val family: Option[FHIRString] = None,
+    val prefix: LitSeq[FHIRString] = LitSeq.empty,
+    val suffix: LitSeq[FHIRString] = LitSeq.empty,
     val period: Option[Period] = None,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

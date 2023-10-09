@@ -32,7 +32,7 @@ object SimpleQuantity extends CompanionFor[SimpleQuantity] {
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/SimpleQuantity")
   def apply(
       id: Option[String] = None,
-      unit: Option[String] = None,
+      unit: Option[FHIRString] = None,
       code: Option[Code] = None,
       value: Option[BigDecimal] = None,
       system: Option[UriStr] = None,
@@ -49,8 +49,8 @@ object SimpleQuantity extends CompanionFor[SimpleQuantity] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val unit: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("unit", lTagOf[Option[String]], false, lTagOf[String])
+  val unit: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("unit", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val code: FHIRComponentFieldMeta[Option[Code]] =
     FHIRComponentFieldMeta("code", lTagOf[Option[Code]], false, lTagOf[Code])
   val value: FHIRComponentFieldMeta[Option[BigDecimal]] =
@@ -63,7 +63,7 @@ object SimpleQuantity extends CompanionFor[SimpleQuantity] {
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Try(
     Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](unit, t.unit),
+      FHIRComponentField[Option[FHIRString]](unit, t.unit),
       FHIRComponentField[Option[Code]](code, t.code),
       FHIRComponentField[Option[BigDecimal]](value, t.value),
       FHIRComponentField[Option[UriStr]](system, t.system),
@@ -71,7 +71,7 @@ object SimpleQuantity extends CompanionFor[SimpleQuantity] {
     ))
   override def fields(t: SimpleQuantity): Seq[FHIRComponentField[_]] = fieldsFromParent(t).get
   def extractId(t: SimpleQuantity): Option[String]                   = t.id
-  def extractUnit(t: SimpleQuantity): Option[String]                 = t.unit
+  def extractUnit(t: SimpleQuantity): Option[FHIRString]             = t.unit
   def extractCode(t: SimpleQuantity): Option[Code]                   = t.code
   def extractValue(t: SimpleQuantity): Option[BigDecimal]            = t.value
   def extractSystem(t: SimpleQuantity): Option[UriStr]               = t.system
@@ -79,14 +79,14 @@ object SimpleQuantity extends CompanionFor[SimpleQuantity] {
   override val thisName: String                                      = "SimpleQuantity"
   override val searchParams: Map[String, SimpleQuantity => Seq[Any]] = Quantity.searchParams
   def unapply(
-      o: SimpleQuantity): Option[(Option[String], Option[String], Option[Code], Option[BigDecimal], Option[UriStr], LitSeq[Extension])] =
+      o: SimpleQuantity): Option[(Option[String], Option[FHIRString], Option[Code], Option[BigDecimal], Option[UriStr], LitSeq[Extension])] =
     Some((o.id, o.unit, o.code, o.value, o.system, o.extension))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[SimpleQuantity] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new SimpleQuantity(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[Option[String]]("unit", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("unit", Some(None)),
           cursor.decodeAs[Option[Code]]("code", Some(None)),
           cursor.decodeAs[Option[BigDecimal]]("value", Some(None)),
           cursor.decodeAs[Option[UriStr]]("system", Some(None)),
@@ -124,7 +124,7 @@ object SimpleQuantity extends CompanionFor[SimpleQuantity] {
 @POJOBoilerplate
 class SimpleQuantity(
     override val id: Option[String] = None,
-    override val unit: Option[String] = None,
+    override val unit: Option[FHIRString] = None,
     override val code: Option[Code] = None,
     override val value: Option[BigDecimal] = None,
     override val system: Option[UriStr] = None,

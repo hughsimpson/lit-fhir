@@ -76,7 +76,7 @@ object Servicerequest_genetics extends CompanionFor[Servicerequest_genetics] {
       relevantHistory: LitSeq[Reference] = LitSeq.empty,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       locationReference: LitSeq[Reference] = LitSeq.empty,
-      patientInstruction: Option[String] = None,
+      patientInstruction: Option[FHIRString] = None,
       instantiatesCanonical: LitSeq[Canonical] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Servicerequest_genetics = new Servicerequest_genetics(
@@ -213,8 +213,8 @@ object Servicerequest_genetics extends CompanionFor[Servicerequest_genetics] {
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val locationReference: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("locationReference", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
-  val patientInstruction: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("patientInstruction", lTagOf[Option[String]], false, lTagOf[String])
+  val patientInstruction: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("patientInstruction", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val instantiatesCanonical: FHIRComponentFieldMeta[LitSeq[Canonical]] =
     FHIRComponentFieldMeta("instantiatesCanonical", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(
@@ -301,7 +301,7 @@ object Servicerequest_genetics extends CompanionFor[Servicerequest_genetics] {
       FHIRComponentField[LitSeq[Reference]](relevantHistory, t.relevantHistory),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[LitSeq[Reference]](locationReference, t.locationReference),
-      FHIRComponentField[Option[String]](patientInstruction, t.patientInstruction),
+      FHIRComponentField[Option[FHIRString]](patientInstruction, t.patientInstruction),
       FHIRComponentField[LitSeq[Canonical]](instantiatesCanonical, t.instantiatesCanonical)
     ))
   override def fields(t: Servicerequest_genetics): Seq[FHIRComponentField[_]]                         = fieldsFromParent(t).get
@@ -344,7 +344,7 @@ object Servicerequest_genetics extends CompanionFor[Servicerequest_genetics] {
   def extractRelevantHistory(t: Servicerequest_genetics): LitSeq[Reference]                           = t.relevantHistory
   def extractModifierExtension(t: Servicerequest_genetics): LitSeq[Extension]                         = t.modifierExtension
   def extractLocationReference(t: Servicerequest_genetics): LitSeq[Reference]                         = t.locationReference
-  def extractPatientInstruction(t: Servicerequest_genetics): Option[String]                           = t.patientInstruction
+  def extractPatientInstruction(t: Servicerequest_genetics): Option[FHIRString]                       = t.patientInstruction
   def extractInstantiatesCanonical(t: Servicerequest_genetics): LitSeq[Canonical]                     = t.instantiatesCanonical
   override val thisName: String                                                                       = "Servicerequest_genetics"
   override val searchParams: Map[String, Servicerequest_genetics => Seq[Any]] = ServiceRequest.searchParams
@@ -391,7 +391,7 @@ object Servicerequest_genetics extends CompanionFor[Servicerequest_genetics] {
           cursor.decodeAs[LitSeq[Reference]]("relevantHistory", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Reference]]("locationReference", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("patientInstruction", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("patientInstruction", Some(None)),
           cursor.decodeAs[LitSeq[Canonical]]("instantiatesCanonical", Some(LitSeq.empty)),
           decodeAttributes(cursor)
         )
@@ -561,7 +561,7 @@ class Servicerequest_genetics(
     override val relevantHistory: LitSeq[Reference] = LitSeq.empty,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     override val locationReference: LitSeq[Reference] = LitSeq.empty,
-    override val patientInstruction: Option[String] = None,
+    override val patientInstruction: Option[FHIRString] = None,
     override val instantiatesCanonical: LitSeq[Canonical] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends ServiceRequest(

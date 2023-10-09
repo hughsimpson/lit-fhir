@@ -52,7 +52,7 @@ object Us_core_goal extends CompanionFor[Us_core_goal] {
       description: CodeableConcept,
       expressedBy: Option[Reference] = None,
       outcomeCode: LitSeq[CodeableConcept] = LitSeq.empty,
-      statusReason: Option[String] = None,
+      statusReason: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       lifecycleStatus: GOAL_STATUS,
       outcomeReference: LitSeq[Reference] = LitSeq.empty,
@@ -121,8 +121,8 @@ object Us_core_goal extends CompanionFor[Us_core_goal] {
     FHIRComponentFieldMeta("expressedBy", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val outcomeCode: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("outcomeCode", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val statusReason: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("statusReason", lTagOf[Option[String]], false, lTagOf[String])
+  val statusReason: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("statusReason", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val lifecycleStatus: FHIRComponentFieldMeta[GOAL_STATUS] =
@@ -180,7 +180,7 @@ object Us_core_goal extends CompanionFor[Us_core_goal] {
       FHIRComponentField[CodeableConcept](description, t.description),
       FHIRComponentField[Option[Reference]](expressedBy, t.expressedBy),
       FHIRComponentField[LitSeq[CodeableConcept]](outcomeCode, t.outcomeCode),
-      FHIRComponentField[Option[String]](statusReason, t.statusReason),
+      FHIRComponentField[Option[FHIRString]](statusReason, t.statusReason),
       FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
       FHIRComponentField[GOAL_STATUS](lifecycleStatus, t.lifecycleStatus),
       FHIRComponentField[LitSeq[Reference]](outcomeReference, t.outcomeReference),
@@ -206,7 +206,7 @@ object Us_core_goal extends CompanionFor[Us_core_goal] {
   def extractDescription(t: Us_core_goal): CodeableConcept               = t.description
   def extractExpressedBy(t: Us_core_goal): Option[Reference]             = t.expressedBy
   def extractOutcomeCode(t: Us_core_goal): LitSeq[CodeableConcept]       = t.outcomeCode
-  def extractStatusReason(t: Us_core_goal): Option[String]               = t.statusReason
+  def extractStatusReason(t: Us_core_goal): Option[FHIRString]           = t.statusReason
   def extractImplicitRules(t: Us_core_goal): Option[UriStr]              = t.implicitRules
   def extractLifecycleStatus(t: Us_core_goal): GOAL_STATUS               = t.lifecycleStatus
   def extractOutcomeReference(t: Us_core_goal): LitSeq[Reference]        = t.outcomeReference
@@ -236,7 +236,7 @@ object Us_core_goal extends CompanionFor[Us_core_goal] {
           cursor.decodeAs[CodeableConcept]("description", None),
           cursor.decodeAs[Option[Reference]]("expressedBy", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("outcomeCode", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("statusReason", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("statusReason", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[GOAL_STATUS]("lifecycleStatus", None),
           cursor.decodeAs[LitSeq[Reference]]("outcomeReference", Some(LitSeq.empty)),
@@ -342,7 +342,7 @@ class Us_core_goal(
     override val description: CodeableConcept,
     override val expressedBy: Option[Reference] = None,
     override val outcomeCode: LitSeq[CodeableConcept] = LitSeq.empty,
-    override val statusReason: Option[String] = None,
+    override val statusReason: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val lifecycleStatus: GOAL_STATUS,
     override val outcomeReference: LitSeq[Reference] = LitSeq.empty,

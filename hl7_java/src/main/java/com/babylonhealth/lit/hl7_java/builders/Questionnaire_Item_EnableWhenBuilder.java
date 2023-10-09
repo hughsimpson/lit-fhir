@@ -26,53 +26,53 @@ public interface Questionnaire_Item_EnableWhenBuilder {
   public Questionnaire$Item$EnableWhen build();
 
   public static Impl init(
-      String question, QUESTIONNAIRE_ENABLE_OPERATOR operator, @NonNull Choice_1280102327 answer) {
+      String question, QUESTIONNAIRE_ENABLE_OPERATOR operator, @NonNull Choice_1492638938 answer) {
     return new Impl(question, operator, answer);
   }
 
   public static Impl builder(
-      String question, QUESTIONNAIRE_ENABLE_OPERATOR operator, @NonNull Choice_1280102327 answer) {
+      String question, QUESTIONNAIRE_ENABLE_OPERATOR operator, @NonNull Choice_1492638938 answer) {
     return new Impl(question, operator, answer);
   }
 
-  public static Choice_1280102327 answer(BigDecimal b) {
-    return new Choice_1280102327(b);
+  public static Choice_1492638938 answer(BigDecimal b) {
+    return new Choice_1492638938(b);
   }
 
-  public static Choice_1280102327 answer(Boolean b) {
-    return new Choice_1280102327(b);
+  public static Choice_1492638938 answer(Boolean b) {
+    return new Choice_1492638938(b);
   }
 
-  public static Choice_1280102327 answer(Coding c) {
-    return new Choice_1280102327(c);
+  public static Choice_1492638938 answer(Coding c) {
+    return new Choice_1492638938(c);
   }
 
-  public static Choice_1280102327 answer(FHIRDate f) {
-    return new Choice_1280102327(f);
+  public static Choice_1492638938 answer(FHIRDate f) {
+    return new Choice_1492638938(f);
   }
 
-  public static Choice_1280102327 answer(FHIRDateTime f) {
-    return new Choice_1280102327(f);
+  public static Choice_1492638938 answer(FHIRDateTime f) {
+    return new Choice_1492638938(f);
   }
 
-  public static Choice_1280102327 answer(Integer i) {
-    return new Choice_1280102327(i);
+  public static Choice_1492638938 answer(String s) {
+    return new Choice_1492638938(s);
   }
 
-  public static Choice_1280102327 answer(LocalTime l) {
-    return new Choice_1280102327(l);
+  public static Choice_1492638938 answer(Integer i) {
+    return new Choice_1492638938(i);
   }
 
-  public static Choice_1280102327 answer(Quantity q) {
-    return new Choice_1280102327(q);
+  public static Choice_1492638938 answer(LocalTime l) {
+    return new Choice_1492638938(l);
   }
 
-  public static Choice_1280102327 answer(Reference r) {
-    return new Choice_1280102327(r);
+  public static Choice_1492638938 answer(Quantity q) {
+    return new Choice_1492638938(q);
   }
 
-  public static Choice_1280102327 answer(String s) {
-    return new Choice_1280102327(s);
+  public static Choice_1492638938 answer(Reference r) {
+    return new Choice_1492638938(r);
   }
 
   public class Impl implements Questionnaire_Item_EnableWhenBuilder {
@@ -80,7 +80,7 @@ public interface Questionnaire_Item_EnableWhenBuilder {
     private String question;
     private QUESTIONNAIRE_ENABLE_OPERATOR operator;
     private Collection<Extension> extension = Collections.emptyList();
-    private Choice_1280102327 answer;
+    private Choice_1492638938 answer;
     private Collection<Extension> modifierExtension = Collections.emptyList();
 
     /**
@@ -89,13 +89,13 @@ public interface Questionnaire_Item_EnableWhenBuilder {
      * @param question
      * @param operator
      * @param answer Field is a 'choice' field. Type should be one of BigDecimal, Boolean, Coding,
-     *     FHIRDate, FHIRDateTime, Integer, LocalTime, Quantity, Reference, String. To pass the
+     *     FHIRDate, FHIRDateTime, String, Integer, LocalTime, Quantity, Reference. To pass the
      *     value in, wrap with one of the Questionnaire_Item_EnableWhenBuilder.answer static methods
      */
     public Impl(
         String question,
         QUESTIONNAIRE_ENABLE_OPERATOR operator,
-        @NonNull Choice_1280102327 answer) {
+        @NonNull Choice_1492638938 answer) {
       this.question = question;
       this.operator = operator;
       this.answer = answer;

@@ -200,6 +200,10 @@ public interface Us_core_ethnicityBuilder extends ExtensionBuilder {
     return ChoiceAll.ChoiceAllCode(s);
   }
 
+  public static ChoiceAll valueFHIRString(String s) {
+    return ChoiceAll.ChoiceAllFHIRString(s);
+  }
+
   public static ChoiceAll valueId(String s) {
     return ChoiceAll.ChoiceAllId(s);
   }
@@ -218,10 +222,6 @@ public interface Us_core_ethnicityBuilder extends ExtensionBuilder {
 
   public static ChoiceAll valuePositiveInt(Integer i) {
     return ChoiceAll.ChoiceAllPositiveInt(i);
-  }
-
-  public static ChoiceAll valueString(String s) {
-    return ChoiceAll.ChoiceAllString(s);
   }
 
   public static ChoiceAll valueUnsignedInt(Integer i) {

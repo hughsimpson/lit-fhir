@@ -100,7 +100,7 @@ object Dosage extends CompanionFor[Dosage] {
   type AsNeededChoice = Choice[UnionBooleanOrCodeableConcept]
   def apply(
       id: Option[String] = None,
-      text: Option[String] = None,
+      text: Option[FHIRString] = None,
       site: Option[CodeableConcept] = None,
       route: Option[CodeableConcept] = None,
       timing: Option[Timing] = None,
@@ -110,7 +110,7 @@ object Dosage extends CompanionFor[Dosage] {
       asNeeded: Option[Dosage.AsNeededChoice] = None,
       maxDosePerPeriod: Option[Ratio] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      patientInstruction: Option[String] = None,
+      patientInstruction: Option[FHIRString] = None,
       maxDosePerLifetime: Option[Quantity] = None,
       additionalInstruction: LitSeq[CodeableConcept] = LitSeq.empty,
       doseAndRate: LitSeq[Dosage.DoseAndRate] = LitSeq.empty,
@@ -137,8 +137,8 @@ object Dosage extends CompanionFor[Dosage] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val text: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+  val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val site: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("site", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val route: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -157,8 +157,8 @@ object Dosage extends CompanionFor[Dosage] {
     FHIRComponentFieldMeta("maxDosePerPeriod", lTagOf[Option[Ratio]], false, lTagOf[Ratio])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val patientInstruction: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("patientInstruction", lTagOf[Option[String]], false, lTagOf[String])
+  val patientInstruction: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("patientInstruction", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val maxDosePerLifetime: FHIRComponentFieldMeta[Option[Quantity]] =
     FHIRComponentFieldMeta("maxDosePerLifetime", lTagOf[Option[Quantity]], false, lTagOf[Quantity])
   val additionalInstruction: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -188,7 +188,7 @@ object Dosage extends CompanionFor[Dosage] {
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
   override def fields(t: Dosage): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
-    FHIRComponentField[Option[String]](text, t.text),
+    FHIRComponentField[Option[FHIRString]](text, t.text),
     FHIRComponentField[Option[CodeableConcept]](site, t.site),
     FHIRComponentField[Option[CodeableConcept]](route, t.route),
     FHIRComponentField[Option[Timing]](timing, t.timing),
@@ -198,14 +198,14 @@ object Dosage extends CompanionFor[Dosage] {
     FHIRComponentField[Option[Dosage.AsNeededChoice]](asNeeded, t.asNeeded),
     FHIRComponentField[Option[Ratio]](maxDosePerPeriod, t.maxDosePerPeriod),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-    FHIRComponentField[Option[String]](patientInstruction, t.patientInstruction),
+    FHIRComponentField[Option[FHIRString]](patientInstruction, t.patientInstruction),
     FHIRComponentField[Option[Quantity]](maxDosePerLifetime, t.maxDosePerLifetime),
     FHIRComponentField[LitSeq[CodeableConcept]](additionalInstruction, t.additionalInstruction),
     FHIRComponentField[LitSeq[Dosage.DoseAndRate]](doseAndRate, t.doseAndRate),
     FHIRComponentField[Option[Quantity]](maxDosePerAdministration, t.maxDosePerAdministration)
   )
   def extractId(t: Dosage): Option[String]                             = t.id
-  def extractText(t: Dosage): Option[String]                           = t.text
+  def extractText(t: Dosage): Option[FHIRString]                       = t.text
   def extractSite(t: Dosage): Option[CodeableConcept]                  = t.site
   def extractRoute(t: Dosage): Option[CodeableConcept]                 = t.route
   def extractTiming(t: Dosage): Option[Timing]                         = t.timing
@@ -215,14 +215,14 @@ object Dosage extends CompanionFor[Dosage] {
   def extractAsNeeded(t: Dosage): Option[Dosage.AsNeededChoice]        = t.asNeeded
   def extractMaxDosePerPeriod(t: Dosage): Option[Ratio]                = t.maxDosePerPeriod
   def extractModifierExtension(t: Dosage): LitSeq[Extension]           = t.modifierExtension
-  def extractPatientInstruction(t: Dosage): Option[String]             = t.patientInstruction
+  def extractPatientInstruction(t: Dosage): Option[FHIRString]         = t.patientInstruction
   def extractMaxDosePerLifetime(t: Dosage): Option[Quantity]           = t.maxDosePerLifetime
   def extractAdditionalInstruction(t: Dosage): LitSeq[CodeableConcept] = t.additionalInstruction
   def extractDoseAndRate(t: Dosage): LitSeq[Dosage.DoseAndRate]        = t.doseAndRate
   def extractMaxDosePerAdministration(t: Dosage): Option[Quantity]     = t.maxDosePerAdministration
   override val thisName: String                                        = "Dosage"
   def unapply(
-      o: Dosage): Option[(Option[String], Option[String], Option[CodeableConcept], Option[CodeableConcept], Option[Timing], Option[CodeableConcept], Option[Int], LitSeq[Extension], Option[Dosage.AsNeededChoice], Option[Ratio], LitSeq[Extension], Option[String], Option[Quantity], LitSeq[CodeableConcept], LitSeq[Dosage.DoseAndRate], Option[Quantity])] =
+      o: Dosage): Option[(Option[String], Option[FHIRString], Option[CodeableConcept], Option[CodeableConcept], Option[Timing], Option[CodeableConcept], Option[Int], LitSeq[Extension], Option[Dosage.AsNeededChoice], Option[Ratio], LitSeq[Extension], Option[FHIRString], Option[Quantity], LitSeq[CodeableConcept], LitSeq[Dosage.DoseAndRate], Option[Quantity])] =
     Some(
       (
         o.id,
@@ -246,7 +246,7 @@ object Dosage extends CompanionFor[Dosage] {
       Try(
         new Dosage(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[Option[String]]("text", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("site", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("route", Some(None)),
           cursor.decodeAs[Option[Timing]]("timing", Some(None)),
@@ -256,7 +256,7 @@ object Dosage extends CompanionFor[Dosage] {
           cursor.decodeOptRef[UnionBooleanOrCodeableConcept]("asNeeded"),
           cursor.decodeAs[Option[Ratio]]("maxDosePerPeriod", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("patientInstruction", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("patientInstruction", Some(None)),
           cursor.decodeAs[Option[Quantity]]("maxDosePerLifetime", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("additionalInstruction", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Dosage.DoseAndRate]]("doseAndRate", Some(LitSeq.empty)),
@@ -323,7 +323,7 @@ object Dosage extends CompanionFor[Dosage] {
 @POJOBoilerplate
 class Dosage(
     override val id: Option[String] = None,
-    val text: Option[String] = None,
+    val text: Option[FHIRString] = None,
     val site: Option[CodeableConcept] = None,
     val route: Option[CodeableConcept] = None,
     val timing: Option[Timing] = None,
@@ -333,7 +333,7 @@ class Dosage(
     val asNeeded: Option[Dosage.AsNeededChoice] = None,
     val maxDosePerPeriod: Option[Ratio] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-    val patientInstruction: Option[String] = None,
+    val patientInstruction: Option[FHIRString] = None,
     val maxDosePerLifetime: Option[Quantity] = None,
     val additionalInstruction: LitSeq[CodeableConcept] = LitSeq.empty,
     val doseAndRate: LitSeq[Dosage.DoseAndRate] = LitSeq.empty,

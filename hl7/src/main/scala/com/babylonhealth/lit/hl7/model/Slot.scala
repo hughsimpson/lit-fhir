@@ -37,7 +37,7 @@ object Slot extends CompanionFor[Slot] {
       text: Option[Narrative] = None,
       start: ZonedDateTime,
       status: SLOTSTATUS,
-      comment: Option[String] = None,
+      comment: Option[FHIRString] = None,
       language: Option[LANGUAGES] = None,
       schedule: Reference,
       contained: LitSeq[Resource] = LitSeq.empty,
@@ -85,8 +85,8 @@ object Slot extends CompanionFor[Slot] {
     FHIRComponentFieldMeta("start", lTagOf[ZonedDateTime], false, lTagOf[ZonedDateTime])
   val status: FHIRComponentFieldMeta[SLOTSTATUS] =
     FHIRComponentFieldMeta("status", lTagOf[SLOTSTATUS], false, lTagOf[SLOTSTATUS])
-  val comment: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+  val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
   val schedule: FHIRComponentFieldMeta[Reference] =
@@ -140,7 +140,7 @@ object Slot extends CompanionFor[Slot] {
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[ZonedDateTime](start, t.start),
     FHIRComponentField[SLOTSTATUS](status, t.status),
-    FHIRComponentField[Option[String]](comment, t.comment),
+    FHIRComponentField[Option[FHIRString]](comment, t.comment),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[Reference](schedule, t.schedule),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
@@ -160,7 +160,7 @@ object Slot extends CompanionFor[Slot] {
   def extractText(t: Slot): Option[Narrative]                  = t.text
   def extractStart(t: Slot): ZonedDateTime                     = t.start
   def extractStatus(t: Slot): SLOTSTATUS                       = t.status
-  def extractComment(t: Slot): Option[String]                  = t.comment
+  def extractComment(t: Slot): Option[FHIRString]              = t.comment
   def extractLanguage(t: Slot): Option[LANGUAGES]              = t.language
   def extractSchedule(t: Slot): Reference                      = t.schedule
   def extractContained(t: Slot): LitSeq[Resource]              = t.contained
@@ -185,7 +185,7 @@ object Slot extends CompanionFor[Slot] {
     "start"            -> (obj => Seq(obj.start))
   )
   def unapply(
-      o: Slot): Option[(Option[String], ZonedDateTime, Option[Meta], Option[Narrative], ZonedDateTime, SLOTSTATUS, Option[String], Option[LANGUAGES], Reference, LitSeq[Resource], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[Identifier], Option[Boolean], LitSeq[CodeableConcept], Option[UriStr], LitSeq[CodeableConcept], Option[CodeableConcept], LitSeq[Extension])] =
+      o: Slot): Option[(Option[String], ZonedDateTime, Option[Meta], Option[Narrative], ZonedDateTime, SLOTSTATUS, Option[FHIRString], Option[LANGUAGES], Reference, LitSeq[Resource], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[Identifier], Option[Boolean], LitSeq[CodeableConcept], Option[UriStr], LitSeq[CodeableConcept], Option[CodeableConcept], LitSeq[Extension])] =
     Some(
       (
         o.id,
@@ -217,7 +217,7 @@ object Slot extends CompanionFor[Slot] {
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[ZonedDateTime]("start", None),
           cursor.decodeAs[SLOTSTATUS]("status", None),
-          cursor.decodeAs[Option[String]]("comment", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[Reference]("schedule", None),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
@@ -307,7 +307,7 @@ class Slot(
     override val text: Option[Narrative] = None,
     val start: ZonedDateTime,
     val status: SLOTSTATUS,
-    val comment: Option[String] = None,
+    val comment: Option[FHIRString] = None,
     override val language: Option[LANGUAGES] = None,
     val schedule: Reference,
     override val contained: LitSeq[Resource] = LitSeq.empty,

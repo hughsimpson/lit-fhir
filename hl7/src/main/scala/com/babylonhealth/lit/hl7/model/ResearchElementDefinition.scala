@@ -51,10 +51,10 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         studyEffective: Option[Characteristic.StudyEffectiveChoice] = None,
         participantEffective: Option[Characteristic.ParticipantEffectiveChoice] = None,
-        studyEffectiveDescription: Option[String] = None,
+        studyEffectiveDescription: Option[FHIRString] = None,
         studyEffectiveGroupMeasure: Option[GROUP_MEASURE] = None,
         studyEffectiveTimeFromStart: Option[Duration] = None,
-        participantEffectiveDescription: Option[String] = None,
+        participantEffectiveDescription: Option[FHIRString] = None,
         participantEffectiveGroupMeasure: Option[GROUP_MEASURE] = None,
         participantEffectiveTimeFromStart: Option[Duration] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -77,7 +77,7 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Characteristic): Option[(Option[String], Option[Boolean], LitSeq[Extension], LitSeq[UsageContext], Characteristic.DefinitionChoice, Option[CodeableConcept], LitSeq[Extension], Option[Characteristic.StudyEffectiveChoice], Option[Characteristic.ParticipantEffectiveChoice], Option[String], Option[GROUP_MEASURE], Option[Duration], Option[String], Option[GROUP_MEASURE], Option[Duration])] =
+        o: Characteristic): Option[(Option[String], Option[Boolean], LitSeq[Extension], LitSeq[UsageContext], Characteristic.DefinitionChoice, Option[CodeableConcept], LitSeq[Extension], Option[Characteristic.StudyEffectiveChoice], Option[Characteristic.ParticipantEffectiveChoice], Option[FHIRString], Option[GROUP_MEASURE], Option[Duration], Option[FHIRString], Option[GROUP_MEASURE], Option[Duration])] =
       Some(
         (
           o.id,
@@ -121,14 +121,14 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
         lTagOf[Option[Characteristic.ParticipantEffectiveChoice]],
         true,
         lTagOf[Union01763000476])
-    val studyEffectiveDescription: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("studyEffectiveDescription", lTagOf[Option[String]], false, lTagOf[String])
+    val studyEffectiveDescription: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("studyEffectiveDescription", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val studyEffectiveGroupMeasure: FHIRComponentFieldMeta[Option[GROUP_MEASURE]] =
       FHIRComponentFieldMeta("studyEffectiveGroupMeasure", lTagOf[Option[GROUP_MEASURE]], false, lTagOf[GROUP_MEASURE])
     val studyEffectiveTimeFromStart: FHIRComponentFieldMeta[Option[Duration]] =
       FHIRComponentFieldMeta("studyEffectiveTimeFromStart", lTagOf[Option[Duration]], false, lTagOf[Duration])
-    val participantEffectiveDescription: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("participantEffectiveDescription", lTagOf[Option[String]], false, lTagOf[String])
+    val participantEffectiveDescription: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("participantEffectiveDescription", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val participantEffectiveGroupMeasure: FHIRComponentFieldMeta[Option[GROUP_MEASURE]] =
       FHIRComponentFieldMeta("participantEffectiveGroupMeasure", lTagOf[Option[GROUP_MEASURE]], false, lTagOf[GROUP_MEASURE])
     val participantEffectiveTimeFromStart: FHIRComponentFieldMeta[Option[Duration]] =
@@ -161,10 +161,10 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[Characteristic.StudyEffectiveChoice]](studyEffective, t.studyEffective),
       FHIRComponentField[Option[Characteristic.ParticipantEffectiveChoice]](participantEffective, t.participantEffective),
-      FHIRComponentField[Option[String]](studyEffectiveDescription, t.studyEffectiveDescription),
+      FHIRComponentField[Option[FHIRString]](studyEffectiveDescription, t.studyEffectiveDescription),
       FHIRComponentField[Option[GROUP_MEASURE]](studyEffectiveGroupMeasure, t.studyEffectiveGroupMeasure),
       FHIRComponentField[Option[Duration]](studyEffectiveTimeFromStart, t.studyEffectiveTimeFromStart),
-      FHIRComponentField[Option[String]](participantEffectiveDescription, t.participantEffectiveDescription),
+      FHIRComponentField[Option[FHIRString]](participantEffectiveDescription, t.participantEffectiveDescription),
       FHIRComponentField[Option[GROUP_MEASURE]](participantEffectiveGroupMeasure, t.participantEffectiveGroupMeasure),
       FHIRComponentField[Option[Duration]](participantEffectiveTimeFromStart, t.participantEffectiveTimeFromStart)
     )
@@ -183,10 +183,10 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeOptRef[Union01763000476]("studyEffective"),
             cursor.decodeOptRef[Union01763000476]("participantEffective"),
-            cursor.decodeAs[Option[String]]("studyEffectiveDescription", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("studyEffectiveDescription", Some(None)),
             cursor.decodeAs[Option[GROUP_MEASURE]]("studyEffectiveGroupMeasure", Some(None)),
             cursor.decodeAs[Option[Duration]]("studyEffectiveTimeFromStart", Some(None)),
-            cursor.decodeAs[Option[String]]("participantEffectiveDescription", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("participantEffectiveDescription", Some(None)),
             cursor.decodeAs[Option[GROUP_MEASURE]]("participantEffectiveGroupMeasure", Some(None)),
             cursor.decodeAs[Option[Duration]]("participantEffectiveTimeFromStart", Some(None)),
             decodeAttributes(cursor)
@@ -204,10 +204,10 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val studyEffective: Option[Characteristic.StudyEffectiveChoice] = None,
       val participantEffective: Option[Characteristic.ParticipantEffectiveChoice] = None,
-      val studyEffectiveDescription: Option[String] = None,
+      val studyEffectiveDescription: Option[FHIRString] = None,
       val studyEffectiveGroupMeasure: Option[GROUP_MEASURE] = None,
       val studyEffectiveTimeFromStart: Option[Duration] = None,
-      val participantEffectiveDescription: Option[String] = None,
+      val participantEffectiveDescription: Option[FHIRString] = None,
       val participantEffectiveGroupMeasure: Option[GROUP_MEASURE] = None,
       val participantEffectiveTimeFromStart: Option[Duration] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -218,30 +218,30 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       date: Option[FHIRDateTime] = None,
       `type`: RESEARCH_ELEMENT_TYPE,
-      title: Option[String] = None,
-      usage: Option[String] = None,
+      title: Option[FHIRString] = None,
+      usage: Option[FHIRString] = None,
       topic: LitSeq[CodeableConcept] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       author: LitSeq[ContactDetail] = LitSeq.empty,
       editor: LitSeq[ContactDetail] = LitSeq.empty,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
-      comment: LitSeq[String] = LitSeq.empty,
+      comment: LitSeq[FHIRString] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       library: LitSeq[Canonical] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
-      subtitle: Option[String] = None,
+      subtitle: Option[FHIRString] = None,
       reviewer: LitSeq[ContactDetail] = LitSeq.empty,
       endorser: LitSeq[ContactDetail] = LitSeq.empty,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      shortTitle: Option[String] = None,
+      shortTitle: Option[FHIRString] = None,
       subject: Option[ResearchElementDefinition.SubjectChoice] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
       description: Option[Markdown] = None,
@@ -308,16 +308,16 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val `type`: FHIRComponentFieldMeta[RESEARCH_ELEMENT_TYPE] =
     FHIRComponentFieldMeta("type", lTagOf[RESEARCH_ELEMENT_TYPE], false, lTagOf[RESEARCH_ELEMENT_TYPE])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
-  val usage: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("usage", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val usage: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("usage", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val topic: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("topic", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
@@ -326,20 +326,20 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
     FHIRComponentFieldMeta("author", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val editor: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("editor", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
-  val comment: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("comment", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val comment: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("comment", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("purpose", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val library: FHIRComponentFieldMeta[LitSeq[Canonical]] =
     FHIRComponentFieldMeta("library", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
-  val subtitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("subtitle", lTagOf[Option[String]], false, lTagOf[String])
+  val subtitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("subtitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val reviewer: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("reviewer", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val endorser: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
@@ -348,14 +348,14 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val shortTitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("shortTitle", lTagOf[Option[String]], false, lTagOf[String])
+  val shortTitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("shortTitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val subject: FHIRComponentFieldMeta[Option[ResearchElementDefinition.SubjectChoice]] =
     FHIRComponentFieldMeta(
       "subject",
@@ -439,30 +439,30 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[RESEARCH_ELEMENT_TYPE](`type`, t.`type`),
-    FHIRComponentField[Option[String]](title, t.title),
-    FHIRComponentField[Option[String]](usage, t.usage),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](usage, t.usage),
     FHIRComponentField[LitSeq[CodeableConcept]](topic, t.topic),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[LitSeq[ContactDetail]](author, t.author),
     FHIRComponentField[LitSeq[ContactDetail]](editor, t.editor),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
-    FHIRComponentField[LitSeq[String]](comment, t.comment),
+    FHIRComponentField[LitSeq[FHIRString]](comment, t.comment),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[LitSeq[Canonical]](library, t.library),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
-    FHIRComponentField[Option[String]](subtitle, t.subtitle),
+    FHIRComponentField[Option[FHIRString]](subtitle, t.subtitle),
     FHIRComponentField[LitSeq[ContactDetail]](reviewer, t.reviewer),
     FHIRComponentField[LitSeq[ContactDetail]](endorser, t.endorser),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](shortTitle, t.shortTitle),
+    FHIRComponentField[Option[FHIRString]](shortTitle, t.shortTitle),
     FHIRComponentField[Option[ResearchElementDefinition.SubjectChoice]](subject, t.subject),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
     FHIRComponentField[Option[Markdown]](description, t.description),
@@ -481,30 +481,30 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
   def extractUrl(t: ResearchElementDefinition): Option[UriStr]                                      = t.url
   def extractMeta(t: ResearchElementDefinition): Option[Meta]                                       = t.meta
   def extractText(t: ResearchElementDefinition): Option[Narrative]                                  = t.text
-  def extractName(t: ResearchElementDefinition): Option[String]                                     = t.name
+  def extractName(t: ResearchElementDefinition): Option[FHIRString]                                 = t.name
   def extractDate(t: ResearchElementDefinition): Option[FHIRDateTime]                               = t.date
   def extractType(t: ResearchElementDefinition): RESEARCH_ELEMENT_TYPE                              = t.`type`
-  def extractTitle(t: ResearchElementDefinition): Option[String]                                    = t.title
-  def extractUsage(t: ResearchElementDefinition): Option[String]                                    = t.usage
+  def extractTitle(t: ResearchElementDefinition): Option[FHIRString]                                = t.title
+  def extractUsage(t: ResearchElementDefinition): Option[FHIRString]                                = t.usage
   def extractTopic(t: ResearchElementDefinition): LitSeq[CodeableConcept]                           = t.topic
   def extractStatus(t: ResearchElementDefinition): PUBLICATION_STATUS                               = t.status
   def extractAuthor(t: ResearchElementDefinition): LitSeq[ContactDetail]                            = t.author
   def extractEditor(t: ResearchElementDefinition): LitSeq[ContactDetail]                            = t.editor
-  def extractVersion(t: ResearchElementDefinition): Option[String]                                  = t.version
+  def extractVersion(t: ResearchElementDefinition): Option[FHIRString]                              = t.version
   def extractContact(t: ResearchElementDefinition): LitSeq[ContactDetail]                           = t.contact
-  def extractComment(t: ResearchElementDefinition): LitSeq[String]                                  = t.comment
+  def extractComment(t: ResearchElementDefinition): LitSeq[FHIRString]                              = t.comment
   def extractPurpose(t: ResearchElementDefinition): Option[Markdown]                                = t.purpose
   def extractLibrary(t: ResearchElementDefinition): LitSeq[Canonical]                               = t.library
   def extractLanguage(t: ResearchElementDefinition): Option[LANGUAGES]                              = t.language
-  def extractSubtitle(t: ResearchElementDefinition): Option[String]                                 = t.subtitle
+  def extractSubtitle(t: ResearchElementDefinition): Option[FHIRString]                             = t.subtitle
   def extractReviewer(t: ResearchElementDefinition): LitSeq[ContactDetail]                          = t.reviewer
   def extractEndorser(t: ResearchElementDefinition): LitSeq[ContactDetail]                          = t.endorser
   def extractContained(t: ResearchElementDefinition): LitSeq[Resource]                              = t.contained
   def extractExtension(t: ResearchElementDefinition): LitSeq[Extension]                             = t.extension
-  def extractPublisher(t: ResearchElementDefinition): Option[String]                                = t.publisher
+  def extractPublisher(t: ResearchElementDefinition): Option[FHIRString]                            = t.publisher
   def extractCopyright(t: ResearchElementDefinition): Option[Markdown]                              = t.copyright
   def extractIdentifier(t: ResearchElementDefinition): LitSeq[Identifier]                           = t.identifier
-  def extractShortTitle(t: ResearchElementDefinition): Option[String]                               = t.shortTitle
+  def extractShortTitle(t: ResearchElementDefinition): Option[FHIRString]                           = t.shortTitle
   def extractSubject(t: ResearchElementDefinition): Option[ResearchElementDefinition.SubjectChoice] = t.subject
   def extractUseContext(t: ResearchElementDefinition): LitSeq[UsageContext]                         = t.useContext
   def extractDescription(t: ResearchElementDefinition): Option[Markdown]                            = t.description
@@ -556,30 +556,30 @@ object ResearchElementDefinition extends CompanionFor[ResearchElementDefinition]
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[RESEARCH_ELEMENT_TYPE]("type", None),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
-          cursor.decodeAs[Option[String]]("usage", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("usage", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("topic", Some(LitSeq.empty)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[LitSeq[ContactDetail]]("author", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactDetail]]("editor", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
-          cursor.decodeAs[LitSeq[String]]("comment", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("comment", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[LitSeq[Canonical]]("library", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
-          cursor.decodeAs[Option[String]]("subtitle", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("subtitle", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("reviewer", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactDetail]]("endorser", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("shortTitle", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("shortTitle", Some(None)),
           cursor.decodeOptRef[UnionCodeableConceptOrReference]("subject"),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("description", Some(None)),
@@ -737,30 +737,30 @@ class ResearchElementDefinition(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val date: Option[FHIRDateTime] = None,
     val `type`: RESEARCH_ELEMENT_TYPE,
-    val title: Option[String] = None,
-    val usage: Option[String] = None,
+    val title: Option[FHIRString] = None,
+    val usage: Option[FHIRString] = None,
     val topic: LitSeq[CodeableConcept] = LitSeq.empty,
     val status: PUBLICATION_STATUS,
     val author: LitSeq[ContactDetail] = LitSeq.empty,
     val editor: LitSeq[ContactDetail] = LitSeq.empty,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
-    val comment: LitSeq[String] = LitSeq.empty,
+    val comment: LitSeq[FHIRString] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     val library: LitSeq[Canonical] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
-    val subtitle: Option[String] = None,
+    val subtitle: Option[FHIRString] = None,
     val reviewer: LitSeq[ContactDetail] = LitSeq.empty,
     val endorser: LitSeq[ContactDetail] = LitSeq.empty,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val shortTitle: Option[String] = None,
+    val shortTitle: Option[FHIRString] = None,
     val subject: Option[ResearchElementDefinition.SubjectChoice] = None,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,
     val description: Option[Markdown] = None,

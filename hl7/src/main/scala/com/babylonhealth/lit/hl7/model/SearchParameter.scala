@@ -48,7 +48,7 @@ object SearchParameter extends CompanionFor[SearchParameter] {
         id: Option[String] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         definition: Canonical,
-        expression: String,
+        expression: FHIRString,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Component = new Component(
@@ -59,7 +59,7 @@ object SearchParameter extends CompanionFor[SearchParameter] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Component): Option[(Option[String], LitSeq[Extension], Canonical, String, LitSeq[Extension])] = Some(
+    def unapply(o: Component): Option[(Option[String], LitSeq[Extension], Canonical, FHIRString, LitSeq[Extension])] = Some(
       (o.id, o.extension, o.definition, o.expression, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -67,8 +67,8 @@ object SearchParameter extends CompanionFor[SearchParameter] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val definition: FHIRComponentFieldMeta[Canonical] =
       FHIRComponentFieldMeta("definition", lTagOf[Canonical], false, lTagOf[Canonical])
-    val expression: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("expression", lTagOf[String], false, lTagOf[String])
+    val expression: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("expression", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, extension, definition, expression, modifierExtension)
@@ -77,7 +77,7 @@ object SearchParameter extends CompanionFor[SearchParameter] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Canonical](definition, t.definition),
-      FHIRComponentField[String](expression, t.expression),
+      FHIRComponentField[FHIRString](expression, t.expression),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Component] = this
@@ -89,7 +89,7 @@ object SearchParameter extends CompanionFor[SearchParameter] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Canonical]("definition", None),
-            cursor.decodeAs[String]("expression", None),
+            cursor.decodeAs[FHIRString]("expression", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -100,7 +100,7 @@ object SearchParameter extends CompanionFor[SearchParameter] {
       override val id: Option[String] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val definition: Canonical,
-      val expression: String,
+      val expression: FHIRString,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -109,25 +109,25 @@ object SearchParameter extends CompanionFor[SearchParameter] {
       url: UriStr,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       date: Option[FHIRDateTime] = None,
       code: Code,
       base: NonEmptyLitSeq[RESOURCE_TYPES],
       `type`: SEARCH_PARAM_TYPE,
-      xpath: Option[String] = None,
-      chain: LitSeq[String] = LitSeq.empty,
+      xpath: Option[FHIRString] = None,
+      chain: LitSeq[FHIRString] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       target: LitSeq[RESOURCE_TYPES] = LitSeq.empty,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       language: Option[LANGUAGES] = None,
       modifier: LitSeq[SEARCH_MODIFIER_CODE] = LitSeq.empty,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
-      expression: Option[String] = None,
+      expression: Option[FHIRString] = None,
       xpathUsage: Option[SEARCH_XPATH_USAGE] = None,
       multipleOr: Option[Boolean] = None,
       comparator: LitSeq[SEARCH_COMPARATOR] = LitSeq.empty,
@@ -185,8 +185,8 @@ object SearchParameter extends CompanionFor[SearchParameter] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val code: FHIRComponentFieldMeta[Code] =
@@ -195,16 +195,16 @@ object SearchParameter extends CompanionFor[SearchParameter] {
     FHIRComponentFieldMeta("base", lTagOf[NonEmptyLitSeq[RESOURCE_TYPES]], false, lTagOf[RESOURCE_TYPES])
   val `type`: FHIRComponentFieldMeta[SEARCH_PARAM_TYPE] =
     FHIRComponentFieldMeta("type", lTagOf[SEARCH_PARAM_TYPE], false, lTagOf[SEARCH_PARAM_TYPE])
-  val xpath: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("xpath", lTagOf[Option[String]], false, lTagOf[String])
-  val chain: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("chain", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val xpath: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("xpath", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val chain: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("chain", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
   val target: FHIRComponentFieldMeta[LitSeq[RESOURCE_TYPES]] =
     FHIRComponentFieldMeta("target", lTagOf[LitSeq[RESOURCE_TYPES]], false, lTagOf[RESOURCE_TYPES])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -217,12 +217,12 @@ object SearchParameter extends CompanionFor[SearchParameter] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val useContext: FHIRComponentFieldMeta[LitSeq[UsageContext]] =
     FHIRComponentFieldMeta("useContext", lTagOf[LitSeq[UsageContext]], false, lTagOf[UsageContext])
-  val expression: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("expression", lTagOf[Option[String]], false, lTagOf[String])
+  val expression: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("expression", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val xpathUsage: FHIRComponentFieldMeta[Option[SEARCH_XPATH_USAGE]] =
     FHIRComponentFieldMeta("xpathUsage", lTagOf[Option[SEARCH_XPATH_USAGE]], false, lTagOf[SEARCH_XPATH_USAGE])
   val multipleOr: FHIRComponentFieldMeta[Option[Boolean]] =
@@ -287,25 +287,25 @@ object SearchParameter extends CompanionFor[SearchParameter] {
     FHIRComponentField[UriStr](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[String](name, t.name),
+    FHIRComponentField[FHIRString](name, t.name),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[Code](code, t.code),
     FHIRComponentField[NonEmptyLitSeq[RESOURCE_TYPES]](base, t.base),
     FHIRComponentField[SEARCH_PARAM_TYPE](`type`, t.`type`),
-    FHIRComponentField[Option[String]](xpath, t.xpath),
-    FHIRComponentField[LitSeq[String]](chain, t.chain),
+    FHIRComponentField[Option[FHIRString]](xpath, t.xpath),
+    FHIRComponentField[LitSeq[FHIRString]](chain, t.chain),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[LitSeq[RESOURCE_TYPES]](target, t.target),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[SEARCH_MODIFIER_CODE]](modifier, t.modifier),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
-    FHIRComponentField[Option[String]](expression, t.expression),
+    FHIRComponentField[Option[FHIRString]](expression, t.expression),
     FHIRComponentField[Option[SEARCH_XPATH_USAGE]](xpathUsage, t.xpathUsage),
     FHIRComponentField[Option[Boolean]](multipleOr, t.multipleOr),
     FHIRComponentField[LitSeq[SEARCH_COMPARATOR]](comparator, t.comparator),
@@ -322,25 +322,25 @@ object SearchParameter extends CompanionFor[SearchParameter] {
   def extractUrl(t: SearchParameter): UriStr                                  = t.url
   def extractMeta(t: SearchParameter): Option[Meta]                           = t.meta
   def extractText(t: SearchParameter): Option[Narrative]                      = t.text
-  def extractName(t: SearchParameter): String                                 = t.name
+  def extractName(t: SearchParameter): FHIRString                             = t.name
   def extractDate(t: SearchParameter): Option[FHIRDateTime]                   = t.date
   def extractCode(t: SearchParameter): Code                                   = t.code
   def extractBase(t: SearchParameter): NonEmptyLitSeq[RESOURCE_TYPES]         = t.base
   def extractType(t: SearchParameter): SEARCH_PARAM_TYPE                      = t.`type`
-  def extractXpath(t: SearchParameter): Option[String]                        = t.xpath
-  def extractChain(t: SearchParameter): LitSeq[String]                        = t.chain
+  def extractXpath(t: SearchParameter): Option[FHIRString]                    = t.xpath
+  def extractChain(t: SearchParameter): LitSeq[FHIRString]                    = t.chain
   def extractStatus(t: SearchParameter): PUBLICATION_STATUS                   = t.status
   def extractTarget(t: SearchParameter): LitSeq[RESOURCE_TYPES]               = t.target
-  def extractVersion(t: SearchParameter): Option[String]                      = t.version
+  def extractVersion(t: SearchParameter): Option[FHIRString]                  = t.version
   def extractContact(t: SearchParameter): LitSeq[ContactDetail]               = t.contact
   def extractPurpose(t: SearchParameter): Option[Markdown]                    = t.purpose
   def extractLanguage(t: SearchParameter): Option[LANGUAGES]                  = t.language
   def extractModifier(t: SearchParameter): LitSeq[SEARCH_MODIFIER_CODE]       = t.modifier
   def extractContained(t: SearchParameter): LitSeq[Resource]                  = t.contained
   def extractExtension(t: SearchParameter): LitSeq[Extension]                 = t.extension
-  def extractPublisher(t: SearchParameter): Option[String]                    = t.publisher
+  def extractPublisher(t: SearchParameter): Option[FHIRString]                = t.publisher
   def extractUseContext(t: SearchParameter): LitSeq[UsageContext]             = t.useContext
-  def extractExpression(t: SearchParameter): Option[String]                   = t.expression
+  def extractExpression(t: SearchParameter): Option[FHIRString]               = t.expression
   def extractXpathUsage(t: SearchParameter): Option[SEARCH_XPATH_USAGE]       = t.xpathUsage
   def extractMultipleOr(t: SearchParameter): Option[Boolean]                  = t.multipleOr
   def extractComparator(t: SearchParameter): LitSeq[SEARCH_COMPARATOR]        = t.comparator
@@ -384,25 +384,25 @@ object SearchParameter extends CompanionFor[SearchParameter] {
           cursor.decodeAs[UriStr]("url", None),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[Code]("code", None),
           cursor.decodeAs[NonEmptyLitSeq[RESOURCE_TYPES]]("base", None),
           cursor.decodeAs[SEARCH_PARAM_TYPE]("type", None),
-          cursor.decodeAs[Option[String]]("xpath", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("chain", Some(LitSeq.empty)),
+          cursor.decodeAs[Option[FHIRString]]("xpath", Some(None)),
+          cursor.decodeAs[LitSeq[FHIRString]]("chain", Some(LitSeq.empty)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[LitSeq[RESOURCE_TYPES]]("target", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[SEARCH_MODIFIER_CODE]]("modifier", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("expression", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("expression", Some(None)),
           cursor.decodeAs[Option[SEARCH_XPATH_USAGE]]("xpathUsage", Some(None)),
           cursor.decodeAs[Option[Boolean]]("multipleOr", Some(None)),
           cursor.decodeAs[LitSeq[SEARCH_COMPARATOR]]("comparator", Some(LitSeq.empty)),
@@ -537,25 +537,25 @@ class SearchParameter(
     val url: UriStr,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: String,
+    val name: FHIRString,
     val date: Option[FHIRDateTime] = None,
     val code: Code,
     val base: NonEmptyLitSeq[RESOURCE_TYPES],
     val `type`: SEARCH_PARAM_TYPE,
-    val xpath: Option[String] = None,
-    val chain: LitSeq[String] = LitSeq.empty,
+    val xpath: Option[FHIRString] = None,
+    val chain: LitSeq[FHIRString] = LitSeq.empty,
     val status: PUBLICATION_STATUS,
     val target: LitSeq[RESOURCE_TYPES] = LitSeq.empty,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     override val language: Option[LANGUAGES] = None,
     val modifier: LitSeq[SEARCH_MODIFIER_CODE] = LitSeq.empty,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,
-    val expression: Option[String] = None,
+    val expression: Option[FHIRString] = None,
     val xpathUsage: Option[SEARCH_XPATH_USAGE] = None,
     val multipleOr: Option[Boolean] = None,
     val comparator: LitSeq[SEARCH_COMPARATOR] = LitSeq.empty,

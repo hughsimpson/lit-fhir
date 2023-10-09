@@ -122,7 +122,7 @@ object HealthcareService extends CompanionFor[HealthcareService] {
         id: Option[String] = None,
         during: Option[Period] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: String,
+        description: FHIRString,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): NotAvailable = new NotAvailable(
@@ -133,16 +133,16 @@ object HealthcareService extends CompanionFor[HealthcareService] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: NotAvailable): Option[(Option[String], Option[Period], LitSeq[Extension], String, LitSeq[Extension])] = Some(
-      (o.id, o.during, o.extension, o.description, o.modifierExtension))
+    def unapply(o: NotAvailable): Option[(Option[String], Option[Period], LitSeq[Extension], FHIRString, LitSeq[Extension])] =
+      Some((o.id, o.during, o.extension, o.description, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val during: FHIRComponentFieldMeta[Option[Period]] =
       FHIRComponentFieldMeta("during", lTagOf[Option[Period]], false, lTagOf[Period])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("description", lTagOf[String], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("description", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, during, extension, description, modifierExtension)
@@ -151,7 +151,7 @@ object HealthcareService extends CompanionFor[HealthcareService] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[Period]](during, t.during),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[String](description, t.description),
+      FHIRComponentField[FHIRString](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[NotAvailable] = this
@@ -163,7 +163,7 @@ object HealthcareService extends CompanionFor[HealthcareService] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[Period]]("during", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[String]("description", None),
+            cursor.decodeAs[FHIRString]("description", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -174,7 +174,7 @@ object HealthcareService extends CompanionFor[HealthcareService] {
       override val id: Option[String] = None,
       val during: Option[Period] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: String,
+      val description: FHIRString,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -250,10 +250,10 @@ object HealthcareService extends CompanionFor[HealthcareService] {
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
       `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       photo: Option[Attachment] = None,
       active: Option[Boolean] = None,
-      comment: Option[String] = None,
+      comment: Option[FHIRString] = None,
       telecom: LitSeq[ContactPoint] = LitSeq.empty,
       program: LitSeq[CodeableConcept] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
@@ -274,7 +274,7 @@ object HealthcareService extends CompanionFor[HealthcareService] {
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       appointmentRequired: Option[Boolean] = None,
       serviceProvisionCode: LitSeq[CodeableConcept] = LitSeq.empty,
-      availabilityExceptions: Option[String] = None,
+      availabilityExceptions: Option[FHIRString] = None,
       eligibility: LitSeq[HealthcareService.Eligibility] = LitSeq.empty,
       notAvailable: LitSeq[HealthcareService.NotAvailable] = LitSeq.empty,
       availableTime: LitSeq[HealthcareService.AvailableTime] = LitSeq.empty,
@@ -322,14 +322,14 @@ object HealthcareService extends CompanionFor[HealthcareService] {
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
   val `type`: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val photo: FHIRComponentFieldMeta[Option[Attachment]] =
     FHIRComponentFieldMeta("photo", lTagOf[Option[Attachment]], false, lTagOf[Attachment])
   val active: FHIRComponentFieldMeta[Option[Boolean]] =
     FHIRComponentFieldMeta("active", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
-  val comment: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+  val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val telecom: FHIRComponentFieldMeta[LitSeq[ContactPoint]] =
     FHIRComponentFieldMeta("telecom", lTagOf[LitSeq[ContactPoint]], false, lTagOf[ContactPoint])
   val program: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -370,8 +370,8 @@ object HealthcareService extends CompanionFor[HealthcareService] {
     FHIRComponentFieldMeta("appointmentRequired", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
   val serviceProvisionCode: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("serviceProvisionCode", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val availabilityExceptions: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("availabilityExceptions", lTagOf[Option[String]], false, lTagOf[String])
+  val availabilityExceptions: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("availabilityExceptions", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val eligibility: FHIRComponentFieldMeta[LitSeq[HealthcareService.Eligibility]] =
     FHIRComponentFieldMeta(
       "eligibility",
@@ -430,10 +430,10 @@ object HealthcareService extends CompanionFor[HealthcareService] {
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[LitSeq[CodeableConcept]](`type`, t.`type`),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[Option[Attachment]](photo, t.photo),
     FHIRComponentField[Option[Boolean]](active, t.active),
-    FHIRComponentField[Option[String]](comment, t.comment),
+    FHIRComponentField[Option[FHIRString]](comment, t.comment),
     FHIRComponentField[LitSeq[ContactPoint]](telecom, t.telecom),
     FHIRComponentField[LitSeq[CodeableConcept]](program, t.program),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
@@ -454,7 +454,7 @@ object HealthcareService extends CompanionFor[HealthcareService] {
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[Option[Boolean]](appointmentRequired, t.appointmentRequired),
     FHIRComponentField[LitSeq[CodeableConcept]](serviceProvisionCode, t.serviceProvisionCode),
-    FHIRComponentField[Option[String]](availabilityExceptions, t.availabilityExceptions),
+    FHIRComponentField[Option[FHIRString]](availabilityExceptions, t.availabilityExceptions),
     FHIRComponentField[LitSeq[HealthcareService.Eligibility]](eligibility, t.eligibility),
     FHIRComponentField[LitSeq[HealthcareService.NotAvailable]](notAvailable, t.notAvailable),
     FHIRComponentField[LitSeq[HealthcareService.AvailableTime]](availableTime, t.availableTime)
@@ -463,10 +463,10 @@ object HealthcareService extends CompanionFor[HealthcareService] {
   def extractMeta(t: HealthcareService): Option[Meta]                                     = t.meta
   def extractText(t: HealthcareService): Option[Narrative]                                = t.text
   def extractType(t: HealthcareService): LitSeq[CodeableConcept]                          = t.`type`
-  def extractName(t: HealthcareService): Option[String]                                   = t.name
+  def extractName(t: HealthcareService): Option[FHIRString]                               = t.name
   def extractPhoto(t: HealthcareService): Option[Attachment]                              = t.photo
   def extractActive(t: HealthcareService): Option[Boolean]                                = t.active
-  def extractComment(t: HealthcareService): Option[String]                                = t.comment
+  def extractComment(t: HealthcareService): Option[FHIRString]                            = t.comment
   def extractTelecom(t: HealthcareService): LitSeq[ContactPoint]                          = t.telecom
   def extractProgram(t: HealthcareService): LitSeq[CodeableConcept]                       = t.program
   def extractLanguage(t: HealthcareService): Option[LANGUAGES]                            = t.language
@@ -487,7 +487,7 @@ object HealthcareService extends CompanionFor[HealthcareService] {
   def extractModifierExtension(t: HealthcareService): LitSeq[Extension]                   = t.modifierExtension
   def extractAppointmentRequired(t: HealthcareService): Option[Boolean]                   = t.appointmentRequired
   def extractServiceProvisionCode(t: HealthcareService): LitSeq[CodeableConcept]          = t.serviceProvisionCode
-  def extractAvailabilityExceptions(t: HealthcareService): Option[String]                 = t.availabilityExceptions
+  def extractAvailabilityExceptions(t: HealthcareService): Option[FHIRString]             = t.availabilityExceptions
   def extractEligibility(t: HealthcareService): LitSeq[HealthcareService.Eligibility]     = t.eligibility
   def extractNotAvailable(t: HealthcareService): LitSeq[HealthcareService.NotAvailable]   = t.notAvailable
   def extractAvailableTime(t: HealthcareService): LitSeq[HealthcareService.AvailableTime] = t.availableTime
@@ -514,10 +514,10 @@ object HealthcareService extends CompanionFor[HealthcareService] {
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("type", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[Attachment]]("photo", Some(None)),
           cursor.decodeAs[Option[Boolean]]("active", Some(None)),
-          cursor.decodeAs[Option[String]]("comment", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
           cursor.decodeAs[LitSeq[ContactPoint]]("telecom", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("program", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
@@ -538,7 +538,7 @@ object HealthcareService extends CompanionFor[HealthcareService] {
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Boolean]]("appointmentRequired", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("serviceProvisionCode", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("availabilityExceptions", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("availabilityExceptions", Some(None)),
           cursor.decodeAs[LitSeq[HealthcareService.Eligibility]]("eligibility", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[HealthcareService.NotAvailable]]("notAvailable", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[HealthcareService.AvailableTime]]("availableTime", Some(LitSeq.empty)),
@@ -649,10 +649,10 @@ class HealthcareService(
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
     val `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val photo: Option[Attachment] = None,
     val active: Option[Boolean] = None,
-    val comment: Option[String] = None,
+    val comment: Option[FHIRString] = None,
     val telecom: LitSeq[ContactPoint] = LitSeq.empty,
     val program: LitSeq[CodeableConcept] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
@@ -673,7 +673,7 @@ class HealthcareService(
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val appointmentRequired: Option[Boolean] = None,
     val serviceProvisionCode: LitSeq[CodeableConcept] = LitSeq.empty,
-    val availabilityExceptions: Option[String] = None,
+    val availabilityExceptions: Option[FHIRString] = None,
     val eligibility: LitSeq[HealthcareService.Eligibility] = LitSeq.empty,
     val notAvailable: LitSeq[HealthcareService.NotAvailable] = LitSeq.empty,
     val availableTime: LitSeq[HealthcareService.AvailableTime] = LitSeq.empty,

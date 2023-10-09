@@ -30,7 +30,7 @@ object ContactDetail extends CompanionFor[ContactDetail] {
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/ContactDetail")
   def apply(
       id: Option[String] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       telecom: LitSeq[ContactPoint] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -43,8 +43,8 @@ object ContactDetail extends CompanionFor[ContactDetail] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val telecom: FHIRComponentFieldMeta[LitSeq[ContactPoint]] =
     FHIRComponentFieldMeta("telecom", lTagOf[LitSeq[ContactPoint]], false, lTagOf[ContactPoint])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -53,23 +53,23 @@ object ContactDetail extends CompanionFor[ContactDetail] {
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
   override def fields(t: ContactDetail): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[LitSeq[ContactPoint]](telecom, t.telecom),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension)
   )
   def extractId(t: ContactDetail): Option[String]            = t.id
-  def extractName(t: ContactDetail): Option[String]          = t.name
+  def extractName(t: ContactDetail): Option[FHIRString]      = t.name
   def extractTelecom(t: ContactDetail): LitSeq[ContactPoint] = t.telecom
   def extractExtension(t: ContactDetail): LitSeq[Extension]  = t.extension
   override val thisName: String                              = "ContactDetail"
-  def unapply(o: ContactDetail): Option[(Option[String], Option[String], LitSeq[ContactPoint], LitSeq[Extension])] = Some(
+  def unapply(o: ContactDetail): Option[(Option[String], Option[FHIRString], LitSeq[ContactPoint], LitSeq[Extension])] = Some(
     (o.id, o.name, o.telecom, o.extension))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[ContactDetail] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new ContactDetail(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[LitSeq[ContactPoint]]("telecom", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -100,7 +100,7 @@ object ContactDetail extends CompanionFor[ContactDetail] {
 @POJOBoilerplate
 class ContactDetail(
     override val id: Option[String] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val telecom: LitSeq[ContactPoint] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

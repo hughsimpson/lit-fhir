@@ -46,7 +46,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
       def apply(
           id: Option[String] = None,
           uid: Id,
-          title: Option[String] = None,
+          title: Option[FHIRString] = None,
           number: Option[UnsignedInt] = None,
           sopClass: Coding,
           extension: LitSeq[Extension] = LitSeq.empty,
@@ -63,14 +63,14 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Instance): Option[(Option[String], Id, Option[String], Option[UnsignedInt], Coding, LitSeq[Extension], LitSeq[Extension])] =
+          o: Instance): Option[(Option[String], Id, Option[FHIRString], Option[UnsignedInt], Coding, LitSeq[Extension], LitSeq[Extension])] =
         Some((o.id, o.uid, o.title, o.number, o.sopClass, o.extension, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
       val uid: FHIRComponentFieldMeta[Id] =
         FHIRComponentFieldMeta("uid", lTagOf[Id], false, lTagOf[Id])
-      val title: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+      val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val number: FHIRComponentFieldMeta[Option[UnsignedInt]] =
         FHIRComponentFieldMeta("number", lTagOf[Option[UnsignedInt]], false, lTagOf[UnsignedInt])
       val sopClass: FHIRComponentFieldMeta[Coding] =
@@ -84,7 +84,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
       override def fields(t: Instance): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[Id](uid, t.uid),
-        FHIRComponentField[Option[String]](title, t.title),
+        FHIRComponentField[Option[FHIRString]](title, t.title),
         FHIRComponentField[Option[UnsignedInt]](number, t.number),
         FHIRComponentField[Coding](sopClass, t.sopClass),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -98,7 +98,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
             new Instance(
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[Id]("uid", None),
-              cursor.decodeAs[Option[String]]("title", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
               cursor.decodeAs[Option[UnsignedInt]]("number", Some(None)),
               cursor.decodeAs[Coding]("sopClass", None),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -111,7 +111,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
     class Instance(
         override val id: Option[String] = None,
         val uid: Id,
-        val title: Option[String] = None,
+        val title: Option[FHIRString] = None,
         val number: Option[UnsignedInt] = None,
         val sopClass: Coding,
         override val extension: LitSeq[Extension] = LitSeq.empty,
@@ -196,7 +196,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
         specimen: LitSeq[Reference] = LitSeq.empty,
         extension: LitSeq[Extension] = LitSeq.empty,
         laterality: Option[Coding] = None,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         numberOfInstances: Option[UnsignedInt] = None,
         instance: LitSeq[Series.Instance] = LitSeq.empty,
@@ -221,7 +221,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Series): Option[(Option[String], Id, Option[UnsignedInt], Option[FHIRDateTime], Coding, LitSeq[Reference], Option[Coding], LitSeq[Reference], LitSeq[Extension], Option[Coding], Option[String], LitSeq[Extension], Option[UnsignedInt], LitSeq[Series.Instance], LitSeq[Series.Performer])] =
+        o: Series): Option[(Option[String], Id, Option[UnsignedInt], Option[FHIRDateTime], Coding, LitSeq[Reference], Option[Coding], LitSeq[Reference], LitSeq[Extension], Option[Coding], Option[FHIRString], LitSeq[Extension], Option[UnsignedInt], LitSeq[Series.Instance], LitSeq[Series.Performer])] =
       Some(
         (
           o.id,
@@ -259,8 +259,8 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val laterality: FHIRComponentFieldMeta[Option[Coding]] =
       FHIRComponentFieldMeta("laterality", lTagOf[Option[Coding]], false, lTagOf[Coding])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val numberOfInstances: FHIRComponentFieldMeta[Option[UnsignedInt]] =
@@ -297,7 +297,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
       FHIRComponentField[LitSeq[Reference]](specimen, t.specimen),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Coding]](laterality, t.laterality),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[UnsignedInt]](numberOfInstances, t.numberOfInstances),
       FHIRComponentField[LitSeq[Series.Instance]](instance, t.instance),
@@ -319,7 +319,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
             cursor.decodeAs[LitSeq[Reference]]("specimen", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Coding]]("laterality", Some(None)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[UnsignedInt]]("numberOfInstances", Some(None)),
             cursor.decodeAs[LitSeq[Series.Instance]]("instance", Some(LitSeq.empty)),
@@ -340,7 +340,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
       val specimen: LitSeq[Reference] = LitSeq.empty,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val laterality: Option[Coding] = None,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val numberOfInstances: Option[UnsignedInt] = None,
       val instance: LitSeq[Series.Instance] = LitSeq.empty,
@@ -367,7 +367,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
       identifier: LitSeq[Identifier] = LitSeq.empty,
       reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
       interpreter: LitSeq[Reference] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       procedureCode: LitSeq[CodeableConcept] = LitSeq.empty,
       numberOfSeries: Option[UnsignedInt] = None,
@@ -446,8 +446,8 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
     FHIRComponentFieldMeta("reasonCode", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val interpreter: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("interpreter", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val procedureCode: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -515,7 +515,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[LitSeq[CodeableConcept]](reasonCode, t.reasonCode),
     FHIRComponentField[LitSeq[Reference]](interpreter, t.interpreter),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[CodeableConcept]](procedureCode, t.procedureCode),
     FHIRComponentField[Option[UnsignedInt]](numberOfSeries, t.numberOfSeries),
@@ -544,7 +544,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
   def extractIdentifier(t: ImagingStudy): LitSeq[Identifier]         = t.identifier
   def extractReasonCode(t: ImagingStudy): LitSeq[CodeableConcept]    = t.reasonCode
   def extractInterpreter(t: ImagingStudy): LitSeq[Reference]         = t.interpreter
-  def extractDescription(t: ImagingStudy): Option[String]            = t.description
+  def extractDescription(t: ImagingStudy): Option[FHIRString]        = t.description
   def extractImplicitRules(t: ImagingStudy): Option[UriStr]          = t.implicitRules
   def extractProcedureCode(t: ImagingStudy): LitSeq[CodeableConcept] = t.procedureCode
   def extractNumberOfSeries(t: ImagingStudy): Option[UnsignedInt]    = t.numberOfSeries
@@ -598,7 +598,7 @@ object ImagingStudy extends CompanionFor[ImagingStudy] {
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("reasonCode", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Reference]]("interpreter", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("procedureCode", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UnsignedInt]]("numberOfSeries", Some(None)),
@@ -725,7 +725,7 @@ class ImagingStudy(
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
     val interpreter: LitSeq[Reference] = LitSeq.empty,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     val procedureCode: LitSeq[CodeableConcept] = LitSeq.empty,
     val numberOfSeries: Option[UnsignedInt] = None,

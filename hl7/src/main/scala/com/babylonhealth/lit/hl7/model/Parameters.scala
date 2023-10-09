@@ -39,7 +39,7 @@ object Parameters extends CompanionFor[Parameters] {
     type ValueChoice = Choice[UnionAll]
     def apply(
         id: Option[String] = None,
-        name: String,
+        name: FHIRString,
         part: LitSeq[Parameters.Parameter] = LitSeq.empty,
         value: Option[Parameter.ValueChoice] = None,
         resource: Option[Resource] = None,
@@ -57,12 +57,12 @@ object Parameters extends CompanionFor[Parameters] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Parameter): Option[(Option[String], String, LitSeq[Parameters.Parameter], Option[Parameter.ValueChoice], Option[Resource], LitSeq[Extension], LitSeq[Extension])] =
+        o: Parameter): Option[(Option[String], FHIRString, LitSeq[Parameters.Parameter], Option[Parameter.ValueChoice], Option[Resource], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.name, o.part, o.value, o.resource, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val part: FHIRComponentFieldMeta[LitSeq[Parameters.Parameter]] =
       FHIRComponentFieldMeta("part", lTagOf[LitSeq[Parameters.Parameter]], false, lTagOf[Parameters.Parameter])
     val value: FHIRComponentFieldMeta[Option[Parameter.ValueChoice]] =
@@ -77,7 +77,7 @@ object Parameters extends CompanionFor[Parameters] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Parameter): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](name, t.name),
+      FHIRComponentField[FHIRString](name, t.name),
       FHIRComponentField[LitSeq[Parameters.Parameter]](part, t.part),
       FHIRComponentField[Option[Parameter.ValueChoice]](value, t.value),
       FHIRComponentField[Option[Resource]](resource, t.resource),
@@ -91,7 +91,7 @@ object Parameters extends CompanionFor[Parameters] {
         Try(
           new Parameter(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("name", None),
+            cursor.decodeAs[FHIRString]("name", None),
             cursor.decodeAs[LitSeq[Parameters.Parameter]]("part", Some(LitSeq.empty)),
             cursor.decodeOptRef[UnionAll]("value"),
             cursor.decodeAs[Option[Resource]]("resource", Some(None)),
@@ -104,7 +104,7 @@ object Parameters extends CompanionFor[Parameters] {
   @POJOBoilerplate
   class Parameter(
       override val id: Option[String] = None,
-      val name: String,
+      val name: FHIRString,
       val part: LitSeq[Parameters.Parameter] = LitSeq.empty,
       val value: Option[Parameter.ValueChoice] = None,
       val resource: Option[Resource] = None,

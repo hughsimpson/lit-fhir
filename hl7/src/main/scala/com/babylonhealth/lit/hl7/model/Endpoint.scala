@@ -35,10 +35,10 @@ object Endpoint extends CompanionFor[Endpoint] {
       id: Option[String] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       status: ENDPOINT_STATUS,
       period: Option[Period] = None,
-      header: LitSeq[String] = LitSeq.empty,
+      header: LitSeq[FHIRString] = LitSeq.empty,
       contact: LitSeq[ContactPoint] = LitSeq.empty,
       address: UrlStr,
       language: Option[LANGUAGES] = None,
@@ -80,14 +80,14 @@ object Endpoint extends CompanionFor[Endpoint] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[ENDPOINT_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[ENDPOINT_STATUS], false, lTagOf[ENDPOINT_STATUS])
   val period: FHIRComponentFieldMeta[Option[Period]] =
     FHIRComponentFieldMeta("period", lTagOf[Option[Period]], false, lTagOf[Period])
-  val header: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("header", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val header: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("header", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactPoint]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactPoint]], false, lTagOf[ContactPoint])
   val address: FHIRComponentFieldMeta[UrlStr] =
@@ -138,10 +138,10 @@ object Endpoint extends CompanionFor[Endpoint] {
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[ENDPOINT_STATUS](status, t.status),
     FHIRComponentField[Option[Period]](period, t.period),
-    FHIRComponentField[LitSeq[String]](header, t.header),
+    FHIRComponentField[LitSeq[FHIRString]](header, t.header),
     FHIRComponentField[LitSeq[ContactPoint]](contact, t.contact),
     FHIRComponentField[UrlStr](address, t.address),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
@@ -158,10 +158,10 @@ object Endpoint extends CompanionFor[Endpoint] {
   def extractId(t: Endpoint): Option[String]                           = t.id
   def extractMeta(t: Endpoint): Option[Meta]                           = t.meta
   def extractText(t: Endpoint): Option[Narrative]                      = t.text
-  def extractName(t: Endpoint): Option[String]                         = t.name
+  def extractName(t: Endpoint): Option[FHIRString]                     = t.name
   def extractStatus(t: Endpoint): ENDPOINT_STATUS                      = t.status
   def extractPeriod(t: Endpoint): Option[Period]                       = t.period
-  def extractHeader(t: Endpoint): LitSeq[String]                       = t.header
+  def extractHeader(t: Endpoint): LitSeq[FHIRString]                   = t.header
   def extractContact(t: Endpoint): LitSeq[ContactPoint]                = t.contact
   def extractAddress(t: Endpoint): UrlStr                              = t.address
   def extractLanguage(t: Endpoint): Option[LANGUAGES]                  = t.language
@@ -184,7 +184,7 @@ object Endpoint extends CompanionFor[Endpoint] {
     "connection-type" -> (obj => Seq(obj.connectionType))
   )
   def unapply(
-      o: Endpoint): Option[(Option[String], Option[Meta], Option[Narrative], Option[String], ENDPOINT_STATUS, Option[Period], LitSeq[String], LitSeq[ContactPoint], UrlStr, Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], NonEmptyLitSeq[CodeableConcept], Option[UriStr], Coding, LitSeq[Code], LitSeq[Extension], Option[Reference])] =
+      o: Endpoint): Option[(Option[String], Option[Meta], Option[Narrative], Option[FHIRString], ENDPOINT_STATUS, Option[Period], LitSeq[FHIRString], LitSeq[ContactPoint], UrlStr, Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], NonEmptyLitSeq[CodeableConcept], Option[UriStr], Coding, LitSeq[Code], LitSeq[Extension], Option[Reference])] =
     Some(
       (
         o.id,
@@ -213,10 +213,10 @@ object Endpoint extends CompanionFor[Endpoint] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[ENDPOINT_STATUS]("status", None),
           cursor.decodeAs[Option[Period]]("period", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("header", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("header", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactPoint]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[UrlStr]("address", None),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
@@ -306,10 +306,10 @@ class Endpoint(
     override val id: Option[String] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val status: ENDPOINT_STATUS,
     val period: Option[Period] = None,
-    val header: LitSeq[String] = LitSeq.empty,
+    val header: LitSeq[FHIRString] = LitSeq.empty,
     val contact: LitSeq[ContactPoint] = LitSeq.empty,
     val address: UrlStr,
     override val language: Option[LANGUAGES] = None,

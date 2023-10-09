@@ -37,27 +37,27 @@ object Synthesis extends CompanionFor[Synthesis] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = Some(new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/synthesis"))),
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       date: Option[FHIRDateTime] = None,
       note: LitSeq[Annotation] = LitSeq.empty,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       topic: LitSeq[CodeableConcept] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       author: LitSeq[ContactDetail] = LitSeq.empty,
       editor: LitSeq[ContactDetail] = LitSeq.empty,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       outcome: NonEmptyLitSeq[Reference],
       language: Option[LANGUAGES] = None,
-      subtitle: Option[String] = None,
+      subtitle: Option[FHIRString] = None,
       reviewer: LitSeq[ContactDetail] = LitSeq.empty,
       endorser: LitSeq[ContactDetail] = LitSeq.empty,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      shortTitle: Option[String] = None,
+      shortTitle: Option[FHIRString] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
       description: Option[Markdown] = None,
       jurisdiction: LitSeq[CodeableConcept] = LitSeq.empty,
@@ -117,14 +117,14 @@ object Synthesis extends CompanionFor[Synthesis] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val note: FHIRComponentFieldMeta[LitSeq[Annotation]] =
     FHIRComponentFieldMeta("note", lTagOf[LitSeq[Annotation]], false, lTagOf[Annotation])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val topic: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("topic", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
@@ -133,16 +133,16 @@ object Synthesis extends CompanionFor[Synthesis] {
     FHIRComponentFieldMeta("author", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val editor: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("editor", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val outcome: FHIRComponentFieldMeta[NonEmptyLitSeq[Reference]] =
     FHIRComponentFieldMeta("outcome", lTagOf[NonEmptyLitSeq[Reference]], false, lTagOf[Reference])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
-  val subtitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("subtitle", lTagOf[Option[String]], false, lTagOf[String])
+  val subtitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("subtitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val reviewer: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("reviewer", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val endorser: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
@@ -151,14 +151,14 @@ object Synthesis extends CompanionFor[Synthesis] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val shortTitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("shortTitle", lTagOf[Option[String]], false, lTagOf[String])
+  val shortTitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("shortTitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val useContext: FHIRComponentFieldMeta[LitSeq[UsageContext]] =
     FHIRComponentFieldMeta("useContext", lTagOf[LitSeq[UsageContext]], false, lTagOf[UsageContext])
   val description: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -225,27 +225,27 @@ object Synthesis extends CompanionFor[Synthesis] {
       FHIRComponentField[Option[UriStr]](url, t.url),
       FHIRComponentField[Option[Meta]](meta, t.meta),
       FHIRComponentField[Option[Narrative]](text, t.text),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[Option[FHIRDateTime]](date, t.date),
       FHIRComponentField[LitSeq[Annotation]](note, t.note),
-      FHIRComponentField[Option[String]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
       FHIRComponentField[LitSeq[CodeableConcept]](topic, t.topic),
       FHIRComponentField[PUBLICATION_STATUS](status, t.status),
       FHIRComponentField[LitSeq[ContactDetail]](author, t.author),
       FHIRComponentField[LitSeq[ContactDetail]](editor, t.editor),
-      FHIRComponentField[Option[String]](version, t.version),
+      FHIRComponentField[Option[FHIRString]](version, t.version),
       FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
       FHIRComponentField[NonEmptyLitSeq[Reference]](outcome, t.outcome.asNonEmpty),
       FHIRComponentField[Option[LANGUAGES]](language, t.language),
-      FHIRComponentField[Option[String]](subtitle, t.subtitle),
+      FHIRComponentField[Option[FHIRString]](subtitle, t.subtitle),
       FHIRComponentField[LitSeq[ContactDetail]](reviewer, t.reviewer),
       FHIRComponentField[LitSeq[ContactDetail]](endorser, t.endorser),
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](publisher, t.publisher),
+      FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
       FHIRComponentField[Option[Markdown]](copyright, t.copyright),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-      FHIRComponentField[Option[String]](shortTitle, t.shortTitle),
+      FHIRComponentField[Option[FHIRString]](shortTitle, t.shortTitle),
       FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
       FHIRComponentField[Option[Markdown]](description, t.description),
       FHIRComponentField[LitSeq[CodeableConcept]](jurisdiction, t.jurisdiction),
@@ -263,27 +263,27 @@ object Synthesis extends CompanionFor[Synthesis] {
   def extractUrl(t: Synthesis): Option[UriStr]                        = t.url
   def extractMeta(t: Synthesis): Option[Meta]                         = t.meta
   def extractText(t: Synthesis): Option[Narrative]                    = t.text
-  def extractName(t: Synthesis): Option[String]                       = t.name
+  def extractName(t: Synthesis): Option[FHIRString]                   = t.name
   def extractDate(t: Synthesis): Option[FHIRDateTime]                 = t.date
   def extractNote(t: Synthesis): LitSeq[Annotation]                   = t.note
-  def extractTitle(t: Synthesis): Option[String]                      = t.title
+  def extractTitle(t: Synthesis): Option[FHIRString]                  = t.title
   def extractTopic(t: Synthesis): LitSeq[CodeableConcept]             = t.topic
   def extractStatus(t: Synthesis): PUBLICATION_STATUS                 = t.status
   def extractAuthor(t: Synthesis): LitSeq[ContactDetail]              = t.author
   def extractEditor(t: Synthesis): LitSeq[ContactDetail]              = t.editor
-  def extractVersion(t: Synthesis): Option[String]                    = t.version
+  def extractVersion(t: Synthesis): Option[FHIRString]                = t.version
   def extractContact(t: Synthesis): LitSeq[ContactDetail]             = t.contact
   def extractOutcome(t: Synthesis): NonEmptyLitSeq[Reference]         = t.outcome.asNonEmpty
   def extractLanguage(t: Synthesis): Option[LANGUAGES]                = t.language
-  def extractSubtitle(t: Synthesis): Option[String]                   = t.subtitle
+  def extractSubtitle(t: Synthesis): Option[FHIRString]               = t.subtitle
   def extractReviewer(t: Synthesis): LitSeq[ContactDetail]            = t.reviewer
   def extractEndorser(t: Synthesis): LitSeq[ContactDetail]            = t.endorser
   def extractContained(t: Synthesis): LitSeq[Resource]                = t.contained
   def extractExtension(t: Synthesis): LitSeq[Extension]               = t.extension
-  def extractPublisher(t: Synthesis): Option[String]                  = t.publisher
+  def extractPublisher(t: Synthesis): Option[FHIRString]              = t.publisher
   def extractCopyright(t: Synthesis): Option[Markdown]                = t.copyright
   def extractIdentifier(t: Synthesis): LitSeq[Identifier]             = t.identifier
-  def extractShortTitle(t: Synthesis): Option[String]                 = t.shortTitle
+  def extractShortTitle(t: Synthesis): Option[FHIRString]             = t.shortTitle
   def extractUseContext(t: Synthesis): LitSeq[UsageContext]           = t.useContext
   def extractDescription(t: Synthesis): Option[Markdown]              = t.description
   def extractJurisdiction(t: Synthesis): LitSeq[CodeableConcept]      = t.jurisdiction
@@ -305,27 +305,27 @@ object Synthesis extends CompanionFor[Synthesis] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("topic", Some(LitSeq.empty)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[LitSeq[ContactDetail]]("author", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactDetail]]("editor", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[NonEmptyLitSeq[Reference]]("outcome", None),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
-          cursor.decodeAs[Option[String]]("subtitle", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("subtitle", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("reviewer", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactDetail]]("endorser", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("shortTitle", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("shortTitle", Some(None)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("description", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("jurisdiction", Some(LitSeq.empty)),
@@ -461,27 +461,27 @@ class Synthesis(
     override val url: Option[UriStr] = None,
     override val meta: Option[Meta] = Some(new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/synthesis"))),
     override val text: Option[Narrative] = None,
-    override val name: Option[String] = None,
+    override val name: Option[FHIRString] = None,
     override val date: Option[FHIRDateTime] = None,
     override val note: LitSeq[Annotation] = LitSeq.empty,
-    override val title: Option[String] = None,
+    override val title: Option[FHIRString] = None,
     override val topic: LitSeq[CodeableConcept] = LitSeq.empty,
     override val status: PUBLICATION_STATUS,
     override val author: LitSeq[ContactDetail] = LitSeq.empty,
     override val editor: LitSeq[ContactDetail] = LitSeq.empty,
-    override val version: Option[String] = None,
+    override val version: Option[FHIRString] = None,
     override val contact: LitSeq[ContactDetail] = LitSeq.empty,
     outcome: NonEmptyLitSeq[Reference],
     override val language: Option[LANGUAGES] = None,
-    override val subtitle: Option[String] = None,
+    override val subtitle: Option[FHIRString] = None,
     override val reviewer: LitSeq[ContactDetail] = LitSeq.empty,
     override val endorser: LitSeq[ContactDetail] = LitSeq.empty,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    override val publisher: Option[String] = None,
+    override val publisher: Option[FHIRString] = None,
     override val copyright: Option[Markdown] = None,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
-    override val shortTitle: Option[String] = None,
+    override val shortTitle: Option[FHIRString] = None,
     override val useContext: LitSeq[UsageContext] = LitSeq.empty,
     override val description: Option[Markdown] = None,
     override val jurisdiction: LitSeq[CodeableConcept] = LitSeq.empty,

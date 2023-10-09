@@ -32,7 +32,7 @@ object TriggerDefinition extends CompanionFor[TriggerDefinition] {
   def apply(
       id: Option[String] = None,
       `type`: TRIGGER_TYPE,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       data: LitSeq[DataRequirement] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       timing: Option[TriggerDefinition.TimingChoice] = None,
@@ -52,8 +52,8 @@ object TriggerDefinition extends CompanionFor[TriggerDefinition] {
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
   val `type`: FHIRComponentFieldMeta[TRIGGER_TYPE] =
     FHIRComponentFieldMeta("type", lTagOf[TRIGGER_TYPE], false, lTagOf[TRIGGER_TYPE])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val data: FHIRComponentFieldMeta[LitSeq[DataRequirement]] =
     FHIRComponentFieldMeta("data", lTagOf[LitSeq[DataRequirement]], false, lTagOf[DataRequirement])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -67,7 +67,7 @@ object TriggerDefinition extends CompanionFor[TriggerDefinition] {
   override def fields(t: TriggerDefinition): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[TRIGGER_TYPE](`type`, t.`type`),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[LitSeq[DataRequirement]](data, t.data),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[TriggerDefinition.TimingChoice]](timing, t.timing),
@@ -75,14 +75,14 @@ object TriggerDefinition extends CompanionFor[TriggerDefinition] {
   )
   def extractId(t: TriggerDefinition): Option[String]                             = t.id
   def extractType(t: TriggerDefinition): TRIGGER_TYPE                             = t.`type`
-  def extractName(t: TriggerDefinition): Option[String]                           = t.name
+  def extractName(t: TriggerDefinition): Option[FHIRString]                       = t.name
   def extractData(t: TriggerDefinition): LitSeq[DataRequirement]                  = t.data
   def extractExtension(t: TriggerDefinition): LitSeq[Extension]                   = t.extension
   def extractTiming(t: TriggerDefinition): Option[TriggerDefinition.TimingChoice] = t.timing
   def extractCondition(t: TriggerDefinition): Option[Expression]                  = t.condition
   override val thisName: String                                                   = "TriggerDefinition"
   def unapply(
-      o: TriggerDefinition): Option[(Option[String], TRIGGER_TYPE, Option[String], LitSeq[DataRequirement], LitSeq[Extension], Option[TriggerDefinition.TimingChoice], Option[Expression])] =
+      o: TriggerDefinition): Option[(Option[String], TRIGGER_TYPE, Option[FHIRString], LitSeq[DataRequirement], LitSeq[Extension], Option[TriggerDefinition.TimingChoice], Option[Expression])] =
     Some((o.id, o.`type`, o.name, o.data, o.extension, o.timing, o.condition))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[TriggerDefinition] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -90,7 +90,7 @@ object TriggerDefinition extends CompanionFor[TriggerDefinition] {
         new TriggerDefinition(
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[TRIGGER_TYPE]("type", None),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[LitSeq[DataRequirement]]("data", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeOptRef[Union01658422381]("timing"),
@@ -134,7 +134,7 @@ object TriggerDefinition extends CompanionFor[TriggerDefinition] {
 class TriggerDefinition(
     override val id: Option[String] = None,
     val `type`: TRIGGER_TYPE,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val data: LitSeq[DataRequirement] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val timing: Option[TriggerDefinition.TimingChoice] = None,

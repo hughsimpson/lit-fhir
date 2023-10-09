@@ -33,37 +33,37 @@ object Structuredefinition_json_type extends CompanionFor[Structuredefinition_js
   override val parentType: CompanionFor[ParentType] = Extension
   override val profileUrl: Option[String] = Some("http://hl7.org/fhir/StructureDefinition/structuredefinition-json-type")
   def apply(
-      id: Option[String] = None,
-      value: Option[String] = None,
+      id: Option[FHIRString] = None,
+      value: Option[FHIRString] = None,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Structuredefinition_json_type = new Structuredefinition_json_type(
     id,
     value,
     primitiveAttributes = primitiveAttributes
   )
-  val id: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val value: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("value", lTagOf[Option[String]], true, lTagOf[String])
+  val id: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("id", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val value: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("value", lTagOf[Option[FHIRString]], true, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, value)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Try(
     Seq(
-      FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](value, t.value.map(_.toSubRefNonUnion[String]))
+      FHIRComponentField[Option[FHIRString]](id, t.id),
+      FHIRComponentField[Option[FHIRString]](value, t.value.map(_.toSubRefNonUnion[FHIRString]))
     ))
   override def fields(t: Structuredefinition_json_type): Seq[FHIRComponentField[_]] = fieldsFromParent(t).get
-  def extractId(t: Structuredefinition_json_type): Option[String]                   = t.id
-  def extractValue(t: Structuredefinition_json_type): Option[String]                = t.value.map(_.toSubRefNonUnion[String])
+  def extractId(t: Structuredefinition_json_type): Option[FHIRString]               = t.id
+  def extractValue(t: Structuredefinition_json_type): Option[FHIRString]            = t.value.map(_.toSubRefNonUnion[FHIRString])
   override val thisName: String                                                     = "Structuredefinition_json_type"
   override val searchParams: Map[String, Structuredefinition_json_type => Seq[Any]] = Extension.searchParams
-  def unapply(o: Structuredefinition_json_type): Option[(Option[String], Option[String])] = Some(
-    (o.id, o.value.map(_.toSubRefNonUnion[String])))
+  def unapply(o: Structuredefinition_json_type): Option[(Option[FHIRString], Option[FHIRString])] = Some(
+    (o.id, o.value.map(_.toSubRefNonUnion[FHIRString])))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Structuredefinition_json_type] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new Structuredefinition_json_type(
-          cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[Option[String]]("valueString", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("id", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("valueString", Some(None)),
           decodeAttributes(cursor)
         )
       ))
@@ -89,8 +89,8 @@ object Structuredefinition_json_type extends CompanionFor[Structuredefinition_js
   */
 @POJOBoilerplate
 class Structuredefinition_json_type(
-    override val id: Option[String] = None,
-    value: Option[String] = None,
+    id: Option[FHIRString] = None,
+    value: Option[FHIRString] = None,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Extension(
       id = id,

@@ -44,7 +44,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       override type ParentType   = Financial
       override val parentType: CompanionFor[ResourceType] = Financial
       type UsedChoice    = Choice[UnionMoneyOrUnsignedInt]
-      type AllowedChoice = Choice[UnionMoneyOrStringOrUnsignedInt]
+      type AllowedChoice = Choice[UnionFHIRStringOrMoneyOrUnsignedInt]
       def apply(
           id: Option[String] = None,
           `type`: CodeableConcept,
@@ -74,7 +74,11 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val allowed: FHIRComponentFieldMeta[Option[Financial.AllowedChoice]] =
-        FHIRComponentFieldMeta("allowed", lTagOf[Option[Financial.AllowedChoice]], true, lTagOf[UnionMoneyOrStringOrUnsignedInt])
+        FHIRComponentFieldMeta(
+          "allowed",
+          lTagOf[Option[Financial.AllowedChoice]],
+          true,
+          lTagOf[UnionFHIRStringOrMoneyOrUnsignedInt])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, `type`, used, extension, allowed, modifierExtension)
@@ -97,7 +101,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
               cursor.decodeAs[CodeableConcept]("type", None),
               cursor.decodeOptRef[UnionMoneyOrUnsignedInt]("used"),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-              cursor.decodeOptRef[UnionMoneyOrStringOrUnsignedInt]("allowed"),
+              cursor.decodeOptRef[UnionFHIRStringOrMoneyOrUnsignedInt]("allowed"),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
             )
@@ -115,14 +119,14 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
     def apply(
         id: Option[String] = None,
-        name: Option[String] = None,
+        name: Option[FHIRString] = None,
         unit: Option[CodeableConcept] = None,
         term: Option[CodeableConcept] = None,
         network: Option[CodeableConcept] = None,
         category: CodeableConcept,
         excluded: Option[Boolean] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         financial: LitSeq[BenefitBalance.Financial] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -141,7 +145,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: BenefitBalance): Option[(Option[String], Option[String], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], CodeableConcept, Option[Boolean], LitSeq[Extension], Option[String], LitSeq[Extension], LitSeq[BenefitBalance.Financial])] =
+        o: BenefitBalance): Option[(Option[String], Option[FHIRString], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], CodeableConcept, Option[Boolean], LitSeq[Extension], Option[FHIRString], LitSeq[Extension], LitSeq[BenefitBalance.Financial])] =
       Some(
         (
           o.id,
@@ -157,8 +161,8 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
           o.financial))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val unit: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("unit", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val term: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -171,8 +175,8 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       FHIRComponentFieldMeta("excluded", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val financial: FHIRComponentFieldMeta[LitSeq[BenefitBalance.Financial]] =
@@ -182,14 +186,14 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: BenefitBalance): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[Option[CodeableConcept]](unit, t.unit),
       FHIRComponentField[Option[CodeableConcept]](term, t.term),
       FHIRComponentField[Option[CodeableConcept]](network, t.network),
       FHIRComponentField[CodeableConcept](category, t.category),
       FHIRComponentField[Option[Boolean]](excluded, t.excluded),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[LitSeq[BenefitBalance.Financial]](financial, t.financial)
     )
@@ -200,14 +204,14 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
         Try(
           new BenefitBalance(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("unit", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("term", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("network", Some(None)),
             cursor.decodeAs[CodeableConcept]("category", None),
             cursor.decodeAs[Option[Boolean]]("excluded", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[BenefitBalance.Financial]]("financial", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -217,14 +221,14 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
   @POJOBoilerplate
   class BenefitBalance(
       override val id: Option[String] = None,
-      val name: Option[String] = None,
+      val name: Option[FHIRString] = None,
       val unit: Option[CodeableConcept] = None,
       val term: Option[CodeableConcept] = None,
       val network: Option[CodeableConcept] = None,
       val category: CodeableConcept,
       val excluded: Option[Boolean] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val financial: LitSeq[BenefitBalance.Financial] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -1447,7 +1451,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
     override type ResourceType = SupportingInfo
     override type ParentType   = SupportingInfo
     override val parentType: CompanionFor[ResourceType] = SupportingInfo
-    type ValueChoice  = Choice[Union_2028408917]
+    type ValueChoice  = Choice[Union00969593238]
     type TimingChoice = Choice[UnionDateOrPeriod]
     def apply(
         id: Option[String] = None,
@@ -1486,7 +1490,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
     val category: FHIRComponentFieldMeta[CodeableConcept] =
       FHIRComponentFieldMeta("category", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
     val value: FHIRComponentFieldMeta[Option[SupportingInfo.ValueChoice]] =
-      FHIRComponentFieldMeta("value", lTagOf[Option[SupportingInfo.ValueChoice]], true, lTagOf[Union_2028408917])
+      FHIRComponentFieldMeta("value", lTagOf[Option[SupportingInfo.ValueChoice]], true, lTagOf[Union00969593238])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val timing: FHIRComponentFieldMeta[Option[SupportingInfo.TimingChoice]] =
@@ -1518,7 +1522,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
             cursor.decodeAs[Option[Coding]]("reason", Some(None)),
             cursor.decodeAs[PositiveInt]("sequence", None),
             cursor.decodeAs[CodeableConcept]("category", None),
-            cursor.decodeOptRef[Union_2028408917]("value"),
+            cursor.decodeOptRef[Union00969593238]("value"),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeOptRef[UnionDateOrPeriod]("timing"),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -1548,7 +1552,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
     def apply(
         id: Option[String] = None,
         `type`: Option[NOTE_TYPE] = None,
-        text: Option[String] = None,
+        text: Option[FHIRString] = None,
         number: Option[PositiveInt] = None,
         language: Option[CodeableConcept] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
@@ -1565,14 +1569,14 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: ProcessNote): Option[(Option[String], Option[NOTE_TYPE], Option[String], Option[PositiveInt], Option[CodeableConcept], LitSeq[Extension], LitSeq[Extension])] =
+        o: ProcessNote): Option[(Option[String], Option[NOTE_TYPE], Option[FHIRString], Option[PositiveInt], Option[CodeableConcept], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.`type`, o.text, o.number, o.language, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val `type`: FHIRComponentFieldMeta[Option[NOTE_TYPE]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[NOTE_TYPE]], false, lTagOf[NOTE_TYPE])
-    val text: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+    val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val number: FHIRComponentFieldMeta[Option[PositiveInt]] =
       FHIRComponentFieldMeta("number", lTagOf[Option[PositiveInt]], false, lTagOf[PositiveInt])
     val language: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -1586,7 +1590,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
     override def fields(t: ProcessNote): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[NOTE_TYPE]](`type`, t.`type`),
-      FHIRComponentField[Option[String]](text, t.text),
+      FHIRComponentField[Option[FHIRString]](text, t.text),
       FHIRComponentField[Option[PositiveInt]](number, t.number),
       FHIRComponentField[Option[CodeableConcept]](language, t.language),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -1600,7 +1604,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
           new ProcessNote(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[NOTE_TYPE]]("type", Some(None)),
-            cursor.decodeAs[Option[String]]("text", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
             cursor.decodeAs[Option[PositiveInt]]("number", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("language", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -1613,7 +1617,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
   class ProcessNote(
       override val id: Option[String] = None,
       val `type`: Option[NOTE_TYPE] = None,
-      val text: Option[String] = None,
+      val text: Option[FHIRString] = None,
       val number: Option[PositiveInt] = None,
       val language: Option[CodeableConcept] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
@@ -1631,7 +1635,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
         focal: Boolean,
         coverage: Reference,
         extension: LitSeq[Extension] = LitSeq.empty,
-        preAuthRef: LitSeq[String] = LitSeq.empty,
+        preAuthRef: LitSeq[FHIRString] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Insurance = new Insurance(
@@ -1644,8 +1648,8 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Insurance): Option[(Option[String], Boolean, Reference, LitSeq[Extension], LitSeq[String], LitSeq[Extension])] = Some(
-      (o.id, o.focal, o.coverage, o.extension, o.preAuthRef, o.modifierExtension))
+        o: Insurance): Option[(Option[String], Boolean, Reference, LitSeq[Extension], LitSeq[FHIRString], LitSeq[Extension])] =
+      Some((o.id, o.focal, o.coverage, o.extension, o.preAuthRef, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val focal: FHIRComponentFieldMeta[Boolean] =
@@ -1654,8 +1658,8 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       FHIRComponentFieldMeta("coverage", lTagOf[Reference], false, lTagOf[Reference])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val preAuthRef: FHIRComponentFieldMeta[LitSeq[String]] =
-      FHIRComponentFieldMeta("preAuthRef", lTagOf[LitSeq[String]], false, lTagOf[String])
+    val preAuthRef: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+      FHIRComponentFieldMeta("preAuthRef", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, focal, coverage, extension, preAuthRef, modifierExtension)
@@ -1665,7 +1669,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       FHIRComponentField[Boolean](focal, t.focal),
       FHIRComponentField[Reference](coverage, t.coverage),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[LitSeq[String]](preAuthRef, t.preAuthRef),
+      FHIRComponentField[LitSeq[FHIRString]](preAuthRef, t.preAuthRef),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Insurance] = this
@@ -1678,7 +1682,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
             cursor.decodeAs[Boolean]("focal", None),
             cursor.decodeAs[Reference]("coverage", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[LitSeq[String]]("preAuthRef", Some(LitSeq.empty)),
+            cursor.decodeAs[LitSeq[FHIRString]]("preAuthRef", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -1690,7 +1694,7 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       val focal: Boolean,
       val coverage: Reference,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val preAuthRef: LitSeq[String] = LitSeq.empty,
+      val preAuthRef: LitSeq[FHIRString] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -2364,9 +2368,9 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      preAuthRef: LitSeq[String] = LitSeq.empty,
+      preAuthRef: LitSeq[FHIRString] = LitSeq.empty,
       precedence: Option[PositiveInt] = None,
-      disposition: Option[String] = None,
+      disposition: Option[FHIRString] = None,
       fundsReserve: Option[CodeableConcept] = None,
       prescription: Option[Reference] = None,
       adjudication: LitSeq[ExplanationOfBenefit.Item.Adjudication] = LitSeq.empty,
@@ -2493,12 +2497,12 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val preAuthRef: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("preAuthRef", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val preAuthRef: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("preAuthRef", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val precedence: FHIRComponentFieldMeta[Option[PositiveInt]] =
     FHIRComponentFieldMeta("precedence", lTagOf[Option[PositiveInt]], false, lTagOf[PositiveInt])
-  val disposition: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("disposition", lTagOf[Option[String]], false, lTagOf[String])
+  val disposition: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("disposition", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val fundsReserve: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("fundsReserve", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val prescription: FHIRComponentFieldMeta[Option[Reference]] =
@@ -2663,9 +2667,9 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[LitSeq[String]](preAuthRef, t.preAuthRef),
+    FHIRComponentField[LitSeq[FHIRString]](preAuthRef, t.preAuthRef),
     FHIRComponentField[Option[PositiveInt]](precedence, t.precedence),
-    FHIRComponentField[Option[String]](disposition, t.disposition),
+    FHIRComponentField[Option[FHIRString]](disposition, t.disposition),
     FHIRComponentField[Option[CodeableConcept]](fundsReserve, t.fundsReserve),
     FHIRComponentField[Option[Reference]](prescription, t.prescription),
     FHIRComponentField[LitSeq[ExplanationOfBenefit.Item.Adjudication]](adjudication, t.adjudication),
@@ -2715,9 +2719,9 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
   def extractContained(t: ExplanationOfBenefit): LitSeq[Resource]                                  = t.contained
   def extractExtension(t: ExplanationOfBenefit): LitSeq[Extension]                                 = t.extension
   def extractIdentifier(t: ExplanationOfBenefit): LitSeq[Identifier]                               = t.identifier
-  def extractPreAuthRef(t: ExplanationOfBenefit): LitSeq[String]                                   = t.preAuthRef
+  def extractPreAuthRef(t: ExplanationOfBenefit): LitSeq[FHIRString]                               = t.preAuthRef
   def extractPrecedence(t: ExplanationOfBenefit): Option[PositiveInt]                              = t.precedence
-  def extractDisposition(t: ExplanationOfBenefit): Option[String]                                  = t.disposition
+  def extractDisposition(t: ExplanationOfBenefit): Option[FHIRString]                              = t.disposition
   def extractFundsReserve(t: ExplanationOfBenefit): Option[CodeableConcept]                        = t.fundsReserve
   def extractPrescription(t: ExplanationOfBenefit): Option[Reference]                              = t.prescription
   def extractAdjudication(t: ExplanationOfBenefit): LitSeq[ExplanationOfBenefit.Item.Adjudication] = t.adjudication
@@ -2790,9 +2794,9 @@ object ExplanationOfBenefit extends CompanionFor[ExplanationOfBenefit] {
         cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-        cursor.decodeAs[LitSeq[String]]("preAuthRef", Some(LitSeq.empty)),
+        cursor.decodeAs[LitSeq[FHIRString]]("preAuthRef", Some(LitSeq.empty)),
         cursor.decodeAs[Option[PositiveInt]]("precedence", Some(None)),
-        cursor.decodeAs[Option[String]]("disposition", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("disposition", Some(None)),
         cursor.decodeAs[Option[CodeableConcept]]("fundsReserve", Some(None)),
         cursor.decodeAs[Option[Reference]]("prescription", Some(None)),
         cursor.decodeAs[LitSeq[ExplanationOfBenefit.Item.Adjudication]]("adjudication", Some(LitSeq.empty)),
@@ -2990,9 +2994,9 @@ class ExplanationOfBenefit(
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val preAuthRef: LitSeq[String] = LitSeq.empty,
+    val preAuthRef: LitSeq[FHIRString] = LitSeq.empty,
     val precedence: Option[PositiveInt] = None,
-    val disposition: Option[String] = None,
+    val disposition: Option[FHIRString] = None,
     val fundsReserve: Option[CodeableConcept] = None,
     val prescription: Option[Reference] = None,
     val adjudication: LitSeq[ExplanationOfBenefit.Item.Adjudication] = LitSeq.empty,

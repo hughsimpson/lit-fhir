@@ -30,7 +30,7 @@ object SampledData extends CompanionFor[SampledData] {
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/SampledData")
   def apply(
       id: Option[String] = None,
-      data: Option[String] = None,
+      data: Option[FHIRString] = None,
       origin: Quantity,
       period: BigDecimal,
       factor: Option[BigDecimal] = None,
@@ -53,8 +53,8 @@ object SampledData extends CompanionFor[SampledData] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val data: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("data", lTagOf[Option[String]], false, lTagOf[String])
+  val data: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("data", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val origin: FHIRComponentFieldMeta[Quantity] =
     FHIRComponentFieldMeta("origin", lTagOf[Quantity], false, lTagOf[Quantity])
   val period: FHIRComponentFieldMeta[BigDecimal] =
@@ -74,7 +74,7 @@ object SampledData extends CompanionFor[SampledData] {
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
   override def fields(t: SampledData): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
-    FHIRComponentField[Option[String]](data, t.data),
+    FHIRComponentField[Option[FHIRString]](data, t.data),
     FHIRComponentField[Quantity](origin, t.origin),
     FHIRComponentField[BigDecimal](period, t.period),
     FHIRComponentField[Option[BigDecimal]](factor, t.factor),
@@ -84,7 +84,7 @@ object SampledData extends CompanionFor[SampledData] {
     FHIRComponentField[PositiveInt](dimensions, t.dimensions)
   )
   def extractId(t: SampledData): Option[String]             = t.id
-  def extractData(t: SampledData): Option[String]           = t.data
+  def extractData(t: SampledData): Option[FHIRString]       = t.data
   def extractOrigin(t: SampledData): Quantity               = t.origin
   def extractPeriod(t: SampledData): BigDecimal             = t.period
   def extractFactor(t: SampledData): Option[BigDecimal]     = t.factor
@@ -94,14 +94,14 @@ object SampledData extends CompanionFor[SampledData] {
   def extractDimensions(t: SampledData): PositiveInt        = t.dimensions
   override val thisName: String                             = "SampledData"
   def unapply(
-      o: SampledData): Option[(Option[String], Option[String], Quantity, BigDecimal, Option[BigDecimal], LitSeq[Extension], Option[BigDecimal], Option[BigDecimal], PositiveInt)] =
+      o: SampledData): Option[(Option[String], Option[FHIRString], Quantity, BigDecimal, Option[BigDecimal], LitSeq[Extension], Option[BigDecimal], Option[BigDecimal], PositiveInt)] =
     Some((o.id, o.data, o.origin, o.period, o.factor, o.extension, o.lowerLimit, o.upperLimit, o.dimensions))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[SampledData] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new SampledData(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[Option[String]]("data", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("data", Some(None)),
           cursor.decodeAs[Quantity]("origin", None),
           cursor.decodeAs[BigDecimal]("period", None),
           cursor.decodeAs[Option[BigDecimal]]("factor", Some(None)),
@@ -153,7 +153,7 @@ object SampledData extends CompanionFor[SampledData] {
 @POJOBoilerplate
 class SampledData(
     override val id: Option[String] = None,
-    val data: Option[String] = None,
+    val data: Option[FHIRString] = None,
     val origin: Quantity,
     val period: BigDecimal,
     val factor: Option[BigDecimal] = None,

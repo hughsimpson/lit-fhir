@@ -28,12 +28,12 @@ public interface SubstanceSpecification_PropertyBuilder {
     return new Impl();
   }
 
-  public static ChoiceQuantityOrString amount(Quantity q) {
-    return new ChoiceQuantityOrString(q);
+  public static ChoiceFHIRStringOrQuantity amount(String s) {
+    return new ChoiceFHIRStringOrQuantity(s);
   }
 
-  public static ChoiceQuantityOrString amount(String s) {
-    return new ChoiceQuantityOrString(s);
+  public static ChoiceFHIRStringOrQuantity amount(Quantity q) {
+    return new ChoiceFHIRStringOrQuantity(q);
   }
 
   public static ChoiceCodeableConceptOrReference definingSubstance(CodeableConcept c) {
@@ -49,7 +49,7 @@ public interface SubstanceSpecification_PropertyBuilder {
     private Optional<CodeableConcept> code = Optional.empty();
     private Optional<CodeableConcept> category = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
-    private Optional<ChoiceQuantityOrString> amount = Optional.empty();
+    private Optional<ChoiceFHIRStringOrQuantity> amount = Optional.empty();
     private Optional<String> parameters = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
     private Optional<ChoiceCodeableConceptOrReference> definingSubstance = Optional.empty();
@@ -119,12 +119,12 @@ public interface SubstanceSpecification_PropertyBuilder {
       return this;
     }
     /**
-     * @param amount Field is a 'choice' field. Type should be one of Quantity, String. To pass the
+     * @param amount Field is a 'choice' field. Type should be one of String, Quantity. To pass the
      *     value in, wrap with one of the SubstanceSpecification_PropertyBuilder.amount static
      *     methods
      */
     public SubstanceSpecification_PropertyBuilder.Impl withAmount(
-        @NonNull ChoiceQuantityOrString amount) {
+        @NonNull ChoiceFHIRStringOrQuantity amount) {
       this.amount = Optional.of(amount);
       return this;
     }

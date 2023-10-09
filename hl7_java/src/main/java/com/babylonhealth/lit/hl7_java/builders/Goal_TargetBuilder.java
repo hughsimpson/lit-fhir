@@ -37,32 +37,32 @@ public interface Goal_TargetBuilder {
     return new ChoiceDurationOrDate(f);
   }
 
-  public static Choice_1061953715 detail(Boolean b) {
-    return new Choice_1061953715(b);
+  public static Choice_1090046580 detail(Boolean b) {
+    return new Choice_1090046580(b);
   }
 
-  public static Choice_1061953715 detail(CodeableConcept c) {
-    return new Choice_1061953715(c);
+  public static Choice_1090046580 detail(CodeableConcept c) {
+    return new Choice_1090046580(c);
   }
 
-  public static Choice_1061953715 detail(Integer i) {
-    return new Choice_1061953715(i);
+  public static Choice_1090046580 detail(String s) {
+    return new Choice_1090046580(s);
   }
 
-  public static Choice_1061953715 detail(Quantity q) {
-    return new Choice_1061953715(q);
+  public static Choice_1090046580 detail(Integer i) {
+    return new Choice_1090046580(i);
   }
 
-  public static Choice_1061953715 detail(Range r) {
-    return new Choice_1061953715(r);
+  public static Choice_1090046580 detail(Quantity q) {
+    return new Choice_1090046580(q);
   }
 
-  public static Choice_1061953715 detail(Ratio r) {
-    return new Choice_1061953715(r);
+  public static Choice_1090046580 detail(Range r) {
+    return new Choice_1090046580(r);
   }
 
-  public static Choice_1061953715 detail(String s) {
-    return new Choice_1061953715(s);
+  public static Choice_1090046580 detail(Ratio r) {
+    return new Choice_1090046580(r);
   }
 
   public class Impl implements Goal_TargetBuilder {
@@ -70,7 +70,7 @@ public interface Goal_TargetBuilder {
     private Optional<ChoiceDurationOrDate> due = Optional.empty();
     private Optional<CodeableConcept> measure = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
-    private Optional<Choice_1061953715> detail = Optional.empty();
+    private Optional<Choice_1090046580> detail = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
 
     /** Required fields for {@link Goal.Target} */
@@ -131,10 +131,10 @@ public interface Goal_TargetBuilder {
     }
     /**
      * @param detail Field is a 'choice' field. Type should be one of Boolean, CodeableConcept,
-     *     Integer, Quantity, Range, Ratio, String. To pass the value in, wrap with one of the
+     *     String, Integer, Quantity, Range, Ratio. To pass the value in, wrap with one of the
      *     Goal_TargetBuilder.detail static methods
      */
-    public Goal_TargetBuilder.Impl withDetail(@NonNull Choice_1061953715 detail) {
+    public Goal_TargetBuilder.Impl withDetail(@NonNull Choice_1090046580 detail) {
       this.detail = Optional.of(detail);
       return this;
     }

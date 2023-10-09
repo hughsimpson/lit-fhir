@@ -43,7 +43,7 @@ object QuestionnaireResponse extends CompanionFor[QuestionnaireResponse] {
       override type ResourceType = Answer
       override type ParentType   = Answer
       override val parentType: CompanionFor[ResourceType] = Answer
-      type ValueChoice = Choice[Union01113166363]
+      type ValueChoice = Choice[Union_1180501282]
       def apply(
           id: Option[String] = None,
           item: LitSeq[QuestionnaireResponse.Item] = LitSeq.empty,
@@ -67,7 +67,7 @@ object QuestionnaireResponse extends CompanionFor[QuestionnaireResponse] {
       val item: FHIRComponentFieldMeta[LitSeq[QuestionnaireResponse.Item]] =
         FHIRComponentFieldMeta("item", lTagOf[LitSeq[QuestionnaireResponse.Item]], false, lTagOf[QuestionnaireResponse.Item])
       val value: FHIRComponentFieldMeta[Option[Answer.ValueChoice]] =
-        FHIRComponentFieldMeta("value", lTagOf[Option[Answer.ValueChoice]], true, lTagOf[Union01113166363])
+        FHIRComponentFieldMeta("value", lTagOf[Option[Answer.ValueChoice]], true, lTagOf[Union_1180501282])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -89,7 +89,7 @@ object QuestionnaireResponse extends CompanionFor[QuestionnaireResponse] {
             new Answer(
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[LitSeq[QuestionnaireResponse.Item]]("item", Some(LitSeq.empty)),
-              cursor.decodeOptRef[Union01113166363]("value"),
+              cursor.decodeOptRef[Union_1180501282]("value"),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
@@ -107,9 +107,9 @@ object QuestionnaireResponse extends CompanionFor[QuestionnaireResponse] {
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
     def apply(
         id: Option[String] = None,
-        text: Option[String] = None,
+        text: Option[FHIRString] = None,
         item: LitSeq[QuestionnaireResponse.Item] = LitSeq.empty,
-        linkId: String,
+        linkId: FHIRString,
         extension: LitSeq[Extension] = LitSeq.empty,
         definition: Option[UriStr] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -127,16 +127,16 @@ object QuestionnaireResponse extends CompanionFor[QuestionnaireResponse] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Item): Option[(Option[String], Option[String], LitSeq[QuestionnaireResponse.Item], String, LitSeq[Extension], Option[UriStr], LitSeq[Extension], LitSeq[Item.Answer])] =
+        o: Item): Option[(Option[String], Option[FHIRString], LitSeq[QuestionnaireResponse.Item], FHIRString, LitSeq[Extension], Option[UriStr], LitSeq[Extension], LitSeq[Item.Answer])] =
       Some((o.id, o.text, o.item, o.linkId, o.extension, o.definition, o.modifierExtension, o.answer))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val text: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+    val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val item: FHIRComponentFieldMeta[LitSeq[QuestionnaireResponse.Item]] =
       FHIRComponentFieldMeta("item", lTagOf[LitSeq[QuestionnaireResponse.Item]], false, lTagOf[QuestionnaireResponse.Item])
-    val linkId: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("linkId", lTagOf[String], false, lTagOf[String])
+    val linkId: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("linkId", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val definition: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -149,9 +149,9 @@ object QuestionnaireResponse extends CompanionFor[QuestionnaireResponse] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Item): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](text, t.text),
+      FHIRComponentField[Option[FHIRString]](text, t.text),
       FHIRComponentField[LitSeq[QuestionnaireResponse.Item]](item, t.item),
-      FHIRComponentField[String](linkId, t.linkId),
+      FHIRComponentField[FHIRString](linkId, t.linkId),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[UriStr]](definition, t.definition),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -164,9 +164,9 @@ object QuestionnaireResponse extends CompanionFor[QuestionnaireResponse] {
         Try(
           new Item(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("text", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
             cursor.decodeAs[LitSeq[QuestionnaireResponse.Item]]("item", Some(LitSeq.empty)),
-            cursor.decodeAs[String]("linkId", None),
+            cursor.decodeAs[FHIRString]("linkId", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[UriStr]]("definition", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -178,9 +178,9 @@ object QuestionnaireResponse extends CompanionFor[QuestionnaireResponse] {
   @POJOBoilerplate
   class Item(
       override val id: Option[String] = None,
-      val text: Option[String] = None,
+      val text: Option[FHIRString] = None,
       val item: LitSeq[QuestionnaireResponse.Item] = LitSeq.empty,
-      val linkId: String,
+      val linkId: FHIRString,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val definition: Option[UriStr] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,

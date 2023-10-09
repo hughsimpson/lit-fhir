@@ -42,25 +42,25 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
       meta: Option[Meta] = Some(
         new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/shareableactivitydefinition"))),
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       date: Option[FHIRDateTime] = None,
       kind: Option[REQUEST_RESOURCE_TYPES] = None,
       code: Option[CodeableConcept] = None,
-      title: Option[String] = None,
-      usage: Option[String] = None,
+      title: Option[FHIRString] = None,
+      usage: Option[FHIRString] = None,
       topic: LitSeq[CodeableConcept] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       author: LitSeq[ContactDetail] = LitSeq.empty,
       editor: LitSeq[ContactDetail] = LitSeq.empty,
       intent: Option[REQUEST_INTENT] = None,
       dosage: LitSeq[Dosage] = LitSeq.empty,
-      version: String,
+      version: FHIRString,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       library: LitSeq[Canonical] = LitSeq.empty,
       profile: Option[Canonical] = None,
       language: Option[LANGUAGES] = None,
-      subtitle: Option[String] = None,
+      subtitle: Option[FHIRString] = None,
       reviewer: LitSeq[ContactDetail] = LitSeq.empty,
       endorser: LitSeq[ContactDetail] = LitSeq.empty,
       priority: Option[REQUEST_PRIORITY] = None,
@@ -69,7 +69,7 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
       bodySite: LitSeq[CodeableConcept] = LitSeq.empty,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: String,
+      publisher: FHIRString,
       copyright: Option[Markdown] = None,
       timing: Option[Shareableactivitydefinition.TimingChoice] = None,
       transform: Option[Canonical] = None,
@@ -158,18 +158,18 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val kind: FHIRComponentFieldMeta[Option[REQUEST_RESOURCE_TYPES]] =
     FHIRComponentFieldMeta("kind", lTagOf[Option[REQUEST_RESOURCE_TYPES]], false, lTagOf[REQUEST_RESOURCE_TYPES])
   val code: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("code", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
-  val usage: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("usage", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val usage: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("usage", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val topic: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("topic", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
@@ -182,8 +182,8 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
     FHIRComponentFieldMeta("intent", lTagOf[Option[REQUEST_INTENT]], false, lTagOf[REQUEST_INTENT])
   val dosage: FHIRComponentFieldMeta[LitSeq[Dosage]] =
     FHIRComponentFieldMeta("dosage", lTagOf[LitSeq[Dosage]], false, lTagOf[Dosage])
-  val version: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("version", lTagOf[String], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("version", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -194,8 +194,8 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
     FHIRComponentFieldMeta("profile", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
-  val subtitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("subtitle", lTagOf[Option[String]], false, lTagOf[String])
+  val subtitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("subtitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val reviewer: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("reviewer", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val endorser: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
@@ -212,8 +212,8 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("publisher", lTagOf[String], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("publisher", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val timing: FHIRComponentFieldMeta[Option[Shareableactivitydefinition.TimingChoice]] =
@@ -336,25 +336,25 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
       FHIRComponentField[UriStr](url, t.url.get),
       FHIRComponentField[Option[Meta]](meta, t.meta),
       FHIRComponentField[Option[Narrative]](text, t.text),
-      FHIRComponentField[String](name, t.name.get),
+      FHIRComponentField[FHIRString](name, t.name.get),
       FHIRComponentField[Option[FHIRDateTime]](date, t.date),
       FHIRComponentField[Option[REQUEST_RESOURCE_TYPES]](kind, t.kind),
       FHIRComponentField[Option[CodeableConcept]](code, t.code),
-      FHIRComponentField[Option[String]](title, t.title),
-      FHIRComponentField[Option[String]](usage, t.usage),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](usage, t.usage),
       FHIRComponentField[LitSeq[CodeableConcept]](topic, t.topic),
       FHIRComponentField[PUBLICATION_STATUS](status, t.status),
       FHIRComponentField[LitSeq[ContactDetail]](author, t.author),
       FHIRComponentField[LitSeq[ContactDetail]](editor, t.editor),
       FHIRComponentField[Option[REQUEST_INTENT]](intent, t.intent),
       FHIRComponentField[LitSeq[Dosage]](dosage, t.dosage),
-      FHIRComponentField[String](version, t.version.get),
+      FHIRComponentField[FHIRString](version, t.version.get),
       FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
       FHIRComponentField[Option[Markdown]](purpose, t.purpose),
       FHIRComponentField[LitSeq[Canonical]](library, t.library),
       FHIRComponentField[Option[Canonical]](profile, t.profile),
       FHIRComponentField[Option[LANGUAGES]](language, t.language),
-      FHIRComponentField[Option[String]](subtitle, t.subtitle),
+      FHIRComponentField[Option[FHIRString]](subtitle, t.subtitle),
       FHIRComponentField[LitSeq[ContactDetail]](reviewer, t.reviewer),
       FHIRComponentField[LitSeq[ContactDetail]](endorser, t.endorser),
       FHIRComponentField[Option[REQUEST_PRIORITY]](priority, t.priority),
@@ -363,7 +363,7 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
       FHIRComponentField[LitSeq[CodeableConcept]](bodySite, t.bodySite),
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[String](publisher, t.publisher.get),
+      FHIRComponentField[FHIRString](publisher, t.publisher.get),
       FHIRComponentField[Option[Markdown]](copyright, t.copyright),
       FHIRComponentField[Option[Shareableactivitydefinition.TimingChoice]](timing, t.timing),
       FHIRComponentField[Option[Canonical]](transform, t.transform),
@@ -392,25 +392,25 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
   def extractUrl(t: Shareableactivitydefinition): UriStr                                                = t.url.get
   def extractMeta(t: Shareableactivitydefinition): Option[Meta]                                         = t.meta
   def extractText(t: Shareableactivitydefinition): Option[Narrative]                                    = t.text
-  def extractName(t: Shareableactivitydefinition): String                                               = t.name.get
+  def extractName(t: Shareableactivitydefinition): FHIRString                                           = t.name.get
   def extractDate(t: Shareableactivitydefinition): Option[FHIRDateTime]                                 = t.date
   def extractKind(t: Shareableactivitydefinition): Option[REQUEST_RESOURCE_TYPES]                       = t.kind
   def extractCode(t: Shareableactivitydefinition): Option[CodeableConcept]                              = t.code
-  def extractTitle(t: Shareableactivitydefinition): Option[String]                                      = t.title
-  def extractUsage(t: Shareableactivitydefinition): Option[String]                                      = t.usage
+  def extractTitle(t: Shareableactivitydefinition): Option[FHIRString]                                  = t.title
+  def extractUsage(t: Shareableactivitydefinition): Option[FHIRString]                                  = t.usage
   def extractTopic(t: Shareableactivitydefinition): LitSeq[CodeableConcept]                             = t.topic
   def extractStatus(t: Shareableactivitydefinition): PUBLICATION_STATUS                                 = t.status
   def extractAuthor(t: Shareableactivitydefinition): LitSeq[ContactDetail]                              = t.author
   def extractEditor(t: Shareableactivitydefinition): LitSeq[ContactDetail]                              = t.editor
   def extractIntent(t: Shareableactivitydefinition): Option[REQUEST_INTENT]                             = t.intent
   def extractDosage(t: Shareableactivitydefinition): LitSeq[Dosage]                                     = t.dosage
-  def extractVersion(t: Shareableactivitydefinition): String                                            = t.version.get
+  def extractVersion(t: Shareableactivitydefinition): FHIRString                                        = t.version.get
   def extractContact(t: Shareableactivitydefinition): LitSeq[ContactDetail]                             = t.contact
   def extractPurpose(t: Shareableactivitydefinition): Option[Markdown]                                  = t.purpose
   def extractLibrary(t: Shareableactivitydefinition): LitSeq[Canonical]                                 = t.library
   def extractProfile(t: Shareableactivitydefinition): Option[Canonical]                                 = t.profile
   def extractLanguage(t: Shareableactivitydefinition): Option[LANGUAGES]                                = t.language
-  def extractSubtitle(t: Shareableactivitydefinition): Option[String]                                   = t.subtitle
+  def extractSubtitle(t: Shareableactivitydefinition): Option[FHIRString]                               = t.subtitle
   def extractReviewer(t: Shareableactivitydefinition): LitSeq[ContactDetail]                            = t.reviewer
   def extractEndorser(t: Shareableactivitydefinition): LitSeq[ContactDetail]                            = t.endorser
   def extractPriority(t: Shareableactivitydefinition): Option[REQUEST_PRIORITY]                         = t.priority
@@ -419,7 +419,7 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
   def extractBodySite(t: Shareableactivitydefinition): LitSeq[CodeableConcept]                          = t.bodySite
   def extractContained(t: Shareableactivitydefinition): LitSeq[Resource]                                = t.contained
   def extractExtension(t: Shareableactivitydefinition): LitSeq[Extension]                               = t.extension
-  def extractPublisher(t: Shareableactivitydefinition): String                                          = t.publisher.get
+  def extractPublisher(t: Shareableactivitydefinition): FHIRString                                      = t.publisher.get
   def extractCopyright(t: Shareableactivitydefinition): Option[Markdown]                                = t.copyright
   def extractTiming(t: Shareableactivitydefinition): Option[Shareableactivitydefinition.TimingChoice]   = t.timing
   def extractTransform(t: Shareableactivitydefinition): Option[Canonical]                               = t.transform
@@ -452,25 +452,25 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
         cursor.decodeAs[UriStr]("url", None),
         cursor.decodeAs[Option[Meta]]("meta", Some(None)),
         cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-        cursor.decodeAs[String]("name", None),
+        cursor.decodeAs[FHIRString]("name", None),
         cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
         cursor.decodeAs[Option[REQUEST_RESOURCE_TYPES]]("kind", Some(None)),
         cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
-        cursor.decodeAs[Option[String]]("title", Some(None)),
-        cursor.decodeAs[Option[String]]("usage", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("usage", Some(None)),
         cursor.decodeAs[LitSeq[CodeableConcept]]("topic", Some(LitSeq.empty)),
         cursor.decodeAs[PUBLICATION_STATUS]("status", None),
         cursor.decodeAs[LitSeq[ContactDetail]]("author", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[ContactDetail]]("editor", Some(LitSeq.empty)),
         cursor.decodeAs[Option[REQUEST_INTENT]]("intent", Some(None)),
         cursor.decodeAs[LitSeq[Dosage]]("dosage", Some(LitSeq.empty)),
-        cursor.decodeAs[String]("version", None),
+        cursor.decodeAs[FHIRString]("version", None),
         cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
         cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
         cursor.decodeAs[LitSeq[Canonical]]("library", Some(LitSeq.empty)),
         cursor.decodeAs[Option[Canonical]]("profile", Some(None)),
         cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
-        cursor.decodeAs[Option[String]]("subtitle", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("subtitle", Some(None)),
         cursor.decodeAs[LitSeq[ContactDetail]]("reviewer", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[ContactDetail]]("endorser", Some(LitSeq.empty)),
         cursor.decodeAs[Option[REQUEST_PRIORITY]]("priority", Some(None)),
@@ -479,7 +479,7 @@ object Shareableactivitydefinition extends CompanionFor[Shareableactivitydefinit
         cursor.decodeAs[LitSeq[CodeableConcept]]("bodySite", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-        cursor.decodeAs[String]("publisher", None),
+        cursor.decodeAs[FHIRString]("publisher", None),
         cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
         cursor.decodeOptRef[Union01405873694]("timing"),
         cursor.decodeAs[Option[Canonical]]("transform", Some(None)),
@@ -676,25 +676,25 @@ class Shareableactivitydefinition(
     override val meta: Option[Meta] = Some(
       new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/shareableactivitydefinition"))),
     override val text: Option[Narrative] = None,
-    name: String,
+    name: FHIRString,
     override val date: Option[FHIRDateTime] = None,
     override val kind: Option[REQUEST_RESOURCE_TYPES] = None,
     override val code: Option[CodeableConcept] = None,
-    override val title: Option[String] = None,
-    override val usage: Option[String] = None,
+    override val title: Option[FHIRString] = None,
+    override val usage: Option[FHIRString] = None,
     override val topic: LitSeq[CodeableConcept] = LitSeq.empty,
     override val status: PUBLICATION_STATUS,
     override val author: LitSeq[ContactDetail] = LitSeq.empty,
     override val editor: LitSeq[ContactDetail] = LitSeq.empty,
     override val intent: Option[REQUEST_INTENT] = None,
     override val dosage: LitSeq[Dosage] = LitSeq.empty,
-    version: String,
+    version: FHIRString,
     override val contact: LitSeq[ContactDetail] = LitSeq.empty,
     override val purpose: Option[Markdown] = None,
     override val library: LitSeq[Canonical] = LitSeq.empty,
     override val profile: Option[Canonical] = None,
     override val language: Option[LANGUAGES] = None,
-    override val subtitle: Option[String] = None,
+    override val subtitle: Option[FHIRString] = None,
     override val reviewer: LitSeq[ContactDetail] = LitSeq.empty,
     override val endorser: LitSeq[ContactDetail] = LitSeq.empty,
     override val priority: Option[REQUEST_PRIORITY] = None,
@@ -703,7 +703,7 @@ class Shareableactivitydefinition(
     override val bodySite: LitSeq[CodeableConcept] = LitSeq.empty,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    publisher: String,
+    publisher: FHIRString,
     override val copyright: Option[Markdown] = None,
     override val timing: Option[Shareableactivitydefinition.TimingChoice] = None,
     override val transform: Option[Canonical] = None,

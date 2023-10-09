@@ -40,7 +40,7 @@ object Subscription extends CompanionFor[Subscription] {
     def apply(
         id: Option[String] = None,
         `type`: SUBSCRIPTION_CHANNEL_TYPE,
-        header: LitSeq[String] = LitSeq.empty,
+        header: LitSeq[FHIRString] = LitSeq.empty,
         payload: Option[Code] = None,
         endpoint: Option[UrlStr] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
@@ -57,14 +57,14 @@ object Subscription extends CompanionFor[Subscription] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Channel): Option[(Option[String], SUBSCRIPTION_CHANNEL_TYPE, LitSeq[String], Option[Code], Option[UrlStr], LitSeq[Extension], LitSeq[Extension])] =
+        o: Channel): Option[(Option[String], SUBSCRIPTION_CHANNEL_TYPE, LitSeq[FHIRString], Option[Code], Option[UrlStr], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.`type`, o.header, o.payload, o.endpoint, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val `type`: FHIRComponentFieldMeta[SUBSCRIPTION_CHANNEL_TYPE] =
       FHIRComponentFieldMeta("type", lTagOf[SUBSCRIPTION_CHANNEL_TYPE], false, lTagOf[SUBSCRIPTION_CHANNEL_TYPE])
-    val header: FHIRComponentFieldMeta[LitSeq[String]] =
-      FHIRComponentFieldMeta("header", lTagOf[LitSeq[String]], false, lTagOf[String])
+    val header: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+      FHIRComponentFieldMeta("header", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
     val payload: FHIRComponentFieldMeta[Option[Code]] =
       FHIRComponentFieldMeta("payload", lTagOf[Option[Code]], false, lTagOf[Code])
     val endpoint: FHIRComponentFieldMeta[Option[UrlStr]] =
@@ -78,7 +78,7 @@ object Subscription extends CompanionFor[Subscription] {
     override def fields(t: Channel): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[SUBSCRIPTION_CHANNEL_TYPE](`type`, t.`type`),
-      FHIRComponentField[LitSeq[String]](header, t.header),
+      FHIRComponentField[LitSeq[FHIRString]](header, t.header),
       FHIRComponentField[Option[Code]](payload, t.payload),
       FHIRComponentField[Option[UrlStr]](endpoint, t.endpoint),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -92,7 +92,7 @@ object Subscription extends CompanionFor[Subscription] {
           new Channel(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[SUBSCRIPTION_CHANNEL_TYPE]("type", None),
-            cursor.decodeAs[LitSeq[String]]("header", Some(LitSeq.empty)),
+            cursor.decodeAs[LitSeq[FHIRString]]("header", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Code]]("payload", Some(None)),
             cursor.decodeAs[Option[UrlStr]]("endpoint", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -105,7 +105,7 @@ object Subscription extends CompanionFor[Subscription] {
   class Channel(
       override val id: Option[String] = None,
       val `type`: SUBSCRIPTION_CHANNEL_TYPE,
-      val header: LitSeq[String] = LitSeq.empty,
+      val header: LitSeq[FHIRString] = LitSeq.empty,
       val payload: Option[Code] = None,
       val endpoint: Option[UrlStr] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
@@ -117,12 +117,12 @@ object Subscription extends CompanionFor[Subscription] {
       end: Option[ZonedDateTime] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      error: Option[String] = None,
+      error: Option[FHIRString] = None,
       status: SUBSCRIPTION_STATUS,
-      reason: String,
+      reason: FHIRString,
       contact: LitSeq[ContactPoint] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
-      criteria: String,
+      criteria: FHIRString,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       implicitRules: Option[UriStr] = None,
@@ -155,18 +155,18 @@ object Subscription extends CompanionFor[Subscription] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val error: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("error", lTagOf[Option[String]], false, lTagOf[String])
+  val error: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("error", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[SUBSCRIPTION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[SUBSCRIPTION_STATUS], false, lTagOf[SUBSCRIPTION_STATUS])
-  val reason: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("reason", lTagOf[String], false, lTagOf[String])
+  val reason: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("reason", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactPoint]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactPoint]], false, lTagOf[ContactPoint])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
-  val criteria: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("criteria", lTagOf[String], false, lTagOf[String])
+  val criteria: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("criteria", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val contained: FHIRComponentFieldMeta[LitSeq[Resource]] =
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -199,12 +199,12 @@ object Subscription extends CompanionFor[Subscription] {
     FHIRComponentField[Option[ZonedDateTime]](end, t.end),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](error, t.error),
+    FHIRComponentField[Option[FHIRString]](error, t.error),
     FHIRComponentField[SUBSCRIPTION_STATUS](status, t.status),
-    FHIRComponentField[String](reason, t.reason),
+    FHIRComponentField[FHIRString](reason, t.reason),
     FHIRComponentField[LitSeq[ContactPoint]](contact, t.contact),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
-    FHIRComponentField[String](criteria, t.criteria),
+    FHIRComponentField[FHIRString](criteria, t.criteria),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
@@ -215,12 +215,12 @@ object Subscription extends CompanionFor[Subscription] {
   def extractEnd(t: Subscription): Option[ZonedDateTime]           = t.end
   def extractMeta(t: Subscription): Option[Meta]                   = t.meta
   def extractText(t: Subscription): Option[Narrative]              = t.text
-  def extractError(t: Subscription): Option[String]                = t.error
+  def extractError(t: Subscription): Option[FHIRString]            = t.error
   def extractStatus(t: Subscription): SUBSCRIPTION_STATUS          = t.status
-  def extractReason(t: Subscription): String                       = t.reason
+  def extractReason(t: Subscription): FHIRString                   = t.reason
   def extractContact(t: Subscription): LitSeq[ContactPoint]        = t.contact
   def extractLanguage(t: Subscription): Option[LANGUAGES]          = t.language
-  def extractCriteria(t: Subscription): String                     = t.criteria
+  def extractCriteria(t: Subscription): FHIRString                 = t.criteria
   def extractContained(t: Subscription): LitSeq[Resource]          = t.contained
   def extractExtension(t: Subscription): LitSeq[Extension]         = t.extension
   def extractImplicitRules(t: Subscription): Option[UriStr]        = t.implicitRules
@@ -236,7 +236,7 @@ object Subscription extends CompanionFor[Subscription] {
     "url"      -> (obj => obj.channel.endpoint.toSeq)
   )
   def unapply(
-      o: Subscription): Option[(Option[String], Option[ZonedDateTime], Option[Meta], Option[Narrative], Option[String], SUBSCRIPTION_STATUS, String, LitSeq[ContactPoint], Option[LANGUAGES], String, LitSeq[Resource], LitSeq[Extension], Option[UriStr], LitSeq[Extension], Subscription.Channel)] =
+      o: Subscription): Option[(Option[String], Option[ZonedDateTime], Option[Meta], Option[Narrative], Option[FHIRString], SUBSCRIPTION_STATUS, FHIRString, LitSeq[ContactPoint], Option[LANGUAGES], FHIRString, LitSeq[Resource], LitSeq[Extension], Option[UriStr], LitSeq[Extension], Subscription.Channel)] =
     Some(
       (
         o.id,
@@ -262,12 +262,12 @@ object Subscription extends CompanionFor[Subscription] {
           cursor.decodeAs[Option[ZonedDateTime]]("end", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("error", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("error", Some(None)),
           cursor.decodeAs[SUBSCRIPTION_STATUS]("status", None),
-          cursor.decodeAs[String]("reason", None),
+          cursor.decodeAs[FHIRString]("reason", None),
           cursor.decodeAs[LitSeq[ContactPoint]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
-          cursor.decodeAs[String]("criteria", None),
+          cursor.decodeAs[FHIRString]("criteria", None),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
@@ -340,12 +340,12 @@ class Subscription(
     val end: Option[ZonedDateTime] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val error: Option[String] = None,
+    val error: Option[FHIRString] = None,
     val status: SUBSCRIPTION_STATUS,
-    val reason: String,
+    val reason: FHIRString,
     val contact: LitSeq[ContactPoint] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
-    val criteria: String,
+    val criteria: FHIRString,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     override val implicitRules: Option[UriStr] = None,

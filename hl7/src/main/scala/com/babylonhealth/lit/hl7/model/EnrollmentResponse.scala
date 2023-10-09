@@ -43,7 +43,7 @@ object EnrollmentResponse extends CompanionFor[EnrollmentResponse] {
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      disposition: Option[String] = None,
+      disposition: Option[FHIRString] = None,
       organization: Option[Reference] = None,
       implicitRules: Option[UriStr] = None,
       requestProvider: Option[Reference] = None,
@@ -90,8 +90,8 @@ object EnrollmentResponse extends CompanionFor[EnrollmentResponse] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val disposition: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("disposition", lTagOf[Option[String]], false, lTagOf[String])
+  val disposition: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("disposition", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val organization: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("organization", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -131,7 +131,7 @@ object EnrollmentResponse extends CompanionFor[EnrollmentResponse] {
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](disposition, t.disposition),
+    FHIRComponentField[Option[FHIRString]](disposition, t.disposition),
     FHIRComponentField[Option[Reference]](organization, t.organization),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Option[Reference]](requestProvider, t.requestProvider),
@@ -148,7 +148,7 @@ object EnrollmentResponse extends CompanionFor[EnrollmentResponse] {
   def extractContained(t: EnrollmentResponse): LitSeq[Resource]          = t.contained
   def extractExtension(t: EnrollmentResponse): LitSeq[Extension]         = t.extension
   def extractIdentifier(t: EnrollmentResponse): LitSeq[Identifier]       = t.identifier
-  def extractDisposition(t: EnrollmentResponse): Option[String]          = t.disposition
+  def extractDisposition(t: EnrollmentResponse): Option[FHIRString]      = t.disposition
   def extractOrganization(t: EnrollmentResponse): Option[Reference]      = t.organization
   def extractImplicitRules(t: EnrollmentResponse): Option[UriStr]        = t.implicitRules
   def extractRequestProvider(t: EnrollmentResponse): Option[Reference]   = t.requestProvider
@@ -160,7 +160,7 @@ object EnrollmentResponse extends CompanionFor[EnrollmentResponse] {
     "status"     -> (obj => obj.status.toSeq)
   )
   def unapply(
-      o: EnrollmentResponse): Option[(Option[String], Option[Meta], Option[Narrative], Option[FM_STATUS], Option[Reference], Option[REMITTANCE_OUTCOME], Option[FHIRDateTime], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[String], Option[Reference], Option[UriStr], Option[Reference], LitSeq[Extension])] =
+      o: EnrollmentResponse): Option[(Option[String], Option[Meta], Option[Narrative], Option[FM_STATUS], Option[Reference], Option[REMITTANCE_OUTCOME], Option[FHIRDateTime], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[FHIRString], Option[Reference], Option[UriStr], Option[Reference], LitSeq[Extension])] =
     Some(
       (
         o.id,
@@ -194,7 +194,7 @@ object EnrollmentResponse extends CompanionFor[EnrollmentResponse] {
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("disposition", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("disposition", Some(None)),
           cursor.decodeAs[Option[Reference]]("organization", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[Reference]]("requestProvider", Some(None)),
@@ -272,7 +272,7 @@ class EnrollmentResponse(
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val disposition: Option[String] = None,
+    val disposition: Option[FHIRString] = None,
     val organization: Option[Reference] = None,
     override val implicitRules: Option[UriStr] = None,
     val requestProvider: Option[Reference] = None,

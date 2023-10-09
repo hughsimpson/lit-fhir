@@ -54,7 +54,7 @@ object Us_core_diagnosticreport_lab extends CompanionFor[Us_core_diagnosticrepor
       encounter: Option[Reference] = None,
       performer: LitSeq[Reference] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      conclusion: Option[String] = None,
+      conclusion: Option[FHIRString] = None,
       effective: Us_core_diagnosticreport_lab.EffectiveChoice,
       imagingStudy: LitSeq[Reference] = LitSeq.empty,
       implicitRules: Option[UriStr] = None,
@@ -127,8 +127,8 @@ object Us_core_diagnosticreport_lab extends CompanionFor[Us_core_diagnosticrepor
     FHIRComponentFieldMeta("performer", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val conclusion: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("conclusion", lTagOf[Option[String]], false, lTagOf[String])
+  val conclusion: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("conclusion", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val effective: FHIRComponentFieldMeta[Us_core_diagnosticreport_lab.EffectiveChoice] =
     FHIRComponentFieldMeta("effective", lTagOf[Us_core_diagnosticreport_lab.EffectiveChoice], true, lTagOf[UnionDateTimeOrPeriod])
   val imagingStudy: FHIRComponentFieldMeta[LitSeq[Reference]] =
@@ -192,7 +192,7 @@ object Us_core_diagnosticreport_lab extends CompanionFor[Us_core_diagnosticrepor
       FHIRComponentField[Option[Reference]](encounter, t.encounter),
       FHIRComponentField[LitSeq[Reference]](performer, t.performer),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-      FHIRComponentField[Option[String]](conclusion, t.conclusion),
+      FHIRComponentField[Option[FHIRString]](conclusion, t.conclusion),
       FHIRComponentField[Us_core_diagnosticreport_lab.EffectiveChoice](effective, t.effective.get),
       FHIRComponentField[LitSeq[Reference]](imagingStudy, t.imagingStudy),
       FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
@@ -220,7 +220,7 @@ object Us_core_diagnosticreport_lab extends CompanionFor[Us_core_diagnosticrepor
   def extractEncounter(t: Us_core_diagnosticreport_lab): Option[Reference]                            = t.encounter
   def extractPerformer(t: Us_core_diagnosticreport_lab): LitSeq[Reference]                            = t.performer
   def extractIdentifier(t: Us_core_diagnosticreport_lab): LitSeq[Identifier]                          = t.identifier
-  def extractConclusion(t: Us_core_diagnosticreport_lab): Option[String]                              = t.conclusion
+  def extractConclusion(t: Us_core_diagnosticreport_lab): Option[FHIRString]                          = t.conclusion
   def extractEffective(t: Us_core_diagnosticreport_lab): Us_core_diagnosticreport_lab.EffectiveChoice = t.effective.get
   def extractImagingStudy(t: Us_core_diagnosticreport_lab): LitSeq[Reference]                         = t.imagingStudy
   def extractImplicitRules(t: Us_core_diagnosticreport_lab): Option[UriStr]                           = t.implicitRules
@@ -252,7 +252,7 @@ object Us_core_diagnosticreport_lab extends CompanionFor[Us_core_diagnosticrepor
           cursor.decodeAs[Option[Reference]]("encounter", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("performer", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("conclusion", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("conclusion", Some(None)),
           cursor.decodeRef[UnionDateTimeOrPeriod]("effective"),
           cursor.decodeAs[LitSeq[Reference]]("imagingStudy", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
@@ -373,7 +373,7 @@ class Us_core_diagnosticreport_lab(
     override val encounter: Option[Reference] = None,
     override val performer: LitSeq[Reference] = LitSeq.empty,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
-    override val conclusion: Option[String] = None,
+    override val conclusion: Option[FHIRString] = None,
     effective: Us_core_diagnosticreport_lab.EffectiveChoice,
     override val imagingStudy: LitSeq[Reference] = LitSeq.empty,
     override val implicitRules: Option[UriStr] = None,

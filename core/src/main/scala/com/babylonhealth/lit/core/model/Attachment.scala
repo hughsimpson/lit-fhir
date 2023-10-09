@@ -34,7 +34,7 @@ object Attachment extends CompanionFor[Attachment] {
       data: Option[Base64Binary] = None,
       size: Option[UnsignedInt] = None,
       hash: Option[Base64Binary] = None,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       language: Option[LANGUAGES] = None,
       creation: Option[FHIRDateTime] = None,
       extension: LitSeq[Extension] = LitSeq.empty,
@@ -63,8 +63,8 @@ object Attachment extends CompanionFor[Attachment] {
     FHIRComponentFieldMeta("size", lTagOf[Option[UnsignedInt]], false, lTagOf[UnsignedInt])
   val hash: FHIRComponentFieldMeta[Option[Base64Binary]] =
     FHIRComponentFieldMeta("hash", lTagOf[Option[Base64Binary]], false, lTagOf[Base64Binary])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
   val creation: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
@@ -82,7 +82,7 @@ object Attachment extends CompanionFor[Attachment] {
     FHIRComponentField[Option[Base64Binary]](data, t.data),
     FHIRComponentField[Option[UnsignedInt]](size, t.size),
     FHIRComponentField[Option[Base64Binary]](hash, t.hash),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[Option[FHIRDateTime]](creation, t.creation),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -93,14 +93,14 @@ object Attachment extends CompanionFor[Attachment] {
   def extractData(t: Attachment): Option[Base64Binary]     = t.data
   def extractSize(t: Attachment): Option[UnsignedInt]      = t.size
   def extractHash(t: Attachment): Option[Base64Binary]     = t.hash
-  def extractTitle(t: Attachment): Option[String]          = t.title
+  def extractTitle(t: Attachment): Option[FHIRString]      = t.title
   def extractLanguage(t: Attachment): Option[LANGUAGES]    = t.language
   def extractCreation(t: Attachment): Option[FHIRDateTime] = t.creation
   def extractExtension(t: Attachment): LitSeq[Extension]   = t.extension
   def extractContentType(t: Attachment): Option[Code]      = t.contentType
   override val thisName: String                            = "Attachment"
   def unapply(
-      o: Attachment): Option[(Option[String], Option[UrlStr], Option[Base64Binary], Option[UnsignedInt], Option[Base64Binary], Option[String], Option[LANGUAGES], Option[FHIRDateTime], LitSeq[Extension], Option[Code])] =
+      o: Attachment): Option[(Option[String], Option[UrlStr], Option[Base64Binary], Option[UnsignedInt], Option[Base64Binary], Option[FHIRString], Option[LANGUAGES], Option[FHIRDateTime], LitSeq[Extension], Option[Code])] =
     Some((o.id, o.url, o.data, o.size, o.hash, o.title, o.language, o.creation, o.extension, o.contentType))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Attachment] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -111,7 +111,7 @@ object Attachment extends CompanionFor[Attachment] {
           cursor.decodeAs[Option[Base64Binary]]("data", Some(None)),
           cursor.decodeAs[Option[UnsignedInt]]("size", Some(None)),
           cursor.decodeAs[Option[Base64Binary]]("hash", Some(None)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("creation", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -161,7 +161,7 @@ class Attachment(
     val data: Option[Base64Binary] = None,
     val size: Option[UnsignedInt] = None,
     val hash: Option[Base64Binary] = None,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val language: Option[LANGUAGES] = None,
     val creation: Option[FHIRDateTime] = None,
     override val extension: LitSeq[Extension] = LitSeq.empty,

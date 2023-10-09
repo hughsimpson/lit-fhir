@@ -46,7 +46,7 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
     override val parentType: CompanionFor[ResourceType] = DynamicValue
     def apply(
         id: Option[String] = None,
-        path: String,
+        path: FHIRString,
         extension: LitSeq[Extension] = LitSeq.empty,
         expression: Expression,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -59,12 +59,12 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: DynamicValue): Option[(Option[String], String, LitSeq[Extension], Expression, LitSeq[Extension])] = Some(
+    def unapply(o: DynamicValue): Option[(Option[String], FHIRString, LitSeq[Extension], Expression, LitSeq[Extension])] = Some(
       (o.id, o.path, o.extension, o.expression, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val path: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("path", lTagOf[String], false, lTagOf[String])
+    val path: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("path", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val expression: FHIRComponentFieldMeta[Expression] =
@@ -75,7 +75,7 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: DynamicValue): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](path, t.path),
+      FHIRComponentField[FHIRString](path, t.path),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Expression](expression, t.expression),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -87,7 +87,7 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
         Try(
           new DynamicValue(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("path", None),
+            cursor.decodeAs[FHIRString]("path", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Expression]("expression", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -98,7 +98,7 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
   @POJOBoilerplate
   class DynamicValue(
       override val id: Option[String] = None,
-      val path: String,
+      val path: FHIRString,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val expression: Expression,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -179,25 +179,25 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       date: Option[FHIRDateTime] = None,
       kind: Option[REQUEST_RESOURCE_TYPES] = None,
       code: Option[CodeableConcept] = None,
-      title: Option[String] = None,
-      usage: Option[String] = None,
+      title: Option[FHIRString] = None,
+      usage: Option[FHIRString] = None,
       topic: LitSeq[CodeableConcept] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       author: LitSeq[ContactDetail] = LitSeq.empty,
       editor: LitSeq[ContactDetail] = LitSeq.empty,
       intent: Option[REQUEST_INTENT] = None,
       dosage: LitSeq[Dosage] = LitSeq.empty,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       library: LitSeq[Canonical] = LitSeq.empty,
       profile: Option[Canonical] = None,
       language: Option[LANGUAGES] = None,
-      subtitle: Option[String] = None,
+      subtitle: Option[FHIRString] = None,
       reviewer: LitSeq[ContactDetail] = LitSeq.empty,
       endorser: LitSeq[ContactDetail] = LitSeq.empty,
       priority: Option[REQUEST_PRIORITY] = None,
@@ -206,7 +206,7 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
       bodySite: LitSeq[CodeableConcept] = LitSeq.empty,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       timing: Option[ActivityDefinition.TimingChoice] = None,
       transform: Option[Canonical] = None,
@@ -295,18 +295,18 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val kind: FHIRComponentFieldMeta[Option[REQUEST_RESOURCE_TYPES]] =
     FHIRComponentFieldMeta("kind", lTagOf[Option[REQUEST_RESOURCE_TYPES]], false, lTagOf[REQUEST_RESOURCE_TYPES])
   val code: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("code", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
-  val usage: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("usage", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val usage: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("usage", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val topic: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("topic", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
@@ -319,8 +319,8 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
     FHIRComponentFieldMeta("intent", lTagOf[Option[REQUEST_INTENT]], false, lTagOf[REQUEST_INTENT])
   val dosage: FHIRComponentFieldMeta[LitSeq[Dosage]] =
     FHIRComponentFieldMeta("dosage", lTagOf[LitSeq[Dosage]], false, lTagOf[Dosage])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -331,8 +331,8 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
     FHIRComponentFieldMeta("profile", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
-  val subtitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("subtitle", lTagOf[Option[String]], false, lTagOf[String])
+  val subtitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("subtitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val reviewer: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("reviewer", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val endorser: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
@@ -349,8 +349,8 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val timing: FHIRComponentFieldMeta[Option[ActivityDefinition.TimingChoice]] =
@@ -473,25 +473,25 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[Option[REQUEST_RESOURCE_TYPES]](kind, t.kind),
     FHIRComponentField[Option[CodeableConcept]](code, t.code),
-    FHIRComponentField[Option[String]](title, t.title),
-    FHIRComponentField[Option[String]](usage, t.usage),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](usage, t.usage),
     FHIRComponentField[LitSeq[CodeableConcept]](topic, t.topic),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[LitSeq[ContactDetail]](author, t.author),
     FHIRComponentField[LitSeq[ContactDetail]](editor, t.editor),
     FHIRComponentField[Option[REQUEST_INTENT]](intent, t.intent),
     FHIRComponentField[LitSeq[Dosage]](dosage, t.dosage),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[LitSeq[Canonical]](library, t.library),
     FHIRComponentField[Option[Canonical]](profile, t.profile),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
-    FHIRComponentField[Option[String]](subtitle, t.subtitle),
+    FHIRComponentField[Option[FHIRString]](subtitle, t.subtitle),
     FHIRComponentField[LitSeq[ContactDetail]](reviewer, t.reviewer),
     FHIRComponentField[LitSeq[ContactDetail]](endorser, t.endorser),
     FHIRComponentField[Option[REQUEST_PRIORITY]](priority, t.priority),
@@ -500,7 +500,7 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
     FHIRComponentField[LitSeq[CodeableConcept]](bodySite, t.bodySite),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[Option[ActivityDefinition.TimingChoice]](timing, t.timing),
     FHIRComponentField[Option[Canonical]](transform, t.transform),
@@ -528,25 +528,25 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
   def extractUrl(t: ActivityDefinition): Option[UriStr]                                   = t.url
   def extractMeta(t: ActivityDefinition): Option[Meta]                                    = t.meta
   def extractText(t: ActivityDefinition): Option[Narrative]                               = t.text
-  def extractName(t: ActivityDefinition): Option[String]                                  = t.name
+  def extractName(t: ActivityDefinition): Option[FHIRString]                              = t.name
   def extractDate(t: ActivityDefinition): Option[FHIRDateTime]                            = t.date
   def extractKind(t: ActivityDefinition): Option[REQUEST_RESOURCE_TYPES]                  = t.kind
   def extractCode(t: ActivityDefinition): Option[CodeableConcept]                         = t.code
-  def extractTitle(t: ActivityDefinition): Option[String]                                 = t.title
-  def extractUsage(t: ActivityDefinition): Option[String]                                 = t.usage
+  def extractTitle(t: ActivityDefinition): Option[FHIRString]                             = t.title
+  def extractUsage(t: ActivityDefinition): Option[FHIRString]                             = t.usage
   def extractTopic(t: ActivityDefinition): LitSeq[CodeableConcept]                        = t.topic
   def extractStatus(t: ActivityDefinition): PUBLICATION_STATUS                            = t.status
   def extractAuthor(t: ActivityDefinition): LitSeq[ContactDetail]                         = t.author
   def extractEditor(t: ActivityDefinition): LitSeq[ContactDetail]                         = t.editor
   def extractIntent(t: ActivityDefinition): Option[REQUEST_INTENT]                        = t.intent
   def extractDosage(t: ActivityDefinition): LitSeq[Dosage]                                = t.dosage
-  def extractVersion(t: ActivityDefinition): Option[String]                               = t.version
+  def extractVersion(t: ActivityDefinition): Option[FHIRString]                           = t.version
   def extractContact(t: ActivityDefinition): LitSeq[ContactDetail]                        = t.contact
   def extractPurpose(t: ActivityDefinition): Option[Markdown]                             = t.purpose
   def extractLibrary(t: ActivityDefinition): LitSeq[Canonical]                            = t.library
   def extractProfile(t: ActivityDefinition): Option[Canonical]                            = t.profile
   def extractLanguage(t: ActivityDefinition): Option[LANGUAGES]                           = t.language
-  def extractSubtitle(t: ActivityDefinition): Option[String]                              = t.subtitle
+  def extractSubtitle(t: ActivityDefinition): Option[FHIRString]                          = t.subtitle
   def extractReviewer(t: ActivityDefinition): LitSeq[ContactDetail]                       = t.reviewer
   def extractEndorser(t: ActivityDefinition): LitSeq[ContactDetail]                       = t.endorser
   def extractPriority(t: ActivityDefinition): Option[REQUEST_PRIORITY]                    = t.priority
@@ -555,7 +555,7 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
   def extractBodySite(t: ActivityDefinition): LitSeq[CodeableConcept]                     = t.bodySite
   def extractContained(t: ActivityDefinition): LitSeq[Resource]                           = t.contained
   def extractExtension(t: ActivityDefinition): LitSeq[Extension]                          = t.extension
-  def extractPublisher(t: ActivityDefinition): Option[String]                             = t.publisher
+  def extractPublisher(t: ActivityDefinition): Option[FHIRString]                         = t.publisher
   def extractCopyright(t: ActivityDefinition): Option[Markdown]                           = t.copyright
   def extractTiming(t: ActivityDefinition): Option[ActivityDefinition.TimingChoice]       = t.timing
   def extractTransform(t: ActivityDefinition): Option[Canonical]                          = t.transform
@@ -615,25 +615,25 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
         cursor.decodeAs[Option[UriStr]]("url", Some(None)),
         cursor.decodeAs[Option[Meta]]("meta", Some(None)),
         cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-        cursor.decodeAs[Option[String]]("name", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
         cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
         cursor.decodeAs[Option[REQUEST_RESOURCE_TYPES]]("kind", Some(None)),
         cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
-        cursor.decodeAs[Option[String]]("title", Some(None)),
-        cursor.decodeAs[Option[String]]("usage", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("usage", Some(None)),
         cursor.decodeAs[LitSeq[CodeableConcept]]("topic", Some(LitSeq.empty)),
         cursor.decodeAs[PUBLICATION_STATUS]("status", None),
         cursor.decodeAs[LitSeq[ContactDetail]]("author", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[ContactDetail]]("editor", Some(LitSeq.empty)),
         cursor.decodeAs[Option[REQUEST_INTENT]]("intent", Some(None)),
         cursor.decodeAs[LitSeq[Dosage]]("dosage", Some(LitSeq.empty)),
-        cursor.decodeAs[Option[String]]("version", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
         cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
         cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
         cursor.decodeAs[LitSeq[Canonical]]("library", Some(LitSeq.empty)),
         cursor.decodeAs[Option[Canonical]]("profile", Some(None)),
         cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
-        cursor.decodeAs[Option[String]]("subtitle", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("subtitle", Some(None)),
         cursor.decodeAs[LitSeq[ContactDetail]]("reviewer", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[ContactDetail]]("endorser", Some(LitSeq.empty)),
         cursor.decodeAs[Option[REQUEST_PRIORITY]]("priority", Some(None)),
@@ -642,7 +642,7 @@ object ActivityDefinition extends CompanionFor[ActivityDefinition] {
         cursor.decodeAs[LitSeq[CodeableConcept]]("bodySite", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-        cursor.decodeAs[Option[String]]("publisher", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
         cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
         cursor.decodeOptRef[Union01405873694]("timing"),
         cursor.decodeAs[Option[Canonical]]("transform", Some(None)),
@@ -840,25 +840,25 @@ class ActivityDefinition(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val date: Option[FHIRDateTime] = None,
     val kind: Option[REQUEST_RESOURCE_TYPES] = None,
     val code: Option[CodeableConcept] = None,
-    val title: Option[String] = None,
-    val usage: Option[String] = None,
+    val title: Option[FHIRString] = None,
+    val usage: Option[FHIRString] = None,
     val topic: LitSeq[CodeableConcept] = LitSeq.empty,
     val status: PUBLICATION_STATUS,
     val author: LitSeq[ContactDetail] = LitSeq.empty,
     val editor: LitSeq[ContactDetail] = LitSeq.empty,
     val intent: Option[REQUEST_INTENT] = None,
     val dosage: LitSeq[Dosage] = LitSeq.empty,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     val library: LitSeq[Canonical] = LitSeq.empty,
     val profile: Option[Canonical] = None,
     override val language: Option[LANGUAGES] = None,
-    val subtitle: Option[String] = None,
+    val subtitle: Option[FHIRString] = None,
     val reviewer: LitSeq[ContactDetail] = LitSeq.empty,
     val endorser: LitSeq[ContactDetail] = LitSeq.empty,
     val priority: Option[REQUEST_PRIORITY] = None,
@@ -867,7 +867,7 @@ class ActivityDefinition(
     val bodySite: LitSeq[CodeableConcept] = LitSeq.empty,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val timing: Option[ActivityDefinition.TimingChoice] = None,
     val transform: Option[Canonical] = None,

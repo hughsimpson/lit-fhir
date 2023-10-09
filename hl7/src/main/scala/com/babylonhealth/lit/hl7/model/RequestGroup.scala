@@ -195,17 +195,17 @@ object RequestGroup extends CompanionFor[RequestGroup] {
         id: Option[String] = None,
         code: LitSeq[CodeableConcept] = LitSeq.empty,
         `type`: Option[CodeableConcept] = None,
-        title: Option[String] = None,
-        prefix: Option[String] = None,
+        title: Option[FHIRString] = None,
+        prefix: Option[FHIRString] = None,
         action: LitSeq[RequestGroup.Action] = LitSeq.empty,
         priority: Option[REQUEST_PRIORITY] = None,
         resource: Option[Reference] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         timing: Option[Action.TimingChoice] = None,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         participant: LitSeq[Reference] = LitSeq.empty,
         documentation: LitSeq[RelatedArtifact] = LitSeq.empty,
-        textEquivalent: Option[String] = None,
+        textEquivalent: Option[FHIRString] = None,
         groupingBehavior: Option[ACTION_GROUPING_BEHAVIOR] = None,
         requiredBehavior: Option[ACTION_REQUIRED_BEHAVIOR] = None,
         precheckBehavior: Option[ACTION_PRECHECK_BEHAVIOR] = None,
@@ -241,7 +241,7 @@ object RequestGroup extends CompanionFor[RequestGroup] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Action): Option[(Option[String], LitSeq[CodeableConcept], Option[CodeableConcept], Option[String], Option[String], LitSeq[RequestGroup.Action], Option[REQUEST_PRIORITY], Option[Reference], LitSeq[Extension], Option[Action.TimingChoice], Option[String], LitSeq[Reference], LitSeq[RelatedArtifact], Option[String], Option[ACTION_GROUPING_BEHAVIOR], Option[ACTION_REQUIRED_BEHAVIOR], Option[ACTION_PRECHECK_BEHAVIOR], LitSeq[Extension], Option[ACTION_SELECTION_BEHAVIOR], Option[ACTION_CARDINALITY_BEHAVIOR], LitSeq[Action.Condition], LitSeq[Action.RelatedAction])] =
+        o: Action): Option[(Option[String], LitSeq[CodeableConcept], Option[CodeableConcept], Option[FHIRString], Option[FHIRString], LitSeq[RequestGroup.Action], Option[REQUEST_PRIORITY], Option[Reference], LitSeq[Extension], Option[Action.TimingChoice], Option[FHIRString], LitSeq[Reference], LitSeq[RelatedArtifact], Option[FHIRString], Option[ACTION_GROUPING_BEHAVIOR], Option[ACTION_REQUIRED_BEHAVIOR], Option[ACTION_PRECHECK_BEHAVIOR], LitSeq[Extension], Option[ACTION_SELECTION_BEHAVIOR], Option[ACTION_CARDINALITY_BEHAVIOR], LitSeq[Action.Condition], LitSeq[Action.RelatedAction])] =
       Some(
         (
           o.id,
@@ -272,10 +272,10 @@ object RequestGroup extends CompanionFor[RequestGroup] {
       FHIRComponentFieldMeta("code", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
     val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val title: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
-    val prefix: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("prefix", lTagOf[Option[String]], false, lTagOf[String])
+    val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val prefix: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("prefix", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val action: FHIRComponentFieldMeta[LitSeq[RequestGroup.Action]] =
       FHIRComponentFieldMeta("action", lTagOf[LitSeq[RequestGroup.Action]], false, lTagOf[RequestGroup.Action])
     val priority: FHIRComponentFieldMeta[Option[REQUEST_PRIORITY]] =
@@ -286,14 +286,14 @@ object RequestGroup extends CompanionFor[RequestGroup] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val timing: FHIRComponentFieldMeta[Option[Action.TimingChoice]] =
       FHIRComponentFieldMeta("timing", lTagOf[Option[Action.TimingChoice]], true, lTagOf[Union01405873694])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val participant: FHIRComponentFieldMeta[LitSeq[Reference]] =
       FHIRComponentFieldMeta("participant", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
     val documentation: FHIRComponentFieldMeta[LitSeq[RelatedArtifact]] =
       FHIRComponentFieldMeta("documentation", lTagOf[LitSeq[RelatedArtifact]], false, lTagOf[RelatedArtifact])
-    val textEquivalent: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("textEquivalent", lTagOf[Option[String]], false, lTagOf[String])
+    val textEquivalent: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("textEquivalent", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val groupingBehavior: FHIRComponentFieldMeta[Option[ACTION_GROUPING_BEHAVIOR]] =
       FHIRComponentFieldMeta(
         "groupingBehavior",
@@ -359,17 +359,17 @@ object RequestGroup extends CompanionFor[RequestGroup] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[LitSeq[CodeableConcept]](code, t.code),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-      FHIRComponentField[Option[String]](title, t.title),
-      FHIRComponentField[Option[String]](prefix, t.prefix),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](prefix, t.prefix),
       FHIRComponentField[LitSeq[RequestGroup.Action]](action, t.action),
       FHIRComponentField[Option[REQUEST_PRIORITY]](priority, t.priority),
       FHIRComponentField[Option[Reference]](resource, t.resource),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Action.TimingChoice]](timing, t.timing),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Reference]](participant, t.participant),
       FHIRComponentField[LitSeq[RelatedArtifact]](documentation, t.documentation),
-      FHIRComponentField[Option[String]](textEquivalent, t.textEquivalent),
+      FHIRComponentField[Option[FHIRString]](textEquivalent, t.textEquivalent),
       FHIRComponentField[Option[ACTION_GROUPING_BEHAVIOR]](groupingBehavior, t.groupingBehavior),
       FHIRComponentField[Option[ACTION_REQUIRED_BEHAVIOR]](requiredBehavior, t.requiredBehavior),
       FHIRComponentField[Option[ACTION_PRECHECK_BEHAVIOR]](precheckBehavior, t.precheckBehavior),
@@ -388,17 +388,17 @@ object RequestGroup extends CompanionFor[RequestGroup] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[LitSeq[CodeableConcept]]("code", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-            cursor.decodeAs[Option[String]]("title", Some(None)),
-            cursor.decodeAs[Option[String]]("prefix", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("prefix", Some(None)),
             cursor.decodeAs[LitSeq[RequestGroup.Action]]("action", Some(LitSeq.empty)),
             cursor.decodeAs[Option[REQUEST_PRIORITY]]("priority", Some(None)),
             cursor.decodeAs[Option[Reference]]("resource", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeOptRef[Union01405873694]("timing"),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Reference]]("participant", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[RelatedArtifact]]("documentation", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("textEquivalent", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("textEquivalent", Some(None)),
             cursor.decodeAs[Option[ACTION_GROUPING_BEHAVIOR]]("groupingBehavior", Some(None)),
             cursor.decodeAs[Option[ACTION_REQUIRED_BEHAVIOR]]("requiredBehavior", Some(None)),
             cursor.decodeAs[Option[ACTION_PRECHECK_BEHAVIOR]]("precheckBehavior", Some(None)),
@@ -416,17 +416,17 @@ object RequestGroup extends CompanionFor[RequestGroup] {
       override val id: Option[String] = None,
       val code: LitSeq[CodeableConcept] = LitSeq.empty,
       val `type`: Option[CodeableConcept] = None,
-      val title: Option[String] = None,
-      val prefix: Option[String] = None,
+      val title: Option[FHIRString] = None,
+      val prefix: Option[FHIRString] = None,
       val action: LitSeq[RequestGroup.Action] = LitSeq.empty,
       val priority: Option[REQUEST_PRIORITY] = None,
       val resource: Option[Reference] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val timing: Option[Action.TimingChoice] = None,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       val participant: LitSeq[Reference] = LitSeq.empty,
       val documentation: LitSeq[RelatedArtifact] = LitSeq.empty,
-      val textEquivalent: Option[String] = None,
+      val textEquivalent: Option[FHIRString] = None,
       val groupingBehavior: Option[ACTION_GROUPING_BEHAVIOR] = None,
       val requiredBehavior: Option[ACTION_REQUIRED_BEHAVIOR] = None,
       val precheckBehavior: Option[ACTION_PRECHECK_BEHAVIOR] = None,

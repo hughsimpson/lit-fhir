@@ -51,7 +51,7 @@ object Us_core_documentreference extends CompanionFor[Us_core_documentreference]
       docStatus: Option[COMPOSITION_STATUS] = None,
       custodian: Option[Reference] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       authenticator: Option[Reference] = None,
       securityLabel: LitSeq[CodeableConcept] = LitSeq.empty,
@@ -118,8 +118,8 @@ object Us_core_documentreference extends CompanionFor[Us_core_documentreference]
     FHIRComponentFieldMeta("custodian", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val authenticator: FHIRComponentFieldMeta[Option[Reference]] =
@@ -179,7 +179,7 @@ object Us_core_documentreference extends CompanionFor[Us_core_documentreference]
       FHIRComponentField[Option[COMPOSITION_STATUS]](docStatus, t.docStatus),
       FHIRComponentField[Option[Reference]](custodian, t.custodian),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
       FHIRComponentField[Option[Reference]](authenticator, t.authenticator),
       FHIRComponentField[LitSeq[CodeableConcept]](securityLabel, t.securityLabel),
@@ -205,7 +205,7 @@ object Us_core_documentreference extends CompanionFor[Us_core_documentreference]
   def extractDocStatus(t: Us_core_documentreference): Option[COMPOSITION_STATUS]          = t.docStatus
   def extractCustodian(t: Us_core_documentreference): Option[Reference]                   = t.custodian
   def extractIdentifier(t: Us_core_documentreference): LitSeq[Identifier]                 = t.identifier
-  def extractDescription(t: Us_core_documentreference): Option[String]                    = t.description
+  def extractDescription(t: Us_core_documentreference): Option[FHIRString]                = t.description
   def extractImplicitRules(t: Us_core_documentreference): Option[UriStr]                  = t.implicitRules
   def extractAuthenticator(t: Us_core_documentreference): Option[Reference]               = t.authenticator
   def extractSecurityLabel(t: Us_core_documentreference): LitSeq[CodeableConcept]         = t.securityLabel
@@ -235,7 +235,7 @@ object Us_core_documentreference extends CompanionFor[Us_core_documentreference]
           cursor.decodeAs[Option[COMPOSITION_STATUS]]("docStatus", Some(None)),
           cursor.decodeAs[Option[Reference]]("custodian", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[Reference]]("authenticator", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("securityLabel", Some(LitSeq.empty)),
@@ -348,7 +348,7 @@ class Us_core_documentreference(
     override val docStatus: Option[COMPOSITION_STATUS] = None,
     override val custodian: Option[Reference] = None,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
-    override val description: Option[String] = None,
+    override val description: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val authenticator: Option[Reference] = None,
     override val securityLabel: LitSeq[CodeableConcept] = LitSeq.empty,

@@ -31,22 +31,22 @@ public interface SubstanceAmountBuilder extends BackboneElementBuilder {
     return new Impl();
   }
 
-  public static ChoiceQuantityOrRangeOrString amount(Quantity q) {
-    return new ChoiceQuantityOrRangeOrString(q);
+  public static ChoiceFHIRStringOrQuantityOrRange amount(String s) {
+    return new ChoiceFHIRStringOrQuantityOrRange(s);
   }
 
-  public static ChoiceQuantityOrRangeOrString amount(Range r) {
-    return new ChoiceQuantityOrRangeOrString(r);
+  public static ChoiceFHIRStringOrQuantityOrRange amount(Quantity q) {
+    return new ChoiceFHIRStringOrQuantityOrRange(q);
   }
 
-  public static ChoiceQuantityOrRangeOrString amount(String s) {
-    return new ChoiceQuantityOrRangeOrString(s);
+  public static ChoiceFHIRStringOrQuantityOrRange amount(Range r) {
+    return new ChoiceFHIRStringOrQuantityOrRange(r);
   }
 
   public class Impl implements SubstanceAmountBuilder {
     private Optional<String> id = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
-    private Optional<ChoiceQuantityOrRangeOrString> amount = Optional.empty();
+    private Optional<ChoiceFHIRStringOrQuantityOrRange> amount = Optional.empty();
     private Optional<CodeableConcept> amountType = Optional.empty();
     private Optional<String> amountText = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
@@ -94,10 +94,11 @@ public interface SubstanceAmountBuilder extends BackboneElementBuilder {
      * @param amount - Used to capture quantitative values for a variety of elements. If only limits
      *     are given, the arithmetic mean would be the average. If only a single definite value for
      *     a given element is given, it would be captured in this field. Field is a 'choice' field.
-     *     Type should be one of Quantity, Range, String. To pass the value in, wrap with one of the
+     *     Type should be one of String, Quantity, Range. To pass the value in, wrap with one of the
      *     SubstanceAmountBuilder.amount static methods
      */
-    public SubstanceAmountBuilder.Impl withAmount(@NonNull ChoiceQuantityOrRangeOrString amount) {
+    public SubstanceAmountBuilder.Impl withAmount(
+        @NonNull ChoiceFHIRStringOrQuantityOrRange amount) {
       this.amount = Optional.of(amount);
       return this;
     }

@@ -274,7 +274,7 @@ object Invoice extends CompanionFor[Invoice] {
       totalGross: Option[Money] = None,
       paymentTerms: Option[Markdown] = None,
       implicitRules: Option[UriStr] = None,
-      cancelledReason: Option[String] = None,
+      cancelledReason: Option[FHIRString] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       totalPriceComponent: LitSeq[Invoice.LineItem.PriceComponent] = LitSeq.empty,
       participant: LitSeq[Invoice.Participant] = LitSeq.empty,
@@ -345,8 +345,8 @@ object Invoice extends CompanionFor[Invoice] {
     FHIRComponentFieldMeta("paymentTerms", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
-  val cancelledReason: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("cancelledReason", lTagOf[Option[String]], false, lTagOf[String])
+  val cancelledReason: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("cancelledReason", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val totalPriceComponent: FHIRComponentFieldMeta[LitSeq[Invoice.LineItem.PriceComponent]] =
@@ -406,7 +406,7 @@ object Invoice extends CompanionFor[Invoice] {
     FHIRComponentField[Option[Money]](totalGross, t.totalGross),
     FHIRComponentField[Option[Markdown]](paymentTerms, t.paymentTerms),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
-    FHIRComponentField[Option[String]](cancelledReason, t.cancelledReason),
+    FHIRComponentField[Option[FHIRString]](cancelledReason, t.cancelledReason),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[Invoice.LineItem.PriceComponent]](totalPriceComponent, t.totalPriceComponent),
     FHIRComponentField[LitSeq[Invoice.Participant]](participant, t.participant),
@@ -431,7 +431,7 @@ object Invoice extends CompanionFor[Invoice] {
   def extractTotalGross(t: Invoice): Option[Money]                                    = t.totalGross
   def extractPaymentTerms(t: Invoice): Option[Markdown]                               = t.paymentTerms
   def extractImplicitRules(t: Invoice): Option[UriStr]                                = t.implicitRules
-  def extractCancelledReason(t: Invoice): Option[String]                              = t.cancelledReason
+  def extractCancelledReason(t: Invoice): Option[FHIRString]                          = t.cancelledReason
   def extractModifierExtension(t: Invoice): LitSeq[Extension]                         = t.modifierExtension
   def extractTotalPriceComponent(t: Invoice): LitSeq[Invoice.LineItem.PriceComponent] = t.totalPriceComponent
   def extractParticipant(t: Invoice): LitSeq[Invoice.Participant]                     = t.participant
@@ -475,7 +475,7 @@ object Invoice extends CompanionFor[Invoice] {
           cursor.decodeAs[Option[Money]]("totalGross", Some(None)),
           cursor.decodeAs[Option[Markdown]]("paymentTerms", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
-          cursor.decodeAs[Option[String]]("cancelledReason", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("cancelledReason", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Invoice.LineItem.PriceComponent]]("totalPriceComponent", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Invoice.Participant]]("participant", Some(LitSeq.empty)),
@@ -581,7 +581,7 @@ class Invoice(
     val totalGross: Option[Money] = None,
     val paymentTerms: Option[Markdown] = None,
     override val implicitRules: Option[UriStr] = None,
-    val cancelledReason: Option[String] = None,
+    val cancelledReason: Option[FHIRString] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val totalPriceComponent: LitSeq[Invoice.LineItem.PriceComponent] = LitSeq.empty,
     val participant: LitSeq[Invoice.Participant] = LitSeq.empty,

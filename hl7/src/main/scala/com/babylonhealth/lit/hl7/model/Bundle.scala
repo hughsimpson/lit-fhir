@@ -115,10 +115,10 @@ object Bundle extends CompanionFor[Bundle] {
           id: Option[String] = None,
           url: UriStr,
           method: HTTP_VERB,
-          ifMatch: Option[String] = None,
+          ifMatch: Option[FHIRString] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
-          ifNoneMatch: Option[String] = None,
-          ifNoneExist: Option[String] = None,
+          ifNoneMatch: Option[FHIRString] = None,
+          ifNoneExist: Option[FHIRString] = None,
           ifModifiedSince: Option[ZonedDateTime] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -135,7 +135,7 @@ object Bundle extends CompanionFor[Bundle] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Request): Option[(Option[String], UriStr, HTTP_VERB, Option[String], LitSeq[Extension], Option[String], Option[String], Option[ZonedDateTime], LitSeq[Extension])] =
+          o: Request): Option[(Option[String], UriStr, HTTP_VERB, Option[FHIRString], LitSeq[Extension], Option[FHIRString], Option[FHIRString], Option[ZonedDateTime], LitSeq[Extension])] =
         Some(
           (o.id, o.url, o.method, o.ifMatch, o.extension, o.ifNoneMatch, o.ifNoneExist, o.ifModifiedSince, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
@@ -144,14 +144,14 @@ object Bundle extends CompanionFor[Bundle] {
         FHIRComponentFieldMeta("url", lTagOf[UriStr], false, lTagOf[UriStr])
       val method: FHIRComponentFieldMeta[HTTP_VERB] =
         FHIRComponentFieldMeta("method", lTagOf[HTTP_VERB], false, lTagOf[HTTP_VERB])
-      val ifMatch: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("ifMatch", lTagOf[Option[String]], false, lTagOf[String])
+      val ifMatch: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("ifMatch", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-      val ifNoneMatch: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("ifNoneMatch", lTagOf[Option[String]], false, lTagOf[String])
-      val ifNoneExist: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("ifNoneExist", lTagOf[Option[String]], false, lTagOf[String])
+      val ifNoneMatch: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("ifNoneMatch", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+      val ifNoneExist: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("ifNoneExist", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val ifModifiedSince: FHIRComponentFieldMeta[Option[ZonedDateTime]] =
         FHIRComponentFieldMeta("ifModifiedSince", lTagOf[Option[ZonedDateTime]], false, lTagOf[ZonedDateTime])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -163,10 +163,10 @@ object Bundle extends CompanionFor[Bundle] {
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[UriStr](url, t.url),
         FHIRComponentField[HTTP_VERB](method, t.method),
-        FHIRComponentField[Option[String]](ifMatch, t.ifMatch),
+        FHIRComponentField[Option[FHIRString]](ifMatch, t.ifMatch),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-        FHIRComponentField[Option[String]](ifNoneMatch, t.ifNoneMatch),
-        FHIRComponentField[Option[String]](ifNoneExist, t.ifNoneExist),
+        FHIRComponentField[Option[FHIRString]](ifNoneMatch, t.ifNoneMatch),
+        FHIRComponentField[Option[FHIRString]](ifNoneExist, t.ifNoneExist),
         FHIRComponentField[Option[ZonedDateTime]](ifModifiedSince, t.ifModifiedSince),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
       )
@@ -179,10 +179,10 @@ object Bundle extends CompanionFor[Bundle] {
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[UriStr]("url", None),
               cursor.decodeAs[HTTP_VERB]("method", None),
-              cursor.decodeAs[Option[String]]("ifMatch", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("ifMatch", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("ifNoneMatch", Some(None)),
-              cursor.decodeAs[Option[String]]("ifNoneExist", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("ifNoneMatch", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("ifNoneExist", Some(None)),
               cursor.decodeAs[Option[ZonedDateTime]]("ifModifiedSince", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
@@ -194,10 +194,10 @@ object Bundle extends CompanionFor[Bundle] {
         override val id: Option[String] = None,
         val url: UriStr,
         val method: HTTP_VERB,
-        val ifMatch: Option[String] = None,
+        val ifMatch: Option[FHIRString] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
-        val ifNoneMatch: Option[String] = None,
-        val ifNoneExist: Option[String] = None,
+        val ifNoneMatch: Option[FHIRString] = None,
+        val ifNoneExist: Option[FHIRString] = None,
         val ifModifiedSince: Option[ZonedDateTime] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -210,8 +210,8 @@ object Bundle extends CompanionFor[Bundle] {
       override val parentType: CompanionFor[ResourceType] = Response
       def apply(
           id: Option[String] = None,
-          etag: Option[String] = None,
-          status: String,
+          etag: Option[FHIRString] = None,
+          status: FHIRString,
           outcome: Option[Resource] = None,
           location: Option[UriStr] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
@@ -230,14 +230,14 @@ object Bundle extends CompanionFor[Bundle] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Response): Option[(Option[String], Option[String], String, Option[Resource], Option[UriStr], LitSeq[Extension], Option[ZonedDateTime], LitSeq[Extension])] =
+          o: Response): Option[(Option[String], Option[FHIRString], FHIRString, Option[Resource], Option[UriStr], LitSeq[Extension], Option[ZonedDateTime], LitSeq[Extension])] =
         Some((o.id, o.etag, o.status, o.outcome, o.location, o.extension, o.lastModified, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val etag: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("etag", lTagOf[Option[String]], false, lTagOf[String])
-      val status: FHIRComponentFieldMeta[String] =
-        FHIRComponentFieldMeta("status", lTagOf[String], false, lTagOf[String])
+      val etag: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("etag", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+      val status: FHIRComponentFieldMeta[FHIRString] =
+        FHIRComponentFieldMeta("status", lTagOf[FHIRString], false, lTagOf[FHIRString])
       val outcome: FHIRComponentFieldMeta[Option[Resource]] =
         FHIRComponentFieldMeta("outcome", lTagOf[Option[Resource]], false, lTagOf[Resource])
       val location: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -253,8 +253,8 @@ object Bundle extends CompanionFor[Bundle] {
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: Response): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[Option[String]](etag, t.etag),
-        FHIRComponentField[String](status, t.status),
+        FHIRComponentField[Option[FHIRString]](etag, t.etag),
+        FHIRComponentField[FHIRString](status, t.status),
         FHIRComponentField[Option[Resource]](outcome, t.outcome),
         FHIRComponentField[Option[UriStr]](location, t.location),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -268,8 +268,8 @@ object Bundle extends CompanionFor[Bundle] {
           Try(
             new Response(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[Option[String]]("etag", Some(None)),
-              cursor.decodeAs[String]("status", None),
+              cursor.decodeAs[Option[FHIRString]]("etag", Some(None)),
+              cursor.decodeAs[FHIRString]("status", None),
               cursor.decodeAs[Option[Resource]]("outcome", Some(None)),
               cursor.decodeAs[Option[UriStr]]("location", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -282,8 +282,8 @@ object Bundle extends CompanionFor[Bundle] {
     @POJOBoilerplate
     class Response(
         override val id: Option[String] = None,
-        val etag: Option[String] = None,
-        val status: String,
+        val etag: Option[FHIRString] = None,
+        val status: FHIRString,
         val outcome: Option[Resource] = None,
         val location: Option[UriStr] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
@@ -390,7 +390,7 @@ object Bundle extends CompanionFor[Bundle] {
     def apply(
         id: Option[String] = None,
         url: UriStr,
-        relation: String,
+        relation: FHIRString,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -402,14 +402,14 @@ object Bundle extends CompanionFor[Bundle] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Link): Option[(Option[String], UriStr, String, LitSeq[Extension], LitSeq[Extension])] = Some(
+    def unapply(o: Link): Option[(Option[String], UriStr, FHIRString, LitSeq[Extension], LitSeq[Extension])] = Some(
       (o.id, o.url, o.relation, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val url: FHIRComponentFieldMeta[UriStr] =
       FHIRComponentFieldMeta("url", lTagOf[UriStr], false, lTagOf[UriStr])
-    val relation: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("relation", lTagOf[String], false, lTagOf[String])
+    val relation: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("relation", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -419,7 +419,7 @@ object Bundle extends CompanionFor[Bundle] {
     override def fields(t: Link): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[UriStr](url, t.url),
-      FHIRComponentField[String](relation, t.relation),
+      FHIRComponentField[FHIRString](relation, t.relation),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -431,7 +431,7 @@ object Bundle extends CompanionFor[Bundle] {
           new Link(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[UriStr]("url", None),
-            cursor.decodeAs[String]("relation", None),
+            cursor.decodeAs[FHIRString]("relation", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -442,7 +442,7 @@ object Bundle extends CompanionFor[Bundle] {
   class Link(
       override val id: Option[String] = None,
       val url: UriStr,
-      val relation: String,
+      val relation: FHIRString,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)

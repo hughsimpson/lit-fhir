@@ -36,7 +36,7 @@ object Schedule extends CompanionFor[Schedule] {
       text: Option[Narrative] = None,
       actor: NonEmptyLitSeq[Reference],
       active: Option[Boolean] = None,
-      comment: Option[String] = None,
+      comment: Option[FHIRString] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
@@ -77,8 +77,8 @@ object Schedule extends CompanionFor[Schedule] {
     FHIRComponentFieldMeta("actor", lTagOf[NonEmptyLitSeq[Reference]], false, lTagOf[Reference])
   val active: FHIRComponentFieldMeta[Option[Boolean]] =
     FHIRComponentFieldMeta("active", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
-  val comment: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+  val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
   val contained: FHIRComponentFieldMeta[LitSeq[Resource]] =
@@ -124,7 +124,7 @@ object Schedule extends CompanionFor[Schedule] {
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[NonEmptyLitSeq[Reference]](actor, t.actor),
     FHIRComponentField[Option[Boolean]](active, t.active),
-    FHIRComponentField[Option[String]](comment, t.comment),
+    FHIRComponentField[Option[FHIRString]](comment, t.comment),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -141,7 +141,7 @@ object Schedule extends CompanionFor[Schedule] {
   def extractText(t: Schedule): Option[Narrative]                  = t.text
   def extractActor(t: Schedule): NonEmptyLitSeq[Reference]         = t.actor
   def extractActive(t: Schedule): Option[Boolean]                  = t.active
-  def extractComment(t: Schedule): Option[String]                  = t.comment
+  def extractComment(t: Schedule): Option[FHIRString]              = t.comment
   def extractLanguage(t: Schedule): Option[LANGUAGES]              = t.language
   def extractContained(t: Schedule): LitSeq[Resource]              = t.contained
   def extractExtension(t: Schedule): LitSeq[Extension]             = t.extension
@@ -163,7 +163,7 @@ object Schedule extends CompanionFor[Schedule] {
     "active"           -> (obj => obj.active.toSeq)
   )
   def unapply(
-      o: Schedule): Option[(Option[String], Option[Meta], Option[Narrative], NonEmptyLitSeq[Reference], Option[Boolean], Option[String], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[Identifier], LitSeq[CodeableConcept], Option[UriStr], LitSeq[CodeableConcept], Option[Period], LitSeq[Extension])] =
+      o: Schedule): Option[(Option[String], Option[Meta], Option[Narrative], NonEmptyLitSeq[Reference], Option[Boolean], Option[FHIRString], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[CodeableConcept], LitSeq[Identifier], LitSeq[CodeableConcept], Option[UriStr], LitSeq[CodeableConcept], Option[Period], LitSeq[Extension])] =
     Some(
       (
         o.id,
@@ -191,7 +191,7 @@ object Schedule extends CompanionFor[Schedule] {
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[NonEmptyLitSeq[Reference]]("actor", None),
           cursor.decodeAs[Option[Boolean]]("active", Some(None)),
-          cursor.decodeAs[Option[String]]("comment", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -272,7 +272,7 @@ class Schedule(
     override val text: Option[Narrative] = None,
     val actor: NonEmptyLitSeq[Reference],
     val active: Option[Boolean] = None,
-    val comment: Option[String] = None,
+    val comment: Option[FHIRString] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,

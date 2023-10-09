@@ -45,40 +45,40 @@ public interface DevicemetricobservationBuilder extends ObservationBuilder {
     return new Impl(code.build(), status, device.build(), subject.build(), effective);
   }
 
-  public static Choice_0110816169 value(CodeableConcept c) {
-    return new Choice_0110816169(c);
+  public static Choice02005089322 value(CodeableConcept c) {
+    return new Choice02005089322(c);
   }
 
-  public static Choice_0110816169 value(FHIRDateTime f) {
-    return new Choice_0110816169(f);
+  public static Choice02005089322 value(FHIRDateTime f) {
+    return new Choice02005089322(f);
   }
 
-  public static Choice_0110816169 value(LocalTime l) {
-    return new Choice_0110816169(l);
+  public static Choice02005089322 value(String s) {
+    return new Choice02005089322(s);
   }
 
-  public static Choice_0110816169 value(Period p) {
-    return new Choice_0110816169(p);
+  public static Choice02005089322 value(LocalTime l) {
+    return new Choice02005089322(l);
   }
 
-  public static Choice_0110816169 value(Quantity q) {
-    return new Choice_0110816169(q);
+  public static Choice02005089322 value(Period p) {
+    return new Choice02005089322(p);
   }
 
-  public static Choice_0110816169 value(Range r) {
-    return new Choice_0110816169(r);
+  public static Choice02005089322 value(Quantity q) {
+    return new Choice02005089322(q);
   }
 
-  public static Choice_0110816169 value(Ratio r) {
-    return new Choice_0110816169(r);
+  public static Choice02005089322 value(Range r) {
+    return new Choice02005089322(r);
   }
 
-  public static Choice_0110816169 value(SampledData s) {
-    return new Choice_0110816169(s);
+  public static Choice02005089322 value(Ratio r) {
+    return new Choice02005089322(r);
   }
 
-  public static Choice_0110816169 value(String s) {
-    return new Choice_0110816169(s);
+  public static Choice02005089322 value(SampledData s) {
+    return new Choice02005089322(s);
   }
 
   public class Impl implements DevicemetricobservationBuilder {
@@ -100,7 +100,7 @@ public interface DevicemetricobservationBuilder extends ObservationBuilder {
     private Reference subject;
     private Optional<LANGUAGES> language = Optional.empty();
     private Collection<CodeableConcept> category = Collections.emptyList();
-    private Optional<Choice_0110816169> value = Optional.empty();
+    private Optional<Choice02005089322> value = Optional.empty();
     private Optional<CodeableConcept> bodySite = Optional.empty();
     private Collection<Resource> contained = Collections.emptyList();
     private Collection<Extension> extension = Collections.emptyList();
@@ -310,11 +310,11 @@ public interface DevicemetricobservationBuilder extends ObservationBuilder {
     /**
      * @param value - The information determined as a result of making the observation, if the
      *     information has a simple value. Field is a 'choice' field. Type should be one of
-     *     CodeableConcept, FHIRDateTime, LocalTime, Period, Quantity, Range, Ratio, SampledData,
-     *     String. To pass the value in, wrap with one of the DevicemetricobservationBuilder.value
-     *     static methods
+     *     CodeableConcept, FHIRDateTime, String, LocalTime, Period, Quantity, Range, Ratio,
+     *     SampledData. To pass the value in, wrap with one of the
+     *     DevicemetricobservationBuilder.value static methods
      */
-    public DevicemetricobservationBuilder.Impl withValue(@NonNull Choice_0110816169 value) {
+    public DevicemetricobservationBuilder.Impl withValue(@NonNull Choice02005089322 value) {
       this.value = Optional.of(value);
       return this;
     }

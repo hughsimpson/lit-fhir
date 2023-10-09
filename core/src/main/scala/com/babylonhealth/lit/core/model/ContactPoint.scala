@@ -32,7 +32,7 @@ object ContactPoint extends CompanionFor[ContactPoint] {
       id: Option[String] = None,
       use: Option[CONTACT_POINT_USE] = None,
       rank: Option[PositiveInt] = None,
-      value: Option[String] = None,
+      value: Option[FHIRString] = None,
       system: Option[CONTACT_POINT_SYSTEM] = None,
       period: Option[Period] = None,
       extension: LitSeq[Extension] = LitSeq.empty,
@@ -53,8 +53,8 @@ object ContactPoint extends CompanionFor[ContactPoint] {
     FHIRComponentFieldMeta("use", lTagOf[Option[CONTACT_POINT_USE]], false, lTagOf[CONTACT_POINT_USE])
   val rank: FHIRComponentFieldMeta[Option[PositiveInt]] =
     FHIRComponentFieldMeta("rank", lTagOf[Option[PositiveInt]], false, lTagOf[PositiveInt])
-  val value: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("value", lTagOf[Option[String]], false, lTagOf[String])
+  val value: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("value", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val system: FHIRComponentFieldMeta[Option[CONTACT_POINT_SYSTEM]] =
     FHIRComponentFieldMeta("system", lTagOf[Option[CONTACT_POINT_SYSTEM]], false, lTagOf[CONTACT_POINT_SYSTEM])
   val period: FHIRComponentFieldMeta[Option[Period]] =
@@ -67,7 +67,7 @@ object ContactPoint extends CompanionFor[ContactPoint] {
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[CONTACT_POINT_USE]](use, t.use),
     FHIRComponentField[Option[PositiveInt]](rank, t.rank),
-    FHIRComponentField[Option[String]](value, t.value),
+    FHIRComponentField[Option[FHIRString]](value, t.value),
     FHIRComponentField[Option[CONTACT_POINT_SYSTEM]](system, t.system),
     FHIRComponentField[Option[Period]](period, t.period),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension)
@@ -75,13 +75,13 @@ object ContactPoint extends CompanionFor[ContactPoint] {
   def extractId(t: ContactPoint): Option[String]                   = t.id
   def extractUse(t: ContactPoint): Option[CONTACT_POINT_USE]       = t.use
   def extractRank(t: ContactPoint): Option[PositiveInt]            = t.rank
-  def extractValue(t: ContactPoint): Option[String]                = t.value
+  def extractValue(t: ContactPoint): Option[FHIRString]            = t.value
   def extractSystem(t: ContactPoint): Option[CONTACT_POINT_SYSTEM] = t.system
   def extractPeriod(t: ContactPoint): Option[Period]               = t.period
   def extractExtension(t: ContactPoint): LitSeq[Extension]         = t.extension
   override val thisName: String                                    = "ContactPoint"
   def unapply(
-      o: ContactPoint): Option[(Option[String], Option[CONTACT_POINT_USE], Option[PositiveInt], Option[String], Option[CONTACT_POINT_SYSTEM], Option[Period], LitSeq[Extension])] =
+      o: ContactPoint): Option[(Option[String], Option[CONTACT_POINT_USE], Option[PositiveInt], Option[FHIRString], Option[CONTACT_POINT_SYSTEM], Option[Period], LitSeq[Extension])] =
     Some((o.id, o.use, o.rank, o.value, o.system, o.period, o.extension))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[ContactPoint] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -90,7 +90,7 @@ object ContactPoint extends CompanionFor[ContactPoint] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[CONTACT_POINT_USE]]("use", Some(None)),
           cursor.decodeAs[Option[PositiveInt]]("rank", Some(None)),
-          cursor.decodeAs[Option[String]]("value", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("value", Some(None)),
           cursor.decodeAs[Option[CONTACT_POINT_SYSTEM]]("system", Some(None)),
           cursor.decodeAs[Option[Period]]("period", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -133,7 +133,7 @@ class ContactPoint(
     override val id: Option[String] = None,
     val use: Option[CONTACT_POINT_USE] = None,
     val rank: Option[PositiveInt] = None,
-    val value: Option[String] = None,
+    val value: Option[FHIRString] = None,
     val system: Option[CONTACT_POINT_SYSTEM] = None,
     val period: Option[Period] = None,
     override val extension: LitSeq[Extension] = LitSeq.empty,

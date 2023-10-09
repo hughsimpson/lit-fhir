@@ -32,7 +32,7 @@ object Observation_genetics extends CompanionFor[Observation_genetics] {
   override val baseType: CompanionFor[ResourceType] = Observation
   override val parentType: CompanionFor[ParentType] = Observation
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/observation-genetics")
-  type ValueChoice     = Choice[Union02118820890]
+  type ValueChoice     = Choice[Union02087996915]
   type EffectiveChoice = Choice[Union00107722725]
   def apply(
       id: Option[String] = None,
@@ -134,7 +134,7 @@ object Observation_genetics extends CompanionFor[Observation_genetics] {
   val category: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("category", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val value: FHIRComponentFieldMeta[Option[Observation_genetics.ValueChoice]] =
-    FHIRComponentFieldMeta("value", lTagOf[Option[Observation_genetics.ValueChoice]], true, lTagOf[Union02118820890])
+    FHIRComponentFieldMeta("value", lTagOf[Option[Observation_genetics.ValueChoice]], true, lTagOf[Union02087996915])
   val bodySite: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("bodySite", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val specimen: FHIRComponentFieldMeta[Option[Reference]] =
@@ -294,7 +294,7 @@ object Observation_genetics extends CompanionFor[Observation_genetics] {
           cursor.decodeAs[Option[Reference]]("subject", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("category", Some(LitSeq.empty)),
-          cursor.decodeOptRef[Union02118820890]("value"),
+          cursor.decodeOptRef[Union02087996915]("value"),
           cursor.decodeAs[Option[CodeableConcept]]("bodySite", Some(None)),
           cursor.decodeAs[Option[Reference]]("specimen", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),

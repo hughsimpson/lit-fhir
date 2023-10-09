@@ -33,48 +33,48 @@ public interface FamilyMemberHistoryBuilder extends DomainResourceBuilder {
     return new Impl(status, patient.build(), relationship.build());
   }
 
-  public static ChoiceAgeOrRangeOrString age(Age a) {
-    return new ChoiceAgeOrRangeOrString(a);
+  public static ChoiceAgeOrFHIRStringOrRange age(Age a) {
+    return new ChoiceAgeOrFHIRStringOrRange(a);
   }
 
-  public static ChoiceAgeOrRangeOrString age(Range r) {
-    return new ChoiceAgeOrRangeOrString(r);
+  public static ChoiceAgeOrFHIRStringOrRange age(String s) {
+    return new ChoiceAgeOrFHIRStringOrRange(s);
   }
 
-  public static ChoiceAgeOrRangeOrString age(String s) {
-    return new ChoiceAgeOrRangeOrString(s);
+  public static ChoiceAgeOrFHIRStringOrRange age(Range r) {
+    return new ChoiceAgeOrFHIRStringOrRange(r);
   }
 
-  public static ChoiceDateOrPeriodOrString born(FHIRDate f) {
-    return new ChoiceDateOrPeriodOrString(f);
+  public static ChoiceDateOrFHIRStringOrPeriod born(FHIRDate f) {
+    return new ChoiceDateOrFHIRStringOrPeriod(f);
   }
 
-  public static ChoiceDateOrPeriodOrString born(Period p) {
-    return new ChoiceDateOrPeriodOrString(p);
+  public static ChoiceDateOrFHIRStringOrPeriod born(String s) {
+    return new ChoiceDateOrFHIRStringOrPeriod(s);
   }
 
-  public static ChoiceDateOrPeriodOrString born(String s) {
-    return new ChoiceDateOrPeriodOrString(s);
+  public static ChoiceDateOrFHIRStringOrPeriod born(Period p) {
+    return new ChoiceDateOrFHIRStringOrPeriod(p);
   }
 
-  public static Choice00659500323 deceased(Age a) {
-    return new Choice00659500323(a);
+  public static Choice_0231587408 deceased(Age a) {
+    return new Choice_0231587408(a);
   }
 
-  public static Choice00659500323 deceased(Boolean b) {
-    return new Choice00659500323(b);
+  public static Choice_0231587408 deceased(Boolean b) {
+    return new Choice_0231587408(b);
   }
 
-  public static Choice00659500323 deceased(FHIRDate f) {
-    return new Choice00659500323(f);
+  public static Choice_0231587408 deceased(FHIRDate f) {
+    return new Choice_0231587408(f);
   }
 
-  public static Choice00659500323 deceased(Range r) {
-    return new Choice00659500323(r);
+  public static Choice_0231587408 deceased(String s) {
+    return new Choice_0231587408(s);
   }
 
-  public static Choice00659500323 deceased(String s) {
-    return new Choice00659500323(s);
+  public static Choice_0231587408 deceased(Range r) {
+    return new Choice_0231587408(r);
   }
 
   public class Impl implements FamilyMemberHistoryBuilder {
@@ -86,15 +86,15 @@ public interface FamilyMemberHistoryBuilder extends DomainResourceBuilder {
     private Optional<String> name = Optional.empty();
     private Collection<Annotation> note = Collections.emptyList();
     private HISTORY_STATUS status;
-    private Optional<ChoiceAgeOrRangeOrString> age = Optional.empty();
+    private Optional<ChoiceAgeOrFHIRStringOrRange> age = Optional.empty();
     private Reference patient;
-    private Optional<ChoiceDateOrPeriodOrString> born = Optional.empty();
+    private Optional<ChoiceDateOrFHIRStringOrPeriod> born = Optional.empty();
     private Optional<LANGUAGES> language = Optional.empty();
     private Collection<Resource> contained = Collections.emptyList();
     private Collection<Extension> extension = Collections.emptyList();
     private Collection<Identifier> identifier = Collections.emptyList();
     private Collection<CodeableConcept> reasonCode = Collections.emptyList();
-    private Optional<Choice00659500323> deceased = Optional.empty();
+    private Optional<Choice_0231587408> deceased = Optional.empty();
     private CodeableConcept relationship;
     private Optional<Boolean> estimatedAge = Optional.empty();
     private Optional<String> implicitRules = Optional.empty();
@@ -209,19 +209,19 @@ public interface FamilyMemberHistoryBuilder extends DomainResourceBuilder {
     }
     /**
      * @param age - The age of the relative at the time the family member history is recorded. Field
-     *     is a 'choice' field. Type should be one of Age, Range, String. To pass the value in, wrap
+     *     is a 'choice' field. Type should be one of Age, String, Range. To pass the value in, wrap
      *     with one of the FamilyMemberHistoryBuilder.age static methods
      */
-    public FamilyMemberHistoryBuilder.Impl withAge(@NonNull ChoiceAgeOrRangeOrString age) {
+    public FamilyMemberHistoryBuilder.Impl withAge(@NonNull ChoiceAgeOrFHIRStringOrRange age) {
       this.age = Optional.of(age);
       return this;
     }
     /**
      * @param born - The actual or approximate date of birth of the relative. Field is a 'choice'
-     *     field. Type should be one of FHIRDate, Period, String. To pass the value in, wrap with
+     *     field. Type should be one of FHIRDate, String, Period. To pass the value in, wrap with
      *     one of the FamilyMemberHistoryBuilder.born static methods
      */
-    public FamilyMemberHistoryBuilder.Impl withBorn(@NonNull ChoiceDateOrPeriodOrString born) {
+    public FamilyMemberHistoryBuilder.Impl withBorn(@NonNull ChoiceDateOrFHIRStringOrPeriod born) {
       this.born = Optional.of(born);
       return this;
     }
@@ -331,10 +331,10 @@ public interface FamilyMemberHistoryBuilder extends DomainResourceBuilder {
     /**
      * @param deceased - Deceased flag or the actual or approximate age of the relative at the time
      *     of death for the family member history record. Field is a 'choice' field. Type should be
-     *     one of Age, Boolean, FHIRDate, Range, String. To pass the value in, wrap with one of the
+     *     one of Age, Boolean, FHIRDate, String, Range. To pass the value in, wrap with one of the
      *     FamilyMemberHistoryBuilder.deceased static methods
      */
-    public FamilyMemberHistoryBuilder.Impl withDeceased(@NonNull Choice00659500323 deceased) {
+    public FamilyMemberHistoryBuilder.Impl withDeceased(@NonNull Choice_0231587408 deceased) {
       this.deceased = Optional.of(deceased);
       return this;
     }

@@ -333,7 +333,7 @@ object CoverageEligibilityRequest extends CompanionFor[CoverageEligibilityReques
         coverage: Reference,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
-        businessArrangement: Option[String] = None,
+        businessArrangement: Option[FHIRString] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Insurance = new Insurance(
       id,
@@ -345,7 +345,7 @@ object CoverageEligibilityRequest extends CompanionFor[CoverageEligibilityReques
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Insurance): Option[(Option[String], Option[Boolean], Reference, LitSeq[Extension], LitSeq[Extension], Option[String])] =
+        o: Insurance): Option[(Option[String], Option[Boolean], Reference, LitSeq[Extension], LitSeq[Extension], Option[FHIRString])] =
       Some((o.id, o.focal, o.coverage, o.extension, o.modifierExtension, o.businessArrangement))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -357,8 +357,8 @@ object CoverageEligibilityRequest extends CompanionFor[CoverageEligibilityReques
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val businessArrangement: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("businessArrangement", lTagOf[Option[String]], false, lTagOf[String])
+    val businessArrangement: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("businessArrangement", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, focal, coverage, extension, modifierExtension, businessArrangement)
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Insurance): Seq[FHIRComponentField[_]] = Seq(
@@ -367,7 +367,7 @@ object CoverageEligibilityRequest extends CompanionFor[CoverageEligibilityReques
       FHIRComponentField[Reference](coverage, t.coverage),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-      FHIRComponentField[Option[String]](businessArrangement, t.businessArrangement)
+      FHIRComponentField[Option[FHIRString]](businessArrangement, t.businessArrangement)
     )
     val baseType: CompanionFor[Insurance] = this
     val thisName: String                  = "Insurance"
@@ -380,7 +380,7 @@ object CoverageEligibilityRequest extends CompanionFor[CoverageEligibilityReques
             cursor.decodeAs[Reference]("coverage", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("businessArrangement", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("businessArrangement", Some(None)),
             decodeAttributes(cursor)
           )
         ))
@@ -392,7 +392,7 @@ object CoverageEligibilityRequest extends CompanionFor[CoverageEligibilityReques
       val coverage: Reference,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      val businessArrangement: Option[String] = None,
+      val businessArrangement: Option[FHIRString] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
   type ServicedChoice = Choice[UnionDateOrPeriod]

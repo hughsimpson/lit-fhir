@@ -21,28 +21,28 @@ import scala.jdk.javaapi.OptionConverters;
 public interface Immunization_ProtocolAppliedBuilder {
   public Immunization.ProtocolApplied build();
 
-  public static Impl init(@NonNull ChoicePositiveIntOrString doseNumber) {
+  public static Impl init(@NonNull ChoiceFHIRStringOrPositiveInt doseNumber) {
     return new Impl(doseNumber);
   }
 
-  public static Impl builder(@NonNull ChoicePositiveIntOrString doseNumber) {
+  public static Impl builder(@NonNull ChoiceFHIRStringOrPositiveInt doseNumber) {
     return new Impl(doseNumber);
   }
 
-  public static ChoicePositiveIntOrString doseNumber(Integer i) {
-    return new ChoicePositiveIntOrString(i);
+  public static ChoiceFHIRStringOrPositiveInt doseNumber(String s) {
+    return new ChoiceFHIRStringOrPositiveInt(s);
   }
 
-  public static ChoicePositiveIntOrString doseNumber(String s) {
-    return new ChoicePositiveIntOrString(s);
+  public static ChoiceFHIRStringOrPositiveInt doseNumber(Integer i) {
+    return new ChoiceFHIRStringOrPositiveInt(i);
   }
 
-  public static ChoicePositiveIntOrString seriesDoses(Integer i) {
-    return new ChoicePositiveIntOrString(i);
+  public static ChoiceFHIRStringOrPositiveInt seriesDoses(String s) {
+    return new ChoiceFHIRStringOrPositiveInt(s);
   }
 
-  public static ChoicePositiveIntOrString seriesDoses(String s) {
-    return new ChoicePositiveIntOrString(s);
+  public static ChoiceFHIRStringOrPositiveInt seriesDoses(Integer i) {
+    return new ChoiceFHIRStringOrPositiveInt(i);
   }
 
   public class Impl implements Immunization_ProtocolAppliedBuilder {
@@ -51,18 +51,18 @@ public interface Immunization_ProtocolAppliedBuilder {
     private Collection<Extension> extension = Collections.emptyList();
     private Optional<Reference> authority = Optional.empty();
     private Collection<CodeableConcept> targetDisease = Collections.emptyList();
-    private ChoicePositiveIntOrString doseNumber;
-    private Optional<ChoicePositiveIntOrString> seriesDoses = Optional.empty();
+    private ChoiceFHIRStringOrPositiveInt doseNumber;
+    private Optional<ChoiceFHIRStringOrPositiveInt> seriesDoses = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
 
     /**
      * Required fields for {@link Immunization.ProtocolApplied}
      *
-     * @param doseNumber Field is a 'choice' field. Type should be one of Integer, String. To pass
+     * @param doseNumber Field is a 'choice' field. Type should be one of String, Integer. To pass
      *     the value in, wrap with one of the Immunization_ProtocolAppliedBuilder.doseNumber static
      *     methods
      */
-    public Impl(@NonNull ChoicePositiveIntOrString doseNumber) {
+    public Impl(@NonNull ChoiceFHIRStringOrPositiveInt doseNumber) {
       this.doseNumber = doseNumber;
     }
 
@@ -138,12 +138,12 @@ public interface Immunization_ProtocolAppliedBuilder {
       return this;
     }
     /**
-     * @param seriesDoses Field is a 'choice' field. Type should be one of Integer, String. To pass
+     * @param seriesDoses Field is a 'choice' field. Type should be one of String, Integer. To pass
      *     the value in, wrap with one of the Immunization_ProtocolAppliedBuilder.seriesDoses static
      *     methods
      */
     public Immunization_ProtocolAppliedBuilder.Impl withSeriesDoses(
-        @NonNull ChoicePositiveIntOrString seriesDoses) {
+        @NonNull ChoiceFHIRStringOrPositiveInt seriesDoses) {
       this.seriesDoses = Optional.of(seriesDoses);
       return this;
     }

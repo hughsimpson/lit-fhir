@@ -30,7 +30,7 @@ object CodeableConcept extends CompanionFor[CodeableConcept] {
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/CodeableConcept")
   def apply(
       id: Option[String] = None,
-      text: Option[String] = None,
+      text: Option[FHIRString] = None,
       coding: LitSeq[Coding] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -43,8 +43,8 @@ object CodeableConcept extends CompanionFor[CodeableConcept] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val text: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+  val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val coding: FHIRComponentFieldMeta[LitSeq[Coding]] =
     FHIRComponentFieldMeta("coding", lTagOf[LitSeq[Coding]], false, lTagOf[Coding])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -53,23 +53,23 @@ object CodeableConcept extends CompanionFor[CodeableConcept] {
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
   override def fields(t: CodeableConcept): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
-    FHIRComponentField[Option[String]](text, t.text),
+    FHIRComponentField[Option[FHIRString]](text, t.text),
     FHIRComponentField[LitSeq[Coding]](coding, t.coding),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension)
   )
   def extractId(t: CodeableConcept): Option[String]           = t.id
-  def extractText(t: CodeableConcept): Option[String]         = t.text
+  def extractText(t: CodeableConcept): Option[FHIRString]     = t.text
   def extractCoding(t: CodeableConcept): LitSeq[Coding]       = t.coding
   def extractExtension(t: CodeableConcept): LitSeq[Extension] = t.extension
   override val thisName: String                               = "CodeableConcept"
-  def unapply(o: CodeableConcept): Option[(Option[String], Option[String], LitSeq[Coding], LitSeq[Extension])] = Some(
+  def unapply(o: CodeableConcept): Option[(Option[String], Option[FHIRString], LitSeq[Coding], LitSeq[Extension])] = Some(
     (o.id, o.text, o.coding, o.extension))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[CodeableConcept] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new CodeableConcept(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[Option[String]]("text", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
           cursor.decodeAs[LitSeq[Coding]]("coding", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -102,7 +102,7 @@ object CodeableConcept extends CompanionFor[CodeableConcept] {
 @POJOBoilerplate
 class CodeableConcept(
     override val id: Option[String] = None,
-    val text: Option[String] = None,
+    val text: Option[FHIRString] = None,
     val coding: LitSeq[Coding] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

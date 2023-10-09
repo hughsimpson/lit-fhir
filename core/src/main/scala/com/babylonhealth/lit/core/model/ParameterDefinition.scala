@@ -32,12 +32,12 @@ object ParameterDefinition extends CompanionFor[ParameterDefinition] {
       id: Option[String] = None,
       use: OPERATION_PARAMETER_USE,
       min: Option[Int] = None,
-      max: Option[String] = None,
+      max: Option[FHIRString] = None,
       name: Option[Code] = None,
       `type`: ALL_TYPES,
       profile: Option[Canonical] = None,
       extension: LitSeq[Extension] = LitSeq.empty,
-      documentation: Option[String] = None,
+      documentation: Option[FHIRString] = None,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): ParameterDefinition = new ParameterDefinition(
     id,
@@ -57,8 +57,8 @@ object ParameterDefinition extends CompanionFor[ParameterDefinition] {
     FHIRComponentFieldMeta("use", lTagOf[OPERATION_PARAMETER_USE], false, lTagOf[OPERATION_PARAMETER_USE])
   val min: FHIRComponentFieldMeta[Option[Int]] =
     FHIRComponentFieldMeta("min", lTagOf[Option[Int]], false, lTagOf[Int])
-  val max: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("max", lTagOf[Option[String]], false, lTagOf[String])
+  val max: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("max", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val name: FHIRComponentFieldMeta[Option[Code]] =
     FHIRComponentFieldMeta("name", lTagOf[Option[Code]], false, lTagOf[Code])
   val `type`: FHIRComponentFieldMeta[ALL_TYPES] =
@@ -67,33 +67,33 @@ object ParameterDefinition extends CompanionFor[ParameterDefinition] {
     FHIRComponentFieldMeta("profile", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val documentation: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("documentation", lTagOf[Option[String]], false, lTagOf[String])
+  val documentation: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("documentation", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, use, min, max, name, `type`, profile, extension, documentation)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
   override def fields(t: ParameterDefinition): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[OPERATION_PARAMETER_USE](use, t.use),
     FHIRComponentField[Option[Int]](min, t.min),
-    FHIRComponentField[Option[String]](max, t.max),
+    FHIRComponentField[Option[FHIRString]](max, t.max),
     FHIRComponentField[Option[Code]](name, t.name),
     FHIRComponentField[ALL_TYPES](`type`, t.`type`),
     FHIRComponentField[Option[Canonical]](profile, t.profile),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](documentation, t.documentation)
+    FHIRComponentField[Option[FHIRString]](documentation, t.documentation)
   )
-  def extractId(t: ParameterDefinition): Option[String]            = t.id
-  def extractUse(t: ParameterDefinition): OPERATION_PARAMETER_USE  = t.use
-  def extractMin(t: ParameterDefinition): Option[Int]              = t.min
-  def extractMax(t: ParameterDefinition): Option[String]           = t.max
-  def extractName(t: ParameterDefinition): Option[Code]            = t.name
-  def extractType(t: ParameterDefinition): ALL_TYPES               = t.`type`
-  def extractProfile(t: ParameterDefinition): Option[Canonical]    = t.profile
-  def extractExtension(t: ParameterDefinition): LitSeq[Extension]  = t.extension
-  def extractDocumentation(t: ParameterDefinition): Option[String] = t.documentation
-  override val thisName: String                                    = "ParameterDefinition"
+  def extractId(t: ParameterDefinition): Option[String]                = t.id
+  def extractUse(t: ParameterDefinition): OPERATION_PARAMETER_USE      = t.use
+  def extractMin(t: ParameterDefinition): Option[Int]                  = t.min
+  def extractMax(t: ParameterDefinition): Option[FHIRString]           = t.max
+  def extractName(t: ParameterDefinition): Option[Code]                = t.name
+  def extractType(t: ParameterDefinition): ALL_TYPES                   = t.`type`
+  def extractProfile(t: ParameterDefinition): Option[Canonical]        = t.profile
+  def extractExtension(t: ParameterDefinition): LitSeq[Extension]      = t.extension
+  def extractDocumentation(t: ParameterDefinition): Option[FHIRString] = t.documentation
+  override val thisName: String                                        = "ParameterDefinition"
   def unapply(
-      o: ParameterDefinition): Option[(Option[String], OPERATION_PARAMETER_USE, Option[Int], Option[String], Option[Code], ALL_TYPES, Option[Canonical], LitSeq[Extension], Option[String])] =
+      o: ParameterDefinition): Option[(Option[String], OPERATION_PARAMETER_USE, Option[Int], Option[FHIRString], Option[Code], ALL_TYPES, Option[Canonical], LitSeq[Extension], Option[FHIRString])] =
     Some((o.id, o.use, o.min, o.max, o.name, o.`type`, o.profile, o.extension, o.documentation))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[ParameterDefinition] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -102,12 +102,12 @@ object ParameterDefinition extends CompanionFor[ParameterDefinition] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[OPERATION_PARAMETER_USE]("use", None),
           cursor.decodeAs[Option[Int]]("min", Some(None)),
-          cursor.decodeAs[Option[String]]("max", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("max", Some(None)),
           cursor.decodeAs[Option[Code]]("name", Some(None)),
           cursor.decodeAs[ALL_TYPES]("type", None),
           cursor.decodeAs[Option[Canonical]]("profile", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("documentation", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("documentation", Some(None)),
           decodeAttributes(cursor)
         )
       ))
@@ -150,12 +150,12 @@ class ParameterDefinition(
     override val id: Option[String] = None,
     val use: OPERATION_PARAMETER_USE,
     val min: Option[Int] = None,
-    val max: Option[String] = None,
+    val max: Option[FHIRString] = None,
     val name: Option[Code] = None,
     val `type`: ALL_TYPES,
     val profile: Option[Canonical] = None,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val documentation: Option[String] = None,
+    val documentation: Option[FHIRString] = None,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Element(id = id, extension = extension, primitiveAttributes = primitiveAttributes) {
   override val thisTypeName: String = "ParameterDefinition"

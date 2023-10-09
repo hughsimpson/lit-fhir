@@ -33,24 +33,24 @@ public interface AllergyIntoleranceBuilder extends DomainResourceBuilder {
     return new Impl(patient.build());
   }
 
-  public static Choice01474038381 onset(Age a) {
-    return new Choice01474038381(a);
+  public static Choice_0461247536 onset(Age a) {
+    return new Choice_0461247536(a);
   }
 
-  public static Choice01474038381 onset(FHIRDateTime f) {
-    return new Choice01474038381(f);
+  public static Choice_0461247536 onset(FHIRDateTime f) {
+    return new Choice_0461247536(f);
   }
 
-  public static Choice01474038381 onset(Period p) {
-    return new Choice01474038381(p);
+  public static Choice_0461247536 onset(String s) {
+    return new Choice_0461247536(s);
   }
 
-  public static Choice01474038381 onset(Range r) {
-    return new Choice01474038381(r);
+  public static Choice_0461247536 onset(Period p) {
+    return new Choice_0461247536(p);
   }
 
-  public static Choice01474038381 onset(String s) {
-    return new Choice01474038381(s);
+  public static Choice_0461247536 onset(Range r) {
+    return new Choice_0461247536(r);
   }
 
   public class Impl implements AllergyIntoleranceBuilder {
@@ -63,7 +63,7 @@ public interface AllergyIntoleranceBuilder extends DomainResourceBuilder {
     private Reference patient;
     private Optional<LANGUAGES> language = Optional.empty();
     private Collection<ALLERGY_INTOLERANCE_CATEGORY> category = Collections.emptyList();
-    private Optional<Choice01474038381> onset = Optional.empty();
+    private Optional<Choice_0461247536> onset = Optional.empty();
     private Optional<Reference> recorder = Optional.empty();
     private Optional<Reference> asserter = Optional.empty();
     private Collection<Resource> contained = Collections.emptyList();
@@ -199,11 +199,11 @@ public interface AllergyIntoleranceBuilder extends DomainResourceBuilder {
     }
     /**
      * @param onset - Estimated or actual date, date-time, or age when allergy or intolerance was
-     *     identified. Field is a 'choice' field. Type should be one of Age, FHIRDateTime, Period,
-     *     Range, String. To pass the value in, wrap with one of the AllergyIntoleranceBuilder.onset
+     *     identified. Field is a 'choice' field. Type should be one of Age, FHIRDateTime, String,
+     *     Period, Range. To pass the value in, wrap with one of the AllergyIntoleranceBuilder.onset
      *     static methods
      */
-    public AllergyIntoleranceBuilder.Impl withOnset(@NonNull Choice01474038381 onset) {
+    public AllergyIntoleranceBuilder.Impl withOnset(@NonNull Choice_0461247536 onset) {
       this.onset = Optional.of(onset);
       return this;
     }

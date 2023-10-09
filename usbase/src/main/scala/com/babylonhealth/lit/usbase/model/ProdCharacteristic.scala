@@ -35,12 +35,12 @@ object ProdCharacteristic extends CompanionFor[ProdCharacteristic] {
       id: Option[String] = None,
       width: Option[Quantity] = None,
       depth: Option[Quantity] = None,
-      shape: Option[String] = None,
-      color: LitSeq[String] = LitSeq.empty,
+      shape: Option[FHIRString] = None,
+      color: LitSeq[FHIRString] = LitSeq.empty,
       image: LitSeq[Attachment] = LitSeq.empty,
       height: Option[Quantity] = None,
       weight: Option[Quantity] = None,
-      imprint: LitSeq[String] = LitSeq.empty,
+      imprint: LitSeq[FHIRString] = LitSeq.empty,
       scoring: Option[CodeableConcept] = None,
       extension: LitSeq[Extension] = LitSeq.empty,
       nominalVolume: Option[Quantity] = None,
@@ -70,18 +70,18 @@ object ProdCharacteristic extends CompanionFor[ProdCharacteristic] {
     FHIRComponentFieldMeta("width", lTagOf[Option[Quantity]], false, lTagOf[Quantity])
   val depth: FHIRComponentFieldMeta[Option[Quantity]] =
     FHIRComponentFieldMeta("depth", lTagOf[Option[Quantity]], false, lTagOf[Quantity])
-  val shape: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("shape", lTagOf[Option[String]], false, lTagOf[String])
-  val color: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("color", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val shape: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("shape", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val color: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("color", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val image: FHIRComponentFieldMeta[LitSeq[Attachment]] =
     FHIRComponentFieldMeta("image", lTagOf[LitSeq[Attachment]], false, lTagOf[Attachment])
   val height: FHIRComponentFieldMeta[Option[Quantity]] =
     FHIRComponentFieldMeta("height", lTagOf[Option[Quantity]], false, lTagOf[Quantity])
   val weight: FHIRComponentFieldMeta[Option[Quantity]] =
     FHIRComponentFieldMeta("weight", lTagOf[Option[Quantity]], false, lTagOf[Quantity])
-  val imprint: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("imprint", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val imprint: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("imprint", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val scoring: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("scoring", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -112,12 +112,12 @@ object ProdCharacteristic extends CompanionFor[ProdCharacteristic] {
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[Quantity]](width, t.width),
     FHIRComponentField[Option[Quantity]](depth, t.depth),
-    FHIRComponentField[Option[String]](shape, t.shape),
-    FHIRComponentField[LitSeq[String]](color, t.color),
+    FHIRComponentField[Option[FHIRString]](shape, t.shape),
+    FHIRComponentField[LitSeq[FHIRString]](color, t.color),
     FHIRComponentField[LitSeq[Attachment]](image, t.image),
     FHIRComponentField[Option[Quantity]](height, t.height),
     FHIRComponentField[Option[Quantity]](weight, t.weight),
-    FHIRComponentField[LitSeq[String]](imprint, t.imprint),
+    FHIRComponentField[LitSeq[FHIRString]](imprint, t.imprint),
     FHIRComponentField[Option[CodeableConcept]](scoring, t.scoring),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[Quantity]](nominalVolume, t.nominalVolume),
@@ -127,12 +127,12 @@ object ProdCharacteristic extends CompanionFor[ProdCharacteristic] {
   def extractId(t: ProdCharacteristic): Option[String]                   = t.id
   def extractWidth(t: ProdCharacteristic): Option[Quantity]              = t.width
   def extractDepth(t: ProdCharacteristic): Option[Quantity]              = t.depth
-  def extractShape(t: ProdCharacteristic): Option[String]                = t.shape
-  def extractColor(t: ProdCharacteristic): LitSeq[String]                = t.color
+  def extractShape(t: ProdCharacteristic): Option[FHIRString]            = t.shape
+  def extractColor(t: ProdCharacteristic): LitSeq[FHIRString]            = t.color
   def extractImage(t: ProdCharacteristic): LitSeq[Attachment]            = t.image
   def extractHeight(t: ProdCharacteristic): Option[Quantity]             = t.height
   def extractWeight(t: ProdCharacteristic): Option[Quantity]             = t.weight
-  def extractImprint(t: ProdCharacteristic): LitSeq[String]              = t.imprint
+  def extractImprint(t: ProdCharacteristic): LitSeq[FHIRString]          = t.imprint
   def extractScoring(t: ProdCharacteristic): Option[CodeableConcept]     = t.scoring
   def extractExtension(t: ProdCharacteristic): LitSeq[Extension]         = t.extension
   def extractNominalVolume(t: ProdCharacteristic): Option[Quantity]      = t.nominalVolume
@@ -140,7 +140,7 @@ object ProdCharacteristic extends CompanionFor[ProdCharacteristic] {
   def extractModifierExtension(t: ProdCharacteristic): LitSeq[Extension] = t.modifierExtension
   override val thisName: String                                          = "ProdCharacteristic"
   def unapply(
-      o: ProdCharacteristic): Option[(Option[String], Option[Quantity], Option[Quantity], Option[String], LitSeq[String], LitSeq[Attachment], Option[Quantity], Option[Quantity], LitSeq[String], Option[CodeableConcept], LitSeq[Extension], Option[Quantity], Option[Quantity], LitSeq[Extension])] =
+      o: ProdCharacteristic): Option[(Option[String], Option[Quantity], Option[Quantity], Option[FHIRString], LitSeq[FHIRString], LitSeq[Attachment], Option[Quantity], Option[Quantity], LitSeq[FHIRString], Option[CodeableConcept], LitSeq[Extension], Option[Quantity], Option[Quantity], LitSeq[Extension])] =
     Some(
       (
         o.id,
@@ -164,12 +164,12 @@ object ProdCharacteristic extends CompanionFor[ProdCharacteristic] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[Quantity]]("width", Some(None)),
           cursor.decodeAs[Option[Quantity]]("depth", Some(None)),
-          cursor.decodeAs[Option[String]]("shape", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("color", Some(LitSeq.empty)),
+          cursor.decodeAs[Option[FHIRString]]("shape", Some(None)),
+          cursor.decodeAs[LitSeq[FHIRString]]("color", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Attachment]]("image", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Quantity]]("height", Some(None)),
           cursor.decodeAs[Option[Quantity]]("weight", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("imprint", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("imprint", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CodeableConcept]]("scoring", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Quantity]]("nominalVolume", Some(None)),
@@ -248,12 +248,12 @@ class ProdCharacteristic(
     override val id: Option[String] = None,
     val width: Option[Quantity] = None,
     val depth: Option[Quantity] = None,
-    val shape: Option[String] = None,
-    val color: LitSeq[String] = LitSeq.empty,
+    val shape: Option[FHIRString] = None,
+    val color: LitSeq[FHIRString] = LitSeq.empty,
     val image: LitSeq[Attachment] = LitSeq.empty,
     val height: Option[Quantity] = None,
     val weight: Option[Quantity] = None,
-    val imprint: LitSeq[String] = LitSeq.empty,
+    val imprint: LitSeq[FHIRString] = LitSeq.empty,
     val scoring: Option[CodeableConcept] = None,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val nominalVolume: Option[Quantity] = None,

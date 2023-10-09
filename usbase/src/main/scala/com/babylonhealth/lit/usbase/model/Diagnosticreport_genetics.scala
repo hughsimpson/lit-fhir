@@ -52,7 +52,7 @@ object Diagnosticreport_genetics extends CompanionFor[Diagnosticreport_genetics]
       encounter: Option[Reference] = None,
       performer: LitSeq[Reference] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      conclusion: Option[String] = None,
+      conclusion: Option[FHIRString] = None,
       effective: Option[Diagnosticreport_genetics.EffectiveChoice] = None,
       imagingStudy: LitSeq[Reference] = LitSeq.empty,
       implicitRules: Option[UriStr] = None,
@@ -123,8 +123,8 @@ object Diagnosticreport_genetics extends CompanionFor[Diagnosticreport_genetics]
     FHIRComponentFieldMeta("performer", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val conclusion: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("conclusion", lTagOf[Option[String]], false, lTagOf[String])
+  val conclusion: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("conclusion", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val effective: FHIRComponentFieldMeta[Option[Diagnosticreport_genetics.EffectiveChoice]] =
     FHIRComponentFieldMeta(
       "effective",
@@ -189,7 +189,7 @@ object Diagnosticreport_genetics extends CompanionFor[Diagnosticreport_genetics]
       FHIRComponentField[Option[Reference]](encounter, t.encounter),
       FHIRComponentField[LitSeq[Reference]](performer, t.performer),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-      FHIRComponentField[Option[String]](conclusion, t.conclusion),
+      FHIRComponentField[Option[FHIRString]](conclusion, t.conclusion),
       FHIRComponentField[Option[Diagnosticreport_genetics.EffectiveChoice]](effective, t.effective),
       FHIRComponentField[LitSeq[Reference]](imagingStudy, t.imagingStudy),
       FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
@@ -216,7 +216,7 @@ object Diagnosticreport_genetics extends CompanionFor[Diagnosticreport_genetics]
   def extractEncounter(t: Diagnosticreport_genetics): Option[Reference]                                 = t.encounter
   def extractPerformer(t: Diagnosticreport_genetics): LitSeq[Reference]                                 = t.performer
   def extractIdentifier(t: Diagnosticreport_genetics): LitSeq[Identifier]                               = t.identifier
-  def extractConclusion(t: Diagnosticreport_genetics): Option[String]                                   = t.conclusion
+  def extractConclusion(t: Diagnosticreport_genetics): Option[FHIRString]                               = t.conclusion
   def extractEffective(t: Diagnosticreport_genetics): Option[Diagnosticreport_genetics.EffectiveChoice] = t.effective
   def extractImagingStudy(t: Diagnosticreport_genetics): LitSeq[Reference]                              = t.imagingStudy
   def extractImplicitRules(t: Diagnosticreport_genetics): Option[UriStr]                                = t.implicitRules
@@ -247,7 +247,7 @@ object Diagnosticreport_genetics extends CompanionFor[Diagnosticreport_genetics]
           cursor.decodeAs[Option[Reference]]("encounter", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("performer", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("conclusion", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("conclusion", Some(None)),
           cursor.decodeOptRef[UnionDateTimeOrPeriod]("effective"),
           cursor.decodeAs[LitSeq[Reference]]("imagingStudy", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
@@ -362,7 +362,7 @@ class Diagnosticreport_genetics(
     override val encounter: Option[Reference] = None,
     override val performer: LitSeq[Reference] = LitSeq.empty,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
-    override val conclusion: Option[String] = None,
+    override val conclusion: Option[FHIRString] = None,
     override val effective: Option[Diagnosticreport_genetics.EffectiveChoice] = None,
     override val imagingStudy: LitSeq[Reference] = LitSeq.empty,
     override val implicitRules: Option[UriStr] = None,

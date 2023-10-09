@@ -181,8 +181,8 @@ object Coverage extends CompanionFor[Coverage] {
     def apply(
         id: Option[String] = None,
         `type`: CodeableConcept,
-        name: Option[String] = None,
-        value: String,
+        name: Option[FHIRString] = None,
+        value: FHIRString,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -196,16 +196,16 @@ object Coverage extends CompanionFor[Coverage] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Class): Option[(Option[String], CodeableConcept, Option[String], String, LitSeq[Extension], LitSeq[Extension])] = Some(
-      (o.id, o.`type`, o.name, o.value, o.extension, o.modifierExtension))
+        o: Class): Option[(Option[String], CodeableConcept, Option[FHIRString], FHIRString, LitSeq[Extension], LitSeq[Extension])] =
+      Some((o.id, o.`type`, o.name, o.value, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val `type`: FHIRComponentFieldMeta[CodeableConcept] =
       FHIRComponentFieldMeta("type", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
-    val value: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("value", lTagOf[String], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val value: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("value", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -215,8 +215,8 @@ object Coverage extends CompanionFor[Coverage] {
     override def fields(t: Class): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[CodeableConcept](`type`, t.`type`),
-      FHIRComponentField[Option[String]](name, t.name),
-      FHIRComponentField[String](value, t.value),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
+      FHIRComponentField[FHIRString](value, t.value),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -228,8 +228,8 @@ object Coverage extends CompanionFor[Coverage] {
           new Class(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[CodeableConcept]("type", None),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
-            cursor.decodeAs[String]("value", None),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
+            cursor.decodeAs[FHIRString]("value", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -240,8 +240,8 @@ object Coverage extends CompanionFor[Coverage] {
   class Class(
       override val id: Option[String] = None,
       val `type`: CodeableConcept,
-      val name: Option[String] = None,
-      val value: String,
+      val name: Option[FHIRString] = None,
+      val value: FHIRString,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -255,18 +255,18 @@ object Coverage extends CompanionFor[Coverage] {
       order: Option[PositiveInt] = None,
       status: FM_STATUS,
       period: Option[Period] = None,
-      network: Option[String] = None,
+      network: Option[FHIRString] = None,
       language: Option[LANGUAGES] = None,
       contract: LitSeq[Reference] = LitSeq.empty,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      dependent: Option[String] = None,
+      dependent: Option[FHIRString] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       subscriber: Option[Reference] = None,
       beneficiary: Reference,
       subrogation: Option[Boolean] = None,
       policyHolder: Option[Reference] = None,
-      subscriberId: Option[String] = None,
+      subscriberId: Option[FHIRString] = None,
       relationship: Option[CodeableConcept] = None,
       implicitRules: Option[UriStr] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -317,8 +317,8 @@ object Coverage extends CompanionFor[Coverage] {
     FHIRComponentFieldMeta("status", lTagOf[FM_STATUS], false, lTagOf[FM_STATUS])
   val period: FHIRComponentFieldMeta[Option[Period]] =
     FHIRComponentFieldMeta("period", lTagOf[Option[Period]], false, lTagOf[Period])
-  val network: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("network", lTagOf[Option[String]], false, lTagOf[String])
+  val network: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("network", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
   val contract: FHIRComponentFieldMeta[LitSeq[Reference]] =
@@ -327,8 +327,8 @@ object Coverage extends CompanionFor[Coverage] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val dependent: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("dependent", lTagOf[Option[String]], false, lTagOf[String])
+  val dependent: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("dependent", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
   val subscriber: FHIRComponentFieldMeta[Option[Reference]] =
@@ -339,8 +339,8 @@ object Coverage extends CompanionFor[Coverage] {
     FHIRComponentFieldMeta("subrogation", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
   val policyHolder: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("policyHolder", lTagOf[Option[Reference]], false, lTagOf[Reference])
-  val subscriberId: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("subscriberId", lTagOf[Option[String]], false, lTagOf[String])
+  val subscriberId: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("subscriberId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val relationship: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("relationship", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -392,18 +392,18 @@ object Coverage extends CompanionFor[Coverage] {
     FHIRComponentField[Option[PositiveInt]](order, t.order),
     FHIRComponentField[FM_STATUS](status, t.status),
     FHIRComponentField[Option[Period]](period, t.period),
-    FHIRComponentField[Option[String]](network, t.network),
+    FHIRComponentField[Option[FHIRString]](network, t.network),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Reference]](contract, t.contract),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](dependent, t.dependent),
+    FHIRComponentField[Option[FHIRString]](dependent, t.dependent),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[Option[Reference]](subscriber, t.subscriber),
     FHIRComponentField[Reference](beneficiary, t.beneficiary),
     FHIRComponentField[Option[Boolean]](subrogation, t.subrogation),
     FHIRComponentField[Option[Reference]](policyHolder, t.policyHolder),
-    FHIRComponentField[Option[String]](subscriberId, t.subscriberId),
+    FHIRComponentField[Option[FHIRString]](subscriberId, t.subscriberId),
     FHIRComponentField[Option[CodeableConcept]](relationship, t.relationship),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -418,18 +418,18 @@ object Coverage extends CompanionFor[Coverage] {
   def extractOrder(t: Coverage): Option[PositiveInt]                            = t.order
   def extractStatus(t: Coverage): FM_STATUS                                     = t.status
   def extractPeriod(t: Coverage): Option[Period]                                = t.period
-  def extractNetwork(t: Coverage): Option[String]                               = t.network
+  def extractNetwork(t: Coverage): Option[FHIRString]                           = t.network
   def extractLanguage(t: Coverage): Option[LANGUAGES]                           = t.language
   def extractContract(t: Coverage): LitSeq[Reference]                           = t.contract
   def extractContained(t: Coverage): LitSeq[Resource]                           = t.contained
   def extractExtension(t: Coverage): LitSeq[Extension]                          = t.extension
-  def extractDependent(t: Coverage): Option[String]                             = t.dependent
+  def extractDependent(t: Coverage): Option[FHIRString]                         = t.dependent
   def extractIdentifier(t: Coverage): LitSeq[Identifier]                        = t.identifier
   def extractSubscriber(t: Coverage): Option[Reference]                         = t.subscriber
   def extractBeneficiary(t: Coverage): Reference                                = t.beneficiary
   def extractSubrogation(t: Coverage): Option[Boolean]                          = t.subrogation
   def extractPolicyHolder(t: Coverage): Option[Reference]                       = t.policyHolder
-  def extractSubscriberId(t: Coverage): Option[String]                          = t.subscriberId
+  def extractSubscriberId(t: Coverage): Option[FHIRString]                      = t.subscriberId
   def extractRelationship(t: Coverage): Option[CodeableConcept]                 = t.relationship
   def extractImplicitRules(t: Coverage): Option[UriStr]                         = t.implicitRules
   def extractModifierExtension(t: Coverage): LitSeq[Extension]                  = t.modifierExtension
@@ -461,18 +461,18 @@ object Coverage extends CompanionFor[Coverage] {
           cursor.decodeAs[Option[PositiveInt]]("order", Some(None)),
           cursor.decodeAs[FM_STATUS]("status", None),
           cursor.decodeAs[Option[Period]]("period", Some(None)),
-          cursor.decodeAs[Option[String]]("network", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("network", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("contract", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("dependent", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("dependent", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("subscriber", Some(None)),
           cursor.decodeAs[Reference]("beneficiary", None),
           cursor.decodeAs[Option[Boolean]]("subrogation", Some(None)),
           cursor.decodeAs[Option[Reference]]("policyHolder", Some(None)),
-          cursor.decodeAs[Option[String]]("subscriberId", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("subscriberId", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("relationship", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -577,18 +577,18 @@ class Coverage(
     val order: Option[PositiveInt] = None,
     val status: FM_STATUS,
     val period: Option[Period] = None,
-    val network: Option[String] = None,
+    val network: Option[FHIRString] = None,
     override val language: Option[LANGUAGES] = None,
     val contract: LitSeq[Reference] = LitSeq.empty,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val dependent: Option[String] = None,
+    val dependent: Option[FHIRString] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val subscriber: Option[Reference] = None,
     val beneficiary: Reference,
     val subrogation: Option[Boolean] = None,
     val policyHolder: Option[Reference] = None,
-    val subscriberId: Option[String] = None,
+    val subscriberId: Option[FHIRString] = None,
     val relationship: Option[CodeableConcept] = None,
     override val implicitRules: Option[UriStr] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,

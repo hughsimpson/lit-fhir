@@ -34,8 +34,8 @@ object Expression extends CompanionFor[Expression] {
       language: EXPRESSION_LANGUAGE,
       extension: LitSeq[Extension] = LitSeq.empty,
       reference: Option[UriStr] = None,
-      expression: Option[String] = None,
-      description: Option[String] = None,
+      expression: Option[FHIRString] = None,
+      description: Option[FHIRString] = None,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Expression = new Expression(
     id,
@@ -57,10 +57,10 @@ object Expression extends CompanionFor[Expression] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val reference: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("reference", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
-  val expression: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("expression", lTagOf[Option[String]], false, lTagOf[String])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val expression: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("expression", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, name, language, extension, reference, expression, description)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
   override def fields(t: Expression): Seq[FHIRComponentField[_]] = Seq(
@@ -69,19 +69,19 @@ object Expression extends CompanionFor[Expression] {
     FHIRComponentField[EXPRESSION_LANGUAGE](language, t.language),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[UriStr]](reference, t.reference),
-    FHIRComponentField[Option[String]](expression, t.expression),
-    FHIRComponentField[Option[String]](description, t.description)
+    FHIRComponentField[Option[FHIRString]](expression, t.expression),
+    FHIRComponentField[Option[FHIRString]](description, t.description)
   )
-  def extractId(t: Expression): Option[String]            = t.id
-  def extractName(t: Expression): Option[Id]              = t.name
-  def extractLanguage(t: Expression): EXPRESSION_LANGUAGE = t.language
-  def extractExtension(t: Expression): LitSeq[Extension]  = t.extension
-  def extractReference(t: Expression): Option[UriStr]     = t.reference
-  def extractExpression(t: Expression): Option[String]    = t.expression
-  def extractDescription(t: Expression): Option[String]   = t.description
-  override val thisName: String                           = "Expression"
+  def extractId(t: Expression): Option[String]              = t.id
+  def extractName(t: Expression): Option[Id]                = t.name
+  def extractLanguage(t: Expression): EXPRESSION_LANGUAGE   = t.language
+  def extractExtension(t: Expression): LitSeq[Extension]    = t.extension
+  def extractReference(t: Expression): Option[UriStr]       = t.reference
+  def extractExpression(t: Expression): Option[FHIRString]  = t.expression
+  def extractDescription(t: Expression): Option[FHIRString] = t.description
+  override val thisName: String                             = "Expression"
   def unapply(
-      o: Expression): Option[(Option[String], Option[Id], EXPRESSION_LANGUAGE, LitSeq[Extension], Option[UriStr], Option[String], Option[String])] =
+      o: Expression): Option[(Option[String], Option[Id], EXPRESSION_LANGUAGE, LitSeq[Extension], Option[UriStr], Option[FHIRString], Option[FHIRString])] =
     Some((o.id, o.name, o.language, o.extension, o.reference, o.expression, o.description))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Expression] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -92,8 +92,8 @@ object Expression extends CompanionFor[Expression] {
           cursor.decodeAs[EXPRESSION_LANGUAGE]("language", None),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UriStr]]("reference", Some(None)),
-          cursor.decodeAs[Option[String]]("expression", Some(None)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("expression", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           decodeAttributes(cursor)
         )
       ))
@@ -134,8 +134,8 @@ class Expression(
     val language: EXPRESSION_LANGUAGE,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val reference: Option[UriStr] = None,
-    val expression: Option[String] = None,
-    val description: Option[String] = None,
+    val expression: Option[FHIRString] = None,
+    val description: Option[FHIRString] = None,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Element(id = id, extension = extension, primitiveAttributes = primitiveAttributes) {
   override val thisTypeName: String = "Expression"

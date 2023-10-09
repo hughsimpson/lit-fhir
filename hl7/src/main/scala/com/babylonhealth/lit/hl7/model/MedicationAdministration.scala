@@ -108,7 +108,7 @@ object MedicationAdministration extends CompanionFor[MedicationAdministration] {
     type RateChoice = Choice[UnionQuantityOrRatio]
     def apply(
         id: Option[String] = None,
-        text: Option[String] = None,
+        text: Option[FHIRString] = None,
         site: Option[CodeableConcept] = None,
         dose: Option[Quantity] = None,
         route: Option[CodeableConcept] = None,
@@ -130,12 +130,12 @@ object MedicationAdministration extends CompanionFor[MedicationAdministration] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Dosage): Option[(Option[String], Option[String], Option[CodeableConcept], Option[Quantity], Option[CodeableConcept], Option[CodeableConcept], Option[Dosage.RateChoice], LitSeq[Extension], LitSeq[Extension])] =
+        o: Dosage): Option[(Option[String], Option[FHIRString], Option[CodeableConcept], Option[Quantity], Option[CodeableConcept], Option[CodeableConcept], Option[Dosage.RateChoice], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.text, o.site, o.dose, o.route, o.method, o.rate, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val text: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+    val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val site: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("site", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val dose: FHIRComponentFieldMeta[Option[Quantity]] =
@@ -154,7 +154,7 @@ object MedicationAdministration extends CompanionFor[MedicationAdministration] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Dosage): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](text, t.text),
+      FHIRComponentField[Option[FHIRString]](text, t.text),
       FHIRComponentField[Option[CodeableConcept]](site, t.site),
       FHIRComponentField[Option[Quantity]](dose, t.dose),
       FHIRComponentField[Option[CodeableConcept]](route, t.route),
@@ -170,7 +170,7 @@ object MedicationAdministration extends CompanionFor[MedicationAdministration] {
         Try(
           new Dosage(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("text", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("site", Some(None)),
             cursor.decodeAs[Option[Quantity]]("dose", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("route", Some(None)),
@@ -185,7 +185,7 @@ object MedicationAdministration extends CompanionFor[MedicationAdministration] {
   @POJOBoilerplate
   class Dosage(
       override val id: Option[String] = None,
-      val text: Option[String] = None,
+      val text: Option[FHIRString] = None,
       val site: Option[CodeableConcept] = None,
       val dose: Option[Quantity] = None,
       val route: Option[CodeableConcept] = None,

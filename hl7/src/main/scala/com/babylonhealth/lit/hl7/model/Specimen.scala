@@ -44,7 +44,7 @@ object Specimen extends CompanionFor[Specimen] {
         additive: LitSeq[Reference] = LitSeq.empty,
         extension: LitSeq[Extension] = LitSeq.empty,
         procedure: Option[CodeableConcept] = None,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Processing = new Processing(
@@ -58,7 +58,7 @@ object Specimen extends CompanionFor[Specimen] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Processing): Option[(Option[String], Option[Processing.TimeChoice], LitSeq[Reference], LitSeq[Extension], Option[CodeableConcept], Option[String], LitSeq[Extension])] =
+        o: Processing): Option[(Option[String], Option[Processing.TimeChoice], LitSeq[Reference], LitSeq[Extension], Option[CodeableConcept], Option[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.time, o.additive, o.extension, o.procedure, o.description, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -70,8 +70,8 @@ object Specimen extends CompanionFor[Specimen] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val procedure: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("procedure", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, time, additive, extension, procedure, description, modifierExtension)
@@ -82,7 +82,7 @@ object Specimen extends CompanionFor[Specimen] {
       FHIRComponentField[LitSeq[Reference]](additive, t.additive),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[CodeableConcept]](procedure, t.procedure),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Processing] = this
@@ -96,7 +96,7 @@ object Specimen extends CompanionFor[Specimen] {
             cursor.decodeAs[LitSeq[Reference]]("additive", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("procedure", Some(None)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -109,7 +109,7 @@ object Specimen extends CompanionFor[Specimen] {
       val additive: LitSeq[Reference] = LitSeq.empty,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val procedure: Option[CodeableConcept] = None,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -246,7 +246,7 @@ object Specimen extends CompanionFor[Specimen] {
         capacity: Option[Quantity] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         identifier: LitSeq[Identifier] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         additive: Option[Container.AdditiveChoice] = None,
         specimenQuantity: Option[Quantity] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -264,7 +264,7 @@ object Specimen extends CompanionFor[Specimen] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Container): Option[(Option[String], Option[CodeableConcept], Option[Quantity], LitSeq[Extension], LitSeq[Identifier], Option[String], Option[Container.AdditiveChoice], Option[Quantity], LitSeq[Extension])] =
+        o: Container): Option[(Option[String], Option[CodeableConcept], Option[Quantity], LitSeq[Extension], LitSeq[Identifier], Option[FHIRString], Option[Container.AdditiveChoice], Option[Quantity], LitSeq[Extension])] =
       Some(
         (
           o.id,
@@ -286,8 +286,8 @@ object Specimen extends CompanionFor[Specimen] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
       FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val additive: FHIRComponentFieldMeta[Option[Container.AdditiveChoice]] =
       FHIRComponentFieldMeta("additive", lTagOf[Option[Container.AdditiveChoice]], true, lTagOf[UnionCodeableConceptOrReference])
     val specimenQuantity: FHIRComponentFieldMeta[Option[Quantity]] =
@@ -303,7 +303,7 @@ object Specimen extends CompanionFor[Specimen] {
       FHIRComponentField[Option[Quantity]](capacity, t.capacity),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[Option[Container.AdditiveChoice]](additive, t.additive),
       FHIRComponentField[Option[Quantity]](specimenQuantity, t.specimenQuantity),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -319,7 +319,7 @@ object Specimen extends CompanionFor[Specimen] {
             cursor.decodeAs[Option[Quantity]]("capacity", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeOptRef[UnionCodeableConceptOrReference]("additive"),
             cursor.decodeAs[Option[Quantity]]("specimenQuantity", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -334,7 +334,7 @@ object Specimen extends CompanionFor[Specimen] {
       val capacity: Option[Quantity] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val identifier: LitSeq[Identifier] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       val additive: Option[Container.AdditiveChoice] = None,
       val specimenQuantity: Option[Quantity] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,

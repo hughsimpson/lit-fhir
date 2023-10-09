@@ -111,8 +111,8 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       override val parentType: CompanionFor[ResourceType] = ReferencedFrom
       def apply(
           id: Option[String] = None,
-          source: String,
-          sourceId: Option[String] = None,
+          source: FHIRString,
+          sourceId: Option[FHIRString] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -124,14 +124,15 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
         modifierExtension,
         primitiveAttributes = primitiveAttributes
       )
-      def unapply(o: ReferencedFrom): Option[(Option[String], String, Option[String], LitSeq[Extension], LitSeq[Extension])] =
+      def unapply(
+          o: ReferencedFrom): Option[(Option[String], FHIRString, Option[FHIRString], LitSeq[Extension], LitSeq[Extension])] =
         Some((o.id, o.source, o.sourceId, o.extension, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val source: FHIRComponentFieldMeta[String] =
-        FHIRComponentFieldMeta("source", lTagOf[String], false, lTagOf[String])
-      val sourceId: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("sourceId", lTagOf[Option[String]], false, lTagOf[String])
+      val source: FHIRComponentFieldMeta[FHIRString] =
+        FHIRComponentFieldMeta("source", lTagOf[FHIRString], false, lTagOf[FHIRString])
+      val sourceId: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("sourceId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -140,8 +141,8 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: ReferencedFrom): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[String](source, t.source),
-        FHIRComponentField[Option[String]](sourceId, t.sourceId),
+        FHIRComponentField[FHIRString](source, t.source),
+        FHIRComponentField[Option[FHIRString]](sourceId, t.sourceId),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
       )
@@ -152,8 +153,8 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
           Try(
             new ReferencedFrom(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[String]("source", None),
-              cursor.decodeAs[Option[String]]("sourceId", Some(None)),
+              cursor.decodeAs[FHIRString]("source", None),
+              cursor.decodeAs[Option[FHIRString]]("sourceId", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
@@ -163,8 +164,8 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
     @POJOBoilerplate
     class ReferencedFrom(
         override val id: Option[String] = None,
-        val source: String,
-        val sourceId: Option[String] = None,
+        val source: FHIRString,
+        val sourceId: Option[FHIRString] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -173,13 +174,13 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
         id: Option[String] = None,
         use: OPERATION_PARAMETER_USE,
         min: Int,
-        max: String,
+        max: FHIRString,
         name: Code,
         `type`: Option[ALL_TYPES] = None,
         part: LitSeq[OperationDefinition.Parameter] = LitSeq.empty,
         extension: LitSeq[Extension] = LitSeq.empty,
         searchType: Option[SEARCH_PARAM_TYPE] = None,
-        documentation: Option[String] = None,
+        documentation: Option[FHIRString] = None,
         targetProfile: LitSeq[Canonical] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         binding: Option[Parameter.Binding] = None,
@@ -203,7 +204,7 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Parameter): Option[(Option[String], OPERATION_PARAMETER_USE, Int, String, Code, Option[ALL_TYPES], LitSeq[OperationDefinition.Parameter], LitSeq[Extension], Option[SEARCH_PARAM_TYPE], Option[String], LitSeq[Canonical], LitSeq[Extension], Option[Parameter.Binding], LitSeq[Parameter.ReferencedFrom])] =
+        o: Parameter): Option[(Option[String], OPERATION_PARAMETER_USE, Int, FHIRString, Code, Option[ALL_TYPES], LitSeq[OperationDefinition.Parameter], LitSeq[Extension], Option[SEARCH_PARAM_TYPE], Option[FHIRString], LitSeq[Canonical], LitSeq[Extension], Option[Parameter.Binding], LitSeq[Parameter.ReferencedFrom])] =
       Some(
         (
           o.id,
@@ -226,8 +227,8 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       FHIRComponentFieldMeta("use", lTagOf[OPERATION_PARAMETER_USE], false, lTagOf[OPERATION_PARAMETER_USE])
     val min: FHIRComponentFieldMeta[Int] =
       FHIRComponentFieldMeta("min", lTagOf[Int], false, lTagOf[Int])
-    val max: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("max", lTagOf[String], false, lTagOf[String])
+    val max: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("max", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val name: FHIRComponentFieldMeta[Code] =
       FHIRComponentFieldMeta("name", lTagOf[Code], false, lTagOf[Code])
     val `type`: FHIRComponentFieldMeta[Option[ALL_TYPES]] =
@@ -238,8 +239,8 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val searchType: FHIRComponentFieldMeta[Option[SEARCH_PARAM_TYPE]] =
       FHIRComponentFieldMeta("searchType", lTagOf[Option[SEARCH_PARAM_TYPE]], false, lTagOf[SEARCH_PARAM_TYPE])
-    val documentation: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("documentation", lTagOf[Option[String]], false, lTagOf[String])
+    val documentation: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("documentation", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val targetProfile: FHIRComponentFieldMeta[LitSeq[Canonical]] =
       FHIRComponentFieldMeta("targetProfile", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -268,13 +269,13 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[OPERATION_PARAMETER_USE](use, t.use),
       FHIRComponentField[Int](min, t.min),
-      FHIRComponentField[String](max, t.max),
+      FHIRComponentField[FHIRString](max, t.max),
       FHIRComponentField[Code](name, t.name),
       FHIRComponentField[Option[ALL_TYPES]](`type`, t.`type`),
       FHIRComponentField[LitSeq[OperationDefinition.Parameter]](part, t.part),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[SEARCH_PARAM_TYPE]](searchType, t.searchType),
-      FHIRComponentField[Option[String]](documentation, t.documentation),
+      FHIRComponentField[Option[FHIRString]](documentation, t.documentation),
       FHIRComponentField[LitSeq[Canonical]](targetProfile, t.targetProfile),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[Parameter.Binding]](binding, t.binding),
@@ -289,13 +290,13 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[OPERATION_PARAMETER_USE]("use", None),
             cursor.decodeAs[Int]("min", None),
-            cursor.decodeAs[String]("max", None),
+            cursor.decodeAs[FHIRString]("max", None),
             cursor.decodeAs[Code]("name", None),
             cursor.decodeAs[Option[ALL_TYPES]]("type", Some(None)),
             cursor.decodeAs[LitSeq[OperationDefinition.Parameter]]("part", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[SEARCH_PARAM_TYPE]]("searchType", Some(None)),
-            cursor.decodeAs[Option[String]]("documentation", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("documentation", Some(None)),
             cursor.decodeAs[LitSeq[Canonical]]("targetProfile", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Parameter.Binding]]("binding", Some(None)),
@@ -309,13 +310,13 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       override val id: Option[String] = None,
       val use: OPERATION_PARAMETER_USE,
       val min: Int,
-      val max: String,
+      val max: FHIRString,
       val name: Code,
       val `type`: Option[ALL_TYPES] = None,
       val part: LitSeq[OperationDefinition.Parameter] = LitSeq.empty,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val searchType: Option[SEARCH_PARAM_TYPE] = None,
-      val documentation: Option[String] = None,
+      val documentation: Option[FHIRString] = None,
       val targetProfile: LitSeq[Canonical] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val binding: Option[Parameter.Binding] = None,
@@ -330,9 +331,9 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
     override val parentType: CompanionFor[ResourceType] = Overload
     def apply(
         id: Option[String] = None,
-        comment: Option[String] = None,
+        comment: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        parameterName: LitSeq[String] = LitSeq.empty,
+        parameterName: LitSeq[FHIRString] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Overload = new Overload(
@@ -343,25 +344,26 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Overload): Option[(Option[String], Option[String], LitSeq[Extension], LitSeq[String], LitSeq[Extension])] =
+    def unapply(
+        o: Overload): Option[(Option[String], Option[FHIRString], LitSeq[Extension], LitSeq[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.comment, o.extension, o.parameterName, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val comment: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+    val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val parameterName: FHIRComponentFieldMeta[LitSeq[String]] =
-      FHIRComponentFieldMeta("parameterName", lTagOf[LitSeq[String]], false, lTagOf[String])
+    val parameterName: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+      FHIRComponentFieldMeta("parameterName", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, comment, extension, parameterName, modifierExtension)
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Overload): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](comment, t.comment),
+      FHIRComponentField[Option[FHIRString]](comment, t.comment),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[LitSeq[String]](parameterName, t.parameterName),
+      FHIRComponentField[LitSeq[FHIRString]](parameterName, t.parameterName),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Overload] = this
@@ -371,9 +373,9 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
         Try(
           new Overload(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("comment", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[LitSeq[String]]("parameterName", Some(LitSeq.empty)),
+            cursor.decodeAs[LitSeq[FHIRString]]("parameterName", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -382,9 +384,9 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
   @POJOBoilerplate
   class Overload(
       override val id: Option[String] = None,
-      val comment: Option[String] = None,
+      val comment: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val parameterName: LitSeq[String] = LitSeq.empty,
+      val parameterName: LitSeq[FHIRString] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -393,16 +395,16 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       kind: OPERATION_KIND,
       date: Option[FHIRDateTime] = None,
       code: Code,
       base: Option[Canonical] = None,
       `type`: Boolean,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       status: PUBLICATION_STATUS,
       system: Boolean,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       comment: Option[Markdown] = None,
@@ -411,7 +413,7 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
       instance: Boolean,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
       description: Option[Markdown] = None,
       experimental: Option[Boolean] = None,
@@ -469,8 +471,8 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val kind: FHIRComponentFieldMeta[OPERATION_KIND] =
     FHIRComponentFieldMeta("kind", lTagOf[OPERATION_KIND], false, lTagOf[OPERATION_KIND])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
@@ -481,14 +483,14 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
     FHIRComponentFieldMeta("base", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
   val `type`: FHIRComponentFieldMeta[Boolean] =
     FHIRComponentFieldMeta("type", lTagOf[Boolean], false, lTagOf[Boolean])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
   val system: FHIRComponentFieldMeta[Boolean] =
     FHIRComponentFieldMeta("system", lTagOf[Boolean], false, lTagOf[Boolean])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -505,8 +507,8 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val useContext: FHIRComponentFieldMeta[LitSeq[UsageContext]] =
     FHIRComponentFieldMeta("useContext", lTagOf[LitSeq[UsageContext]], false, lTagOf[UsageContext])
   val description: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -575,16 +577,16 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[String](name, t.name),
+    FHIRComponentField[FHIRString](name, t.name),
     FHIRComponentField[OPERATION_KIND](kind, t.kind),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[Code](code, t.code),
     FHIRComponentField[Option[Canonical]](base, t.base),
     FHIRComponentField[Boolean](`type`, t.`type`),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[Boolean](system, t.system),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[Option[Markdown]](comment, t.comment),
@@ -593,7 +595,7 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
     FHIRComponentField[Boolean](instance, t.instance),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
     FHIRComponentField[Option[Markdown]](description, t.description),
     FHIRComponentField[Option[Boolean]](experimental, t.experimental),
@@ -610,16 +612,16 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
   def extractUrl(t: OperationDefinition): Option[UriStr]                              = t.url
   def extractMeta(t: OperationDefinition): Option[Meta]                               = t.meta
   def extractText(t: OperationDefinition): Option[Narrative]                          = t.text
-  def extractName(t: OperationDefinition): String                                     = t.name
+  def extractName(t: OperationDefinition): FHIRString                                 = t.name
   def extractKind(t: OperationDefinition): OPERATION_KIND                             = t.kind
   def extractDate(t: OperationDefinition): Option[FHIRDateTime]                       = t.date
   def extractCode(t: OperationDefinition): Code                                       = t.code
   def extractBase(t: OperationDefinition): Option[Canonical]                          = t.base
   def extractType(t: OperationDefinition): Boolean                                    = t.`type`
-  def extractTitle(t: OperationDefinition): Option[String]                            = t.title
+  def extractTitle(t: OperationDefinition): Option[FHIRString]                        = t.title
   def extractStatus(t: OperationDefinition): PUBLICATION_STATUS                       = t.status
   def extractSystem(t: OperationDefinition): Boolean                                  = t.system
-  def extractVersion(t: OperationDefinition): Option[String]                          = t.version
+  def extractVersion(t: OperationDefinition): Option[FHIRString]                      = t.version
   def extractContact(t: OperationDefinition): LitSeq[ContactDetail]                   = t.contact
   def extractPurpose(t: OperationDefinition): Option[Markdown]                        = t.purpose
   def extractComment(t: OperationDefinition): Option[Markdown]                        = t.comment
@@ -628,7 +630,7 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
   def extractInstance(t: OperationDefinition): Boolean                                = t.instance
   def extractContained(t: OperationDefinition): LitSeq[Resource]                      = t.contained
   def extractExtension(t: OperationDefinition): LitSeq[Extension]                     = t.extension
-  def extractPublisher(t: OperationDefinition): Option[String]                        = t.publisher
+  def extractPublisher(t: OperationDefinition): Option[FHIRString]                    = t.publisher
   def extractUseContext(t: OperationDefinition): LitSeq[UsageContext]                 = t.useContext
   def extractDescription(t: OperationDefinition): Option[Markdown]                    = t.description
   def extractExperimental(t: OperationDefinition): Option[Boolean]                    = t.experimental
@@ -675,16 +677,16 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[OPERATION_KIND]("kind", None),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[Code]("code", None),
           cursor.decodeAs[Option[Canonical]]("base", Some(None)),
           cursor.decodeAs[Boolean]("type", None),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[Boolean]("system", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[Option[Markdown]]("comment", Some(None)),
@@ -693,7 +695,7 @@ object OperationDefinition extends CompanionFor[OperationDefinition] {
           cursor.decodeAs[Boolean]("instance", None),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("description", Some(None)),
           cursor.decodeAs[Option[Boolean]]("experimental", Some(None)),
@@ -826,16 +828,16 @@ class OperationDefinition(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: String,
+    val name: FHIRString,
     val kind: OPERATION_KIND,
     val date: Option[FHIRDateTime] = None,
     val code: Code,
     val base: Option[Canonical] = None,
     val `type`: Boolean,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val status: PUBLICATION_STATUS,
     val system: Boolean,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     val comment: Option[Markdown] = None,
@@ -844,7 +846,7 @@ class OperationDefinition(
     val instance: Boolean,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,
     val description: Option[Markdown] = None,
     val experimental: Option[Boolean] = None,

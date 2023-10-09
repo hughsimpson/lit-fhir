@@ -54,82 +54,6 @@ public class Unions {
     }
   }
 
-  public static class ChoiceCodeableConceptOrReference
-      extends Choice<$bslash$div<CodeableConcept, Reference>> {
-    public ChoiceCodeableConceptOrReference(CodeableConcept arg) {
-      super("CodeableConcept", arg, (LTag) UnionAliases.UnionCodeableConceptOrReferenceTag());
-    }
-
-    public ChoiceCodeableConceptOrReference(Reference arg) {
-      super("Reference", arg, (LTag) UnionAliases.UnionCodeableConceptOrReferenceTag());
-    }
-  }
-
-  public static class ChoiceDurationOrDateTimeOrPeriod
-      extends Choice<$bslash$div<$bslash$div<Duration, FHIRDateTime>, Period>> {
-    public ChoiceDurationOrDateTimeOrPeriod(Duration arg) {
-      super("Duration", arg, (LTag) UnionAliases.UnionDurationOrDateTimeOrPeriodTag());
-    }
-
-    public ChoiceDurationOrDateTimeOrPeriod(FHIRDateTime arg) {
-      super("DateTime", arg, (LTag) UnionAliases.UnionDurationOrDateTimeOrPeriodTag());
-    }
-
-    public ChoiceDurationOrDateTimeOrPeriod(Period arg) {
-      super("Period", arg, (LTag) UnionAliases.UnionDurationOrDateTimeOrPeriodTag());
-    }
-  }
-
-  public static class Choice_1548929031
-      extends Choice<
-          $bslash$div<$bslash$div<$bslash$div<CodeableConcept, Quantity>, Range>, Reference>> {
-    public Choice_1548929031(CodeableConcept arg) {
-      super("CodeableConcept", arg, (LTag) UnionAliases.Union_1548929031Tag());
-    }
-
-    public Choice_1548929031(Quantity arg) {
-      super("Quantity", arg, (LTag) UnionAliases.Union_1548929031Tag());
-    }
-
-    public Choice_1548929031(Range arg) {
-      super("Range", arg, (LTag) UnionAliases.Union_1548929031Tag());
-    }
-
-    public Choice_1548929031(Reference arg) {
-      super("Reference", arg, (LTag) UnionAliases.Union_1548929031Tag());
-    }
-  }
-
-  public static class ChoiceQuantityOrRangeOrRatio
-      extends Choice<$bslash$div<$bslash$div<Quantity, Range>, Ratio>> {
-    public ChoiceQuantityOrRangeOrRatio(Quantity arg) {
-      super("Quantity", arg, (LTag) UnionAliases.UnionQuantityOrRangeOrRatioTag());
-    }
-
-    public ChoiceQuantityOrRangeOrRatio(Range arg) {
-      super("Range", arg, (LTag) UnionAliases.UnionQuantityOrRangeOrRatioTag());
-    }
-
-    public ChoiceQuantityOrRangeOrRatio(Ratio arg) {
-      super("Ratio", arg, (LTag) UnionAliases.UnionQuantityOrRangeOrRatioTag());
-    }
-  }
-
-  public static class ChoiceDurationOrPeriodOrRange
-      extends Choice<$bslash$div<$bslash$div<Duration, Period>, Range>> {
-    public ChoiceDurationOrPeriodOrRange(Duration arg) {
-      super("Duration", arg, (LTag) UnionAliases.UnionDurationOrPeriodOrRangeTag());
-    }
-
-    public ChoiceDurationOrPeriodOrRange(Period arg) {
-      super("Period", arg, (LTag) UnionAliases.UnionDurationOrPeriodOrRangeTag());
-    }
-
-    public ChoiceDurationOrPeriodOrRange(Range arg) {
-      super("Range", arg, (LTag) UnionAliases.UnionDurationOrPeriodOrRangeTag());
-    }
-  }
-
   public static class ChoiceAll
       extends Choice<
           $bslash$div<
@@ -204,26 +128,26 @@ public class Unions {
                                                                                                                                       Expression>,
                                                                                                                                   FHIRDate>,
                                                                                                                               FHIRDateTime>,
-                                                                                                                          HumanName>,
-                                                                                                                      String>,
-                                                                                                                  Identifier>,
-                                                                                                              Integer>,
-                                                                                                          LocalTime>,
-                                                                                                      String>,
-                                                                                                  Meta>,
-                                                                                              Money>,
-                                                                                          String>,
-                                                                                      ParameterDefinition>,
-                                                                                  Period>,
-                                                                              Integer>,
-                                                                          Quantity>,
-                                                                      Range>,
-                                                                  Ratio>,
-                                                              Reference>,
-                                                          RelatedArtifact>,
-                                                      SampledData>,
-                                                  Signature>,
-                                              String>,
+                                                                                                                          String>,
+                                                                                                                      HumanName>,
+                                                                                                                  String>,
+                                                                                                              Identifier>,
+                                                                                                          Integer>,
+                                                                                                      LocalTime>,
+                                                                                                  String>,
+                                                                                              Meta>,
+                                                                                          Money>,
+                                                                                      String>,
+                                                                                  ParameterDefinition>,
+                                                                              Period>,
+                                                                          Integer>,
+                                                                      Quantity>,
+                                                                  Range>,
+                                                              Ratio>,
+                                                          Reference>,
+                                                      RelatedArtifact>,
+                                                  SampledData>,
+                                              Signature>,
                                           Timing>,
                                       TriggerDefinition>,
                                   UUID>,
@@ -404,6 +328,10 @@ public class Unions {
       return new ChoiceAll("Code", arg);
     }
 
+    public static ChoiceAll ChoiceAllFHIRString(String arg) {
+      return new ChoiceAll("FHIRString", arg);
+    }
+
     public static ChoiceAll ChoiceAllId(String arg) {
       return new ChoiceAll("Id", arg);
     }
@@ -424,10 +352,6 @@ public class Unions {
       return new ChoiceAll("PositiveInt", arg);
     }
 
-    public static ChoiceAll ChoiceAllString(String arg) {
-      return new ChoiceAll("String", arg);
-    }
-
     public static ChoiceAll ChoiceAllUnsignedInt(Integer arg) {
       return new ChoiceAll("UnsignedInt", arg);
     }
@@ -441,13 +365,89 @@ public class Unions {
     }
   }
 
-  public static class ChoiceReferenceOrString extends Choice<$bslash$div<Reference, String>> {
-    public ChoiceReferenceOrString(Reference arg) {
-      super("Reference", arg, (LTag) UnionAliases.UnionReferenceOrStringTag());
+  public static class ChoiceCodeableConceptOrReference
+      extends Choice<$bslash$div<CodeableConcept, Reference>> {
+    public ChoiceCodeableConceptOrReference(CodeableConcept arg) {
+      super("CodeableConcept", arg, (LTag) UnionAliases.UnionCodeableConceptOrReferenceTag());
     }
 
-    public ChoiceReferenceOrString(String arg) {
-      super("String", arg, (LTag) UnionAliases.UnionReferenceOrStringTag());
+    public ChoiceCodeableConceptOrReference(Reference arg) {
+      super("Reference", arg, (LTag) UnionAliases.UnionCodeableConceptOrReferenceTag());
+    }
+  }
+
+  public static class ChoiceDurationOrDateTimeOrPeriod
+      extends Choice<$bslash$div<$bslash$div<Duration, FHIRDateTime>, Period>> {
+    public ChoiceDurationOrDateTimeOrPeriod(Duration arg) {
+      super("Duration", arg, (LTag) UnionAliases.UnionDurationOrDateTimeOrPeriodTag());
+    }
+
+    public ChoiceDurationOrDateTimeOrPeriod(FHIRDateTime arg) {
+      super("DateTime", arg, (LTag) UnionAliases.UnionDurationOrDateTimeOrPeriodTag());
+    }
+
+    public ChoiceDurationOrDateTimeOrPeriod(Period arg) {
+      super("Period", arg, (LTag) UnionAliases.UnionDurationOrDateTimeOrPeriodTag());
+    }
+  }
+
+  public static class ChoiceFHIRStringOrReference extends Choice<$bslash$div<String, Reference>> {
+    public ChoiceFHIRStringOrReference(String arg) {
+      super("FHIRString", arg, (LTag) UnionAliases.UnionFHIRStringOrReferenceTag());
+    }
+
+    public ChoiceFHIRStringOrReference(Reference arg) {
+      super("Reference", arg, (LTag) UnionAliases.UnionFHIRStringOrReferenceTag());
+    }
+  }
+
+  public static class Choice_1548929031
+      extends Choice<
+          $bslash$div<$bslash$div<$bslash$div<CodeableConcept, Quantity>, Range>, Reference>> {
+    public Choice_1548929031(CodeableConcept arg) {
+      super("CodeableConcept", arg, (LTag) UnionAliases.Union_1548929031Tag());
+    }
+
+    public Choice_1548929031(Quantity arg) {
+      super("Quantity", arg, (LTag) UnionAliases.Union_1548929031Tag());
+    }
+
+    public Choice_1548929031(Range arg) {
+      super("Range", arg, (LTag) UnionAliases.Union_1548929031Tag());
+    }
+
+    public Choice_1548929031(Reference arg) {
+      super("Reference", arg, (LTag) UnionAliases.Union_1548929031Tag());
+    }
+  }
+
+  public static class ChoiceQuantityOrRangeOrRatio
+      extends Choice<$bslash$div<$bslash$div<Quantity, Range>, Ratio>> {
+    public ChoiceQuantityOrRangeOrRatio(Quantity arg) {
+      super("Quantity", arg, (LTag) UnionAliases.UnionQuantityOrRangeOrRatioTag());
+    }
+
+    public ChoiceQuantityOrRangeOrRatio(Range arg) {
+      super("Range", arg, (LTag) UnionAliases.UnionQuantityOrRangeOrRatioTag());
+    }
+
+    public ChoiceQuantityOrRangeOrRatio(Ratio arg) {
+      super("Ratio", arg, (LTag) UnionAliases.UnionQuantityOrRangeOrRatioTag());
+    }
+  }
+
+  public static class ChoiceDurationOrPeriodOrRange
+      extends Choice<$bslash$div<$bslash$div<Duration, Period>, Range>> {
+    public ChoiceDurationOrPeriodOrRange(Duration arg) {
+      super("Duration", arg, (LTag) UnionAliases.UnionDurationOrPeriodOrRangeTag());
+    }
+
+    public ChoiceDurationOrPeriodOrRange(Period arg) {
+      super("Period", arg, (LTag) UnionAliases.UnionDurationOrPeriodOrRangeTag());
+    }
+
+    public ChoiceDurationOrPeriodOrRange(Range arg) {
+      super("Range", arg, (LTag) UnionAliases.UnionDurationOrPeriodOrRangeTag());
     }
   }
 }

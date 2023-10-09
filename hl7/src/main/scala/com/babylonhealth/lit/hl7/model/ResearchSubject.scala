@@ -42,10 +42,10 @@ object ResearchSubject extends CompanionFor[ResearchSubject] {
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      actualArm: Option[String] = None,
+      actualArm: Option[FHIRString] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       individual: Reference,
-      assignedArm: Option[String] = None,
+      assignedArm: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -88,14 +88,14 @@ object ResearchSubject extends CompanionFor[ResearchSubject] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val actualArm: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("actualArm", lTagOf[Option[String]], false, lTagOf[String])
+  val actualArm: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("actualArm", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
   val individual: FHIRComponentFieldMeta[Reference] =
     FHIRComponentFieldMeta("individual", lTagOf[Reference], false, lTagOf[Reference])
-  val assignedArm: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("assignedArm", lTagOf[Option[String]], false, lTagOf[String])
+  val assignedArm: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("assignedArm", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -129,10 +129,10 @@ object ResearchSubject extends CompanionFor[ResearchSubject] {
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](actualArm, t.actualArm),
+    FHIRComponentField[Option[FHIRString]](actualArm, t.actualArm),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[Reference](individual, t.individual),
-    FHIRComponentField[Option[String]](assignedArm, t.assignedArm),
+    FHIRComponentField[Option[FHIRString]](assignedArm, t.assignedArm),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
   )
@@ -146,10 +146,10 @@ object ResearchSubject extends CompanionFor[ResearchSubject] {
   def extractLanguage(t: ResearchSubject): Option[LANGUAGES]          = t.language
   def extractContained(t: ResearchSubject): LitSeq[Resource]          = t.contained
   def extractExtension(t: ResearchSubject): LitSeq[Extension]         = t.extension
-  def extractActualArm(t: ResearchSubject): Option[String]            = t.actualArm
+  def extractActualArm(t: ResearchSubject): Option[FHIRString]        = t.actualArm
   def extractIdentifier(t: ResearchSubject): LitSeq[Identifier]       = t.identifier
   def extractIndividual(t: ResearchSubject): Reference                = t.individual
-  def extractAssignedArm(t: ResearchSubject): Option[String]          = t.assignedArm
+  def extractAssignedArm(t: ResearchSubject): Option[FHIRString]      = t.assignedArm
   def extractImplicitRules(t: ResearchSubject): Option[UriStr]        = t.implicitRules
   def extractModifierExtension(t: ResearchSubject): LitSeq[Extension] = t.modifierExtension
   override val thisName: String                                       = "ResearchSubject"
@@ -162,7 +162,7 @@ object ResearchSubject extends CompanionFor[ResearchSubject] {
     "patient"    -> (obj => Seq(obj.individual))
   )
   def unapply(
-      o: ResearchSubject): Option[(Option[String], Option[Meta], Option[Narrative], Reference, RESEARCH_SUBJECT_STATUS, Option[Period], Option[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[String], LitSeq[Identifier], Reference, Option[String], Option[UriStr], LitSeq[Extension])] =
+      o: ResearchSubject): Option[(Option[String], Option[Meta], Option[Narrative], Reference, RESEARCH_SUBJECT_STATUS, Option[Period], Option[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[FHIRString], LitSeq[Identifier], Reference, Option[FHIRString], Option[UriStr], LitSeq[Extension])] =
     Some(
       (
         o.id,
@@ -195,10 +195,10 @@ object ResearchSubject extends CompanionFor[ResearchSubject] {
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("actualArm", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("actualArm", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[Reference]("individual", None),
-          cursor.decodeAs[Option[String]]("assignedArm", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("assignedArm", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -273,10 +273,10 @@ class ResearchSubject(
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val actualArm: Option[String] = None,
+    val actualArm: Option[FHIRString] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val individual: Reference,
-    val assignedArm: Option[String] = None,
+    val assignedArm: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

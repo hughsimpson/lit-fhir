@@ -41,9 +41,9 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
     def apply(
         id: Option[String] = None,
         code: RESOURCE_TYPES,
-        param: LitSeq[String] = LitSeq.empty,
+        param: LitSeq[FHIRString] = LitSeq.empty,
         extension: LitSeq[Extension] = LitSeq.empty,
-        documentation: Option[String] = None,
+        documentation: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Resource = new Resource(
@@ -56,18 +56,18 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Resource): Option[(Option[String], RESOURCE_TYPES, LitSeq[String], LitSeq[Extension], Option[String], LitSeq[Extension])] =
+        o: Resource): Option[(Option[String], RESOURCE_TYPES, LitSeq[FHIRString], LitSeq[Extension], Option[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.code, o.param, o.extension, o.documentation, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val code: FHIRComponentFieldMeta[RESOURCE_TYPES] =
       FHIRComponentFieldMeta("code", lTagOf[RESOURCE_TYPES], false, lTagOf[RESOURCE_TYPES])
-    val param: FHIRComponentFieldMeta[LitSeq[String]] =
-      FHIRComponentFieldMeta("param", lTagOf[LitSeq[String]], false, lTagOf[String])
+    val param: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+      FHIRComponentFieldMeta("param", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val documentation: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("documentation", lTagOf[Option[String]], false, lTagOf[String])
+    val documentation: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("documentation", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, code, param, extension, documentation, modifierExtension)
@@ -75,9 +75,9 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
     override def fields(t: Resource): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[RESOURCE_TYPES](code, t.code),
-      FHIRComponentField[LitSeq[String]](param, t.param),
+      FHIRComponentField[LitSeq[FHIRString]](param, t.param),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](documentation, t.documentation),
+      FHIRComponentField[Option[FHIRString]](documentation, t.documentation),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Resource] = this
@@ -88,9 +88,9 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
           new Resource(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[RESOURCE_TYPES]("code", None),
-            cursor.decodeAs[LitSeq[String]]("param", Some(LitSeq.empty)),
+            cursor.decodeAs[LitSeq[FHIRString]]("param", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("documentation", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("documentation", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -100,9 +100,9 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
   class Resource(
       override val id: Option[String] = None,
       val code: RESOURCE_TYPES,
-      val param: LitSeq[String] = LitSeq.empty,
+      val param: LitSeq[FHIRString] = LitSeq.empty,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val documentation: Option[String] = None,
+      val documentation: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -111,18 +111,18 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
       url: UriStr,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       date: Option[FHIRDateTime] = None,
       code: COMPARTMENT_TYPE,
       status: PUBLICATION_STATUS,
       search: Boolean,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[core.model.Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
       description: Option[Markdown] = None,
       experimental: Option[Boolean] = None,
@@ -163,8 +163,8 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val code: FHIRComponentFieldMeta[COMPARTMENT_TYPE] =
@@ -173,8 +173,8 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
   val search: FHIRComponentFieldMeta[Boolean] =
     FHIRComponentFieldMeta("search", lTagOf[Boolean], false, lTagOf[Boolean])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -185,8 +185,8 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[core.model.Resource]], false, lTagOf[core.model.Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val useContext: FHIRComponentFieldMeta[LitSeq[UsageContext]] =
     FHIRComponentFieldMeta("useContext", lTagOf[LitSeq[UsageContext]], false, lTagOf[UsageContext])
   val description: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -233,18 +233,18 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
     FHIRComponentField[UriStr](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[String](name, t.name),
+    FHIRComponentField[FHIRString](name, t.name),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[COMPARTMENT_TYPE](code, t.code),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[Boolean](search, t.search),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[core.model.Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
     FHIRComponentField[Option[Markdown]](description, t.description),
     FHIRComponentField[Option[Boolean]](experimental, t.experimental),
@@ -256,18 +256,18 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
   def extractUrl(t: CompartmentDefinition): UriStr                                      = t.url
   def extractMeta(t: CompartmentDefinition): Option[Meta]                               = t.meta
   def extractText(t: CompartmentDefinition): Option[Narrative]                          = t.text
-  def extractName(t: CompartmentDefinition): String                                     = t.name
+  def extractName(t: CompartmentDefinition): FHIRString                                 = t.name
   def extractDate(t: CompartmentDefinition): Option[FHIRDateTime]                       = t.date
   def extractCode(t: CompartmentDefinition): COMPARTMENT_TYPE                           = t.code
   def extractStatus(t: CompartmentDefinition): PUBLICATION_STATUS                       = t.status
   def extractSearch(t: CompartmentDefinition): Boolean                                  = t.search
-  def extractVersion(t: CompartmentDefinition): Option[String]                          = t.version
+  def extractVersion(t: CompartmentDefinition): Option[FHIRString]                      = t.version
   def extractContact(t: CompartmentDefinition): LitSeq[ContactDetail]                   = t.contact
   def extractPurpose(t: CompartmentDefinition): Option[Markdown]                        = t.purpose
   def extractLanguage(t: CompartmentDefinition): Option[LANGUAGES]                      = t.language
   def extractContained(t: CompartmentDefinition): LitSeq[core.model.Resource]           = t.contained
   def extractExtension(t: CompartmentDefinition): LitSeq[Extension]                     = t.extension
-  def extractPublisher(t: CompartmentDefinition): Option[String]                        = t.publisher
+  def extractPublisher(t: CompartmentDefinition): Option[FHIRString]                    = t.publisher
   def extractUseContext(t: CompartmentDefinition): LitSeq[UsageContext]                 = t.useContext
   def extractDescription(t: CompartmentDefinition): Option[Markdown]                    = t.description
   def extractExperimental(t: CompartmentDefinition): Option[Boolean]                    = t.experimental
@@ -294,7 +294,7 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
     "publisher"          -> (obj => obj.publisher.toSeq)
   )
   def unapply(
-      o: CompartmentDefinition): Option[(Option[String], UriStr, Option[Meta], Option[Narrative], String, Option[FHIRDateTime], COMPARTMENT_TYPE, PUBLICATION_STATUS, Boolean, Option[String], LitSeq[ContactDetail], Option[Markdown], Option[LANGUAGES], LitSeq[core.model.Resource], LitSeq[Extension], Option[String], LitSeq[UsageContext], Option[Markdown], Option[Boolean], Option[UriStr], LitSeq[Extension], LitSeq[CompartmentDefinition.Resource])] =
+      o: CompartmentDefinition): Option[(Option[String], UriStr, Option[Meta], Option[Narrative], FHIRString, Option[FHIRDateTime], COMPARTMENT_TYPE, PUBLICATION_STATUS, Boolean, Option[FHIRString], LitSeq[ContactDetail], Option[Markdown], Option[LANGUAGES], LitSeq[core.model.Resource], LitSeq[Extension], Option[FHIRString], LitSeq[UsageContext], Option[Markdown], Option[Boolean], Option[UriStr], LitSeq[Extension], LitSeq[CompartmentDefinition.Resource])] =
     Some(
       (
         o.id,
@@ -327,18 +327,18 @@ object CompartmentDefinition extends CompanionFor[CompartmentDefinition] {
           cursor.decodeAs[UriStr]("url", None),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[COMPARTMENT_TYPE]("code", None),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[Boolean]("search", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[core.model.Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("description", Some(None)),
           cursor.decodeAs[Option[Boolean]]("experimental", Some(None)),
@@ -437,18 +437,18 @@ class CompartmentDefinition(
     val url: UriStr,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: String,
+    val name: FHIRString,
     val date: Option[FHIRDateTime] = None,
     val code: COMPARTMENT_TYPE,
     val status: PUBLICATION_STATUS,
     val search: Boolean,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,
     val description: Option[Markdown] = None,
     val experimental: Option[Boolean] = None,

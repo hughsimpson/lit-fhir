@@ -31,12 +31,12 @@ public interface DeviceDefinitionBuilder extends DomainResourceBuilder {
     return new Impl();
   }
 
-  public static ChoiceReferenceOrString manufacturer(Reference r) {
-    return new ChoiceReferenceOrString(r);
+  public static ChoiceFHIRStringOrReference manufacturer(String s) {
+    return new ChoiceFHIRStringOrReference(s);
   }
 
-  public static ChoiceReferenceOrString manufacturer(String s) {
-    return new ChoiceReferenceOrString(s);
+  public static ChoiceFHIRStringOrReference manufacturer(Reference r) {
+    return new ChoiceFHIRStringOrReference(r);
   }
 
   public class Impl implements DeviceDefinitionBuilder {
@@ -59,7 +59,7 @@ public interface DeviceDefinitionBuilder extends DomainResourceBuilder {
     private Collection<CodeableConcept> languageCode = Collections.emptyList();
     private Optional<Reference> parentDevice = Optional.empty();
     private Optional<String> implicitRules = Optional.empty();
-    private Optional<ChoiceReferenceOrString> manufacturer = Optional.empty();
+    private Optional<ChoiceFHIRStringOrReference> manufacturer = Optional.empty();
     private Collection<Choice> shelfLifeStorage = Collections.emptyList();
     private Collection<Extension> modifierExtension = Collections.emptyList();
     private Optional<String> onlineInformation = Optional.empty();
@@ -348,11 +348,11 @@ public interface DeviceDefinitionBuilder extends DomainResourceBuilder {
     }
     /**
      * @param manufacturer - A name of the manufacturer. Field is a 'choice' field. Type should be
-     *     one of Reference, String. To pass the value in, wrap with one of the
+     *     one of String, Reference. To pass the value in, wrap with one of the
      *     DeviceDefinitionBuilder.manufacturer static methods
      */
     public DeviceDefinitionBuilder.Impl withManufacturer(
-        @NonNull ChoiceReferenceOrString manufacturer) {
+        @NonNull ChoiceFHIRStringOrReference manufacturer) {
       this.manufacturer = Optional.of(manufacturer);
       return this;
     }

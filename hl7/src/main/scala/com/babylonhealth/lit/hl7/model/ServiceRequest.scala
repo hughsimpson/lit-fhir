@@ -74,7 +74,7 @@ object ServiceRequest extends CompanionFor[ServiceRequest] {
       relevantHistory: LitSeq[Reference] = LitSeq.empty,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       locationReference: LitSeq[Reference] = LitSeq.empty,
-      patientInstruction: Option[String] = None,
+      patientInstruction: Option[FHIRString] = None,
       instantiatesCanonical: LitSeq[Canonical] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): ServiceRequest = new ServiceRequest(
@@ -203,8 +203,8 @@ object ServiceRequest extends CompanionFor[ServiceRequest] {
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val locationReference: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("locationReference", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
-  val patientInstruction: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("patientInstruction", lTagOf[Option[String]], false, lTagOf[String])
+  val patientInstruction: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("patientInstruction", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val instantiatesCanonical: FHIRComponentFieldMeta[LitSeq[Canonical]] =
     FHIRComponentFieldMeta("instantiatesCanonical", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(
@@ -291,7 +291,7 @@ object ServiceRequest extends CompanionFor[ServiceRequest] {
     FHIRComponentField[LitSeq[Reference]](relevantHistory, t.relevantHistory),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[Reference]](locationReference, t.locationReference),
-    FHIRComponentField[Option[String]](patientInstruction, t.patientInstruction),
+    FHIRComponentField[Option[FHIRString]](patientInstruction, t.patientInstruction),
     FHIRComponentField[LitSeq[Canonical]](instantiatesCanonical, t.instantiatesCanonical)
   )
   def extractId(t: ServiceRequest): Option[String]                                  = t.id
@@ -333,7 +333,7 @@ object ServiceRequest extends CompanionFor[ServiceRequest] {
   def extractRelevantHistory(t: ServiceRequest): LitSeq[Reference]                  = t.relevantHistory
   def extractModifierExtension(t: ServiceRequest): LitSeq[Extension]                = t.modifierExtension
   def extractLocationReference(t: ServiceRequest): LitSeq[Reference]                = t.locationReference
-  def extractPatientInstruction(t: ServiceRequest): Option[String]                  = t.patientInstruction
+  def extractPatientInstruction(t: ServiceRequest): Option[FHIRString]              = t.patientInstruction
   def extractInstantiatesCanonical(t: ServiceRequest): LitSeq[Canonical]            = t.instantiatesCanonical
   override val thisName: String                                                     = "ServiceRequest"
   override val searchParams: Map[String, ServiceRequest => Seq[Any]] = Map(
@@ -402,7 +402,7 @@ object ServiceRequest extends CompanionFor[ServiceRequest] {
           cursor.decodeAs[LitSeq[Reference]]("relevantHistory", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Reference]]("locationReference", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("patientInstruction", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("patientInstruction", Some(None)),
           cursor.decodeAs[LitSeq[Canonical]]("instantiatesCanonical", Some(LitSeq.empty)),
           decodeAttributes(cursor)
         )
@@ -576,7 +576,7 @@ class ServiceRequest(
     val relevantHistory: LitSeq[Reference] = LitSeq.empty,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val locationReference: LitSeq[Reference] = LitSeq.empty,
-    val patientInstruction: Option[String] = None,
+    val patientInstruction: Option[FHIRString] = None,
     val instantiatesCanonical: LitSeq[Canonical] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends DomainResource(

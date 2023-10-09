@@ -262,7 +262,7 @@ object Task extends CompanionFor[Task] {
       identifier: LitSeq[Identifier] = LitSeq.empty,
       authoredOn: Option[FHIRDateTime] = None,
       reasonCode: Option[CodeableConcept] = None,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       statusReason: Option[CodeableConcept] = None,
       lastModified: Option[FHIRDateTime] = None,
       implicitRules: Option[UriStr] = None,
@@ -367,8 +367,8 @@ object Task extends CompanionFor[Task] {
     FHIRComponentFieldMeta("authoredOn", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val reasonCode: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("reasonCode", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val statusReason: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("statusReason", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val lastModified: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
@@ -465,7 +465,7 @@ object Task extends CompanionFor[Task] {
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[Option[FHIRDateTime]](authoredOn, t.authoredOn),
     FHIRComponentField[Option[CodeableConcept]](reasonCode, t.reasonCode),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[CodeableConcept]](statusReason, t.statusReason),
     FHIRComponentField[Option[FHIRDateTime]](lastModified, t.lastModified),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
@@ -505,7 +505,7 @@ object Task extends CompanionFor[Task] {
   def extractIdentifier(t: Task): LitSeq[Identifier]           = t.identifier
   def extractAuthoredOn(t: Task): Option[FHIRDateTime]         = t.authoredOn
   def extractReasonCode(t: Task): Option[CodeableConcept]      = t.reasonCode
-  def extractDescription(t: Task): Option[String]              = t.description
+  def extractDescription(t: Task): Option[FHIRString]          = t.description
   def extractStatusReason(t: Task): Option[CodeableConcept]    = t.statusReason
   def extractLastModified(t: Task): Option[FHIRDateTime]       = t.lastModified
   def extractImplicitRules(t: Task): Option[UriStr]            = t.implicitRules
@@ -570,7 +570,7 @@ object Task extends CompanionFor[Task] {
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[Option[FHIRDateTime]]("authoredOn", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("reasonCode", Some(None)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("statusReason", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("lastModified", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
@@ -729,7 +729,7 @@ class Task(
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val authoredOn: Option[FHIRDateTime] = None,
     val reasonCode: Option[CodeableConcept] = None,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     val statusReason: Option[CodeableConcept] = None,
     val lastModified: Option[FHIRDateTime] = None,
     override val implicitRules: Option[UriStr] = None,

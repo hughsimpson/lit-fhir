@@ -129,7 +129,7 @@ object Appointment extends CompanionFor[Appointment] {
       start: Option[ZonedDateTime] = None,
       status: APPOINTMENTSTATUS,
       created: Option[FHIRDateTime] = None,
-      comment: Option[String] = None,
+      comment: Option[FHIRString] = None,
       basedOn: LitSeq[Reference] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
       priority: Option[UnsignedInt] = None,
@@ -139,7 +139,7 @@ object Appointment extends CompanionFor[Appointment] {
       identifier: LitSeq[Identifier] = LitSeq.empty,
       reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
       serviceType: LitSeq[CodeableConcept] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       serviceCategory: LitSeq[CodeableConcept] = LitSeq.empty,
       appointmentType: Option[CodeableConcept] = None,
@@ -148,7 +148,7 @@ object Appointment extends CompanionFor[Appointment] {
       requestedPeriod: LitSeq[Period] = LitSeq.empty,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       cancelationReason: Option[CodeableConcept] = None,
-      patientInstruction: Option[String] = None,
+      patientInstruction: Option[FHIRString] = None,
       supportingInformation: LitSeq[Reference] = LitSeq.empty,
       participant: NonEmptyLitSeq[Appointment.Participant],
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -201,8 +201,8 @@ object Appointment extends CompanionFor[Appointment] {
     FHIRComponentFieldMeta("status", lTagOf[APPOINTMENTSTATUS], false, lTagOf[APPOINTMENTSTATUS])
   val created: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("created", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
-  val comment: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+  val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val basedOn: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("basedOn", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
@@ -221,8 +221,8 @@ object Appointment extends CompanionFor[Appointment] {
     FHIRComponentFieldMeta("reasonCode", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val serviceType: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("serviceType", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val serviceCategory: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -239,8 +239,8 @@ object Appointment extends CompanionFor[Appointment] {
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val cancelationReason: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("cancelationReason", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val patientInstruction: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("patientInstruction", lTagOf[Option[String]], false, lTagOf[String])
+  val patientInstruction: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("patientInstruction", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val supportingInformation: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("supportingInformation", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val participant: FHIRComponentFieldMeta[NonEmptyLitSeq[Appointment.Participant]] =
@@ -287,7 +287,7 @@ object Appointment extends CompanionFor[Appointment] {
     FHIRComponentField[Option[ZonedDateTime]](start, t.start),
     FHIRComponentField[APPOINTMENTSTATUS](status, t.status),
     FHIRComponentField[Option[FHIRDateTime]](created, t.created),
-    FHIRComponentField[Option[String]](comment, t.comment),
+    FHIRComponentField[Option[FHIRString]](comment, t.comment),
     FHIRComponentField[LitSeq[Reference]](basedOn, t.basedOn),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[Option[UnsignedInt]](priority, t.priority),
@@ -297,7 +297,7 @@ object Appointment extends CompanionFor[Appointment] {
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[LitSeq[CodeableConcept]](reasonCode, t.reasonCode),
     FHIRComponentField[LitSeq[CodeableConcept]](serviceType, t.serviceType),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[CodeableConcept]](serviceCategory, t.serviceCategory),
     FHIRComponentField[Option[CodeableConcept]](appointmentType, t.appointmentType),
@@ -306,7 +306,7 @@ object Appointment extends CompanionFor[Appointment] {
     FHIRComponentField[LitSeq[Period]](requestedPeriod, t.requestedPeriod),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[Option[CodeableConcept]](cancelationReason, t.cancelationReason),
-    FHIRComponentField[Option[String]](patientInstruction, t.patientInstruction),
+    FHIRComponentField[Option[FHIRString]](patientInstruction, t.patientInstruction),
     FHIRComponentField[LitSeq[Reference]](supportingInformation, t.supportingInformation),
     FHIRComponentField[NonEmptyLitSeq[Appointment.Participant]](participant, t.participant)
   )
@@ -318,7 +318,7 @@ object Appointment extends CompanionFor[Appointment] {
   def extractStart(t: Appointment): Option[ZonedDateTime]                         = t.start
   def extractStatus(t: Appointment): APPOINTMENTSTATUS                            = t.status
   def extractCreated(t: Appointment): Option[FHIRDateTime]                        = t.created
-  def extractComment(t: Appointment): Option[String]                              = t.comment
+  def extractComment(t: Appointment): Option[FHIRString]                          = t.comment
   def extractBasedOn(t: Appointment): LitSeq[Reference]                           = t.basedOn
   def extractLanguage(t: Appointment): Option[LANGUAGES]                          = t.language
   def extractPriority(t: Appointment): Option[UnsignedInt]                        = t.priority
@@ -328,7 +328,7 @@ object Appointment extends CompanionFor[Appointment] {
   def extractIdentifier(t: Appointment): LitSeq[Identifier]                       = t.identifier
   def extractReasonCode(t: Appointment): LitSeq[CodeableConcept]                  = t.reasonCode
   def extractServiceType(t: Appointment): LitSeq[CodeableConcept]                 = t.serviceType
-  def extractDescription(t: Appointment): Option[String]                          = t.description
+  def extractDescription(t: Appointment): Option[FHIRString]                      = t.description
   def extractImplicitRules(t: Appointment): Option[UriStr]                        = t.implicitRules
   def extractServiceCategory(t: Appointment): LitSeq[CodeableConcept]             = t.serviceCategory
   def extractAppointmentType(t: Appointment): Option[CodeableConcept]             = t.appointmentType
@@ -337,7 +337,7 @@ object Appointment extends CompanionFor[Appointment] {
   def extractRequestedPeriod(t: Appointment): LitSeq[Period]                      = t.requestedPeriod
   def extractModifierExtension(t: Appointment): LitSeq[Extension]                 = t.modifierExtension
   def extractCancelationReason(t: Appointment): Option[CodeableConcept]           = t.cancelationReason
-  def extractPatientInstruction(t: Appointment): Option[String]                   = t.patientInstruction
+  def extractPatientInstruction(t: Appointment): Option[FHIRString]               = t.patientInstruction
   def extractSupportingInformation(t: Appointment): LitSeq[Reference]             = t.supportingInformation
   def extractParticipant(t: Appointment): NonEmptyLitSeq[Appointment.Participant] = t.participant
   override val thisName: String                                                   = "Appointment"
@@ -372,7 +372,7 @@ object Appointment extends CompanionFor[Appointment] {
           cursor.decodeAs[Option[ZonedDateTime]]("start", Some(None)),
           cursor.decodeAs[APPOINTMENTSTATUS]("status", None),
           cursor.decodeAs[Option[FHIRDateTime]]("created", Some(None)),
-          cursor.decodeAs[Option[String]]("comment", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("basedOn", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[Option[UnsignedInt]]("priority", Some(None)),
@@ -382,7 +382,7 @@ object Appointment extends CompanionFor[Appointment] {
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("reasonCode", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("serviceType", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("serviceCategory", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CodeableConcept]]("appointmentType", Some(None)),
@@ -391,7 +391,7 @@ object Appointment extends CompanionFor[Appointment] {
           cursor.decodeAs[LitSeq[Period]]("requestedPeriod", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CodeableConcept]]("cancelationReason", Some(None)),
-          cursor.decodeAs[Option[String]]("patientInstruction", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("patientInstruction", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("supportingInformation", Some(LitSeq.empty)),
           cursor.decodeAs[NonEmptyLitSeq[Appointment.Participant]]("participant", None),
           decodeAttributes(cursor)
@@ -511,7 +511,7 @@ class Appointment(
     val start: Option[ZonedDateTime] = None,
     val status: APPOINTMENTSTATUS,
     val created: Option[FHIRDateTime] = None,
-    val comment: Option[String] = None,
+    val comment: Option[FHIRString] = None,
     val basedOn: LitSeq[Reference] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
     val priority: Option[UnsignedInt] = None,
@@ -521,7 +521,7 @@ class Appointment(
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
     val serviceType: LitSeq[CodeableConcept] = LitSeq.empty,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     val serviceCategory: LitSeq[CodeableConcept] = LitSeq.empty,
     val appointmentType: Option[CodeableConcept] = None,
@@ -530,7 +530,7 @@ class Appointment(
     val requestedPeriod: LitSeq[Period] = LitSeq.empty,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val cancelationReason: Option[CodeableConcept] = None,
-    val patientInstruction: Option[String] = None,
+    val patientInstruction: Option[FHIRString] = None,
     val supportingInformation: LitSeq[Reference] = LitSeq.empty,
     val participant: NonEmptyLitSeq[Appointment.Participant],
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

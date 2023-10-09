@@ -56,7 +56,7 @@ object MedicinalProductPharmaceutical extends CompanionFor[MedicinalProductPharm
             tissue: CodeableConcept,
             extension: LitSeq[Extension] = LitSeq.empty,
             modifierExtension: LitSeq[Extension] = LitSeq.empty,
-            supportingInformation: Option[String] = None,
+            supportingInformation: Option[FHIRString] = None,
             primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
         ): WithdrawalPeriod = new WithdrawalPeriod(
           id,
@@ -68,7 +68,7 @@ object MedicinalProductPharmaceutical extends CompanionFor[MedicinalProductPharm
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: WithdrawalPeriod): Option[(Option[String], Quantity, CodeableConcept, LitSeq[Extension], LitSeq[Extension], Option[String])] =
+            o: WithdrawalPeriod): Option[(Option[String], Quantity, CodeableConcept, LitSeq[Extension], LitSeq[Extension], Option[FHIRString])] =
           Some((o.id, o.value, o.tissue, o.extension, o.modifierExtension, o.supportingInformation))
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -80,8 +80,8 @@ object MedicinalProductPharmaceutical extends CompanionFor[MedicinalProductPharm
           FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-        val supportingInformation: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("supportingInformation", lTagOf[Option[String]], false, lTagOf[String])
+        val supportingInformation: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("supportingInformation", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
           Seq(id, value, tissue, extension, modifierExtension, supportingInformation)
         override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
@@ -91,7 +91,7 @@ object MedicinalProductPharmaceutical extends CompanionFor[MedicinalProductPharm
           FHIRComponentField[CodeableConcept](tissue, t.tissue),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-          FHIRComponentField[Option[String]](supportingInformation, t.supportingInformation)
+          FHIRComponentField[Option[FHIRString]](supportingInformation, t.supportingInformation)
         )
         val baseType: CompanionFor[WithdrawalPeriod] = this
         val thisName: String                         = "WithdrawalPeriod"
@@ -104,7 +104,7 @@ object MedicinalProductPharmaceutical extends CompanionFor[MedicinalProductPharm
                 cursor.decodeAs[CodeableConcept]("tissue", None),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-                cursor.decodeAs[Option[String]]("supportingInformation", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("supportingInformation", Some(None)),
                 decodeAttributes(cursor)
               )
             ))
@@ -116,7 +116,7 @@ object MedicinalProductPharmaceutical extends CompanionFor[MedicinalProductPharm
           val tissue: CodeableConcept,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-          val supportingInformation: Option[String] = None,
+          val supportingInformation: Option[FHIRString] = None,
           override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
           extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
       def apply(

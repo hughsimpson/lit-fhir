@@ -116,7 +116,7 @@ object CareTeam extends CompanionFor[CareTeam] {
       id: Option[String] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       note: LitSeq[Annotation] = LitSeq.empty,
       status: Option[CARE_TEAM_STATUS] = None,
       period: Option[Period] = None,
@@ -165,8 +165,8 @@ object CareTeam extends CompanionFor[CareTeam] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val note: FHIRComponentFieldMeta[LitSeq[Annotation]] =
     FHIRComponentFieldMeta("note", lTagOf[LitSeq[Annotation]], false, lTagOf[Annotation])
   val status: FHIRComponentFieldMeta[Option[CARE_TEAM_STATUS]] =
@@ -229,7 +229,7 @@ object CareTeam extends CompanionFor[CareTeam] {
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[LitSeq[Annotation]](note, t.note),
     FHIRComponentField[Option[CARE_TEAM_STATUS]](status, t.status),
     FHIRComponentField[Option[Period]](period, t.period),
@@ -251,7 +251,7 @@ object CareTeam extends CompanionFor[CareTeam] {
   def extractId(t: CareTeam): Option[String]                        = t.id
   def extractMeta(t: CareTeam): Option[Meta]                        = t.meta
   def extractText(t: CareTeam): Option[Narrative]                   = t.text
-  def extractName(t: CareTeam): Option[String]                      = t.name
+  def extractName(t: CareTeam): Option[FHIRString]                  = t.name
   def extractNote(t: CareTeam): LitSeq[Annotation]                  = t.note
   def extractStatus(t: CareTeam): Option[CARE_TEAM_STATUS]          = t.status
   def extractPeriod(t: CareTeam): Option[Period]                    = t.period
@@ -281,7 +281,7 @@ object CareTeam extends CompanionFor[CareTeam] {
     "patient"     -> (obj => obj.subject.filter(_.reference.exists(_.contains("Patient/"))).toSeq)
   )
   def unapply(
-      o: CareTeam): Option[(Option[String], Option[Meta], Option[Narrative], Option[String], LitSeq[Annotation], Option[CARE_TEAM_STATUS], Option[Period], Option[Reference], LitSeq[ContactPoint], Option[LANGUAGES], LitSeq[CodeableConcept], LitSeq[Resource], LitSeq[Extension], Option[Reference], LitSeq[Identifier], LitSeq[CodeableConcept], Option[UriStr], LitSeq[Reference], LitSeq[Extension], LitSeq[Reference], LitSeq[CareTeam.Participant])] =
+      o: CareTeam): Option[(Option[String], Option[Meta], Option[Narrative], Option[FHIRString], LitSeq[Annotation], Option[CARE_TEAM_STATUS], Option[Period], Option[Reference], LitSeq[ContactPoint], Option[LANGUAGES], LitSeq[CodeableConcept], LitSeq[Resource], LitSeq[Extension], Option[Reference], LitSeq[Identifier], LitSeq[CodeableConcept], Option[UriStr], LitSeq[Reference], LitSeq[Extension], LitSeq[Reference], LitSeq[CareTeam.Participant])] =
     Some(
       (
         o.id,
@@ -312,7 +312,7 @@ object CareTeam extends CompanionFor[CareTeam] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CARE_TEAM_STATUS]]("status", Some(None)),
           cursor.decodeAs[Option[Period]]("period", Some(None)),
@@ -409,7 +409,7 @@ class CareTeam(
     override val id: Option[String] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val note: LitSeq[Annotation] = LitSeq.empty,
     val status: Option[CARE_TEAM_STATUS] = None,
     val period: Option[Period] = None,

@@ -60,7 +60,7 @@ object Media extends CompanionFor[Media] {
       identifier: LitSeq[Identifier] = LitSeq.empty,
       created: Option[Media.CreatedChoice] = None,
       reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
-      deviceName: Option[String] = None,
+      deviceName: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -151,8 +151,8 @@ object Media extends CompanionFor[Media] {
     FHIRComponentFieldMeta("created", lTagOf[Option[Media.CreatedChoice]], true, lTagOf[UnionDateTimeOrPeriod])
   val reasonCode: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("reasonCode", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val deviceName: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("deviceName", lTagOf[Option[String]], false, lTagOf[String])
+  val deviceName: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("deviceName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -218,7 +218,7 @@ object Media extends CompanionFor[Media] {
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[Option[Media.CreatedChoice]](created, t.created),
     FHIRComponentField[LitSeq[CodeableConcept]](reasonCode, t.reasonCode),
-    FHIRComponentField[Option[String]](deviceName, t.deviceName),
+    FHIRComponentField[Option[FHIRString]](deviceName, t.deviceName),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
   )
@@ -249,7 +249,7 @@ object Media extends CompanionFor[Media] {
   def extractIdentifier(t: Media): LitSeq[Identifier]       = t.identifier
   def extractCreated(t: Media): Option[Media.CreatedChoice] = t.created
   def extractReasonCode(t: Media): LitSeq[CodeableConcept]  = t.reasonCode
-  def extractDeviceName(t: Media): Option[String]           = t.deviceName
+  def extractDeviceName(t: Media): Option[FHIRString]       = t.deviceName
   def extractImplicitRules(t: Media): Option[UriStr]        = t.implicitRules
   def extractModifierExtension(t: Media): LitSeq[Extension] = t.modifierExtension
   override val thisName: String                             = "Media"
@@ -299,7 +299,7 @@ object Media extends CompanionFor[Media] {
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeOptRef[UnionDateTimeOrPeriod]("created"),
           cursor.decodeAs[LitSeq[CodeableConcept]]("reasonCode", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("deviceName", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("deviceName", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -425,7 +425,7 @@ class Media(
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val created: Option[Media.CreatedChoice] = None,
     val reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
-    val deviceName: Option[String] = None,
+    val deviceName: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

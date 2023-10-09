@@ -47,7 +47,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
           id: Option[String] = None,
           `type`: Option[CodeableConcept] = None,
           cost: Option[Money] = None,
-          comment: Option[String] = None,
+          comment: Option[FHIRString] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           groupSize: Option[PositiveInt] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -63,7 +63,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: GeneralCost): Option[(Option[String], Option[CodeableConcept], Option[Money], Option[String], LitSeq[Extension], Option[PositiveInt], LitSeq[Extension])] =
+          o: GeneralCost): Option[(Option[String], Option[CodeableConcept], Option[Money], Option[FHIRString], LitSeq[Extension], Option[PositiveInt], LitSeq[Extension])] =
         Some((o.id, o.`type`, o.cost, o.comment, o.extension, o.groupSize, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -71,8 +71,8 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
         FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
       val cost: FHIRComponentFieldMeta[Option[Money]] =
         FHIRComponentFieldMeta("cost", lTagOf[Option[Money]], false, lTagOf[Money])
-      val comment: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+      val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val groupSize: FHIRComponentFieldMeta[Option[PositiveInt]] =
@@ -85,7 +85,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
         FHIRComponentField[Option[Money]](cost, t.cost),
-        FHIRComponentField[Option[String]](comment, t.comment),
+        FHIRComponentField[Option[FHIRString]](comment, t.comment),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Option[PositiveInt]](groupSize, t.groupSize),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -99,7 +99,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
               cursor.decodeAs[Option[Money]]("cost", Some(None)),
-              cursor.decodeAs[Option[String]]("comment", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[PositiveInt]]("groupSize", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -112,7 +112,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
         override val id: Option[String] = None,
         val `type`: Option[CodeableConcept] = None,
         val cost: Option[Money] = None,
-        val comment: Option[String] = None,
+        val comment: Option[FHIRString] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val groupSize: Option[PositiveInt] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -517,7 +517,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
           id: Option[String] = None,
           `type`: CodeableConcept,
           extension: LitSeq[Extension] = LitSeq.empty,
-          requirement: Option[String] = None,
+          requirement: Option[FHIRString] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           limit: LitSeq[Benefit.Limit] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -531,7 +531,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Benefit): Option[(Option[String], CodeableConcept, LitSeq[Extension], Option[String], LitSeq[Extension], LitSeq[Benefit.Limit])] =
+          o: Benefit): Option[(Option[String], CodeableConcept, LitSeq[Extension], Option[FHIRString], LitSeq[Extension], LitSeq[Benefit.Limit])] =
         Some((o.id, o.`type`, o.extension, o.requirement, o.modifierExtension, o.limit))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -539,8 +539,8 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
         FHIRComponentFieldMeta("type", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-      val requirement: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("requirement", lTagOf[Option[String]], false, lTagOf[String])
+      val requirement: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("requirement", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val limit: FHIRComponentFieldMeta[LitSeq[Benefit.Limit]] =
@@ -551,7 +551,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[CodeableConcept](`type`, t.`type`),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-        FHIRComponentField[Option[String]](requirement, t.requirement),
+        FHIRComponentField[Option[FHIRString]](requirement, t.requirement),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
         FHIRComponentField[LitSeq[Benefit.Limit]](limit, t.limit)
       )
@@ -564,7 +564,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[CodeableConcept]("type", None),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("requirement", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("requirement", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Benefit.Limit]]("limit", Some(LitSeq.empty)),
               decodeAttributes(cursor)
@@ -576,7 +576,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
         override val id: Option[String] = None,
         val `type`: CodeableConcept,
         override val extension: LitSeq[Extension] = LitSeq.empty,
-        val requirement: Option[String] = None,
+        val requirement: Option[FHIRString] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         val limit: LitSeq[Benefit.Limit] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -735,8 +735,8 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
       `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-      name: Option[String] = None,
-      alias: LitSeq[String] = LitSeq.empty,
+      name: Option[FHIRString] = None,
+      alias: LitSeq[FHIRString] = LitSeq.empty,
       status: Option[PUBLICATION_STATUS] = None,
       period: Option[Period] = None,
       ownedBy: Option[Reference] = None,
@@ -787,10 +787,10 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
   val `type`: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
-  val alias: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val alias: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[Option[PUBLICATION_STATUS]] =
     FHIRComponentFieldMeta("status", lTagOf[Option[PUBLICATION_STATUS]], false, lTagOf[PUBLICATION_STATUS])
   val period: FHIRComponentFieldMeta[Option[Period]] =
@@ -853,8 +853,8 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[LitSeq[CodeableConcept]](`type`, t.`type`),
-    FHIRComponentField[Option[String]](name, t.name),
-    FHIRComponentField[LitSeq[String]](alias, t.alias),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
+    FHIRComponentField[LitSeq[FHIRString]](alias, t.alias),
     FHIRComponentField[Option[PUBLICATION_STATUS]](status, t.status),
     FHIRComponentField[Option[Period]](period, t.period),
     FHIRComponentField[Option[Reference]](ownedBy, t.ownedBy),
@@ -876,8 +876,8 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
   def extractMeta(t: InsurancePlan): Option[Meta]                       = t.meta
   def extractText(t: InsurancePlan): Option[Narrative]                  = t.text
   def extractType(t: InsurancePlan): LitSeq[CodeableConcept]            = t.`type`
-  def extractName(t: InsurancePlan): Option[String]                     = t.name
-  def extractAlias(t: InsurancePlan): LitSeq[String]                    = t.alias
+  def extractName(t: InsurancePlan): Option[FHIRString]                 = t.name
+  def extractAlias(t: InsurancePlan): LitSeq[FHIRString]                = t.alias
   def extractStatus(t: InsurancePlan): Option[PUBLICATION_STATUS]       = t.status
   def extractPeriod(t: InsurancePlan): Option[Period]                   = t.period
   def extractOwnedBy(t: InsurancePlan): Option[Reference]               = t.ownedBy
@@ -911,7 +911,7 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
     "address-country"    -> (obj => obj.contact.flatMap(_.address).flatMap(_.country).toSeq)
   )
   def unapply(
-      o: InsurancePlan): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[CodeableConcept], Option[String], LitSeq[String], Option[PUBLICATION_STATUS], Option[Period], Option[Reference], LitSeq[Reference], Option[LANGUAGES], LitSeq[Reference], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], LitSeq[Reference], Option[UriStr], Option[Reference], LitSeq[Extension], LitSeq[InsurancePlan.Contact], LitSeq[InsurancePlan.Coverage], LitSeq[InsurancePlan.Plan])] =
+      o: InsurancePlan): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[CodeableConcept], Option[FHIRString], LitSeq[FHIRString], Option[PUBLICATION_STATUS], Option[Period], Option[Reference], LitSeq[Reference], Option[LANGUAGES], LitSeq[Reference], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], LitSeq[Reference], Option[UriStr], Option[Reference], LitSeq[Extension], LitSeq[InsurancePlan.Contact], LitSeq[InsurancePlan.Coverage], LitSeq[InsurancePlan.Plan])] =
     Some(
       (
         o.id,
@@ -944,8 +944,8 @@ object InsurancePlan extends CompanionFor[InsurancePlan] {
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("type", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("alias", Some(LitSeq.empty)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
+          cursor.decodeAs[LitSeq[FHIRString]]("alias", Some(LitSeq.empty)),
           cursor.decodeAs[Option[PUBLICATION_STATUS]]("status", Some(None)),
           cursor.decodeAs[Option[Period]]("period", Some(None)),
           cursor.decodeAs[Option[Reference]]("ownedBy", Some(None)),
@@ -1044,8 +1044,8 @@ class InsurancePlan(
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
     val `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-    val name: Option[String] = None,
-    val alias: LitSeq[String] = LitSeq.empty,
+    val name: Option[FHIRString] = None,
+    val alias: LitSeq[FHIRString] = LitSeq.empty,
     val status: Option[PUBLICATION_STATUS] = None,
     val period: Option[Period] = None,
     val ownedBy: Option[Reference] = None,

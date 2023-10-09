@@ -45,10 +45,10 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
       override val parentType: CompanionFor[ResourceType] = Sugar
       def apply(
           id: Option[String] = None,
-          name: Option[String] = None,
+          name: Option[FHIRString] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           identifier: Option[Identifier] = None,
-          residueSite: Option[String] = None,
+          residueSite: Option[FHIRString] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
       ): Sugar = new Sugar(
@@ -61,28 +61,28 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Sugar): Option[(Option[String], Option[String], LitSeq[Extension], Option[Identifier], Option[String], LitSeq[Extension])] =
+          o: Sugar): Option[(Option[String], Option[FHIRString], LitSeq[Extension], Option[Identifier], Option[FHIRString], LitSeq[Extension])] =
         Some((o.id, o.name, o.extension, o.identifier, o.residueSite, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val name: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+      val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val identifier: FHIRComponentFieldMeta[Option[Identifier]] =
         FHIRComponentFieldMeta("identifier", lTagOf[Option[Identifier]], false, lTagOf[Identifier])
-      val residueSite: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("residueSite", lTagOf[Option[String]], false, lTagOf[String])
+      val residueSite: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("residueSite", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, name, extension, identifier, residueSite, modifierExtension)
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: Sugar): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[Option[String]](name, t.name),
+        FHIRComponentField[Option[FHIRString]](name, t.name),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Option[Identifier]](identifier, t.identifier),
-        FHIRComponentField[Option[String]](residueSite, t.residueSite),
+        FHIRComponentField[Option[FHIRString]](residueSite, t.residueSite),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
       )
       val baseType: CompanionFor[Sugar] = this
@@ -92,10 +92,10 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
           Try(
             new Sugar(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[Option[String]]("name", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Identifier]]("identifier", Some(None)),
-              cursor.decodeAs[Option[String]]("residueSite", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("residueSite", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
             )
@@ -104,10 +104,10 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
     @POJOBoilerplate
     class Sugar(
         override val id: Option[String] = None,
-        val name: Option[String] = None,
+        val name: Option[FHIRString] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val identifier: Option[Identifier] = None,
-        val residueSite: Option[String] = None,
+        val residueSite: Option[FHIRString] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -119,11 +119,11 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
       override val parentType: CompanionFor[ResourceType] = Linkage
       def apply(
           id: Option[String] = None,
-          name: Option[String] = None,
+          name: Option[FHIRString] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           identifier: Option[Identifier] = None,
-          residueSite: Option[String] = None,
-          connectivity: Option[String] = None,
+          residueSite: Option[FHIRString] = None,
+          connectivity: Option[FHIRString] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
       ): Linkage = new Linkage(
@@ -137,20 +137,20 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Linkage): Option[(Option[String], Option[String], LitSeq[Extension], Option[Identifier], Option[String], Option[String], LitSeq[Extension])] =
+          o: Linkage): Option[(Option[String], Option[FHIRString], LitSeq[Extension], Option[Identifier], Option[FHIRString], Option[FHIRString], LitSeq[Extension])] =
         Some((o.id, o.name, o.extension, o.identifier, o.residueSite, o.connectivity, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val name: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+      val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val identifier: FHIRComponentFieldMeta[Option[Identifier]] =
         FHIRComponentFieldMeta("identifier", lTagOf[Option[Identifier]], false, lTagOf[Identifier])
-      val residueSite: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("residueSite", lTagOf[Option[String]], false, lTagOf[String])
-      val connectivity: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("connectivity", lTagOf[Option[String]], false, lTagOf[String])
+      val residueSite: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("residueSite", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+      val connectivity: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("connectivity", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -158,11 +158,11 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: Linkage): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[Option[String]](name, t.name),
+        FHIRComponentField[Option[FHIRString]](name, t.name),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Option[Identifier]](identifier, t.identifier),
-        FHIRComponentField[Option[String]](residueSite, t.residueSite),
-        FHIRComponentField[Option[String]](connectivity, t.connectivity),
+        FHIRComponentField[Option[FHIRString]](residueSite, t.residueSite),
+        FHIRComponentField[Option[FHIRString]](connectivity, t.connectivity),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
       )
       val baseType: CompanionFor[Linkage] = this
@@ -172,11 +172,11 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
           Try(
             new Linkage(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[Option[String]]("name", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Identifier]]("identifier", Some(None)),
-              cursor.decodeAs[Option[String]]("residueSite", Some(None)),
-              cursor.decodeAs[Option[String]]("connectivity", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("residueSite", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("connectivity", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
             )
@@ -185,11 +185,11 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
     @POJOBoilerplate
     class Linkage(
         override val id: Option[String] = None,
-        val name: Option[String] = None,
+        val name: Option[FHIRString] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val identifier: Option[Identifier] = None,
-        val residueSite: Option[String] = None,
-        val connectivity: Option[String] = None,
+        val residueSite: Option[FHIRString] = None,
+        val connectivity: Option[FHIRString] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -197,7 +197,7 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
         id: Option[String] = None,
         length: Option[Int] = None,
         subunit: Option[Int] = None,
-        sequence: Option[String] = None,
+        sequence: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         fivePrime: Option[CodeableConcept] = None,
         threePrime: Option[CodeableConcept] = None,
@@ -221,7 +221,7 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Subunit): Option[(Option[String], Option[Int], Option[Int], Option[String], LitSeq[Extension], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Extension], Option[Attachment], LitSeq[Subunit.Sugar], LitSeq[Subunit.Linkage])] =
+        o: Subunit): Option[(Option[String], Option[Int], Option[Int], Option[FHIRString], LitSeq[Extension], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Extension], Option[Attachment], LitSeq[Subunit.Sugar], LitSeq[Subunit.Linkage])] =
       Some(
         (
           o.id,
@@ -241,8 +241,8 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
       FHIRComponentFieldMeta("length", lTagOf[Option[Int]], false, lTagOf[Int])
     val subunit: FHIRComponentFieldMeta[Option[Int]] =
       FHIRComponentFieldMeta("subunit", lTagOf[Option[Int]], false, lTagOf[Int])
-    val sequence: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("sequence", lTagOf[Option[String]], false, lTagOf[String])
+    val sequence: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("sequence", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fivePrime: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -264,7 +264,7 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[Int]](length, t.length),
       FHIRComponentField[Option[Int]](subunit, t.subunit),
-      FHIRComponentField[Option[String]](sequence, t.sequence),
+      FHIRComponentField[Option[FHIRString]](sequence, t.sequence),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[CodeableConcept]](fivePrime, t.fivePrime),
       FHIRComponentField[Option[CodeableConcept]](threePrime, t.threePrime),
@@ -282,7 +282,7 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[Int]]("length", Some(None)),
             cursor.decodeAs[Option[Int]]("subunit", Some(None)),
-            cursor.decodeAs[Option[String]]("sequence", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("sequence", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("fivePrime", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("threePrime", Some(None)),
@@ -299,7 +299,7 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
       override val id: Option[String] = None,
       val length: Option[Int] = None,
       val subunit: Option[Int] = None,
-      val sequence: Option[String] = None,
+      val sequence: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val fivePrime: Option[CodeableConcept] = None,
       val threePrime: Option[CodeableConcept] = None,
@@ -320,7 +320,7 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
       implicitRules: Option[UriStr] = None,
       numberOfSubunits: Option[Int] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      areaOfHybridisation: Option[String] = None,
+      areaOfHybridisation: Option[FHIRString] = None,
       oligoNucleotideType: Option[CodeableConcept] = None,
       subunit: LitSeq[SubstanceNucleicAcid.Subunit] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -360,8 +360,8 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
     FHIRComponentFieldMeta("numberOfSubunits", lTagOf[Option[Int]], false, lTagOf[Int])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val areaOfHybridisation: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("areaOfHybridisation", lTagOf[Option[String]], false, lTagOf[String])
+  val areaOfHybridisation: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("areaOfHybridisation", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val oligoNucleotideType: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("oligoNucleotideType", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val subunit: FHIRComponentFieldMeta[LitSeq[SubstanceNucleicAcid.Subunit]] =
@@ -393,7 +393,7 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Option[Int]](numberOfSubunits, t.numberOfSubunits),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-    FHIRComponentField[Option[String]](areaOfHybridisation, t.areaOfHybridisation),
+    FHIRComponentField[Option[FHIRString]](areaOfHybridisation, t.areaOfHybridisation),
     FHIRComponentField[Option[CodeableConcept]](oligoNucleotideType, t.oligoNucleotideType),
     FHIRComponentField[LitSeq[SubstanceNucleicAcid.Subunit]](subunit, t.subunit)
   )
@@ -407,12 +407,12 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
   def extractImplicitRules(t: SubstanceNucleicAcid): Option[UriStr]                 = t.implicitRules
   def extractNumberOfSubunits(t: SubstanceNucleicAcid): Option[Int]                 = t.numberOfSubunits
   def extractModifierExtension(t: SubstanceNucleicAcid): LitSeq[Extension]          = t.modifierExtension
-  def extractAreaOfHybridisation(t: SubstanceNucleicAcid): Option[String]           = t.areaOfHybridisation
+  def extractAreaOfHybridisation(t: SubstanceNucleicAcid): Option[FHIRString]       = t.areaOfHybridisation
   def extractOligoNucleotideType(t: SubstanceNucleicAcid): Option[CodeableConcept]  = t.oligoNucleotideType
   def extractSubunit(t: SubstanceNucleicAcid): LitSeq[SubstanceNucleicAcid.Subunit] = t.subunit
   override val thisName: String                                                     = "SubstanceNucleicAcid"
   def unapply(
-      o: SubstanceNucleicAcid): Option[(Option[String], Option[Meta], Option[Narrative], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[CodeableConcept], Option[UriStr], Option[Int], LitSeq[Extension], Option[String], Option[CodeableConcept], LitSeq[SubstanceNucleicAcid.Subunit])] =
+      o: SubstanceNucleicAcid): Option[(Option[String], Option[Meta], Option[Narrative], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[CodeableConcept], Option[UriStr], Option[Int], LitSeq[Extension], Option[FHIRString], Option[CodeableConcept], LitSeq[SubstanceNucleicAcid.Subunit])] =
     Some(
       (
         o.id,
@@ -442,7 +442,7 @@ object SubstanceNucleicAcid extends CompanionFor[SubstanceNucleicAcid] {
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[Int]]("numberOfSubunits", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("areaOfHybridisation", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("areaOfHybridisation", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("oligoNucleotideType", Some(None)),
           cursor.decodeAs[LitSeq[SubstanceNucleicAcid.Subunit]]("subunit", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -517,7 +517,7 @@ class SubstanceNucleicAcid(
     override val implicitRules: Option[UriStr] = None,
     val numberOfSubunits: Option[Int] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-    val areaOfHybridisation: Option[String] = None,
+    val areaOfHybridisation: Option[FHIRString] = None,
     val oligoNucleotideType: Option[CodeableConcept] = None,
     val subunit: LitSeq[SubstanceNucleicAcid.Subunit] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

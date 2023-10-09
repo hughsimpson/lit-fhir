@@ -43,10 +43,10 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       override type ResourceType = Detail
       override type ParentType   = Detail
       override val parentType: CompanionFor[ResourceType] = Detail
-      type ValueChoice = Choice[UnionBase64BinaryOrString]
+      type ValueChoice = Choice[UnionBase64BinaryOrFHIRString]
       def apply(
           id: Option[String] = None,
-          `type`: String,
+          `type`: FHIRString,
           value: Detail.ValueChoice,
           extension: LitSeq[Extension] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -59,14 +59,14 @@ object AuditEvent extends CompanionFor[AuditEvent] {
         modifierExtension,
         primitiveAttributes = primitiveAttributes
       )
-      def unapply(o: Detail): Option[(Option[String], String, Detail.ValueChoice, LitSeq[Extension], LitSeq[Extension])] = Some(
-        (o.id, o.`type`, o.value, o.extension, o.modifierExtension))
+      def unapply(o: Detail): Option[(Option[String], FHIRString, Detail.ValueChoice, LitSeq[Extension], LitSeq[Extension])] =
+        Some((o.id, o.`type`, o.value, o.extension, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val `type`: FHIRComponentFieldMeta[String] =
-        FHIRComponentFieldMeta("type", lTagOf[String], false, lTagOf[String])
+      val `type`: FHIRComponentFieldMeta[FHIRString] =
+        FHIRComponentFieldMeta("type", lTagOf[FHIRString], false, lTagOf[FHIRString])
       val value: FHIRComponentFieldMeta[Detail.ValueChoice] =
-        FHIRComponentFieldMeta("value", lTagOf[Detail.ValueChoice], true, lTagOf[UnionBase64BinaryOrString])
+        FHIRComponentFieldMeta("value", lTagOf[Detail.ValueChoice], true, lTagOf[UnionBase64BinaryOrFHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -75,7 +75,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: Detail): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[String](`type`, t.`type`),
+        FHIRComponentField[FHIRString](`type`, t.`type`),
         FHIRComponentField[Detail.ValueChoice](value, t.value),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -87,8 +87,8 @@ object AuditEvent extends CompanionFor[AuditEvent] {
           Try(
             new Detail(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[String]("type", None),
-              cursor.decodeRef[UnionBase64BinaryOrString]("value"),
+              cursor.decodeAs[FHIRString]("type", None),
+              cursor.decodeRef[UnionBase64BinaryOrFHIRString]("value"),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
@@ -98,7 +98,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
     @POJOBoilerplate
     class Detail(
         override val id: Option[String] = None,
-        val `type`: String,
+        val `type`: FHIRString,
         val value: Detail.ValueChoice,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -109,11 +109,11 @@ object AuditEvent extends CompanionFor[AuditEvent] {
         what: Option[Reference] = None,
         `type`: Option[Coding] = None,
         role: Option[Coding] = None,
-        name: Option[String] = None,
+        name: Option[FHIRString] = None,
         query: Option[Base64Binary] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         lifecycle: Option[Coding] = None,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         securityLabel: LitSeq[Coding] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         detail: LitSeq[Entity.Detail] = LitSeq.empty,
@@ -134,7 +134,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Entity): Option[(Option[String], Option[Reference], Option[Coding], Option[Coding], Option[String], Option[Base64Binary], LitSeq[Extension], Option[Coding], Option[String], LitSeq[Coding], LitSeq[Extension], LitSeq[Entity.Detail])] =
+        o: Entity): Option[(Option[String], Option[Reference], Option[Coding], Option[Coding], Option[FHIRString], Option[Base64Binary], LitSeq[Extension], Option[Coding], Option[FHIRString], LitSeq[Coding], LitSeq[Extension], LitSeq[Entity.Detail])] =
       Some(
         (
           o.id,
@@ -157,16 +157,16 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       FHIRComponentFieldMeta("type", lTagOf[Option[Coding]], false, lTagOf[Coding])
     val role: FHIRComponentFieldMeta[Option[Coding]] =
       FHIRComponentFieldMeta("role", lTagOf[Option[Coding]], false, lTagOf[Coding])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val query: FHIRComponentFieldMeta[Option[Base64Binary]] =
       FHIRComponentFieldMeta("query", lTagOf[Option[Base64Binary]], false, lTagOf[Base64Binary])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val lifecycle: FHIRComponentFieldMeta[Option[Coding]] =
       FHIRComponentFieldMeta("lifecycle", lTagOf[Option[Coding]], false, lTagOf[Coding])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val securityLabel: FHIRComponentFieldMeta[LitSeq[Coding]] =
       FHIRComponentFieldMeta("securityLabel", lTagOf[LitSeq[Coding]], false, lTagOf[Coding])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -181,11 +181,11 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       FHIRComponentField[Option[Reference]](what, t.what),
       FHIRComponentField[Option[Coding]](`type`, t.`type`),
       FHIRComponentField[Option[Coding]](role, t.role),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[Option[Base64Binary]](query, t.query),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Coding]](lifecycle, t.lifecycle),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Coding]](securityLabel, t.securityLabel),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[LitSeq[Entity.Detail]](detail, t.detail)
@@ -200,11 +200,11 @@ object AuditEvent extends CompanionFor[AuditEvent] {
             cursor.decodeAs[Option[Reference]]("what", Some(None)),
             cursor.decodeAs[Option[Coding]]("type", Some(None)),
             cursor.decodeAs[Option[Coding]]("role", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
             cursor.decodeAs[Option[Base64Binary]]("query", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Coding]]("lifecycle", Some(None)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Coding]]("securityLabel", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Entity.Detail]]("detail", Some(LitSeq.empty)),
@@ -218,11 +218,11 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       val what: Option[Reference] = None,
       val `type`: Option[Coding] = None,
       val role: Option[Coding] = None,
-      val name: Option[String] = None,
+      val name: Option[FHIRString] = None,
       val query: Option[Base64Binary] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val lifecycle: Option[Coding] = None,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       val securityLabel: LitSeq[Coding] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val detail: LitSeq[Entity.Detail] = LitSeq.empty,
@@ -243,7 +243,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       def apply(
           id: Option[String] = None,
           `type`: Option[NETWORK_TYPE] = None,
-          address: Option[String] = None,
+          address: Option[FHIRString] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -256,14 +256,14 @@ object AuditEvent extends CompanionFor[AuditEvent] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Network): Option[(Option[String], Option[NETWORK_TYPE], Option[String], LitSeq[Extension], LitSeq[Extension])] =
+          o: Network): Option[(Option[String], Option[NETWORK_TYPE], Option[FHIRString], LitSeq[Extension], LitSeq[Extension])] =
         Some((o.id, o.`type`, o.address, o.extension, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
       val `type`: FHIRComponentFieldMeta[Option[NETWORK_TYPE]] =
         FHIRComponentFieldMeta("type", lTagOf[Option[NETWORK_TYPE]], false, lTagOf[NETWORK_TYPE])
-      val address: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("address", lTagOf[Option[String]], false, lTagOf[String])
+      val address: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("address", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -273,7 +273,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       override def fields(t: Network): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[Option[NETWORK_TYPE]](`type`, t.`type`),
-        FHIRComponentField[Option[String]](address, t.address),
+        FHIRComponentField[Option[FHIRString]](address, t.address),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
       )
@@ -285,7 +285,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
             new Network(
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[Option[NETWORK_TYPE]]("type", Some(None)),
-              cursor.decodeAs[Option[String]]("address", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("address", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
@@ -296,7 +296,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
     class Network(
         override val id: Option[String] = None,
         val `type`: Option[NETWORK_TYPE] = None,
-        val address: Option[String] = None,
+        val address: Option[FHIRString] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -306,8 +306,8 @@ object AuditEvent extends CompanionFor[AuditEvent] {
         who: Option[Reference] = None,
         `type`: Option[CodeableConcept] = None,
         role: LitSeq[CodeableConcept] = LitSeq.empty,
-        name: Option[String] = None,
-        altId: Option[String] = None,
+        name: Option[FHIRString] = None,
+        altId: Option[FHIRString] = None,
         media: Option[Coding] = None,
         policy: LitSeq[UriStr] = LitSeq.empty,
         location: Option[Reference] = None,
@@ -335,7 +335,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Agent): Option[(Option[String], Option[Reference], Option[CodeableConcept], LitSeq[CodeableConcept], Option[String], Option[String], Option[Coding], LitSeq[UriStr], Option[Reference], LitSeq[Extension], Boolean, LitSeq[CodeableConcept], LitSeq[Extension], Option[Agent.Network])] =
+        o: Agent): Option[(Option[String], Option[Reference], Option[CodeableConcept], LitSeq[CodeableConcept], Option[FHIRString], Option[FHIRString], Option[Coding], LitSeq[UriStr], Option[Reference], LitSeq[Extension], Boolean, LitSeq[CodeableConcept], LitSeq[Extension], Option[Agent.Network])] =
       Some(
         (
           o.id,
@@ -360,10 +360,10 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val role: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
       FHIRComponentFieldMeta("role", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
-    val altId: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("altId", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val altId: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("altId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val media: FHIRComponentFieldMeta[Option[Coding]] =
       FHIRComponentFieldMeta("media", lTagOf[Option[Coding]], false, lTagOf[Coding])
     val policy: FHIRComponentFieldMeta[LitSeq[UriStr]] =
@@ -401,8 +401,8 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       FHIRComponentField[Option[Reference]](who, t.who),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
       FHIRComponentField[LitSeq[CodeableConcept]](role, t.role),
-      FHIRComponentField[Option[String]](name, t.name),
-      FHIRComponentField[Option[String]](altId, t.altId),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](altId, t.altId),
       FHIRComponentField[Option[Coding]](media, t.media),
       FHIRComponentField[LitSeq[UriStr]](policy, t.policy),
       FHIRComponentField[Option[Reference]](location, t.location),
@@ -422,8 +422,8 @@ object AuditEvent extends CompanionFor[AuditEvent] {
             cursor.decodeAs[Option[Reference]]("who", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
             cursor.decodeAs[LitSeq[CodeableConcept]]("role", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
-            cursor.decodeAs[Option[String]]("altId", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("altId", Some(None)),
             cursor.decodeAs[Option[Coding]]("media", Some(None)),
             cursor.decodeAs[LitSeq[UriStr]]("policy", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Reference]]("location", Some(None)),
@@ -442,8 +442,8 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       val who: Option[Reference] = None,
       val `type`: Option[CodeableConcept] = None,
       val role: LitSeq[CodeableConcept] = LitSeq.empty,
-      val name: Option[String] = None,
-      val altId: Option[String] = None,
+      val name: Option[FHIRString] = None,
+      val altId: Option[FHIRString] = None,
       val media: Option[Coding] = None,
       val policy: LitSeq[UriStr] = LitSeq.empty,
       val location: Option[Reference] = None,
@@ -462,7 +462,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
     override val parentType: CompanionFor[ResourceType] = Source
     def apply(
         id: Option[String] = None,
-        site: Option[String] = None,
+        site: Option[FHIRString] = None,
         `type`: LitSeq[Coding] = LitSeq.empty,
         observer: Reference,
         extension: LitSeq[Extension] = LitSeq.empty,
@@ -478,12 +478,12 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Source): Option[(Option[String], Option[String], LitSeq[Coding], Reference, LitSeq[Extension], LitSeq[Extension])] =
+        o: Source): Option[(Option[String], Option[FHIRString], LitSeq[Coding], Reference, LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.site, o.`type`, o.observer, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val site: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("site", lTagOf[Option[String]], false, lTagOf[String])
+    val site: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("site", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val `type`: FHIRComponentFieldMeta[LitSeq[Coding]] =
       FHIRComponentFieldMeta("type", lTagOf[LitSeq[Coding]], false, lTagOf[Coding])
     val observer: FHIRComponentFieldMeta[Reference] =
@@ -496,7 +496,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Source): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](site, t.site),
+      FHIRComponentField[Option[FHIRString]](site, t.site),
       FHIRComponentField[LitSeq[Coding]](`type`, t.`type`),
       FHIRComponentField[Reference](observer, t.observer),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -509,7 +509,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
         Try(
           new Source(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("site", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("site", Some(None)),
             cursor.decodeAs[LitSeq[Coding]]("type", Some(LitSeq.empty)),
             cursor.decodeAs[Reference]("observer", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -521,7 +521,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
   @POJOBoilerplate
   class Source(
       override val id: Option[String] = None,
-      val site: Option[String] = None,
+      val site: Option[FHIRString] = None,
       val `type`: LitSeq[Coding] = LitSeq.empty,
       val observer: Reference,
       override val extension: LitSeq[Extension] = LitSeq.empty,
@@ -541,7 +541,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
       recorded: ZonedDateTime,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      outcomeDesc: Option[String] = None,
+      outcomeDesc: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       purposeOfEvent: LitSeq[CodeableConcept] = LitSeq.empty,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -595,8 +595,8 @@ object AuditEvent extends CompanionFor[AuditEvent] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val outcomeDesc: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("outcomeDesc", lTagOf[Option[String]], false, lTagOf[String])
+  val outcomeDesc: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("outcomeDesc", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val purposeOfEvent: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -644,7 +644,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
     FHIRComponentField[ZonedDateTime](recorded, t.recorded),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](outcomeDesc, t.outcomeDesc),
+    FHIRComponentField[Option[FHIRString]](outcomeDesc, t.outcomeDesc),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[CodeableConcept]](purposeOfEvent, t.purposeOfEvent),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -664,7 +664,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
   def extractRecorded(t: AuditEvent): ZonedDateTime                 = t.recorded
   def extractContained(t: AuditEvent): LitSeq[Resource]             = t.contained
   def extractExtension(t: AuditEvent): LitSeq[Extension]            = t.extension
-  def extractOutcomeDesc(t: AuditEvent): Option[String]             = t.outcomeDesc
+  def extractOutcomeDesc(t: AuditEvent): Option[FHIRString]         = t.outcomeDesc
   def extractImplicitRules(t: AuditEvent): Option[UriStr]           = t.implicitRules
   def extractPurposeOfEvent(t: AuditEvent): LitSeq[CodeableConcept] = t.purposeOfEvent
   def extractModifierExtension(t: AuditEvent): LitSeq[Extension]    = t.modifierExtension
@@ -695,7 +695,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
     "action"      -> (obj => obj.action.toSeq)
   )
   def unapply(
-      o: AuditEvent): Option[(Option[String], Option[Meta], Option[Narrative], Coding, Option[AUDIT_EVENT_ACTION], Option[Period], LitSeq[Coding], Option[AUDIT_EVENT_OUTCOME], Option[LANGUAGES], ZonedDateTime, LitSeq[Resource], LitSeq[Extension], Option[String], Option[UriStr], LitSeq[CodeableConcept], LitSeq[Extension], AuditEvent.Source, NonEmptyLitSeq[AuditEvent.Agent], LitSeq[AuditEvent.Entity])] =
+      o: AuditEvent): Option[(Option[String], Option[Meta], Option[Narrative], Coding, Option[AUDIT_EVENT_ACTION], Option[Period], LitSeq[Coding], Option[AUDIT_EVENT_OUTCOME], Option[LANGUAGES], ZonedDateTime, LitSeq[Resource], LitSeq[Extension], Option[FHIRString], Option[UriStr], LitSeq[CodeableConcept], LitSeq[Extension], AuditEvent.Source, NonEmptyLitSeq[AuditEvent.Agent], LitSeq[AuditEvent.Entity])] =
     Some(
       (
         o.id,
@@ -733,7 +733,7 @@ object AuditEvent extends CompanionFor[AuditEvent] {
           cursor.decodeAs[ZonedDateTime]("recorded", None),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("outcomeDesc", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("outcomeDesc", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("purposeOfEvent", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -823,7 +823,7 @@ class AuditEvent(
     val recorded: ZonedDateTime,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val outcomeDesc: Option[String] = None,
+    val outcomeDesc: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     val purposeOfEvent: LitSeq[CodeableConcept] = LitSeq.empty,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,

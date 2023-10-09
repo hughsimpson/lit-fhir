@@ -591,7 +591,7 @@ object Claim extends CompanionFor[Claim] {
     override type ResourceType = SupportingInfo
     override type ParentType   = SupportingInfo
     override val parentType: CompanionFor[ResourceType] = SupportingInfo
-    type ValueChoice  = Choice[Union_2028408917]
+    type ValueChoice  = Choice[Union00969593238]
     type TimingChoice = Choice[UnionDateOrPeriod]
     def apply(
         id: Option[String] = None,
@@ -630,7 +630,7 @@ object Claim extends CompanionFor[Claim] {
     val category: FHIRComponentFieldMeta[CodeableConcept] =
       FHIRComponentFieldMeta("category", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
     val value: FHIRComponentFieldMeta[Option[SupportingInfo.ValueChoice]] =
-      FHIRComponentFieldMeta("value", lTagOf[Option[SupportingInfo.ValueChoice]], true, lTagOf[Union_2028408917])
+      FHIRComponentFieldMeta("value", lTagOf[Option[SupportingInfo.ValueChoice]], true, lTagOf[Union00969593238])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val timing: FHIRComponentFieldMeta[Option[SupportingInfo.TimingChoice]] =
@@ -662,7 +662,7 @@ object Claim extends CompanionFor[Claim] {
             cursor.decodeAs[Option[CodeableConcept]]("reason", Some(None)),
             cursor.decodeAs[PositiveInt]("sequence", None),
             cursor.decodeAs[CodeableConcept]("category", None),
-            cursor.decodeOptRef[Union_2028408917]("value"),
+            cursor.decodeOptRef[Union00969593238]("value"),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeOptRef[UnionDateOrPeriod]("timing"),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -696,10 +696,10 @@ object Claim extends CompanionFor[Claim] {
         coverage: Reference,
         extension: LitSeq[Extension] = LitSeq.empty,
         identifier: Option[Identifier] = None,
-        preAuthRef: LitSeq[String] = LitSeq.empty,
+        preAuthRef: LitSeq[FHIRString] = LitSeq.empty,
         claimResponse: Option[Reference] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
-        businessArrangement: Option[String] = None,
+        businessArrangement: Option[FHIRString] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Insurance = new Insurance(
       id,
@@ -715,7 +715,7 @@ object Claim extends CompanionFor[Claim] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Insurance): Option[(Option[String], Boolean, PositiveInt, Reference, LitSeq[Extension], Option[Identifier], LitSeq[String], Option[Reference], LitSeq[Extension], Option[String])] =
+        o: Insurance): Option[(Option[String], Boolean, PositiveInt, Reference, LitSeq[Extension], Option[Identifier], LitSeq[FHIRString], Option[Reference], LitSeq[Extension], Option[FHIRString])] =
       Some(
         (
           o.id,
@@ -740,14 +740,14 @@ object Claim extends CompanionFor[Claim] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val identifier: FHIRComponentFieldMeta[Option[Identifier]] =
       FHIRComponentFieldMeta("identifier", lTagOf[Option[Identifier]], false, lTagOf[Identifier])
-    val preAuthRef: FHIRComponentFieldMeta[LitSeq[String]] =
-      FHIRComponentFieldMeta("preAuthRef", lTagOf[LitSeq[String]], false, lTagOf[String])
+    val preAuthRef: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+      FHIRComponentFieldMeta("preAuthRef", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
     val claimResponse: FHIRComponentFieldMeta[Option[Reference]] =
       FHIRComponentFieldMeta("claimResponse", lTagOf[Option[Reference]], false, lTagOf[Reference])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val businessArrangement: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("businessArrangement", lTagOf[Option[String]], false, lTagOf[String])
+    val businessArrangement: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("businessArrangement", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
       Seq(id, focal, sequence, coverage, extension, identifier, preAuthRef, claimResponse, modifierExtension, businessArrangement)
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
@@ -758,10 +758,10 @@ object Claim extends CompanionFor[Claim] {
       FHIRComponentField[Reference](coverage, t.coverage),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Identifier]](identifier, t.identifier),
-      FHIRComponentField[LitSeq[String]](preAuthRef, t.preAuthRef),
+      FHIRComponentField[LitSeq[FHIRString]](preAuthRef, t.preAuthRef),
       FHIRComponentField[Option[Reference]](claimResponse, t.claimResponse),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-      FHIRComponentField[Option[String]](businessArrangement, t.businessArrangement)
+      FHIRComponentField[Option[FHIRString]](businessArrangement, t.businessArrangement)
     )
     val baseType: CompanionFor[Insurance] = this
     val thisName: String                  = "Insurance"
@@ -775,10 +775,10 @@ object Claim extends CompanionFor[Claim] {
             cursor.decodeAs[Reference]("coverage", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Identifier]]("identifier", Some(None)),
-            cursor.decodeAs[LitSeq[String]]("preAuthRef", Some(LitSeq.empty)),
+            cursor.decodeAs[LitSeq[FHIRString]]("preAuthRef", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Reference]]("claimResponse", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("businessArrangement", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("businessArrangement", Some(None)),
             decodeAttributes(cursor)
           )
         ))
@@ -791,10 +791,10 @@ object Claim extends CompanionFor[Claim] {
       val coverage: Reference,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val identifier: Option[Identifier] = None,
-      val preAuthRef: LitSeq[String] = LitSeq.empty,
+      val preAuthRef: LitSeq[FHIRString] = LitSeq.empty,
       val claimResponse: Option[Reference] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      val businessArrangement: Option[String] = None,
+      val businessArrangement: Option[FHIRString] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
   object Procedure extends CompanionFor[Procedure] {

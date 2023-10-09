@@ -38,7 +38,7 @@ object AppointmentResponse extends CompanionFor[AppointmentResponse] {
       text: Option[Narrative] = None,
       start: Option[ZonedDateTime] = None,
       actor: Option[Reference] = None,
-      comment: Option[String] = None,
+      comment: Option[FHIRString] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
@@ -80,8 +80,8 @@ object AppointmentResponse extends CompanionFor[AppointmentResponse] {
     FHIRComponentFieldMeta("start", lTagOf[Option[ZonedDateTime]], false, lTagOf[ZonedDateTime])
   val actor: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("actor", lTagOf[Option[Reference]], false, lTagOf[Reference])
-  val comment: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+  val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
   val contained: FHIRComponentFieldMeta[LitSeq[Resource]] =
@@ -126,7 +126,7 @@ object AppointmentResponse extends CompanionFor[AppointmentResponse] {
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[Option[ZonedDateTime]](start, t.start),
     FHIRComponentField[Option[Reference]](actor, t.actor),
-    FHIRComponentField[Option[String]](comment, t.comment),
+    FHIRComponentField[Option[FHIRString]](comment, t.comment),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -143,7 +143,7 @@ object AppointmentResponse extends CompanionFor[AppointmentResponse] {
   def extractText(t: AppointmentResponse): Option[Narrative]                  = t.text
   def extractStart(t: AppointmentResponse): Option[ZonedDateTime]             = t.start
   def extractActor(t: AppointmentResponse): Option[Reference]                 = t.actor
-  def extractComment(t: AppointmentResponse): Option[String]                  = t.comment
+  def extractComment(t: AppointmentResponse): Option[FHIRString]              = t.comment
   def extractLanguage(t: AppointmentResponse): Option[LANGUAGES]              = t.language
   def extractContained(t: AppointmentResponse): LitSeq[Resource]              = t.contained
   def extractExtension(t: AppointmentResponse): LitSeq[Extension]             = t.extension
@@ -164,7 +164,7 @@ object AppointmentResponse extends CompanionFor[AppointmentResponse] {
     "actor"        -> (obj => obj.actor.toSeq)
   )
   def unapply(
-      o: AppointmentResponse): Option[(Option[String], Option[ZonedDateTime], Option[Meta], Option[Narrative], Option[ZonedDateTime], Option[Reference], Option[String], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Reference, Option[UriStr], LitSeq[CodeableConcept], LitSeq[Extension], PARTICIPATIONSTATUS)] =
+      o: AppointmentResponse): Option[(Option[String], Option[ZonedDateTime], Option[Meta], Option[Narrative], Option[ZonedDateTime], Option[Reference], Option[FHIRString], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Reference, Option[UriStr], LitSeq[CodeableConcept], LitSeq[Extension], PARTICIPATIONSTATUS)] =
     Some(
       (
         o.id,
@@ -193,7 +193,7 @@ object AppointmentResponse extends CompanionFor[AppointmentResponse] {
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[Option[ZonedDateTime]]("start", Some(None)),
           cursor.decodeAs[Option[Reference]]("actor", Some(None)),
-          cursor.decodeAs[Option[String]]("comment", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -275,7 +275,7 @@ class AppointmentResponse(
     override val text: Option[Narrative] = None,
     val start: Option[ZonedDateTime] = None,
     val actor: Option[Reference] = None,
-    val comment: Option[String] = None,
+    val comment: Option[FHIRString] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,

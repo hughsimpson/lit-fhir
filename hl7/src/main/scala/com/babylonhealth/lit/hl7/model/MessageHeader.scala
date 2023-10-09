@@ -39,7 +39,7 @@ object MessageHeader extends CompanionFor[MessageHeader] {
     override val parentType: CompanionFor[ResourceType] = Destination
     def apply(
         id: Option[String] = None,
-        name: Option[String] = None,
+        name: Option[FHIRString] = None,
         target: Option[Reference] = None,
         endpoint: UrlStr,
         receiver: Option[Reference] = None,
@@ -57,12 +57,12 @@ object MessageHeader extends CompanionFor[MessageHeader] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Destination): Option[(Option[String], Option[String], Option[Reference], UrlStr, Option[Reference], LitSeq[Extension], LitSeq[Extension])] =
+        o: Destination): Option[(Option[String], Option[FHIRString], Option[Reference], UrlStr, Option[Reference], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.name, o.target, o.endpoint, o.receiver, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val target: FHIRComponentFieldMeta[Option[Reference]] =
       FHIRComponentFieldMeta("target", lTagOf[Option[Reference]], false, lTagOf[Reference])
     val endpoint: FHIRComponentFieldMeta[UrlStr] =
@@ -77,7 +77,7 @@ object MessageHeader extends CompanionFor[MessageHeader] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Destination): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[Option[Reference]](target, t.target),
       FHIRComponentField[UrlStr](endpoint, t.endpoint),
       FHIRComponentField[Option[Reference]](receiver, t.receiver),
@@ -91,7 +91,7 @@ object MessageHeader extends CompanionFor[MessageHeader] {
         Try(
           new Destination(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
             cursor.decodeAs[Option[Reference]]("target", Some(None)),
             cursor.decodeAs[UrlStr]("endpoint", None),
             cursor.decodeAs[Option[Reference]]("receiver", Some(None)),
@@ -104,7 +104,7 @@ object MessageHeader extends CompanionFor[MessageHeader] {
   @POJOBoilerplate
   class Destination(
       override val id: Option[String] = None,
-      val name: Option[String] = None,
+      val name: Option[FHIRString] = None,
       val target: Option[Reference] = None,
       val endpoint: UrlStr,
       val receiver: Option[Reference] = None,
@@ -194,10 +194,10 @@ object MessageHeader extends CompanionFor[MessageHeader] {
     override val parentType: CompanionFor[ResourceType] = Source
     def apply(
         id: Option[String] = None,
-        name: Option[String] = None,
-        version: Option[String] = None,
+        name: Option[FHIRString] = None,
+        version: Option[FHIRString] = None,
         contact: Option[ContactPoint] = None,
-        software: Option[String] = None,
+        software: Option[FHIRString] = None,
         endpoint: UrlStr,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -214,18 +214,18 @@ object MessageHeader extends CompanionFor[MessageHeader] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Source): Option[(Option[String], Option[String], Option[String], Option[ContactPoint], Option[String], UrlStr, LitSeq[Extension], LitSeq[Extension])] =
+        o: Source): Option[(Option[String], Option[FHIRString], Option[FHIRString], Option[ContactPoint], Option[FHIRString], UrlStr, LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.name, o.version, o.contact, o.software, o.endpoint, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
-    val version: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val contact: FHIRComponentFieldMeta[Option[ContactPoint]] =
       FHIRComponentFieldMeta("contact", lTagOf[Option[ContactPoint]], false, lTagOf[ContactPoint])
-    val software: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("software", lTagOf[Option[String]], false, lTagOf[String])
+    val software: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("software", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val endpoint: FHIRComponentFieldMeta[UrlStr] =
       FHIRComponentFieldMeta("endpoint", lTagOf[UrlStr], false, lTagOf[UrlStr])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -237,10 +237,10 @@ object MessageHeader extends CompanionFor[MessageHeader] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Source): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](name, t.name),
-      FHIRComponentField[Option[String]](version, t.version),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](version, t.version),
       FHIRComponentField[Option[ContactPoint]](contact, t.contact),
-      FHIRComponentField[Option[String]](software, t.software),
+      FHIRComponentField[Option[FHIRString]](software, t.software),
       FHIRComponentField[UrlStr](endpoint, t.endpoint),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -252,10 +252,10 @@ object MessageHeader extends CompanionFor[MessageHeader] {
         Try(
           new Source(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
-            cursor.decodeAs[Option[String]]("version", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
             cursor.decodeAs[Option[ContactPoint]]("contact", Some(None)),
-            cursor.decodeAs[Option[String]]("software", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("software", Some(None)),
             cursor.decodeAs[UrlStr]("endpoint", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -266,10 +266,10 @@ object MessageHeader extends CompanionFor[MessageHeader] {
   @POJOBoilerplate
   class Source(
       override val id: Option[String] = None,
-      val name: Option[String] = None,
-      val version: Option[String] = None,
+      val name: Option[FHIRString] = None,
+      val version: Option[FHIRString] = None,
       val contact: Option[ContactPoint] = None,
-      val software: Option[String] = None,
+      val software: Option[FHIRString] = None,
       val endpoint: UrlStr,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,

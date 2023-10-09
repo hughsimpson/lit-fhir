@@ -26,12 +26,12 @@ public interface AnnotationBuilder extends ElementBuilder {
     return new Impl(text);
   }
 
-  public static ChoiceReferenceOrString author(Reference r) {
-    return new ChoiceReferenceOrString(r);
+  public static ChoiceFHIRStringOrReference author(String s) {
+    return new ChoiceFHIRStringOrReference(s);
   }
 
-  public static ChoiceReferenceOrString author(String s) {
-    return new ChoiceReferenceOrString(s);
+  public static ChoiceFHIRStringOrReference author(Reference r) {
+    return new ChoiceFHIRStringOrReference(r);
   }
 
   public class Impl implements AnnotationBuilder {
@@ -39,7 +39,7 @@ public interface AnnotationBuilder extends ElementBuilder {
     private Optional<FHIRDateTime> time = Optional.empty();
     private String text;
     private Collection<Extension> extension = Collections.emptyList();
-    private Optional<ChoiceReferenceOrString> author = Optional.empty();
+    private Optional<ChoiceFHIRStringOrReference> author = Optional.empty();
 
     /**
      * Required fields for {@link Annotation}
@@ -92,10 +92,10 @@ public interface AnnotationBuilder extends ElementBuilder {
     }
     /**
      * @param author - The individual responsible for making the annotation. Field is a 'choice'
-     *     field. Type should be one of Reference, String. To pass the value in, wrap with one of
+     *     field. Type should be one of String, Reference. To pass the value in, wrap with one of
      *     the AnnotationBuilder.author static methods
      */
-    public AnnotationBuilder.Impl withAuthor(@NonNull ChoiceReferenceOrString author) {
+    public AnnotationBuilder.Impl withAuthor(@NonNull ChoiceFHIRStringOrReference author) {
       this.author = Optional.of(author);
       return this;
     }

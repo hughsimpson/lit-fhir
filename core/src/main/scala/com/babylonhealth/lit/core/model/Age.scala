@@ -29,7 +29,7 @@ object Age extends CompanionFor[Age] {
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/Age")
   def apply(
       id: Option[String] = None,
-      unit: Option[String] = None,
+      unit: Option[FHIRString] = None,
       code: Option[Code] = None,
       value: Option[BigDecimal] = None,
       system: Option[UriStr] = None,
@@ -48,8 +48,8 @@ object Age extends CompanionFor[Age] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val unit: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("unit", lTagOf[Option[String]], false, lTagOf[String])
+  val unit: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("unit", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val code: FHIRComponentFieldMeta[Option[Code]] =
     FHIRComponentFieldMeta("code", lTagOf[Option[Code]], false, lTagOf[Code])
   val value: FHIRComponentFieldMeta[Option[BigDecimal]] =
@@ -64,7 +64,7 @@ object Age extends CompanionFor[Age] {
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
   override def fields(t: Age): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
-    FHIRComponentField[Option[String]](unit, t.unit),
+    FHIRComponentField[Option[FHIRString]](unit, t.unit),
     FHIRComponentField[Option[Code]](code, t.code),
     FHIRComponentField[Option[BigDecimal]](value, t.value),
     FHIRComponentField[Option[UriStr]](system, t.system),
@@ -72,7 +72,7 @@ object Age extends CompanionFor[Age] {
     FHIRComponentField[Option[QUANTITY_COMPARATOR]](comparator, t.comparator)
   )
   def extractId(t: Age): Option[String]                      = t.id
-  def extractUnit(t: Age): Option[String]                    = t.unit
+  def extractUnit(t: Age): Option[FHIRString]                = t.unit
   def extractCode(t: Age): Option[Code]                      = t.code
   def extractValue(t: Age): Option[BigDecimal]               = t.value
   def extractSystem(t: Age): Option[UriStr]                  = t.system
@@ -81,14 +81,14 @@ object Age extends CompanionFor[Age] {
   override val thisName: String                              = "Age"
   override val searchParams: Map[String, Age => Seq[Any]]    = Quantity.searchParams
   def unapply(
-      o: Age): Option[(Option[String], Option[String], Option[Code], Option[BigDecimal], Option[UriStr], LitSeq[Extension], Option[QUANTITY_COMPARATOR])] =
+      o: Age): Option[(Option[String], Option[FHIRString], Option[Code], Option[BigDecimal], Option[UriStr], LitSeq[Extension], Option[QUANTITY_COMPARATOR])] =
     Some((o.id, o.unit, o.code, o.value, o.system, o.extension, o.comparator))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Age] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new Age(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[Option[String]]("unit", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("unit", Some(None)),
           cursor.decodeAs[Option[Code]]("code", Some(None)),
           cursor.decodeAs[Option[BigDecimal]]("value", Some(None)),
           cursor.decodeAs[Option[UriStr]]("system", Some(None)),
@@ -130,7 +130,7 @@ object Age extends CompanionFor[Age] {
 @POJOBoilerplate
 class Age(
     override val id: Option[String] = None,
-    override val unit: Option[String] = None,
+    override val unit: Option[FHIRString] = None,
     override val code: Option[Code] = None,
     override val value: Option[BigDecimal] = None,
     override val system: Option[UriStr] = None,

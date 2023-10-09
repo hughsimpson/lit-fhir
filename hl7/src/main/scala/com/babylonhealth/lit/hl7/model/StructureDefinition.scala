@@ -166,7 +166,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
         id: Option[String] = None,
         `type`: EXTENSION_CONTEXT_TYPE,
         extension: LitSeq[Extension] = LitSeq.empty,
-        expression: String,
+        expression: FHIRString,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Context = new Context(
@@ -177,7 +177,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Context): Option[(Option[String], EXTENSION_CONTEXT_TYPE, LitSeq[Extension], String, LitSeq[Extension])] =
+    def unapply(o: Context): Option[(Option[String], EXTENSION_CONTEXT_TYPE, LitSeq[Extension], FHIRString, LitSeq[Extension])] =
       Some((o.id, o.`type`, o.extension, o.expression, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -185,8 +185,8 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
       FHIRComponentFieldMeta("type", lTagOf[EXTENSION_CONTEXT_TYPE], false, lTagOf[EXTENSION_CONTEXT_TYPE])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val expression: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("expression", lTagOf[String], false, lTagOf[String])
+    val expression: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("expression", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, `type`, extension, expression, modifierExtension)
@@ -195,7 +195,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[EXTENSION_CONTEXT_TYPE](`type`, t.`type`),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[String](expression, t.expression),
+      FHIRComponentField[FHIRString](expression, t.expression),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Context] = this
@@ -207,7 +207,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[EXTENSION_CONTEXT_TYPE]("type", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[String]("expression", None),
+            cursor.decodeAs[FHIRString]("expression", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -218,7 +218,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
       override val id: Option[String] = None,
       val `type`: EXTENSION_CONTEXT_TYPE,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val expression: String,
+      val expression: FHIRString,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -231,8 +231,8 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
     def apply(
         id: Option[String] = None,
         uri: Option[UriStr] = None,
-        name: Option[String] = None,
-        comment: Option[String] = None,
+        name: Option[FHIRString] = None,
+        comment: Option[FHIRString] = None,
         identity: Id,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -248,16 +248,16 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Mapping): Option[(Option[String], Option[UriStr], Option[String], Option[String], Id, LitSeq[Extension], LitSeq[Extension])] =
+        o: Mapping): Option[(Option[String], Option[UriStr], Option[FHIRString], Option[FHIRString], Id, LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.uri, o.name, o.comment, o.identity, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val uri: FHIRComponentFieldMeta[Option[UriStr]] =
       FHIRComponentFieldMeta("uri", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
-    val comment: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val identity: FHIRComponentFieldMeta[Id] =
       FHIRComponentFieldMeta("identity", lTagOf[Id], false, lTagOf[Id])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -269,8 +269,8 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
     override def fields(t: Mapping): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[UriStr]](uri, t.uri),
-      FHIRComponentField[Option[String]](name, t.name),
-      FHIRComponentField[Option[String]](comment, t.comment),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](comment, t.comment),
       FHIRComponentField[Id](identity, t.identity),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -283,8 +283,8 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
           new Mapping(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[UriStr]]("uri", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
-            cursor.decodeAs[Option[String]]("comment", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
             cursor.decodeAs[Id]("identity", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -296,8 +296,8 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
   class Mapping(
       override val id: Option[String] = None,
       val uri: Option[UriStr] = None,
-      val name: Option[String] = None,
-      val comment: Option[String] = None,
+      val name: Option[FHIRString] = None,
+      val comment: Option[FHIRString] = None,
       val identity: Id,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -308,13 +308,13 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
       url: UriStr,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       date: Option[FHIRDateTime] = None,
       kind: STRUCTURE_DEFINITION_KIND,
       `type`: UriStr,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       status: PUBLICATION_STATUS,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       keyword: LitSeq[Coding] = LitSeq.empty,
@@ -322,7 +322,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
       `abstract`: Boolean,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
@@ -333,7 +333,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
       jurisdiction: LitSeq[CodeableConcept] = LitSeq.empty,
       implicitRules: Option[UriStr] = None,
       baseDefinition: Option[Canonical] = None,
-      contextInvariant: LitSeq[String] = LitSeq.empty,
+      contextInvariant: LitSeq[FHIRString] = LitSeq.empty,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       mapping: LitSeq[StructureDefinition.Mapping] = LitSeq.empty,
       context: LitSeq[StructureDefinition.Context] = LitSeq.empty,
@@ -386,20 +386,20 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val kind: FHIRComponentFieldMeta[STRUCTURE_DEFINITION_KIND] =
     FHIRComponentFieldMeta("kind", lTagOf[STRUCTURE_DEFINITION_KIND], false, lTagOf[STRUCTURE_DEFINITION_KIND])
   val `type`: FHIRComponentFieldMeta[UriStr] =
     FHIRComponentFieldMeta("type", lTagOf[UriStr], false, lTagOf[UriStr])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -414,8 +414,8 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
@@ -436,8 +436,8 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val baseDefinition: FHIRComponentFieldMeta[Option[Canonical]] =
     FHIRComponentFieldMeta("baseDefinition", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
-  val contextInvariant: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("contextInvariant", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val contextInvariant: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("contextInvariant", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val mapping: FHIRComponentFieldMeta[LitSeq[StructureDefinition.Mapping]] =
@@ -495,13 +495,13 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
     FHIRComponentField[UriStr](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[String](name, t.name),
+    FHIRComponentField[FHIRString](name, t.name),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[STRUCTURE_DEFINITION_KIND](kind, t.kind),
     FHIRComponentField[UriStr](`type`, t.`type`),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[LitSeq[Coding]](keyword, t.keyword),
@@ -509,7 +509,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
     FHIRComponentField[Boolean](`abstract`, t.`abstract`),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
@@ -520,7 +520,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
     FHIRComponentField[LitSeq[CodeableConcept]](jurisdiction, t.jurisdiction),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Option[Canonical]](baseDefinition, t.baseDefinition),
-    FHIRComponentField[LitSeq[String]](contextInvariant, t.contextInvariant),
+    FHIRComponentField[LitSeq[FHIRString]](contextInvariant, t.contextInvariant),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[StructureDefinition.Mapping]](mapping, t.mapping),
     FHIRComponentField[LitSeq[StructureDefinition.Context]](context, t.context),
@@ -531,13 +531,13 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
   def extractUrl(t: StructureDefinition): UriStr                                            = t.url
   def extractMeta(t: StructureDefinition): Option[Meta]                                     = t.meta
   def extractText(t: StructureDefinition): Option[Narrative]                                = t.text
-  def extractName(t: StructureDefinition): String                                           = t.name
+  def extractName(t: StructureDefinition): FHIRString                                       = t.name
   def extractDate(t: StructureDefinition): Option[FHIRDateTime]                             = t.date
   def extractKind(t: StructureDefinition): STRUCTURE_DEFINITION_KIND                        = t.kind
   def extractType(t: StructureDefinition): UriStr                                           = t.`type`
-  def extractTitle(t: StructureDefinition): Option[String]                                  = t.title
+  def extractTitle(t: StructureDefinition): Option[FHIRString]                              = t.title
   def extractStatus(t: StructureDefinition): PUBLICATION_STATUS                             = t.status
-  def extractVersion(t: StructureDefinition): Option[String]                                = t.version
+  def extractVersion(t: StructureDefinition): Option[FHIRString]                            = t.version
   def extractContact(t: StructureDefinition): LitSeq[ContactDetail]                         = t.contact
   def extractPurpose(t: StructureDefinition): Option[Markdown]                              = t.purpose
   def extractKeyword(t: StructureDefinition): LitSeq[Coding]                                = t.keyword
@@ -545,7 +545,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
   def extractAbstract(t: StructureDefinition): Boolean                                      = t.`abstract`
   def extractContained(t: StructureDefinition): LitSeq[Resource]                            = t.contained
   def extractExtension(t: StructureDefinition): LitSeq[Extension]                           = t.extension
-  def extractPublisher(t: StructureDefinition): Option[String]                              = t.publisher
+  def extractPublisher(t: StructureDefinition): Option[FHIRString]                          = t.publisher
   def extractCopyright(t: StructureDefinition): Option[Markdown]                            = t.copyright
   def extractIdentifier(t: StructureDefinition): LitSeq[Identifier]                         = t.identifier
   def extractUseContext(t: StructureDefinition): LitSeq[UsageContext]                       = t.useContext
@@ -556,7 +556,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
   def extractJurisdiction(t: StructureDefinition): LitSeq[CodeableConcept]                  = t.jurisdiction
   def extractImplicitRules(t: StructureDefinition): Option[UriStr]                          = t.implicitRules
   def extractBaseDefinition(t: StructureDefinition): Option[Canonical]                      = t.baseDefinition
-  def extractContextInvariant(t: StructureDefinition): LitSeq[String]                       = t.contextInvariant
+  def extractContextInvariant(t: StructureDefinition): LitSeq[FHIRString]                   = t.contextInvariant
   def extractModifierExtension(t: StructureDefinition): LitSeq[Extension]                   = t.modifierExtension
   def extractMapping(t: StructureDefinition): LitSeq[StructureDefinition.Mapping]           = t.mapping
   def extractContext(t: StructureDefinition): LitSeq[StructureDefinition.Context]           = t.context
@@ -605,13 +605,13 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
           cursor.decodeAs[UriStr]("url", None),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[STRUCTURE_DEFINITION_KIND]("kind", None),
           cursor.decodeAs[UriStr]("type", None),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[LitSeq[Coding]]("keyword", Some(LitSeq.empty)),
@@ -619,7 +619,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
           cursor.decodeAs[Boolean]("abstract", None),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
@@ -630,7 +630,7 @@ object StructureDefinition extends CompanionFor[StructureDefinition] {
           cursor.decodeAs[LitSeq[CodeableConcept]]("jurisdiction", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[Canonical]]("baseDefinition", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("contextInvariant", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("contextInvariant", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[StructureDefinition.Mapping]]("mapping", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[StructureDefinition.Context]]("context", Some(LitSeq.empty)),
@@ -766,13 +766,13 @@ class StructureDefinition(
     val url: UriStr,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: String,
+    val name: FHIRString,
     val date: Option[FHIRDateTime] = None,
     val kind: STRUCTURE_DEFINITION_KIND,
     val `type`: UriStr,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val status: PUBLICATION_STATUS,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     val keyword: LitSeq[Coding] = LitSeq.empty,
@@ -780,7 +780,7 @@ class StructureDefinition(
     val `abstract`: Boolean,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,
@@ -791,7 +791,7 @@ class StructureDefinition(
     val jurisdiction: LitSeq[CodeableConcept] = LitSeq.empty,
     override val implicitRules: Option[UriStr] = None,
     val baseDefinition: Option[Canonical] = None,
-    val contextInvariant: LitSeq[String] = LitSeq.empty,
+    val contextInvariant: LitSeq[FHIRString] = LitSeq.empty,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val mapping: LitSeq[StructureDefinition.Mapping] = LitSeq.empty,
     val context: LitSeq[StructureDefinition.Context] = LitSeq.empty,

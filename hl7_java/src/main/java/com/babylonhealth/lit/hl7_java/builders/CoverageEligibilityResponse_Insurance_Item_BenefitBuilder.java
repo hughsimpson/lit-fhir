@@ -28,36 +28,36 @@ public interface CoverageEligibilityResponse_Insurance_Item_BenefitBuilder {
     return new Impl(_type.build());
   }
 
-  public static ChoiceMoneyOrStringOrUnsignedInt used(Money m) {
-    return new ChoiceMoneyOrStringOrUnsignedInt(m);
+  public static ChoiceFHIRStringOrMoneyOrUnsignedInt used(String s) {
+    return new ChoiceFHIRStringOrMoneyOrUnsignedInt(s);
   }
 
-  public static ChoiceMoneyOrStringOrUnsignedInt used(String s) {
-    return new ChoiceMoneyOrStringOrUnsignedInt(s);
+  public static ChoiceFHIRStringOrMoneyOrUnsignedInt used(Money m) {
+    return new ChoiceFHIRStringOrMoneyOrUnsignedInt(m);
   }
 
-  public static ChoiceMoneyOrStringOrUnsignedInt used(Integer i) {
-    return new ChoiceMoneyOrStringOrUnsignedInt(i);
+  public static ChoiceFHIRStringOrMoneyOrUnsignedInt used(Integer i) {
+    return new ChoiceFHIRStringOrMoneyOrUnsignedInt(i);
   }
 
-  public static ChoiceMoneyOrStringOrUnsignedInt allowed(Money m) {
-    return new ChoiceMoneyOrStringOrUnsignedInt(m);
+  public static ChoiceFHIRStringOrMoneyOrUnsignedInt allowed(String s) {
+    return new ChoiceFHIRStringOrMoneyOrUnsignedInt(s);
   }
 
-  public static ChoiceMoneyOrStringOrUnsignedInt allowed(String s) {
-    return new ChoiceMoneyOrStringOrUnsignedInt(s);
+  public static ChoiceFHIRStringOrMoneyOrUnsignedInt allowed(Money m) {
+    return new ChoiceFHIRStringOrMoneyOrUnsignedInt(m);
   }
 
-  public static ChoiceMoneyOrStringOrUnsignedInt allowed(Integer i) {
-    return new ChoiceMoneyOrStringOrUnsignedInt(i);
+  public static ChoiceFHIRStringOrMoneyOrUnsignedInt allowed(Integer i) {
+    return new ChoiceFHIRStringOrMoneyOrUnsignedInt(i);
   }
 
   public class Impl implements CoverageEligibilityResponse_Insurance_Item_BenefitBuilder {
     private Optional<String> id = Optional.empty();
     private CodeableConcept _type;
-    private Optional<ChoiceMoneyOrStringOrUnsignedInt> used = Optional.empty();
+    private Optional<ChoiceFHIRStringOrMoneyOrUnsignedInt> used = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
-    private Optional<ChoiceMoneyOrStringOrUnsignedInt> allowed = Optional.empty();
+    private Optional<ChoiceFHIRStringOrMoneyOrUnsignedInt> allowed = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
 
     /**
@@ -79,12 +79,12 @@ public interface CoverageEligibilityResponse_Insurance_Item_BenefitBuilder {
       return this;
     }
     /**
-     * @param used Field is a 'choice' field. Type should be one of Money, String, Integer. To pass
+     * @param used Field is a 'choice' field. Type should be one of String, Money, Integer. To pass
      *     the value in, wrap with one of the
      *     CoverageEligibilityResponse_Insurance_Item_BenefitBuilder.used static methods
      */
     public CoverageEligibilityResponse_Insurance_Item_BenefitBuilder.Impl withUsed(
-        @NonNull ChoiceMoneyOrStringOrUnsignedInt used) {
+        @NonNull ChoiceFHIRStringOrMoneyOrUnsignedInt used) {
       this.used = Optional.of(used);
       return this;
     }
@@ -119,12 +119,12 @@ public interface CoverageEligibilityResponse_Insurance_Item_BenefitBuilder {
       return this;
     }
     /**
-     * @param allowed Field is a 'choice' field. Type should be one of Money, String, Integer. To
+     * @param allowed Field is a 'choice' field. Type should be one of String, Money, Integer. To
      *     pass the value in, wrap with one of the
      *     CoverageEligibilityResponse_Insurance_Item_BenefitBuilder.allowed static methods
      */
     public CoverageEligibilityResponse_Insurance_Item_BenefitBuilder.Impl withAllowed(
-        @NonNull ChoiceMoneyOrStringOrUnsignedInt allowed) {
+        @NonNull ChoiceFHIRStringOrMoneyOrUnsignedInt allowed) {
       this.allowed = Optional.of(allowed);
       return this;
     }

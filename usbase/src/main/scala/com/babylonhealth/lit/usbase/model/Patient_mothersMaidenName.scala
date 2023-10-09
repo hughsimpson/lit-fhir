@@ -34,7 +34,7 @@ object Patient_mothersMaidenName extends CompanionFor[Patient_mothersMaidenName]
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName")
   def apply(
       id: Option[String] = None,
-      value: String,
+      value: FHIRString,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Patient_mothersMaidenName = new Patient_mothersMaidenName(
     id,
@@ -43,26 +43,27 @@ object Patient_mothersMaidenName extends CompanionFor[Patient_mothersMaidenName]
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val value: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("value", lTagOf[String], true, lTagOf[String])
+  val value: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("value", lTagOf[FHIRString], true, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, value)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Try(
     Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](value, t.value.get.toSubRefNonUnion[String])
+      FHIRComponentField[FHIRString](value, t.value.get.toSubRefNonUnion[FHIRString])
     ))
   override def fields(t: Patient_mothersMaidenName): Seq[FHIRComponentField[_]] = fieldsFromParent(t).get
   def extractId(t: Patient_mothersMaidenName): Option[String]                   = t.id
-  def extractValue(t: Patient_mothersMaidenName): String                        = t.value.get.toSubRefNonUnion[String]
+  def extractValue(t: Patient_mothersMaidenName): FHIRString                    = t.value.get.toSubRefNonUnion[FHIRString]
   override val thisName: String                                                 = "Patient_mothersMaidenName"
   override val searchParams: Map[String, Patient_mothersMaidenName => Seq[Any]] = Extension.searchParams
-  def unapply(o: Patient_mothersMaidenName): Option[(Option[String], String)] = Some((o.id, o.value.get.toSubRefNonUnion[String]))
+  def unapply(o: Patient_mothersMaidenName): Option[(Option[String], FHIRString)] = Some(
+    (o.id, o.value.get.toSubRefNonUnion[FHIRString]))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Patient_mothersMaidenName] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new Patient_mothersMaidenName(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[String]("valueString", None),
+          cursor.decodeAs[FHIRString]("valueString", None),
           decodeAttributes(cursor)
         )
       ))
@@ -89,7 +90,7 @@ object Patient_mothersMaidenName extends CompanionFor[Patient_mothersMaidenName]
 @POJOBoilerplate
 class Patient_mothersMaidenName(
     override val id: Option[String] = None,
-    value: String,
+    value: FHIRString,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Extension(
       id = id,

@@ -277,7 +277,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
         `type`: Option[CodeableConcept] = None,
         value: Option[BigDecimal] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         unitOfMeasure: Option[CodeableConcept] = None,
         numeratorCount: Option[Int] = None,
         denominatorCount: Option[Int] = None,
@@ -298,7 +298,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: RiskEstimate): Option[(Option[String], Option[CodeableConcept], Option[BigDecimal], LitSeq[Extension], Option[String], Option[CodeableConcept], Option[Int], Option[Int], LitSeq[Extension], LitSeq[RiskEstimate.PrecisionEstimate])] =
+        o: RiskEstimate): Option[(Option[String], Option[CodeableConcept], Option[BigDecimal], LitSeq[Extension], Option[FHIRString], Option[CodeableConcept], Option[Int], Option[Int], LitSeq[Extension], LitSeq[RiskEstimate.PrecisionEstimate])] =
       Some(
         (
           o.id,
@@ -319,8 +319,8 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
       FHIRComponentFieldMeta("value", lTagOf[Option[BigDecimal]], false, lTagOf[BigDecimal])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val unitOfMeasure: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("unitOfMeasure", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val numeratorCount: FHIRComponentFieldMeta[Option[Int]] =
@@ -352,7 +352,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
       FHIRComponentField[Option[BigDecimal]](value, t.value),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[Option[CodeableConcept]](unitOfMeasure, t.unitOfMeasure),
       FHIRComponentField[Option[Int]](numeratorCount, t.numeratorCount),
       FHIRComponentField[Option[Int]](denominatorCount, t.denominatorCount),
@@ -369,7 +369,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
             cursor.decodeAs[Option[BigDecimal]]("value", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("unitOfMeasure", Some(None)),
             cursor.decodeAs[Option[Int]]("numeratorCount", Some(None)),
             cursor.decodeAs[Option[Int]]("denominatorCount", Some(None)),
@@ -385,7 +385,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
       val `type`: Option[CodeableConcept] = None,
       val value: Option[BigDecimal] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       val unitOfMeasure: Option[CodeableConcept] = None,
       val numeratorCount: Option[Int] = None,
       val denominatorCount: Option[Int] = None,
@@ -402,7 +402,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
     def apply(
         id: Option[String] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         numberOfStudies: Option[Int] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         numberOfParticipants: Option[Int] = None,
@@ -417,14 +417,14 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: SampleSize): Option[(Option[String], LitSeq[Extension], Option[String], Option[Int], LitSeq[Extension], Option[Int])] =
+        o: SampleSize): Option[(Option[String], LitSeq[Extension], Option[FHIRString], Option[Int], LitSeq[Extension], Option[Int])] =
       Some((o.id, o.extension, o.description, o.numberOfStudies, o.modifierExtension, o.numberOfParticipants))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val numberOfStudies: FHIRComponentFieldMeta[Option[Int]] =
       FHIRComponentFieldMeta("numberOfStudies", lTagOf[Option[Int]], false, lTagOf[Int])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -437,7 +437,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
     override def fields(t: SampleSize): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[Option[Int]](numberOfStudies, t.numberOfStudies),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[Int]](numberOfParticipants, t.numberOfParticipants)
@@ -450,7 +450,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
           new SampleSize(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[Option[Int]]("numberOfStudies", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Int]]("numberOfParticipants", Some(None)),
@@ -462,7 +462,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
   class SampleSize(
       override val id: Option[String] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       val numberOfStudies: Option[Int] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val numberOfParticipants: Option[Int] = None,
@@ -473,15 +473,15 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       date: Option[FHIRDateTime] = None,
       note: LitSeq[Annotation] = LitSeq.empty,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       topic: LitSeq[CodeableConcept] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       author: LitSeq[ContactDetail] = LitSeq.empty,
       editor: LitSeq[ContactDetail] = LitSeq.empty,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       outcome: Reference,
       language: Option[LANGUAGES] = None,
@@ -490,7 +490,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
       exposure: Option[Reference] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       studyType: Option[CodeableConcept] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
@@ -559,14 +559,14 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val note: FHIRComponentFieldMeta[LitSeq[Annotation]] =
     FHIRComponentFieldMeta("note", lTagOf[LitSeq[Annotation]], false, lTagOf[Annotation])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val topic: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("topic", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
@@ -575,8 +575,8 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
     FHIRComponentFieldMeta("author", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val editor: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("editor", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val outcome: FHIRComponentFieldMeta[Reference] =
@@ -593,8 +593,8 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val studyType: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -688,15 +688,15 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[LitSeq[Annotation]](note, t.note),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[LitSeq[CodeableConcept]](topic, t.topic),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[LitSeq[ContactDetail]](author, t.author),
     FHIRComponentField[LitSeq[ContactDetail]](editor, t.editor),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Reference](outcome, t.outcome),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
@@ -705,7 +705,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
     FHIRComponentField[Option[Reference]](exposure, t.exposure),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[Option[CodeableConcept]](studyType, t.studyType),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
@@ -728,15 +728,15 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
   def extractUrl(t: RiskEvidenceSynthesis): Option[UriStr]                                      = t.url
   def extractMeta(t: RiskEvidenceSynthesis): Option[Meta]                                       = t.meta
   def extractText(t: RiskEvidenceSynthesis): Option[Narrative]                                  = t.text
-  def extractName(t: RiskEvidenceSynthesis): Option[String]                                     = t.name
+  def extractName(t: RiskEvidenceSynthesis): Option[FHIRString]                                 = t.name
   def extractDate(t: RiskEvidenceSynthesis): Option[FHIRDateTime]                               = t.date
   def extractNote(t: RiskEvidenceSynthesis): LitSeq[Annotation]                                 = t.note
-  def extractTitle(t: RiskEvidenceSynthesis): Option[String]                                    = t.title
+  def extractTitle(t: RiskEvidenceSynthesis): Option[FHIRString]                                = t.title
   def extractTopic(t: RiskEvidenceSynthesis): LitSeq[CodeableConcept]                           = t.topic
   def extractStatus(t: RiskEvidenceSynthesis): PUBLICATION_STATUS                               = t.status
   def extractAuthor(t: RiskEvidenceSynthesis): LitSeq[ContactDetail]                            = t.author
   def extractEditor(t: RiskEvidenceSynthesis): LitSeq[ContactDetail]                            = t.editor
-  def extractVersion(t: RiskEvidenceSynthesis): Option[String]                                  = t.version
+  def extractVersion(t: RiskEvidenceSynthesis): Option[FHIRString]                              = t.version
   def extractContact(t: RiskEvidenceSynthesis): LitSeq[ContactDetail]                           = t.contact
   def extractOutcome(t: RiskEvidenceSynthesis): Reference                                       = t.outcome
   def extractLanguage(t: RiskEvidenceSynthesis): Option[LANGUAGES]                              = t.language
@@ -745,7 +745,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
   def extractExposure(t: RiskEvidenceSynthesis): Option[Reference]                              = t.exposure
   def extractContained(t: RiskEvidenceSynthesis): LitSeq[Resource]                              = t.contained
   def extractExtension(t: RiskEvidenceSynthesis): LitSeq[Extension]                             = t.extension
-  def extractPublisher(t: RiskEvidenceSynthesis): Option[String]                                = t.publisher
+  def extractPublisher(t: RiskEvidenceSynthesis): Option[FHIRString]                            = t.publisher
   def extractCopyright(t: RiskEvidenceSynthesis): Option[Markdown]                              = t.copyright
   def extractStudyType(t: RiskEvidenceSynthesis): Option[CodeableConcept]                       = t.studyType
   def extractIdentifier(t: RiskEvidenceSynthesis): LitSeq[Identifier]                           = t.identifier
@@ -792,15 +792,15 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("topic", Some(LitSeq.empty)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[LitSeq[ContactDetail]]("author", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[ContactDetail]]("editor", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Reference]("outcome", None),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
@@ -809,7 +809,7 @@ object RiskEvidenceSynthesis extends CompanionFor[RiskEvidenceSynthesis] {
           cursor.decodeAs[Option[Reference]]("exposure", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("studyType", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
@@ -959,15 +959,15 @@ class RiskEvidenceSynthesis(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val date: Option[FHIRDateTime] = None,
     val note: LitSeq[Annotation] = LitSeq.empty,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val topic: LitSeq[CodeableConcept] = LitSeq.empty,
     val status: PUBLICATION_STATUS,
     val author: LitSeq[ContactDetail] = LitSeq.empty,
     val editor: LitSeq[ContactDetail] = LitSeq.empty,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val outcome: Reference,
     override val language: Option[LANGUAGES] = None,
@@ -976,7 +976,7 @@ class RiskEvidenceSynthesis(
     val exposure: Option[Reference] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val studyType: Option[CodeableConcept] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,

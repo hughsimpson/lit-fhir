@@ -19,40 +19,40 @@ import scala.jdk.javaapi.OptionConverters;
 public interface CommunicationRequest_PayloadBuilder {
   public CommunicationRequest.Payload build();
 
-  public static Impl init(@NonNull ChoiceAttachmentOrReferenceOrString content) {
+  public static Impl init(@NonNull ChoiceAttachmentOrFHIRStringOrReference content) {
     return new Impl(content);
   }
 
-  public static Impl builder(@NonNull ChoiceAttachmentOrReferenceOrString content) {
+  public static Impl builder(@NonNull ChoiceAttachmentOrFHIRStringOrReference content) {
     return new Impl(content);
   }
 
-  public static ChoiceAttachmentOrReferenceOrString content(Attachment a) {
-    return new ChoiceAttachmentOrReferenceOrString(a);
+  public static ChoiceAttachmentOrFHIRStringOrReference content(Attachment a) {
+    return new ChoiceAttachmentOrFHIRStringOrReference(a);
   }
 
-  public static ChoiceAttachmentOrReferenceOrString content(Reference r) {
-    return new ChoiceAttachmentOrReferenceOrString(r);
+  public static ChoiceAttachmentOrFHIRStringOrReference content(String s) {
+    return new ChoiceAttachmentOrFHIRStringOrReference(s);
   }
 
-  public static ChoiceAttachmentOrReferenceOrString content(String s) {
-    return new ChoiceAttachmentOrReferenceOrString(s);
+  public static ChoiceAttachmentOrFHIRStringOrReference content(Reference r) {
+    return new ChoiceAttachmentOrFHIRStringOrReference(r);
   }
 
   public class Impl implements CommunicationRequest_PayloadBuilder {
     private Optional<String> id = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
-    private ChoiceAttachmentOrReferenceOrString content;
+    private ChoiceAttachmentOrFHIRStringOrReference content;
     private Collection<Extension> modifierExtension = Collections.emptyList();
 
     /**
      * Required fields for {@link CommunicationRequest.Payload}
      *
-     * @param content Field is a 'choice' field. Type should be one of Attachment, Reference,
-     *     String. To pass the value in, wrap with one of the
+     * @param content Field is a 'choice' field. Type should be one of Attachment, String,
+     *     Reference. To pass the value in, wrap with one of the
      *     CommunicationRequest_PayloadBuilder.content static methods
      */
-    public Impl(@NonNull ChoiceAttachmentOrReferenceOrString content) {
+    public Impl(@NonNull ChoiceAttachmentOrFHIRStringOrReference content) {
       this.content = content;
     }
 

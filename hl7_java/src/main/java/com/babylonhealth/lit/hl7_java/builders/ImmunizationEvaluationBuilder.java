@@ -46,20 +46,20 @@ public interface ImmunizationEvaluationBuilder extends DomainResourceBuilder {
         immunizationEvent.build());
   }
 
-  public static ChoicePositiveIntOrString doseNumber(Integer i) {
-    return new ChoicePositiveIntOrString(i);
+  public static ChoiceFHIRStringOrPositiveInt doseNumber(String s) {
+    return new ChoiceFHIRStringOrPositiveInt(s);
   }
 
-  public static ChoicePositiveIntOrString doseNumber(String s) {
-    return new ChoicePositiveIntOrString(s);
+  public static ChoiceFHIRStringOrPositiveInt doseNumber(Integer i) {
+    return new ChoiceFHIRStringOrPositiveInt(i);
   }
 
-  public static ChoicePositiveIntOrString seriesDoses(Integer i) {
-    return new ChoicePositiveIntOrString(i);
+  public static ChoiceFHIRStringOrPositiveInt seriesDoses(String s) {
+    return new ChoiceFHIRStringOrPositiveInt(s);
   }
 
-  public static ChoicePositiveIntOrString seriesDoses(String s) {
-    return new ChoicePositiveIntOrString(s);
+  public static ChoiceFHIRStringOrPositiveInt seriesDoses(Integer i) {
+    return new ChoiceFHIRStringOrPositiveInt(i);
   }
 
   public class Impl implements ImmunizationEvaluationBuilder {
@@ -79,8 +79,8 @@ public interface ImmunizationEvaluationBuilder extends DomainResourceBuilder {
     private Optional<String> description = Optional.empty();
     private Optional<String> implicitRules = Optional.empty();
     private CodeableConcept targetDisease;
-    private Optional<ChoicePositiveIntOrString> doseNumber = Optional.empty();
-    private Optional<ChoicePositiveIntOrString> seriesDoses = Optional.empty();
+    private Optional<ChoiceFHIRStringOrPositiveInt> doseNumber = Optional.empty();
+    private Optional<ChoiceFHIRStringOrPositiveInt> seriesDoses = Optional.empty();
     private Collection<CodeableConcept> doseStatusReason = Collections.emptyList();
     private Collection<Extension> modifierExtension = Collections.emptyList();
     private Reference immunizationEvent;
@@ -262,21 +262,21 @@ public interface ImmunizationEvaluationBuilder extends DomainResourceBuilder {
     }
     /**
      * @param doseNumber - Nominal position in a series. Field is a 'choice' field. Type should be
-     *     one of Integer, String. To pass the value in, wrap with one of the
+     *     one of String, Integer. To pass the value in, wrap with one of the
      *     ImmunizationEvaluationBuilder.doseNumber static methods
      */
     public ImmunizationEvaluationBuilder.Impl withDoseNumber(
-        @NonNull ChoicePositiveIntOrString doseNumber) {
+        @NonNull ChoiceFHIRStringOrPositiveInt doseNumber) {
       this.doseNumber = Optional.of(doseNumber);
       return this;
     }
     /**
      * @param seriesDoses - The recommended number of doses to achieve immunity. Field is a 'choice'
-     *     field. Type should be one of Integer, String. To pass the value in, wrap with one of the
+     *     field. Type should be one of String, Integer. To pass the value in, wrap with one of the
      *     ImmunizationEvaluationBuilder.seriesDoses static methods
      */
     public ImmunizationEvaluationBuilder.Impl withSeriesDoses(
-        @NonNull ChoicePositiveIntOrString seriesDoses) {
+        @NonNull ChoiceFHIRStringOrPositiveInt seriesDoses) {
       this.seriesDoses = Optional.of(seriesDoses);
       return this;
     }

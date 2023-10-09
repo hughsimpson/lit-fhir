@@ -28,16 +28,16 @@ public interface SubstanceReferenceInformation_TargetBuilder {
     return new Impl();
   }
 
-  public static ChoiceQuantityOrRangeOrString amount(Quantity q) {
-    return new ChoiceQuantityOrRangeOrString(q);
+  public static ChoiceFHIRStringOrQuantityOrRange amount(String s) {
+    return new ChoiceFHIRStringOrQuantityOrRange(s);
   }
 
-  public static ChoiceQuantityOrRangeOrString amount(Range r) {
-    return new ChoiceQuantityOrRangeOrString(r);
+  public static ChoiceFHIRStringOrQuantityOrRange amount(Quantity q) {
+    return new ChoiceFHIRStringOrQuantityOrRange(q);
   }
 
-  public static ChoiceQuantityOrRangeOrString amount(String s) {
-    return new ChoiceQuantityOrRangeOrString(s);
+  public static ChoiceFHIRStringOrQuantityOrRange amount(Range r) {
+    return new ChoiceFHIRStringOrQuantityOrRange(r);
   }
 
   public class Impl implements SubstanceReferenceInformation_TargetBuilder {
@@ -47,7 +47,7 @@ public interface SubstanceReferenceInformation_TargetBuilder {
     private Collection<Reference> source = Collections.emptyList();
     private Optional<CodeableConcept> organism = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
-    private Optional<ChoiceQuantityOrRangeOrString> amount = Optional.empty();
+    private Optional<ChoiceFHIRStringOrQuantityOrRange> amount = Optional.empty();
     private Optional<CodeableConcept> amountType = Optional.empty();
     private Optional<CodeableConcept> interaction = Optional.empty();
     private Optional<CodeableConcept> organismType = Optional.empty();
@@ -148,12 +148,12 @@ public interface SubstanceReferenceInformation_TargetBuilder {
       return this;
     }
     /**
-     * @param amount Field is a 'choice' field. Type should be one of Quantity, Range, String. To
+     * @param amount Field is a 'choice' field. Type should be one of String, Quantity, Range. To
      *     pass the value in, wrap with one of the
      *     SubstanceReferenceInformation_TargetBuilder.amount static methods
      */
     public SubstanceReferenceInformation_TargetBuilder.Impl withAmount(
-        @NonNull ChoiceQuantityOrRangeOrString amount) {
+        @NonNull ChoiceFHIRStringOrQuantityOrRange amount) {
       this.amount = Optional.of(amount);
       return this;
     }

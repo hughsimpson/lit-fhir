@@ -50,7 +50,7 @@ object AdverseEvent extends CompanionFor[AdverseEvent] {
           extension: LitSeq[Extension] = LitSeq.empty,
           assessment: Option[CodeableConcept] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
-          productRelatedness: Option[String] = None,
+          productRelatedness: Option[FHIRString] = None,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
       ): Causality = new Causality(
         id,
@@ -63,7 +63,7 @@ object AdverseEvent extends CompanionFor[AdverseEvent] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Causality): Option[(Option[String], Option[Reference], Option[CodeableConcept], LitSeq[Extension], Option[CodeableConcept], LitSeq[Extension], Option[String])] =
+          o: Causality): Option[(Option[String], Option[Reference], Option[CodeableConcept], LitSeq[Extension], Option[CodeableConcept], LitSeq[Extension], Option[FHIRString])] =
         Some((o.id, o.author, o.method, o.extension, o.assessment, o.modifierExtension, o.productRelatedness))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -77,8 +77,8 @@ object AdverseEvent extends CompanionFor[AdverseEvent] {
         FHIRComponentFieldMeta("assessment", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-      val productRelatedness: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("productRelatedness", lTagOf[Option[String]], false, lTagOf[String])
+      val productRelatedness: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("productRelatedness", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
         Seq(id, author, method, extension, assessment, modifierExtension, productRelatedness)
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
@@ -89,7 +89,7 @@ object AdverseEvent extends CompanionFor[AdverseEvent] {
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Option[CodeableConcept]](assessment, t.assessment),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-        FHIRComponentField[Option[String]](productRelatedness, t.productRelatedness)
+        FHIRComponentField[Option[FHIRString]](productRelatedness, t.productRelatedness)
       )
       val baseType: CompanionFor[Causality] = this
       val thisName: String                  = "Causality"
@@ -103,7 +103,7 @@ object AdverseEvent extends CompanionFor[AdverseEvent] {
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Option[CodeableConcept]]("assessment", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("productRelatedness", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("productRelatedness", Some(None)),
               decodeAttributes(cursor)
             )
           ))
@@ -116,7 +116,7 @@ object AdverseEvent extends CompanionFor[AdverseEvent] {
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val assessment: Option[CodeableConcept] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-        val productRelatedness: Option[String] = None,
+        val productRelatedness: Option[FHIRString] = None,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
     def apply(

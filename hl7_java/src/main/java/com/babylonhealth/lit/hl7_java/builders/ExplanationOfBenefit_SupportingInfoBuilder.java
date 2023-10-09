@@ -29,24 +29,24 @@ public interface ExplanationOfBenefit_SupportingInfoBuilder {
     return new Impl(sequence, category.build());
   }
 
-  public static Choice_2028408917 value(Attachment a) {
-    return new Choice_2028408917(a);
+  public static Choice00969593238 value(Attachment a) {
+    return new Choice00969593238(a);
   }
 
-  public static Choice_2028408917 value(Boolean b) {
-    return new Choice_2028408917(b);
+  public static Choice00969593238 value(Boolean b) {
+    return new Choice00969593238(b);
   }
 
-  public static Choice_2028408917 value(Quantity q) {
-    return new Choice_2028408917(q);
+  public static Choice00969593238 value(String s) {
+    return new Choice00969593238(s);
   }
 
-  public static Choice_2028408917 value(Reference r) {
-    return new Choice_2028408917(r);
+  public static Choice00969593238 value(Quantity q) {
+    return new Choice00969593238(q);
   }
 
-  public static Choice_2028408917 value(String s) {
-    return new Choice_2028408917(s);
+  public static Choice00969593238 value(Reference r) {
+    return new Choice00969593238(r);
   }
 
   public static ChoiceDateOrPeriod timing(FHIRDate f) {
@@ -63,7 +63,7 @@ public interface ExplanationOfBenefit_SupportingInfoBuilder {
     private Optional<Coding> reason = Optional.empty();
     private Integer sequence;
     private CodeableConcept category;
-    private Optional<Choice_2028408917> value = Optional.empty();
+    private Optional<Choice00969593238> value = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
     private Optional<ChoiceDateOrPeriod> timing = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
@@ -110,12 +110,12 @@ public interface ExplanationOfBenefit_SupportingInfoBuilder {
       return this;
     }
     /**
-     * @param value Field is a 'choice' field. Type should be one of Attachment, Boolean, Quantity,
-     *     Reference, String. To pass the value in, wrap with one of the
+     * @param value Field is a 'choice' field. Type should be one of Attachment, Boolean, String,
+     *     Quantity, Reference. To pass the value in, wrap with one of the
      *     ExplanationOfBenefit_SupportingInfoBuilder.value static methods
      */
     public ExplanationOfBenefit_SupportingInfoBuilder.Impl withValue(
-        @NonNull Choice_2028408917 value) {
+        @NonNull Choice00969593238 value) {
       this.value = Optional.of(value);
       return this;
     }

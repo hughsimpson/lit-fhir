@@ -159,7 +159,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
       override val parentType: CompanionFor[ResourceType] = NamePart
       def apply(
           id: Option[String] = None,
-          part: String,
+          part: FHIRString,
           `type`: Coding,
           extension: LitSeq[Extension] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -172,12 +172,12 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
         modifierExtension,
         primitiveAttributes = primitiveAttributes
       )
-      def unapply(o: NamePart): Option[(Option[String], String, Coding, LitSeq[Extension], LitSeq[Extension])] = Some(
+      def unapply(o: NamePart): Option[(Option[String], FHIRString, Coding, LitSeq[Extension], LitSeq[Extension])] = Some(
         (o.id, o.part, o.`type`, o.extension, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val part: FHIRComponentFieldMeta[String] =
-        FHIRComponentFieldMeta("part", lTagOf[String], false, lTagOf[String])
+      val part: FHIRComponentFieldMeta[FHIRString] =
+        FHIRComponentFieldMeta("part", lTagOf[FHIRString], false, lTagOf[FHIRString])
       val `type`: FHIRComponentFieldMeta[Coding] =
         FHIRComponentFieldMeta("type", lTagOf[Coding], false, lTagOf[Coding])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -188,7 +188,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: NamePart): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[String](part, t.part),
+        FHIRComponentField[FHIRString](part, t.part),
         FHIRComponentField[Coding](`type`, t.`type`),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -200,7 +200,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
           Try(
             new NamePart(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[String]("part", None),
+              cursor.decodeAs[FHIRString]("part", None),
               cursor.decodeAs[Coding]("type", None),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -211,7 +211,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
     @POJOBoilerplate
     class NamePart(
         override val id: Option[String] = None,
-        val part: String,
+        val part: FHIRString,
         val `type`: Coding,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -294,7 +294,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
     def apply(
         id: Option[String] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        productName: String,
+        productName: FHIRString,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         namePart: LitSeq[Name.NamePart] = LitSeq.empty,
         countryLanguage: LitSeq[Name.CountryLanguage] = LitSeq.empty,
@@ -309,14 +309,14 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Name): Option[(Option[String], LitSeq[Extension], String, LitSeq[Extension], LitSeq[Name.NamePart], LitSeq[Name.CountryLanguage])] =
+        o: Name): Option[(Option[String], LitSeq[Extension], FHIRString, LitSeq[Extension], LitSeq[Name.NamePart], LitSeq[Name.CountryLanguage])] =
       Some((o.id, o.extension, o.productName, o.modifierExtension, o.namePart, o.countryLanguage))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val productName: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("productName", lTagOf[String], false, lTagOf[String])
+    val productName: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("productName", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val namePart: FHIRComponentFieldMeta[LitSeq[Name.NamePart]] =
@@ -328,7 +328,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
     override def fields(t: Name): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[String](productName, t.productName),
+      FHIRComponentField[FHIRString](productName, t.productName),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[LitSeq[Name.NamePart]](namePart, t.namePart),
       FHIRComponentField[LitSeq[Name.CountryLanguage]](countryLanguage, t.countryLanguage)
@@ -341,7 +341,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
           new Name(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[String]("productName", None),
+            cursor.decodeAs[FHIRString]("productName", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Name.NamePart]]("namePart", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Name.CountryLanguage]]("countryLanguage", Some(LitSeq.empty)),
@@ -353,7 +353,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
   class Name(
       override val id: Option[String] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val productName: String,
+      val productName: FHIRString,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val namePart: LitSeq[Name.NamePart] = LitSeq.empty,
       val countryLanguage: LitSeq[Name.CountryLanguage] = LitSeq.empty,
@@ -493,7 +493,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
       implicitRules: Option[UriStr] = None,
       clinicalTrial: LitSeq[Reference] = LitSeq.empty,
       crossReference: LitSeq[Identifier] = LitSeq.empty,
-      specialMeasures: LitSeq[String] = LitSeq.empty,
+      specialMeasures: LitSeq[FHIRString] = LitSeq.empty,
       marketingStatus: LitSeq[Choice["MarketingStatus"]] = LitSeq.empty,
       attachedDocument: LitSeq[Reference] = LitSeq.empty,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -567,8 +567,8 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
     FHIRComponentFieldMeta("clinicalTrial", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val crossReference: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("crossReference", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val specialMeasures: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("specialMeasures", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val specialMeasures: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("specialMeasures", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val marketingStatus: FHIRComponentFieldMeta[LitSeq[Choice["MarketingStatus"]]] =
     FHIRComponentFieldMeta("marketingStatus", lTagOf[LitSeq[Choice["MarketingStatus"]]], false, lTagOf[Choice["MarketingStatus"]])
   val attachedDocument: FHIRComponentFieldMeta[LitSeq[Reference]] =
@@ -650,7 +650,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Reference]](clinicalTrial, t.clinicalTrial),
     FHIRComponentField[LitSeq[Identifier]](crossReference, t.crossReference),
-    FHIRComponentField[LitSeq[String]](specialMeasures, t.specialMeasures),
+    FHIRComponentField[LitSeq[FHIRString]](specialMeasures, t.specialMeasures),
     FHIRComponentField[LitSeq[Choice["MarketingStatus"]]](marketingStatus, t.marketingStatus),
     FHIRComponentField[LitSeq[Reference]](attachedDocument, t.attachedDocument),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -681,7 +681,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
   def extractImplicitRules(t: MedicinalProduct): Option[UriStr]                           = t.implicitRules
   def extractClinicalTrial(t: MedicinalProduct): LitSeq[Reference]                        = t.clinicalTrial
   def extractCrossReference(t: MedicinalProduct): LitSeq[Identifier]                      = t.crossReference
-  def extractSpecialMeasures(t: MedicinalProduct): LitSeq[String]                         = t.specialMeasures
+  def extractSpecialMeasures(t: MedicinalProduct): LitSeq[FHIRString]                     = t.specialMeasures
   def extractMarketingStatus(t: MedicinalProduct): LitSeq[Choice["MarketingStatus"]]      = t.marketingStatus
   def extractAttachedDocument(t: MedicinalProduct): LitSeq[Reference]                     = t.attachedDocument
   def extractModifierExtension(t: MedicinalProduct): LitSeq[Extension]                    = t.modifierExtension
@@ -720,7 +720,7 @@ object MedicinalProduct extends CompanionFor[MedicinalProduct] {
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("clinicalTrial", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("crossReference", Some(LitSeq.empty)),
-          cursor.decodeAs[LitSeq[String]]("specialMeasures", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("specialMeasures", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Choice["MarketingStatus"]]]("marketingStatus", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Reference]]("attachedDocument", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -839,7 +839,7 @@ class MedicinalProduct(
     override val implicitRules: Option[UriStr] = None,
     val clinicalTrial: LitSeq[Reference] = LitSeq.empty,
     val crossReference: LitSeq[Identifier] = LitSeq.empty,
-    val specialMeasures: LitSeq[String] = LitSeq.empty,
+    val specialMeasures: LitSeq[FHIRString] = LitSeq.empty,
     val marketingStatus: LitSeq[Choice["MarketingStatus"]] = LitSeq.empty,
     val attachedDocument: LitSeq[Reference] = LitSeq.empty,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,

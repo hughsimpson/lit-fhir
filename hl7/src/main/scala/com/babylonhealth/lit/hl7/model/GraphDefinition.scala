@@ -61,8 +61,8 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
             code: COMPARTMENT_TYPE,
             rule: GRAPH_COMPARTMENT_RULE,
             extension: LitSeq[Extension] = LitSeq.empty,
-            expression: Option[String] = None,
-            description: Option[String] = None,
+            expression: Option[FHIRString] = None,
+            description: Option[FHIRString] = None,
             modifierExtension: LitSeq[Extension] = LitSeq.empty,
             primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
         ): Compartment = new Compartment(
@@ -77,7 +77,7 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: Compartment): Option[(Option[String], GRAPH_COMPARTMENT_USE, COMPARTMENT_TYPE, GRAPH_COMPARTMENT_RULE, LitSeq[Extension], Option[String], Option[String], LitSeq[Extension])] =
+            o: Compartment): Option[(Option[String], GRAPH_COMPARTMENT_USE, COMPARTMENT_TYPE, GRAPH_COMPARTMENT_RULE, LitSeq[Extension], Option[FHIRString], Option[FHIRString], LitSeq[Extension])] =
           Some((o.id, o.use, o.code, o.rule, o.extension, o.expression, o.description, o.modifierExtension))
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -89,10 +89,10 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
           FHIRComponentFieldMeta("rule", lTagOf[GRAPH_COMPARTMENT_RULE], false, lTagOf[GRAPH_COMPARTMENT_RULE])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-        val expression: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("expression", lTagOf[Option[String]], false, lTagOf[String])
-        val description: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+        val expression: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("expression", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+        val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -104,8 +104,8 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
           FHIRComponentField[COMPARTMENT_TYPE](code, t.code),
           FHIRComponentField[GRAPH_COMPARTMENT_RULE](rule, t.rule),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-          FHIRComponentField[Option[String]](expression, t.expression),
-          FHIRComponentField[Option[String]](description, t.description),
+          FHIRComponentField[Option[FHIRString]](expression, t.expression),
+          FHIRComponentField[Option[FHIRString]](description, t.description),
           FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
         )
         val baseType: CompanionFor[Compartment] = this
@@ -119,8 +119,8 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
                 cursor.decodeAs[COMPARTMENT_TYPE]("code", None),
                 cursor.decodeAs[GRAPH_COMPARTMENT_RULE]("rule", None),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-                cursor.decodeAs[Option[String]]("expression", Some(None)),
-                cursor.decodeAs[Option[String]]("description", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("expression", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
                 decodeAttributes(cursor)
               )
@@ -133,8 +133,8 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
           val code: COMPARTMENT_TYPE,
           val rule: GRAPH_COMPARTMENT_RULE,
           override val extension: LitSeq[Extension] = LitSeq.empty,
-          val expression: Option[String] = None,
-          val description: Option[String] = None,
+          val expression: Option[FHIRString] = None,
+          val description: Option[FHIRString] = None,
           override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
           override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
           extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -142,7 +142,7 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
           id: Option[String] = None,
           `type`: RESOURCE_TYPES,
           link: LitSeq[GraphDefinition.Link] = LitSeq.empty,
-          params: Option[String] = None,
+          params: Option[FHIRString] = None,
           profile: Option[Canonical] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -160,7 +160,7 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Target): Option[(Option[String], RESOURCE_TYPES, LitSeq[GraphDefinition.Link], Option[String], Option[Canonical], LitSeq[Extension], LitSeq[Extension], LitSeq[Target.Compartment])] =
+          o: Target): Option[(Option[String], RESOURCE_TYPES, LitSeq[GraphDefinition.Link], Option[FHIRString], Option[Canonical], LitSeq[Extension], LitSeq[Extension], LitSeq[Target.Compartment])] =
         Some((o.id, o.`type`, o.link, o.params, o.profile, o.extension, o.modifierExtension, o.compartment))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -168,8 +168,8 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
         FHIRComponentFieldMeta("type", lTagOf[RESOURCE_TYPES], false, lTagOf[RESOURCE_TYPES])
       val link: FHIRComponentFieldMeta[LitSeq[GraphDefinition.Link]] =
         FHIRComponentFieldMeta("link", lTagOf[LitSeq[GraphDefinition.Link]], false, lTagOf[GraphDefinition.Link])
-      val params: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("params", lTagOf[Option[String]], false, lTagOf[String])
+      val params: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("params", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val profile: FHIRComponentFieldMeta[Option[Canonical]] =
         FHIRComponentFieldMeta("profile", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -185,7 +185,7 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[RESOURCE_TYPES](`type`, t.`type`),
         FHIRComponentField[LitSeq[GraphDefinition.Link]](link, t.link),
-        FHIRComponentField[Option[String]](params, t.params),
+        FHIRComponentField[Option[FHIRString]](params, t.params),
         FHIRComponentField[Option[Canonical]](profile, t.profile),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -200,7 +200,7 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[RESOURCE_TYPES]("type", None),
               cursor.decodeAs[LitSeq[GraphDefinition.Link]]("link", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("params", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("params", Some(None)),
               cursor.decodeAs[Option[Canonical]]("profile", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -214,7 +214,7 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
         override val id: Option[String] = None,
         val `type`: RESOURCE_TYPES,
         val link: LitSeq[GraphDefinition.Link] = LitSeq.empty,
-        val params: Option[String] = None,
+        val params: Option[FHIRString] = None,
         val profile: Option[Canonical] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -224,11 +224,11 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
     def apply(
         id: Option[String] = None,
         min: Option[Int] = None,
-        max: Option[String] = None,
-        path: Option[String] = None,
+        max: Option[FHIRString] = None,
+        path: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        sliceName: Option[String] = None,
-        description: Option[String] = None,
+        sliceName: Option[FHIRString] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         target: LitSeq[Link.Target] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -245,22 +245,22 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Link): Option[(Option[String], Option[Int], Option[String], Option[String], LitSeq[Extension], Option[String], Option[String], LitSeq[Extension], LitSeq[Link.Target])] =
+        o: Link): Option[(Option[String], Option[Int], Option[FHIRString], Option[FHIRString], LitSeq[Extension], Option[FHIRString], Option[FHIRString], LitSeq[Extension], LitSeq[Link.Target])] =
       Some((o.id, o.min, o.max, o.path, o.extension, o.sliceName, o.description, o.modifierExtension, o.target))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val min: FHIRComponentFieldMeta[Option[Int]] =
       FHIRComponentFieldMeta("min", lTagOf[Option[Int]], false, lTagOf[Int])
-    val max: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("max", lTagOf[Option[String]], false, lTagOf[String])
-    val path: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("path", lTagOf[Option[String]], false, lTagOf[String])
+    val max: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("max", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val path: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("path", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val sliceName: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("sliceName", lTagOf[Option[String]], false, lTagOf[String])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val sliceName: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("sliceName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val target: FHIRComponentFieldMeta[LitSeq[Link.Target]] =
@@ -271,11 +271,11 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
     override def fields(t: Link): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[Int]](min, t.min),
-      FHIRComponentField[Option[String]](max, t.max),
-      FHIRComponentField[Option[String]](path, t.path),
+      FHIRComponentField[Option[FHIRString]](max, t.max),
+      FHIRComponentField[Option[FHIRString]](path, t.path),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](sliceName, t.sliceName),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](sliceName, t.sliceName),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[LitSeq[Link.Target]](target, t.target)
     )
@@ -287,11 +287,11 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
           new Link(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[Int]]("min", Some(None)),
-            cursor.decodeAs[Option[String]]("max", Some(None)),
-            cursor.decodeAs[Option[String]]("path", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("max", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("path", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("sliceName", Some(None)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("sliceName", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Link.Target]]("target", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -302,11 +302,11 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
   class Link(
       override val id: Option[String] = None,
       val min: Option[Int] = None,
-      val max: Option[String] = None,
-      val path: Option[String] = None,
+      val max: Option[FHIRString] = None,
+      val path: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val sliceName: Option[String] = None,
-      val description: Option[String] = None,
+      val sliceName: Option[FHIRString] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val target: LitSeq[Link.Target] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -316,18 +316,18 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       date: Option[FHIRDateTime] = None,
       start: RESOURCE_TYPES,
       status: PUBLICATION_STATUS,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       profile: Option[Canonical] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
       description: Option[Markdown] = None,
       experimental: Option[Boolean] = None,
@@ -370,16 +370,16 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val start: FHIRComponentFieldMeta[RESOURCE_TYPES] =
     FHIRComponentFieldMeta("start", lTagOf[RESOURCE_TYPES], false, lTagOf[RESOURCE_TYPES])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -392,8 +392,8 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val useContext: FHIRComponentFieldMeta[LitSeq[UsageContext]] =
     FHIRComponentFieldMeta("useContext", lTagOf[LitSeq[UsageContext]], false, lTagOf[UsageContext])
   val description: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -439,18 +439,18 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[String](name, t.name),
+    FHIRComponentField[FHIRString](name, t.name),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[RESOURCE_TYPES](start, t.start),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[Option[Canonical]](profile, t.profile),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
     FHIRComponentField[Option[Markdown]](description, t.description),
     FHIRComponentField[Option[Boolean]](experimental, t.experimental),
@@ -463,18 +463,18 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
   def extractUrl(t: GraphDefinition): Option[UriStr]                   = t.url
   def extractMeta(t: GraphDefinition): Option[Meta]                    = t.meta
   def extractText(t: GraphDefinition): Option[Narrative]               = t.text
-  def extractName(t: GraphDefinition): String                          = t.name
+  def extractName(t: GraphDefinition): FHIRString                      = t.name
   def extractDate(t: GraphDefinition): Option[FHIRDateTime]            = t.date
   def extractStart(t: GraphDefinition): RESOURCE_TYPES                 = t.start
   def extractStatus(t: GraphDefinition): PUBLICATION_STATUS            = t.status
-  def extractVersion(t: GraphDefinition): Option[String]               = t.version
+  def extractVersion(t: GraphDefinition): Option[FHIRString]           = t.version
   def extractContact(t: GraphDefinition): LitSeq[ContactDetail]        = t.contact
   def extractPurpose(t: GraphDefinition): Option[Markdown]             = t.purpose
   def extractProfile(t: GraphDefinition): Option[Canonical]            = t.profile
   def extractLanguage(t: GraphDefinition): Option[LANGUAGES]           = t.language
   def extractContained(t: GraphDefinition): LitSeq[Resource]           = t.contained
   def extractExtension(t: GraphDefinition): LitSeq[Extension]          = t.extension
-  def extractPublisher(t: GraphDefinition): Option[String]             = t.publisher
+  def extractPublisher(t: GraphDefinition): Option[FHIRString]         = t.publisher
   def extractUseContext(t: GraphDefinition): LitSeq[UsageContext]      = t.useContext
   def extractDescription(t: GraphDefinition): Option[Markdown]         = t.description
   def extractExperimental(t: GraphDefinition): Option[Boolean]         = t.experimental
@@ -509,18 +509,18 @@ object GraphDefinition extends CompanionFor[GraphDefinition] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[RESOURCE_TYPES]("start", None),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[Option[Canonical]]("profile", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("description", Some(None)),
           cursor.decodeAs[Option[Boolean]]("experimental", Some(None)),
@@ -622,18 +622,18 @@ class GraphDefinition(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: String,
+    val name: FHIRString,
     val date: Option[FHIRDateTime] = None,
     val start: RESOURCE_TYPES,
     val status: PUBLICATION_STATUS,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     val profile: Option[Canonical] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,
     val description: Option[Markdown] = None,
     val experimental: Option[Boolean] = None,

@@ -288,7 +288,7 @@ object MedicinalProductPackaged extends CompanionFor[MedicinalProductPackaged] {
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       manufacturer: LitSeq[Reference] = LitSeq.empty,
       implicitRules: Option[UriStr] = None,
       marketingStatus: LitSeq[Choice["MarketingStatus"]] = LitSeq.empty,
@@ -334,8 +334,8 @@ object MedicinalProductPackaged extends CompanionFor[MedicinalProductPackaged] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val manufacturer: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("manufacturer", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -389,7 +389,7 @@ object MedicinalProductPackaged extends CompanionFor[MedicinalProductPackaged] {
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[LitSeq[Reference]](manufacturer, t.manufacturer),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Choice["MarketingStatus"]]](marketingStatus, t.marketingStatus),
@@ -407,7 +407,7 @@ object MedicinalProductPackaged extends CompanionFor[MedicinalProductPackaged] {
   def extractContained(t: MedicinalProductPackaged): LitSeq[Resource]                        = t.contained
   def extractExtension(t: MedicinalProductPackaged): LitSeq[Extension]                       = t.extension
   def extractIdentifier(t: MedicinalProductPackaged): LitSeq[Identifier]                     = t.identifier
-  def extractDescription(t: MedicinalProductPackaged): Option[String]                        = t.description
+  def extractDescription(t: MedicinalProductPackaged): Option[FHIRString]                    = t.description
   def extractManufacturer(t: MedicinalProductPackaged): LitSeq[Reference]                    = t.manufacturer
   def extractImplicitRules(t: MedicinalProductPackaged): Option[UriStr]                      = t.implicitRules
   def extractMarketingStatus(t: MedicinalProductPackaged): LitSeq[Choice["MarketingStatus"]] = t.marketingStatus
@@ -422,7 +422,7 @@ object MedicinalProductPackaged extends CompanionFor[MedicinalProductPackaged] {
     "subject"    -> (obj => obj.subject.toSeq)
   )
   def unapply(
-      o: MedicinalProductPackaged): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[String], LitSeq[Reference], Option[UriStr], LitSeq[Choice["MarketingStatus"]], LitSeq[Extension], Option[CodeableConcept], Option[Reference], LitSeq[MedicinalProductPackaged.BatchIdentifier], NonEmptyLitSeq[MedicinalProductPackaged.PackageItem])] =
+      o: MedicinalProductPackaged): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[FHIRString], LitSeq[Reference], Option[UriStr], LitSeq[Choice["MarketingStatus"]], LitSeq[Extension], Option[CodeableConcept], Option[Reference], LitSeq[MedicinalProductPackaged.BatchIdentifier], NonEmptyLitSeq[MedicinalProductPackaged.PackageItem])] =
     Some(
       (
         o.id,
@@ -454,7 +454,7 @@ object MedicinalProductPackaged extends CompanionFor[MedicinalProductPackaged] {
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("manufacturer", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Choice["MarketingStatus"]]]("marketingStatus", Some(LitSeq.empty)),
@@ -536,7 +536,7 @@ class MedicinalProductPackaged(
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     val manufacturer: LitSeq[Reference] = LitSeq.empty,
     override val implicitRules: Option[UriStr] = None,
     val marketingStatus: LitSeq[Choice["MarketingStatus"]] = LitSeq.empty,

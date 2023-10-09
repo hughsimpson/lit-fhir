@@ -111,7 +111,7 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
     def apply(
         id: Option[String] = None,
         min: UnsignedInt,
-        max: Option[String] = None,
+        max: Option[FHIRString] = None,
         code: RESOURCE_TYPES,
         profile: Option[Canonical] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
@@ -128,14 +128,14 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Focus): Option[(Option[String], UnsignedInt, Option[String], RESOURCE_TYPES, Option[Canonical], LitSeq[Extension], LitSeq[Extension])] =
+        o: Focus): Option[(Option[String], UnsignedInt, Option[FHIRString], RESOURCE_TYPES, Option[Canonical], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.min, o.max, o.code, o.profile, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val min: FHIRComponentFieldMeta[UnsignedInt] =
       FHIRComponentFieldMeta("min", lTagOf[UnsignedInt], false, lTagOf[UnsignedInt])
-    val max: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("max", lTagOf[Option[String]], false, lTagOf[String])
+    val max: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("max", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val code: FHIRComponentFieldMeta[RESOURCE_TYPES] =
       FHIRComponentFieldMeta("code", lTagOf[RESOURCE_TYPES], false, lTagOf[RESOURCE_TYPES])
     val profile: FHIRComponentFieldMeta[Option[Canonical]] =
@@ -149,7 +149,7 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
     override def fields(t: Focus): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[UnsignedInt](min, t.min),
-      FHIRComponentField[Option[String]](max, t.max),
+      FHIRComponentField[Option[FHIRString]](max, t.max),
       FHIRComponentField[RESOURCE_TYPES](code, t.code),
       FHIRComponentField[Option[Canonical]](profile, t.profile),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -163,7 +163,7 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
           new Focus(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[UnsignedInt]("min", None),
-            cursor.decodeAs[Option[String]]("max", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("max", Some(None)),
             cursor.decodeAs[RESOURCE_TYPES]("code", None),
             cursor.decodeAs[Option[Canonical]]("profile", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -176,7 +176,7 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
   class Focus(
       override val id: Option[String] = None,
       val min: UnsignedInt,
-      val max: Option[String] = None,
+      val max: Option[FHIRString] = None,
       val code: RESOURCE_TYPES,
       val profile: Option[Canonical] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
@@ -189,14 +189,14 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       date: FHIRDateTime,
       base: Option[Canonical] = None,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       graph: LitSeq[Canonical] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       parent: LitSeq[Canonical] = LitSeq.empty,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       language: Option[LANGUAGES] = None,
@@ -205,7 +205,7 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
       category: Option[MESSAGE_SIGNIFICANCE_CATEGORY] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
@@ -261,22 +261,22 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[FHIRDateTime] =
     FHIRComponentFieldMeta("date", lTagOf[FHIRDateTime], false, lTagOf[FHIRDateTime])
   val base: FHIRComponentFieldMeta[Option[Canonical]] =
     FHIRComponentFieldMeta("base", lTagOf[Option[Canonical]], false, lTagOf[Canonical])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val graph: FHIRComponentFieldMeta[LitSeq[Canonical]] =
     FHIRComponentFieldMeta("graph", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
   val parent: FHIRComponentFieldMeta[LitSeq[Canonical]] =
     FHIRComponentFieldMeta("parent", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -297,8 +297,8 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
@@ -369,14 +369,14 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[FHIRDateTime](date, t.date),
     FHIRComponentField[Option[Canonical]](base, t.base),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[LitSeq[Canonical]](graph, t.graph),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
     FHIRComponentField[LitSeq[Canonical]](parent, t.parent),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
@@ -385,7 +385,7 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
     FHIRComponentField[Option[MESSAGE_SIGNIFICANCE_CATEGORY]](category, t.category),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
@@ -402,14 +402,14 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
   def extractUrl(t: MessageDefinition): Option[UriStr]                                        = t.url
   def extractMeta(t: MessageDefinition): Option[Meta]                                         = t.meta
   def extractText(t: MessageDefinition): Option[Narrative]                                    = t.text
-  def extractName(t: MessageDefinition): Option[String]                                       = t.name
+  def extractName(t: MessageDefinition): Option[FHIRString]                                   = t.name
   def extractDate(t: MessageDefinition): FHIRDateTime                                         = t.date
   def extractBase(t: MessageDefinition): Option[Canonical]                                    = t.base
-  def extractTitle(t: MessageDefinition): Option[String]                                      = t.title
+  def extractTitle(t: MessageDefinition): Option[FHIRString]                                  = t.title
   def extractGraph(t: MessageDefinition): LitSeq[Canonical]                                   = t.graph
   def extractStatus(t: MessageDefinition): PUBLICATION_STATUS                                 = t.status
   def extractParent(t: MessageDefinition): LitSeq[Canonical]                                  = t.parent
-  def extractVersion(t: MessageDefinition): Option[String]                                    = t.version
+  def extractVersion(t: MessageDefinition): Option[FHIRString]                                = t.version
   def extractContact(t: MessageDefinition): LitSeq[ContactDetail]                             = t.contact
   def extractPurpose(t: MessageDefinition): Option[Markdown]                                  = t.purpose
   def extractLanguage(t: MessageDefinition): Option[LANGUAGES]                                = t.language
@@ -418,7 +418,7 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
   def extractCategory(t: MessageDefinition): Option[MESSAGE_SIGNIFICANCE_CATEGORY]            = t.category
   def extractContained(t: MessageDefinition): LitSeq[Resource]                                = t.contained
   def extractExtension(t: MessageDefinition): LitSeq[Extension]                               = t.extension
-  def extractPublisher(t: MessageDefinition): Option[String]                                  = t.publisher
+  def extractPublisher(t: MessageDefinition): Option[FHIRString]                              = t.publisher
   def extractCopyright(t: MessageDefinition): Option[Markdown]                                = t.copyright
   def extractIdentifier(t: MessageDefinition): LitSeq[Identifier]                             = t.identifier
   def extractUseContext(t: MessageDefinition): LitSeq[UsageContext]                           = t.useContext
@@ -462,14 +462,14 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[FHIRDateTime]("date", None),
           cursor.decodeAs[Option[Canonical]]("base", Some(None)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[LitSeq[Canonical]]("graph", Some(LitSeq.empty)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
           cursor.decodeAs[LitSeq[Canonical]]("parent", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
@@ -478,7 +478,7 @@ object MessageDefinition extends CompanionFor[MessageDefinition] {
           cursor.decodeAs[Option[MESSAGE_SIGNIFICANCE_CATEGORY]]("category", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
@@ -606,14 +606,14 @@ class MessageDefinition(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val date: FHIRDateTime,
     val base: Option[Canonical] = None,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val graph: LitSeq[Canonical] = LitSeq.empty,
     val status: PUBLICATION_STATUS,
     val parent: LitSeq[Canonical] = LitSeq.empty,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     override val language: Option[LANGUAGES] = None,
@@ -622,7 +622,7 @@ class MessageDefinition(
     val category: Option[MESSAGE_SIGNIFICANCE_CATEGORY] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,

@@ -190,7 +190,7 @@ object Composition extends CompanionFor[Composition] {
         code: Option[CodeableConcept] = None,
         text: Option[Narrative] = None,
         mode: Option[LIST_MODE] = None,
-        title: Option[String] = None,
+        title: Option[FHIRString] = None,
         focus: Option[Reference] = None,
         entry: LitSeq[Reference] = LitSeq.empty,
         author: LitSeq[Reference] = LitSeq.empty,
@@ -217,7 +217,7 @@ object Composition extends CompanionFor[Composition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Section): Option[(Option[String], Option[CodeableConcept], Option[Narrative], Option[LIST_MODE], Option[String], Option[Reference], LitSeq[Reference], LitSeq[Reference], LitSeq[Composition.Section], LitSeq[Extension], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Extension])] =
+        o: Section): Option[(Option[String], Option[CodeableConcept], Option[Narrative], Option[LIST_MODE], Option[FHIRString], Option[Reference], LitSeq[Reference], LitSeq[Reference], LitSeq[Composition.Section], LitSeq[Extension], Option[CodeableConcept], Option[CodeableConcept], LitSeq[Extension])] =
       Some(
         (
           o.id,
@@ -241,8 +241,8 @@ object Composition extends CompanionFor[Composition] {
       FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
     val mode: FHIRComponentFieldMeta[Option[LIST_MODE]] =
       FHIRComponentFieldMeta("mode", lTagOf[Option[LIST_MODE]], false, lTagOf[LIST_MODE])
-    val title: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+    val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val focus: FHIRComponentFieldMeta[Option[Reference]] =
       FHIRComponentFieldMeta("focus", lTagOf[Option[Reference]], false, lTagOf[Reference])
     val entry: FHIRComponentFieldMeta[LitSeq[Reference]] =
@@ -267,7 +267,7 @@ object Composition extends CompanionFor[Composition] {
       FHIRComponentField[Option[CodeableConcept]](code, t.code),
       FHIRComponentField[Option[Narrative]](text, t.text),
       FHIRComponentField[Option[LIST_MODE]](mode, t.mode),
-      FHIRComponentField[Option[String]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
       FHIRComponentField[Option[Reference]](focus, t.focus),
       FHIRComponentField[LitSeq[Reference]](entry, t.entry),
       FHIRComponentField[LitSeq[Reference]](author, t.author),
@@ -287,7 +287,7 @@ object Composition extends CompanionFor[Composition] {
             cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
             cursor.decodeAs[Option[Narrative]]("text", Some(None)),
             cursor.decodeAs[Option[LIST_MODE]]("mode", Some(None)),
-            cursor.decodeAs[Option[String]]("title", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
             cursor.decodeAs[Option[Reference]]("focus", Some(None)),
             cursor.decodeAs[LitSeq[Reference]]("entry", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Reference]]("author", Some(LitSeq.empty)),
@@ -306,7 +306,7 @@ object Composition extends CompanionFor[Composition] {
       val code: Option[CodeableConcept] = None,
       val text: Option[Narrative] = None,
       val mode: Option[LIST_MODE] = None,
-      val title: Option[String] = None,
+      val title: Option[FHIRString] = None,
       val focus: Option[Reference] = None,
       val entry: LitSeq[Reference] = LitSeq.empty,
       val author: LitSeq[Reference] = LitSeq.empty,
@@ -397,7 +397,7 @@ object Composition extends CompanionFor[Composition] {
       text: Option[Narrative] = None,
       `type`: CodeableConcept,
       date: FHIRDateTime,
-      title: String,
+      title: FHIRString,
       status: COMPOSITION_STATUS,
       author: NonEmptyLitSeq[Reference],
       subject: Option[Reference] = None,
@@ -452,8 +452,8 @@ object Composition extends CompanionFor[Composition] {
     FHIRComponentFieldMeta("type", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
   val date: FHIRComponentFieldMeta[FHIRDateTime] =
     FHIRComponentFieldMeta("date", lTagOf[FHIRDateTime], false, lTagOf[FHIRDateTime])
-  val title: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("title", lTagOf[String], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("title", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[COMPOSITION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[COMPOSITION_STATUS], false, lTagOf[COMPOSITION_STATUS])
   val author: FHIRComponentFieldMeta[NonEmptyLitSeq[Reference]] =
@@ -524,7 +524,7 @@ object Composition extends CompanionFor[Composition] {
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[CodeableConcept](`type`, t.`type`),
     FHIRComponentField[FHIRDateTime](date, t.date),
-    FHIRComponentField[String](title, t.title),
+    FHIRComponentField[FHIRString](title, t.title),
     FHIRComponentField[COMPOSITION_STATUS](status, t.status),
     FHIRComponentField[NonEmptyLitSeq[Reference]](author, t.author),
     FHIRComponentField[Option[Reference]](subject, t.subject),
@@ -548,7 +548,7 @@ object Composition extends CompanionFor[Composition] {
   def extractText(t: Composition): Option[Narrative]                                   = t.text
   def extractType(t: Composition): CodeableConcept                                     = t.`type`
   def extractDate(t: Composition): FHIRDateTime                                        = t.date
-  def extractTitle(t: Composition): String                                             = t.title
+  def extractTitle(t: Composition): FHIRString                                         = t.title
   def extractStatus(t: Composition): COMPOSITION_STATUS                                = t.status
   def extractAuthor(t: Composition): NonEmptyLitSeq[Reference]                         = t.author
   def extractSubject(t: Composition): Option[Reference]                                = t.subject
@@ -596,7 +596,7 @@ object Composition extends CompanionFor[Composition] {
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[CodeableConcept]("type", None),
           cursor.decodeAs[FHIRDateTime]("date", None),
-          cursor.decodeAs[String]("title", None),
+          cursor.decodeAs[FHIRString]("title", None),
           cursor.decodeAs[COMPOSITION_STATUS]("status", None),
           cursor.decodeAs[NonEmptyLitSeq[Reference]]("author", None),
           cursor.decodeAs[Option[Reference]]("subject", Some(None)),
@@ -707,7 +707,7 @@ class Composition(
     override val text: Option[Narrative] = None,
     val `type`: CodeableConcept,
     val date: FHIRDateTime,
-    val title: String,
+    val title: FHIRString,
     val status: COMPOSITION_STATUS,
     val author: NonEmptyLitSeq[Reference],
     val subject: Option[Reference] = None,

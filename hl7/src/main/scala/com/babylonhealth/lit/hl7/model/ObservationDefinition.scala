@@ -129,7 +129,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
         category: Option[OBSERVATION_RANGE_CATEGORY] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         appliesTo: LitSeq[CodeableConcept] = LitSeq.empty,
-        condition: Option[String] = None,
+        condition: Option[FHIRString] = None,
         gestationalAge: Option[Range] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -148,7 +148,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: QualifiedInterval): Option[(Option[String], Option[Range], Option[Range], Option[ADMINISTRATIVE_GENDER], Option[CodeableConcept], Option[OBSERVATION_RANGE_CATEGORY], LitSeq[Extension], LitSeq[CodeableConcept], Option[String], Option[Range], LitSeq[Extension])] =
+        o: QualifiedInterval): Option[(Option[String], Option[Range], Option[Range], Option[ADMINISTRATIVE_GENDER], Option[CodeableConcept], Option[OBSERVATION_RANGE_CATEGORY], LitSeq[Extension], LitSeq[CodeableConcept], Option[FHIRString], Option[Range], LitSeq[Extension])] =
       Some(
         (
           o.id,
@@ -178,8 +178,8 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val appliesTo: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
       FHIRComponentFieldMeta("appliesTo", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val condition: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("condition", lTagOf[Option[String]], false, lTagOf[String])
+    val condition: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("condition", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val gestationalAge: FHIRComponentFieldMeta[Option[Range]] =
       FHIRComponentFieldMeta("gestationalAge", lTagOf[Option[Range]], false, lTagOf[Range])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -196,7 +196,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
       FHIRComponentField[Option[OBSERVATION_RANGE_CATEGORY]](category, t.category),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[CodeableConcept]](appliesTo, t.appliesTo),
-      FHIRComponentField[Option[String]](condition, t.condition),
+      FHIRComponentField[Option[FHIRString]](condition, t.condition),
       FHIRComponentField[Option[Range]](gestationalAge, t.gestationalAge),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -214,7 +214,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
             cursor.decodeAs[Option[OBSERVATION_RANGE_CATEGORY]]("category", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[CodeableConcept]]("appliesTo", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("condition", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("condition", Some(None)),
             cursor.decodeAs[Option[Range]]("gestationalAge", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -231,7 +231,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
       val category: Option[OBSERVATION_RANGE_CATEGORY] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val appliesTo: LitSeq[CodeableConcept] = LitSeq.empty,
-      val condition: Option[String] = None,
+      val condition: Option[FHIRString] = None,
       val gestationalAge: Option[Range] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -251,7 +251,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       permittedDataType: LitSeq[PERMITTED_DATA_TYPE] = LitSeq.empty,
       validCodedValueSet: Option[Reference] = None,
-      preferredReportName: Option[String] = None,
+      preferredReportName: Option[FHIRString] = None,
       normalCodedValueSet: Option[Reference] = None,
       abnormalCodedValueSet: Option[Reference] = None,
       criticalCodedValueSet: Option[Reference] = None,
@@ -311,8 +311,8 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
     FHIRComponentFieldMeta("permittedDataType", lTagOf[LitSeq[PERMITTED_DATA_TYPE]], false, lTagOf[PERMITTED_DATA_TYPE])
   val validCodedValueSet: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("validCodedValueSet", lTagOf[Option[Reference]], false, lTagOf[Reference])
-  val preferredReportName: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("preferredReportName", lTagOf[Option[String]], false, lTagOf[String])
+  val preferredReportName: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("preferredReportName", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val normalCodedValueSet: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("normalCodedValueSet", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val abnormalCodedValueSet: FHIRComponentFieldMeta[Option[Reference]] =
@@ -372,7 +372,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[PERMITTED_DATA_TYPE]](permittedDataType, t.permittedDataType),
     FHIRComponentField[Option[Reference]](validCodedValueSet, t.validCodedValueSet),
-    FHIRComponentField[Option[String]](preferredReportName, t.preferredReportName),
+    FHIRComponentField[Option[FHIRString]](preferredReportName, t.preferredReportName),
     FHIRComponentField[Option[Reference]](normalCodedValueSet, t.normalCodedValueSet),
     FHIRComponentField[Option[Reference]](abnormalCodedValueSet, t.abnormalCodedValueSet),
     FHIRComponentField[Option[Reference]](criticalCodedValueSet, t.criticalCodedValueSet),
@@ -394,7 +394,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
   def extractModifierExtension(t: ObservationDefinition): LitSeq[Extension]           = t.modifierExtension
   def extractPermittedDataType(t: ObservationDefinition): LitSeq[PERMITTED_DATA_TYPE] = t.permittedDataType
   def extractValidCodedValueSet(t: ObservationDefinition): Option[Reference]          = t.validCodedValueSet
-  def extractPreferredReportName(t: ObservationDefinition): Option[String]            = t.preferredReportName
+  def extractPreferredReportName(t: ObservationDefinition): Option[FHIRString]        = t.preferredReportName
   def extractNormalCodedValueSet(t: ObservationDefinition): Option[Reference]         = t.normalCodedValueSet
   def extractAbnormalCodedValueSet(t: ObservationDefinition): Option[Reference]       = t.abnormalCodedValueSet
   def extractCriticalCodedValueSet(t: ObservationDefinition): Option[Reference]       = t.criticalCodedValueSet
@@ -404,7 +404,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
     t.quantitativeDetails
   override val thisName: String = "ObservationDefinition"
   def unapply(
-      o: ObservationDefinition): Option[(Option[String], Option[Meta], Option[Narrative], CodeableConcept, Option[CodeableConcept], Option[LANGUAGES], LitSeq[CodeableConcept], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[UriStr], LitSeq[Extension], LitSeq[PERMITTED_DATA_TYPE], Option[Reference], Option[String], Option[Reference], Option[Reference], Option[Reference], Option[Boolean], LitSeq[ObservationDefinition.QualifiedInterval], Option[ObservationDefinition.QuantitativeDetails])] =
+      o: ObservationDefinition): Option[(Option[String], Option[Meta], Option[Narrative], CodeableConcept, Option[CodeableConcept], Option[LANGUAGES], LitSeq[CodeableConcept], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[UriStr], LitSeq[Extension], LitSeq[PERMITTED_DATA_TYPE], Option[Reference], Option[FHIRString], Option[Reference], Option[Reference], Option[Reference], Option[Boolean], LitSeq[ObservationDefinition.QualifiedInterval], Option[ObservationDefinition.QuantitativeDetails])] =
     Some(
       (
         o.id,
@@ -446,7 +446,7 @@ object ObservationDefinition extends CompanionFor[ObservationDefinition] {
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[PERMITTED_DATA_TYPE]]("permittedDataType", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("validCodedValueSet", Some(None)),
-          cursor.decodeAs[Option[String]]("preferredReportName", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("preferredReportName", Some(None)),
           cursor.decodeAs[Option[Reference]]("normalCodedValueSet", Some(None)),
           cursor.decodeAs[Option[Reference]]("abnormalCodedValueSet", Some(None)),
           cursor.decodeAs[Option[Reference]]("criticalCodedValueSet", Some(None)),
@@ -543,7 +543,7 @@ class ObservationDefinition(
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val permittedDataType: LitSeq[PERMITTED_DATA_TYPE] = LitSeq.empty,
     val validCodedValueSet: Option[Reference] = None,
-    val preferredReportName: Option[String] = None,
+    val preferredReportName: Option[FHIRString] = None,
     val normalCodedValueSet: Option[Reference] = None,
     val abnormalCodedValueSet: Option[Reference] = None,
     val criticalCodedValueSet: Option[Reference] = None,

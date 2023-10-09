@@ -36,48 +36,48 @@ public interface Observation_geneticsBuilder extends ObservationBuilder {
     return new Impl(code.build(), status);
   }
 
-  public static Choice02118820890 value(Boolean b) {
-    return new Choice02118820890(b);
+  public static Choice02087996915 value(Boolean b) {
+    return new Choice02087996915(b);
   }
 
-  public static Choice02118820890 value(CodeableConcept c) {
-    return new Choice02118820890(c);
+  public static Choice02087996915 value(CodeableConcept c) {
+    return new Choice02087996915(c);
   }
 
-  public static Choice02118820890 value(FHIRDateTime f) {
-    return new Choice02118820890(f);
+  public static Choice02087996915 value(FHIRDateTime f) {
+    return new Choice02087996915(f);
   }
 
-  public static Choice02118820890 value(Integer i) {
-    return new Choice02118820890(i);
+  public static Choice02087996915 value(String s) {
+    return new Choice02087996915(s);
   }
 
-  public static Choice02118820890 value(LocalTime l) {
-    return new Choice02118820890(l);
+  public static Choice02087996915 value(Integer i) {
+    return new Choice02087996915(i);
   }
 
-  public static Choice02118820890 value(Period p) {
-    return new Choice02118820890(p);
+  public static Choice02087996915 value(LocalTime l) {
+    return new Choice02087996915(l);
   }
 
-  public static Choice02118820890 value(Quantity q) {
-    return new Choice02118820890(q);
+  public static Choice02087996915 value(Period p) {
+    return new Choice02087996915(p);
   }
 
-  public static Choice02118820890 value(Range r) {
-    return new Choice02118820890(r);
+  public static Choice02087996915 value(Quantity q) {
+    return new Choice02087996915(q);
   }
 
-  public static Choice02118820890 value(Ratio r) {
-    return new Choice02118820890(r);
+  public static Choice02087996915 value(Range r) {
+    return new Choice02087996915(r);
   }
 
-  public static Choice02118820890 value(SampledData s) {
-    return new Choice02118820890(s);
+  public static Choice02087996915 value(Ratio r) {
+    return new Choice02087996915(r);
   }
 
-  public static Choice02118820890 value(String s) {
-    return new Choice02118820890(s);
+  public static Choice02087996915 value(SampledData s) {
+    return new Choice02087996915(s);
   }
 
   public static Choice00107722725 effective(FHIRDateTime f) {
@@ -116,7 +116,7 @@ public interface Observation_geneticsBuilder extends ObservationBuilder {
     private Optional<Reference> subject = Optional.empty();
     private Optional<LANGUAGES> language = Optional.empty();
     private Collection<CodeableConcept> category = Collections.emptyList();
-    private Optional<Choice02118820890> value = Optional.empty();
+    private Optional<Choice02087996915> value = Optional.empty();
     private Optional<CodeableConcept> bodySite = Optional.empty();
     private Optional<Reference> specimen = Optional.empty();
     private Collection<Resource> contained = Collections.emptyList();
@@ -344,11 +344,11 @@ public interface Observation_geneticsBuilder extends ObservationBuilder {
     /**
      * @param value - The information determined as a result of making the observation, if the
      *     information has a simple value. Field is a 'choice' field. Type should be one of Boolean,
-     *     CodeableConcept, FHIRDateTime, Integer, LocalTime, Period, Quantity, Range, Ratio,
-     *     SampledData, String. To pass the value in, wrap with one of the
+     *     CodeableConcept, FHIRDateTime, String, Integer, LocalTime, Period, Quantity, Range,
+     *     Ratio, SampledData. To pass the value in, wrap with one of the
      *     Observation_geneticsBuilder.value static methods
      */
-    public Observation_geneticsBuilder.Impl withValue(@NonNull Choice02118820890 value) {
+    public Observation_geneticsBuilder.Impl withValue(@NonNull Choice02087996915 value) {
       this.value = Optional.of(value);
       return this;
     }

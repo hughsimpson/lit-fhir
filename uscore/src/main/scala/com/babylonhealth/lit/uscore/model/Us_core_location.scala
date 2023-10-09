@@ -37,10 +37,10 @@ object Us_core_location extends CompanionFor[Us_core_location] {
       id: Option[String] = None,
       meta: Option[Meta] = Some(new Meta(profile = LitSeq("http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"))),
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       mode: Option[LOCATION_MODE] = None,
       `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-      alias: LitSeq[String] = LitSeq.empty,
+      alias: LitSeq[FHIRString] = LitSeq.empty,
       status: Option[LOCATION_STATUS] = None,
       partOf: Option[Reference] = None,
       telecom: LitSeq[ContactPoint] = LitSeq.empty,
@@ -49,14 +49,14 @@ object Us_core_location extends CompanionFor[Us_core_location] {
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       physicalType: Option[CodeableConcept] = None,
       implicitRules: Option[UriStr] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       operationalStatus: Option[Coding] = None,
       address: Option[Address] = None,
       managingOrganization: Option[Reference] = None,
-      availabilityExceptions: Option[String] = None,
+      availabilityExceptions: Option[FHIRString] = None,
       position: Option[Location.Position] = None,
       hoursOfOperation: LitSeq[Location.HoursOfOperation] = LitSeq.empty,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -94,14 +94,14 @@ object Us_core_location extends CompanionFor[Us_core_location] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val mode: FHIRComponentFieldMeta[Option[LOCATION_MODE]] =
     FHIRComponentFieldMeta("mode", lTagOf[Option[LOCATION_MODE]], false, lTagOf[LOCATION_MODE])
   val `type`: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val alias: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val alias: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[Option[LOCATION_STATUS]] =
     FHIRComponentFieldMeta("status", lTagOf[Option[LOCATION_STATUS]], false, lTagOf[LOCATION_STATUS])
   val partOf: FHIRComponentFieldMeta[Option[Reference]] =
@@ -118,8 +118,8 @@ object Us_core_location extends CompanionFor[Us_core_location] {
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val physicalType: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("physicalType", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -132,8 +132,8 @@ object Us_core_location extends CompanionFor[Us_core_location] {
     FHIRComponentFieldMeta("address", lTagOf[Option[Address]], false, lTagOf[Address])
   val managingOrganization: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("managingOrganization", lTagOf[Option[Reference]], false, lTagOf[Reference])
-  val availabilityExceptions: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("availabilityExceptions", lTagOf[Option[String]], false, lTagOf[String])
+  val availabilityExceptions: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("availabilityExceptions", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val position: FHIRComponentFieldMeta[Option[Location.Position]] =
     FHIRComponentFieldMeta("position", lTagOf[Option[Location.Position]], false, lTagOf[Location.Position])
   val hoursOfOperation: FHIRComponentFieldMeta[LitSeq[Location.HoursOfOperation]] =
@@ -174,10 +174,10 @@ object Us_core_location extends CompanionFor[Us_core_location] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[Meta]](meta, t.meta),
       FHIRComponentField[Option[Narrative]](text, t.text),
-      FHIRComponentField[String](name, t.name.get),
+      FHIRComponentField[FHIRString](name, t.name.get),
       FHIRComponentField[Option[LOCATION_MODE]](mode, t.mode),
       FHIRComponentField[LitSeq[CodeableConcept]](`type`, t.`type`),
-      FHIRComponentField[LitSeq[String]](alias, t.alias),
+      FHIRComponentField[LitSeq[FHIRString]](alias, t.alias),
       FHIRComponentField[Option[LOCATION_STATUS]](status, t.status),
       FHIRComponentField[Option[Reference]](partOf, t.partOf),
       FHIRComponentField[LitSeq[ContactPoint]](telecom, t.telecom),
@@ -186,14 +186,14 @@ object Us_core_location extends CompanionFor[Us_core_location] {
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[Option[CodeableConcept]](physicalType, t.physicalType),
       FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[Coding]](operationalStatus, t.operationalStatus),
       FHIRComponentField[Option[Address]](address, t.address),
       FHIRComponentField[Option[Reference]](managingOrganization, t.managingOrganization),
-      FHIRComponentField[Option[String]](availabilityExceptions, t.availabilityExceptions),
+      FHIRComponentField[Option[FHIRString]](availabilityExceptions, t.availabilityExceptions),
       FHIRComponentField[Option[Location.Position]](position, t.position),
       FHIRComponentField[LitSeq[Location.HoursOfOperation]](hoursOfOperation, t.hoursOfOperation)
     ))
@@ -201,10 +201,10 @@ object Us_core_location extends CompanionFor[Us_core_location] {
   def extractId(t: Us_core_location): Option[String]                                  = t.id
   def extractMeta(t: Us_core_location): Option[Meta]                                  = t.meta
   def extractText(t: Us_core_location): Option[Narrative]                             = t.text
-  def extractName(t: Us_core_location): String                                        = t.name.get
+  def extractName(t: Us_core_location): FHIRString                                    = t.name.get
   def extractMode(t: Us_core_location): Option[LOCATION_MODE]                         = t.mode
   def extractType(t: Us_core_location): LitSeq[CodeableConcept]                       = t.`type`
-  def extractAlias(t: Us_core_location): LitSeq[String]                               = t.alias
+  def extractAlias(t: Us_core_location): LitSeq[FHIRString]                           = t.alias
   def extractStatus(t: Us_core_location): Option[LOCATION_STATUS]                     = t.status
   def extractPartOf(t: Us_core_location): Option[Reference]                           = t.partOf
   def extractTelecom(t: Us_core_location): LitSeq[ContactPoint]                       = t.telecom
@@ -213,14 +213,14 @@ object Us_core_location extends CompanionFor[Us_core_location] {
   def extractContained(t: Us_core_location): LitSeq[Resource]                         = t.contained
   def extractExtension(t: Us_core_location): LitSeq[Extension]                        = t.extension
   def extractIdentifier(t: Us_core_location): LitSeq[Identifier]                      = t.identifier
-  def extractDescription(t: Us_core_location): Option[String]                         = t.description
+  def extractDescription(t: Us_core_location): Option[FHIRString]                     = t.description
   def extractPhysicalType(t: Us_core_location): Option[CodeableConcept]               = t.physicalType
   def extractImplicitRules(t: Us_core_location): Option[UriStr]                       = t.implicitRules
   def extractModifierExtension(t: Us_core_location): LitSeq[Extension]                = t.modifierExtension
   def extractOperationalStatus(t: Us_core_location): Option[Coding]                   = t.operationalStatus
   def extractAddress(t: Us_core_location): Option[Address]                            = t.address
   def extractManagingOrganization(t: Us_core_location): Option[Reference]             = t.managingOrganization
-  def extractAvailabilityExceptions(t: Us_core_location): Option[String]              = t.availabilityExceptions
+  def extractAvailabilityExceptions(t: Us_core_location): Option[FHIRString]          = t.availabilityExceptions
   def extractPosition(t: Us_core_location): Option[Location.Position]                 = t.position
   def extractHoursOfOperation(t: Us_core_location): LitSeq[Location.HoursOfOperation] = t.hoursOfOperation
   override val thisName: String                                                       = "Us_core_location"
@@ -232,10 +232,10 @@ object Us_core_location extends CompanionFor[Us_core_location] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[Option[LOCATION_MODE]]("mode", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("type", Some(LitSeq.empty)),
-          cursor.decodeAs[LitSeq[String]]("alias", Some(LitSeq.empty)),
+          cursor.decodeAs[LitSeq[FHIRString]]("alias", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LOCATION_STATUS]]("status", Some(None)),
           cursor.decodeAs[Option[Reference]]("partOf", Some(None)),
           cursor.decodeAs[LitSeq[ContactPoint]]("telecom", Some(LitSeq.empty)),
@@ -244,14 +244,14 @@ object Us_core_location extends CompanionFor[Us_core_location] {
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("physicalType", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Coding]]("operationalStatus", Some(None)),
           cursor.decodeAs[Option[Address]]("address", Some(None)),
           cursor.decodeAs[Option[Reference]]("managingOrganization", Some(None)),
-          cursor.decodeAs[Option[String]]("availabilityExceptions", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("availabilityExceptions", Some(None)),
           cursor.decodeAs[Option[Location.Position]]("position", Some(None)),
           cursor.decodeAs[LitSeq[Location.HoursOfOperation]]("hoursOfOperation", Some(LitSeq.empty)),
           decodeAttributes(cursor)
@@ -345,10 +345,10 @@ class Us_core_location(
     override val meta: Option[Meta] = Some(
       new Meta(profile = LitSeq("http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"))),
     override val text: Option[Narrative] = None,
-    name: String,
+    name: FHIRString,
     override val mode: Option[LOCATION_MODE] = None,
     override val `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-    override val alias: LitSeq[String] = LitSeq.empty,
+    override val alias: LitSeq[FHIRString] = LitSeq.empty,
     override val status: Option[LOCATION_STATUS] = None,
     override val partOf: Option[Reference] = None,
     override val telecom: LitSeq[ContactPoint] = LitSeq.empty,
@@ -357,14 +357,14 @@ class Us_core_location(
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
-    override val description: Option[String] = None,
+    override val description: Option[FHIRString] = None,
     override val physicalType: Option[CodeableConcept] = None,
     override val implicitRules: Option[UriStr] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     override val operationalStatus: Option[Coding] = None,
     override val address: Option[Address] = None,
     override val managingOrganization: Option[Reference] = None,
-    override val availabilityExceptions: Option[String] = None,
+    override val availabilityExceptions: Option[FHIRString] = None,
     override val position: Option[Location.Position] = None,
     override val hoursOfOperation: LitSeq[Location.HoursOfOperation] = LitSeq.empty,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts

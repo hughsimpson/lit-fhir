@@ -120,7 +120,7 @@ object FHIRList extends CompanionFor[FHIRList] {
       code: Option[CodeableConcept] = None,
       date: Option[FHIRDateTime] = None,
       note: LitSeq[Annotation] = LitSeq.empty,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       status: LIST_STATUS,
       source: Option[Reference] = None,
       subject: Option[Reference] = None,
@@ -173,8 +173,8 @@ object FHIRList extends CompanionFor[FHIRList] {
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val note: FHIRComponentFieldMeta[LitSeq[Annotation]] =
     FHIRComponentFieldMeta("note", lTagOf[LitSeq[Annotation]], false, lTagOf[Annotation])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[LIST_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[LIST_STATUS], false, lTagOf[LIST_STATUS])
   val source: FHIRComponentFieldMeta[Option[Reference]] =
@@ -233,7 +233,7 @@ object FHIRList extends CompanionFor[FHIRList] {
     FHIRComponentField[Option[CodeableConcept]](code, t.code),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[LitSeq[Annotation]](note, t.note),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[LIST_STATUS](status, t.status),
     FHIRComponentField[Option[Reference]](source, t.source),
     FHIRComponentField[Option[Reference]](subject, t.subject),
@@ -255,7 +255,7 @@ object FHIRList extends CompanionFor[FHIRList] {
   def extractCode(t: FHIRList): Option[CodeableConcept]        = t.code
   def extractDate(t: FHIRList): Option[FHIRDateTime]           = t.date
   def extractNote(t: FHIRList): LitSeq[Annotation]             = t.note
-  def extractTitle(t: FHIRList): Option[String]                = t.title
+  def extractTitle(t: FHIRList): Option[FHIRString]            = t.title
   def extractStatus(t: FHIRList): LIST_STATUS                  = t.status
   def extractSource(t: FHIRList): Option[Reference]            = t.source
   def extractSubject(t: FHIRList): Option[Reference]           = t.subject
@@ -285,7 +285,7 @@ object FHIRList extends CompanionFor[FHIRList] {
     "item"         -> (obj => obj.entry.map(_.item).toSeq)
   )
   def unapply(
-      o: FHIRList): Option[(Option[String], Option[Meta], Option[Narrative], LIST_MODE, Option[CodeableConcept], Option[FHIRDateTime], LitSeq[Annotation], Option[String], LIST_STATUS, Option[Reference], Option[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[Reference], Option[CodeableConcept], LitSeq[Identifier], Option[CodeableConcept], Option[UriStr], LitSeq[Extension], LitSeq[FHIRList.Entry])] =
+      o: FHIRList): Option[(Option[String], Option[Meta], Option[Narrative], LIST_MODE, Option[CodeableConcept], Option[FHIRDateTime], LitSeq[Annotation], Option[FHIRString], LIST_STATUS, Option[Reference], Option[Reference], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[Reference], Option[CodeableConcept], LitSeq[Identifier], Option[CodeableConcept], Option[UriStr], LitSeq[Extension], LitSeq[FHIRList.Entry])] =
     Some(
       (
         o.id,
@@ -320,7 +320,7 @@ object FHIRList extends CompanionFor[FHIRList] {
           cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[LIST_STATUS]("status", None),
           cursor.decodeAs[Option[Reference]]("source", Some(None)),
           cursor.decodeAs[Option[Reference]]("subject", Some(None)),
@@ -417,7 +417,7 @@ class FHIRList(
     val code: Option[CodeableConcept] = None,
     val date: Option[FHIRDateTime] = None,
     val note: LitSeq[Annotation] = LitSeq.empty,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val status: LIST_STATUS,
     val source: Option[Reference] = None,
     val subject: Option[Reference] = None,

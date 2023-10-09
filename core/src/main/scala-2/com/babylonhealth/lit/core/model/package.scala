@@ -137,14 +137,14 @@ package object model {
 object UnionAliases {
   type Union01658422381 = FHIRDate \/ FHIRDateTime \/ Reference \/ Timing
   type UnionAll =
-    Address \/ Age \/ Annotation \/ Attachment \/ Base64Binary \/ BigDecimal \/ Boolean \/ Canonical \/ Code \/ CodeableConcept \/ Coding \/ ContactDetail \/ ContactPoint \/ Contributor \/ Count \/ DataRequirement \/ Distance \/ Dosage \/ Duration \/ Expression \/ FHIRDate \/ FHIRDateTime \/ HumanName \/ Id \/ Identifier \/ Int \/ LocalTime \/ Markdown \/ Meta \/ Money \/ OID \/ ParameterDefinition \/ Period \/ PositiveInt \/ Quantity \/ Range \/ Ratio \/ Reference \/ RelatedArtifact \/ SampledData \/ Signature \/ FHIRString \/ Timing \/ TriggerDefinition \/ UUID \/ UnsignedInt \/ UriStr \/ UrlStr \/ UsageContext \/ ZonedDateTime
+    Address \/ Age \/ Annotation \/ Attachment \/ Base64Binary \/ BigDecimal \/ Boolean \/ Canonical \/ Code \/ CodeableConcept \/ Coding \/ ContactDetail \/ ContactPoint \/ Contributor \/ Count \/ DataRequirement \/ Distance \/ Dosage \/ Duration \/ Expression \/ FHIRDate \/ FHIRDateTime \/ FHIRString \/ HumanName \/ Id \/ Identifier \/ Int \/ LocalTime \/ Markdown \/ Meta \/ Money \/ OID \/ ParameterDefinition \/ Period \/ PositiveInt \/ Quantity \/ Range \/ Ratio \/ Reference \/ RelatedArtifact \/ SampledData \/ Signature \/ Timing \/ TriggerDefinition \/ UUID \/ UnsignedInt \/ UriStr \/ UrlStr \/ UsageContext \/ ZonedDateTime
   type UnionBooleanOrCodeableConcept   = Boolean \/ CodeableConcept
   type UnionCodeableConceptOrReference = CodeableConcept \/ Reference
   type UnionDurationOrDateTimeOrPeriod = Duration \/ FHIRDateTime \/ Period
   type UnionDurationOrPeriodOrRange    = Duration \/ Period \/ Range
+  type UnionFHIRStringOrReference      = FHIRString \/ Reference
   type UnionQuantityOrRange            = Quantity \/ Range
   type UnionQuantityOrRangeOrRatio     = Quantity \/ Range \/ Ratio
-  type UnionReferenceOrString          = Reference \/ FHIRString
   type Union_1548929031                = CodeableConcept \/ Quantity \/ Range \/ Reference
 
   val Union01658422381Tag: LTag[Union01658422381]                               = LTag[Union01658422381]
@@ -153,9 +153,9 @@ object UnionAliases {
   val UnionCodeableConceptOrReferenceTag: LTag[UnionCodeableConceptOrReference] = LTag[UnionCodeableConceptOrReference]
   val UnionDurationOrDateTimeOrPeriodTag: LTag[UnionDurationOrDateTimeOrPeriod] = LTag[UnionDurationOrDateTimeOrPeriod]
   val UnionDurationOrPeriodOrRangeTag: LTag[UnionDurationOrPeriodOrRange]       = LTag[UnionDurationOrPeriodOrRange]
+  val UnionFHIRStringOrReferenceTag: LTag[UnionFHIRStringOrReference]           = LTag[UnionFHIRStringOrReference]
   val UnionQuantityOrRangeOrRatioTag: LTag[UnionQuantityOrRangeOrRatio]         = LTag[UnionQuantityOrRangeOrRatio]
   val UnionQuantityOrRangeTag: LTag[UnionQuantityOrRange]                       = LTag[UnionQuantityOrRange]
-  val UnionReferenceOrStringTag: LTag[UnionReferenceOrString]                   = LTag[UnionReferenceOrString]
   val Union_1548929031Tag: LTag[Union_1548929031]                               = LTag[Union_1548929031]
 }
 

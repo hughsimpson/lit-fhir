@@ -264,12 +264,12 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
         extension: LitSeq[Extension] = LitSeq.empty,
         windowEnd: Option[Int] = None,
         chromosome: Option[CodeableConcept] = None,
-        genomeBuild: Option[String] = None,
+        genomeBuild: Option[FHIRString] = None,
         orientation: Option[ORIENTATION_TYPE] = None,
         windowStart: Option[Int] = None,
         referenceSeqId: Option[CodeableConcept] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
-        referenceSeqString: Option[String] = None,
+        referenceSeqString: Option[FHIRString] = None,
         referenceSeqPointer: Option[Reference] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): ReferenceSeq = new ReferenceSeq(
@@ -288,7 +288,7 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: ReferenceSeq): Option[(Option[String], Option[STRAND_TYPE], LitSeq[Extension], Option[Int], Option[CodeableConcept], Option[String], Option[ORIENTATION_TYPE], Option[Int], Option[CodeableConcept], LitSeq[Extension], Option[String], Option[Reference])] =
+        o: ReferenceSeq): Option[(Option[String], Option[STRAND_TYPE], LitSeq[Extension], Option[Int], Option[CodeableConcept], Option[FHIRString], Option[ORIENTATION_TYPE], Option[Int], Option[CodeableConcept], LitSeq[Extension], Option[FHIRString], Option[Reference])] =
       Some(
         (
           o.id,
@@ -313,8 +313,8 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       FHIRComponentFieldMeta("windowEnd", lTagOf[Option[Int]], false, lTagOf[Int])
     val chromosome: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("chromosome", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val genomeBuild: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("genomeBuild", lTagOf[Option[String]], false, lTagOf[String])
+    val genomeBuild: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("genomeBuild", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val orientation: FHIRComponentFieldMeta[Option[ORIENTATION_TYPE]] =
       FHIRComponentFieldMeta("orientation", lTagOf[Option[ORIENTATION_TYPE]], false, lTagOf[ORIENTATION_TYPE])
     val windowStart: FHIRComponentFieldMeta[Option[Int]] =
@@ -323,8 +323,8 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       FHIRComponentFieldMeta("referenceSeqId", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val referenceSeqString: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("referenceSeqString", lTagOf[Option[String]], false, lTagOf[String])
+    val referenceSeqString: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("referenceSeqString", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val referenceSeqPointer: FHIRComponentFieldMeta[Option[Reference]] =
       FHIRComponentFieldMeta("referenceSeqPointer", lTagOf[Option[Reference]], false, lTagOf[Reference])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(
@@ -347,12 +347,12 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Int]](windowEnd, t.windowEnd),
       FHIRComponentField[Option[CodeableConcept]](chromosome, t.chromosome),
-      FHIRComponentField[Option[String]](genomeBuild, t.genomeBuild),
+      FHIRComponentField[Option[FHIRString]](genomeBuild, t.genomeBuild),
       FHIRComponentField[Option[ORIENTATION_TYPE]](orientation, t.orientation),
       FHIRComponentField[Option[Int]](windowStart, t.windowStart),
       FHIRComponentField[Option[CodeableConcept]](referenceSeqId, t.referenceSeqId),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-      FHIRComponentField[Option[String]](referenceSeqString, t.referenceSeqString),
+      FHIRComponentField[Option[FHIRString]](referenceSeqString, t.referenceSeqString),
       FHIRComponentField[Option[Reference]](referenceSeqPointer, t.referenceSeqPointer)
     )
     val baseType: CompanionFor[ReferenceSeq] = this
@@ -366,12 +366,12 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Int]]("windowEnd", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("chromosome", Some(None)),
-            cursor.decodeAs[Option[String]]("genomeBuild", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("genomeBuild", Some(None)),
             cursor.decodeAs[Option[ORIENTATION_TYPE]]("orientation", Some(None)),
             cursor.decodeAs[Option[Int]]("windowStart", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("referenceSeqId", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("referenceSeqString", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("referenceSeqString", Some(None)),
             cursor.decodeAs[Option[Reference]]("referenceSeqPointer", Some(None)),
             decodeAttributes(cursor)
           )
@@ -384,12 +384,12 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val windowEnd: Option[Int] = None,
       val chromosome: Option[CodeableConcept] = None,
-      val genomeBuild: Option[String] = None,
+      val genomeBuild: Option[FHIRString] = None,
       val orientation: Option[ORIENTATION_TYPE] = None,
       val windowStart: Option[Int] = None,
       val referenceSeqId: Option[CodeableConcept] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      val referenceSeqString: Option[String] = None,
+      val referenceSeqString: Option[FHIRString] = None,
       val referenceSeqPointer: Option[Reference] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -700,11 +700,11 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
         id: Option[String] = None,
         url: Option[UriStr] = None,
         `type`: REPOSITORY_TYPE,
-        name: Option[String] = None,
+        name: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        datasetId: Option[String] = None,
-        readsetId: Option[String] = None,
-        variantsetId: Option[String] = None,
+        datasetId: Option[FHIRString] = None,
+        readsetId: Option[FHIRString] = None,
+        variantsetId: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Repository = new Repository(
@@ -720,7 +720,7 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Repository): Option[(Option[String], Option[UriStr], REPOSITORY_TYPE, Option[String], LitSeq[Extension], Option[String], Option[String], Option[String], LitSeq[Extension])] =
+        o: Repository): Option[(Option[String], Option[UriStr], REPOSITORY_TYPE, Option[FHIRString], LitSeq[Extension], Option[FHIRString], Option[FHIRString], Option[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.url, o.`type`, o.name, o.extension, o.datasetId, o.readsetId, o.variantsetId, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -728,16 +728,16 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       FHIRComponentFieldMeta("url", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
     val `type`: FHIRComponentFieldMeta[REPOSITORY_TYPE] =
       FHIRComponentFieldMeta("type", lTagOf[REPOSITORY_TYPE], false, lTagOf[REPOSITORY_TYPE])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val datasetId: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("datasetId", lTagOf[Option[String]], false, lTagOf[String])
-    val readsetId: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("readsetId", lTagOf[Option[String]], false, lTagOf[String])
-    val variantsetId: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("variantsetId", lTagOf[Option[String]], false, lTagOf[String])
+    val datasetId: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("datasetId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val readsetId: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("readsetId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val variantsetId: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("variantsetId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -747,11 +747,11 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[UriStr]](url, t.url),
       FHIRComponentField[REPOSITORY_TYPE](`type`, t.`type`),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](datasetId, t.datasetId),
-      FHIRComponentField[Option[String]](readsetId, t.readsetId),
-      FHIRComponentField[Option[String]](variantsetId, t.variantsetId),
+      FHIRComponentField[Option[FHIRString]](datasetId, t.datasetId),
+      FHIRComponentField[Option[FHIRString]](readsetId, t.readsetId),
+      FHIRComponentField[Option[FHIRString]](variantsetId, t.variantsetId),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Repository] = this
@@ -763,11 +763,11 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[UriStr]]("url", Some(None)),
             cursor.decodeAs[REPOSITORY_TYPE]("type", None),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("datasetId", Some(None)),
-            cursor.decodeAs[Option[String]]("readsetId", Some(None)),
-            cursor.decodeAs[Option[String]]("variantsetId", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("datasetId", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("readsetId", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("variantsetId", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -778,11 +778,11 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       override val id: Option[String] = None,
       val url: Option[UriStr] = None,
       val `type`: REPOSITORY_TYPE,
-      val name: Option[String] = None,
+      val name: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val datasetId: Option[String] = None,
-      val readsetId: Option[String] = None,
-      val variantsetId: Option[String] = None,
+      val datasetId: Option[FHIRString] = None,
+      val readsetId: Option[FHIRString] = None,
+      val variantsetId: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -796,11 +796,11 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
         id: Option[String] = None,
         end: Option[Int] = None,
         start: Option[Int] = None,
-        cigar: Option[String] = None,
+        cigar: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        observedAllele: Option[String] = None,
+        observedAllele: Option[FHIRString] = None,
         variantPointer: Option[Reference] = None,
-        referenceAllele: Option[String] = None,
+        referenceAllele: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Variant = new Variant(
@@ -816,7 +816,7 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Variant): Option[(Option[String], Option[Int], Option[Int], Option[String], LitSeq[Extension], Option[String], Option[Reference], Option[String], LitSeq[Extension])] =
+        o: Variant): Option[(Option[String], Option[Int], Option[Int], Option[FHIRString], LitSeq[Extension], Option[FHIRString], Option[Reference], Option[FHIRString], LitSeq[Extension])] =
       Some(
         (o.id, o.end, o.start, o.cigar, o.extension, o.observedAllele, o.variantPointer, o.referenceAllele, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
@@ -825,16 +825,16 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       FHIRComponentFieldMeta("end", lTagOf[Option[Int]], false, lTagOf[Int])
     val start: FHIRComponentFieldMeta[Option[Int]] =
       FHIRComponentFieldMeta("start", lTagOf[Option[Int]], false, lTagOf[Int])
-    val cigar: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("cigar", lTagOf[Option[String]], false, lTagOf[String])
+    val cigar: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("cigar", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val observedAllele: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("observedAllele", lTagOf[Option[String]], false, lTagOf[String])
+    val observedAllele: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("observedAllele", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val variantPointer: FHIRComponentFieldMeta[Option[Reference]] =
       FHIRComponentFieldMeta("variantPointer", lTagOf[Option[Reference]], false, lTagOf[Reference])
-    val referenceAllele: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("referenceAllele", lTagOf[Option[String]], false, lTagOf[String])
+    val referenceAllele: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("referenceAllele", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -844,11 +844,11 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[Int]](end, t.end),
       FHIRComponentField[Option[Int]](start, t.start),
-      FHIRComponentField[Option[String]](cigar, t.cigar),
+      FHIRComponentField[Option[FHIRString]](cigar, t.cigar),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](observedAllele, t.observedAllele),
+      FHIRComponentField[Option[FHIRString]](observedAllele, t.observedAllele),
       FHIRComponentField[Option[Reference]](variantPointer, t.variantPointer),
-      FHIRComponentField[Option[String]](referenceAllele, t.referenceAllele),
+      FHIRComponentField[Option[FHIRString]](referenceAllele, t.referenceAllele),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Variant] = this
@@ -860,11 +860,11 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[Int]]("end", Some(None)),
             cursor.decodeAs[Option[Int]]("start", Some(None)),
-            cursor.decodeAs[Option[String]]("cigar", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("cigar", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("observedAllele", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("observedAllele", Some(None)),
             cursor.decodeAs[Option[Reference]]("variantPointer", Some(None)),
-            cursor.decodeAs[Option[String]]("referenceAllele", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("referenceAllele", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -875,11 +875,11 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       override val id: Option[String] = None,
       val end: Option[Int] = None,
       val start: Option[Int] = None,
-      val cigar: Option[String] = None,
+      val cigar: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val observedAllele: Option[String] = None,
+      val observedAllele: Option[FHIRString] = None,
       val variantPointer: Option[Reference] = None,
-      val referenceAllele: Option[String] = None,
+      val referenceAllele: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -898,7 +898,7 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
       extension: LitSeq[Extension] = LitSeq.empty,
       performer: Option[Reference] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      observedSeq: Option[String] = None,
+      observedSeq: Option[FHIRString] = None,
       readCoverage: Option[Int] = None,
       implicitRules: Option[UriStr] = None,
       coordinateSystem: Int,
@@ -964,8 +964,8 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
     FHIRComponentFieldMeta("performer", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val observedSeq: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("observedSeq", lTagOf[Option[String]], false, lTagOf[String])
+  val observedSeq: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("observedSeq", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val readCoverage: FHIRComponentFieldMeta[Option[Int]] =
     FHIRComponentFieldMeta("readCoverage", lTagOf[Option[Int]], false, lTagOf[Int])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -1038,7 +1038,7 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[Reference]](performer, t.performer),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](observedSeq, t.observedSeq),
+    FHIRComponentField[Option[FHIRString]](observedSeq, t.observedSeq),
     FHIRComponentField[Option[Int]](readCoverage, t.readCoverage),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Int](coordinateSystem, t.coordinateSystem),
@@ -1063,7 +1063,7 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
   def extractExtension(t: MolecularSequence): LitSeq[Extension]                                 = t.extension
   def extractPerformer(t: MolecularSequence): Option[Reference]                                 = t.performer
   def extractIdentifier(t: MolecularSequence): LitSeq[Identifier]                               = t.identifier
-  def extractObservedSeq(t: MolecularSequence): Option[String]                                  = t.observedSeq
+  def extractObservedSeq(t: MolecularSequence): Option[FHIRString]                              = t.observedSeq
   def extractReadCoverage(t: MolecularSequence): Option[Int]                                    = t.readCoverage
   def extractImplicitRules(t: MolecularSequence): Option[UriStr]                                = t.implicitRules
   def extractCoordinateSystem(t: MolecularSequence): Int                                        = t.coordinateSystem
@@ -1107,7 +1107,7 @@ object MolecularSequence extends CompanionFor[MolecularSequence] {
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("performer", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("observedSeq", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("observedSeq", Some(None)),
           cursor.decodeAs[Option[Int]]("readCoverage", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Int]("coordinateSystem", None),
@@ -1218,7 +1218,7 @@ class MolecularSequence(
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val performer: Option[Reference] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val observedSeq: Option[String] = None,
+    val observedSeq: Option[FHIRString] = None,
     val readCoverage: Option[Int] = None,
     override val implicitRules: Option[UriStr] = None,
     val coordinateSystem: Int,

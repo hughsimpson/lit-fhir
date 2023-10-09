@@ -110,8 +110,8 @@ object VisionPrescription extends CompanionFor[VisionPrescription] {
         axis: Option[Int] = None,
         note: LitSeq[Annotation] = LitSeq.empty,
         power: Option[BigDecimal] = None,
-        color: Option[String] = None,
-        brand: Option[String] = None,
+        color: Option[FHIRString] = None,
+        brand: Option[FHIRString] = None,
         sphere: Option[BigDecimal] = None,
         product: CodeableConcept,
         cylinder: Option[BigDecimal] = None,
@@ -143,7 +143,7 @@ object VisionPrescription extends CompanionFor[VisionPrescription] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: LensSpecification): Option[(Option[String], VISION_EYE_CODES, Option[BigDecimal], Option[Int], LitSeq[Annotation], Option[BigDecimal], Option[String], Option[String], Option[BigDecimal], CodeableConcept, Option[BigDecimal], Option[BigDecimal], Option[Quantity], LitSeq[Extension], Option[BigDecimal], LitSeq[Extension], LitSeq[LensSpecification.Prism])] =
+        o: LensSpecification): Option[(Option[String], VISION_EYE_CODES, Option[BigDecimal], Option[Int], LitSeq[Annotation], Option[BigDecimal], Option[FHIRString], Option[FHIRString], Option[BigDecimal], CodeableConcept, Option[BigDecimal], Option[BigDecimal], Option[Quantity], LitSeq[Extension], Option[BigDecimal], LitSeq[Extension], LitSeq[LensSpecification.Prism])] =
       Some(
         (
           o.id,
@@ -175,10 +175,10 @@ object VisionPrescription extends CompanionFor[VisionPrescription] {
       FHIRComponentFieldMeta("note", lTagOf[LitSeq[Annotation]], false, lTagOf[Annotation])
     val power: FHIRComponentFieldMeta[Option[BigDecimal]] =
       FHIRComponentFieldMeta("power", lTagOf[Option[BigDecimal]], false, lTagOf[BigDecimal])
-    val color: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("color", lTagOf[Option[String]], false, lTagOf[String])
-    val brand: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("brand", lTagOf[Option[String]], false, lTagOf[String])
+    val color: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("color", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val brand: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("brand", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val sphere: FHIRComponentFieldMeta[Option[BigDecimal]] =
       FHIRComponentFieldMeta("sphere", lTagOf[Option[BigDecimal]], false, lTagOf[BigDecimal])
     val product: FHIRComponentFieldMeta[CodeableConcept] =
@@ -223,8 +223,8 @@ object VisionPrescription extends CompanionFor[VisionPrescription] {
       FHIRComponentField[Option[Int]](axis, t.axis),
       FHIRComponentField[LitSeq[Annotation]](note, t.note),
       FHIRComponentField[Option[BigDecimal]](power, t.power),
-      FHIRComponentField[Option[String]](color, t.color),
-      FHIRComponentField[Option[String]](brand, t.brand),
+      FHIRComponentField[Option[FHIRString]](color, t.color),
+      FHIRComponentField[Option[FHIRString]](brand, t.brand),
       FHIRComponentField[Option[BigDecimal]](sphere, t.sphere),
       FHIRComponentField[CodeableConcept](product, t.product),
       FHIRComponentField[Option[BigDecimal]](cylinder, t.cylinder),
@@ -247,8 +247,8 @@ object VisionPrescription extends CompanionFor[VisionPrescription] {
             cursor.decodeAs[Option[Int]]("axis", Some(None)),
             cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
             cursor.decodeAs[Option[BigDecimal]]("power", Some(None)),
-            cursor.decodeAs[Option[String]]("color", Some(None)),
-            cursor.decodeAs[Option[String]]("brand", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("color", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("brand", Some(None)),
             cursor.decodeAs[Option[BigDecimal]]("sphere", Some(None)),
             cursor.decodeAs[CodeableConcept]("product", None),
             cursor.decodeAs[Option[BigDecimal]]("cylinder", Some(None)),
@@ -270,8 +270,8 @@ object VisionPrescription extends CompanionFor[VisionPrescription] {
       val axis: Option[Int] = None,
       val note: LitSeq[Annotation] = LitSeq.empty,
       val power: Option[BigDecimal] = None,
-      val color: Option[String] = None,
-      val brand: Option[String] = None,
+      val color: Option[FHIRString] = None,
+      val brand: Option[FHIRString] = None,
       val sphere: Option[BigDecimal] = None,
       val product: CodeableConcept,
       val cylinder: Option[BigDecimal] = None,

@@ -199,6 +199,10 @@ public interface StructureMap_Group_Rule_SourceBuilder {
     return ChoiceAll.ChoiceAllCode(s);
   }
 
+  public static ChoiceAll defaultValueFHIRString(String s) {
+    return ChoiceAll.ChoiceAllFHIRString(s);
+  }
+
   public static ChoiceAll defaultValueId(String s) {
     return ChoiceAll.ChoiceAllId(s);
   }
@@ -217,10 +221,6 @@ public interface StructureMap_Group_Rule_SourceBuilder {
 
   public static ChoiceAll defaultValuePositiveInt(Integer i) {
     return ChoiceAll.ChoiceAllPositiveInt(i);
-  }
-
-  public static ChoiceAll defaultValueString(String s) {
-    return ChoiceAll.ChoiceAllString(s);
   }
 
   public static ChoiceAll defaultValueUnsignedInt(Integer i) {

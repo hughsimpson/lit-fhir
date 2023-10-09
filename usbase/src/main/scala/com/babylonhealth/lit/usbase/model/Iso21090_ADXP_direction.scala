@@ -34,7 +34,7 @@ object Iso21090_ADXP_direction extends CompanionFor[Iso21090_ADXP_direction] {
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-direction")
   def apply(
       id: Option[String] = None,
-      value: String,
+      value: FHIRString,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Iso21090_ADXP_direction = new Iso21090_ADXP_direction(
     id,
@@ -43,26 +43,27 @@ object Iso21090_ADXP_direction extends CompanionFor[Iso21090_ADXP_direction] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val value: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("value", lTagOf[String], true, lTagOf[String])
+  val value: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("value", lTagOf[FHIRString], true, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, value)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Try(
     Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](value, t.value.get.toSubRefNonUnion[String])
+      FHIRComponentField[FHIRString](value, t.value.get.toSubRefNonUnion[FHIRString])
     ))
   override def fields(t: Iso21090_ADXP_direction): Seq[FHIRComponentField[_]] = fieldsFromParent(t).get
   def extractId(t: Iso21090_ADXP_direction): Option[String]                   = t.id
-  def extractValue(t: Iso21090_ADXP_direction): String                        = t.value.get.toSubRefNonUnion[String]
+  def extractValue(t: Iso21090_ADXP_direction): FHIRString                    = t.value.get.toSubRefNonUnion[FHIRString]
   override val thisName: String                                               = "Iso21090_ADXP_direction"
   override val searchParams: Map[String, Iso21090_ADXP_direction => Seq[Any]] = Extension.searchParams
-  def unapply(o: Iso21090_ADXP_direction): Option[(Option[String], String)]   = Some((o.id, o.value.get.toSubRefNonUnion[String]))
+  def unapply(o: Iso21090_ADXP_direction): Option[(Option[String], FHIRString)] = Some(
+    (o.id, o.value.get.toSubRefNonUnion[FHIRString]))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Iso21090_ADXP_direction] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new Iso21090_ADXP_direction(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[String]("valueString", None),
+          cursor.decodeAs[FHIRString]("valueString", None),
           decodeAttributes(cursor)
         )
       ))
@@ -89,7 +90,7 @@ object Iso21090_ADXP_direction extends CompanionFor[Iso21090_ADXP_direction] {
 @POJOBoilerplate
 class Iso21090_ADXP_direction(
     override val id: Option[String] = None,
-    value: String,
+    value: FHIRString,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Extension(
       id = id,

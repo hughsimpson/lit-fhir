@@ -39,7 +39,7 @@ object Device extends CompanionFor[Device] {
     override val parentType: CompanionFor[ResourceType] = Specialization
     def apply(
         id: Option[String] = None,
-        version: Option[String] = None,
+        version: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         systemType: CodeableConcept,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -53,12 +53,12 @@ object Device extends CompanionFor[Device] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Specialization): Option[(Option[String], Option[String], LitSeq[Extension], CodeableConcept, LitSeq[Extension])] =
+        o: Specialization): Option[(Option[String], Option[FHIRString], LitSeq[Extension], CodeableConcept, LitSeq[Extension])] =
       Some((o.id, o.version, o.extension, o.systemType, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val version: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+    val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val systemType: FHIRComponentFieldMeta[CodeableConcept] =
@@ -69,7 +69,7 @@ object Device extends CompanionFor[Device] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Specialization): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](version, t.version),
+      FHIRComponentField[Option[FHIRString]](version, t.version),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[CodeableConcept](systemType, t.systemType),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -81,7 +81,7 @@ object Device extends CompanionFor[Device] {
         Try(
           new Specialization(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("version", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[CodeableConcept]("systemType", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -92,7 +92,7 @@ object Device extends CompanionFor[Device] {
   @POJOBoilerplate
   class Specialization(
       override val id: Option[String] = None,
-      val version: Option[String] = None,
+      val version: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val systemType: CodeableConcept,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -106,7 +106,7 @@ object Device extends CompanionFor[Device] {
     override val parentType: CompanionFor[ResourceType] = DeviceName
     def apply(
         id: Option[String] = None,
-        name: String,
+        name: FHIRString,
         `type`: DEVICE_NAMETYPE,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -119,12 +119,12 @@ object Device extends CompanionFor[Device] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: DeviceName): Option[(Option[String], String, DEVICE_NAMETYPE, LitSeq[Extension], LitSeq[Extension])] = Some(
-      (o.id, o.name, o.`type`, o.extension, o.modifierExtension))
+    def unapply(o: DeviceName): Option[(Option[String], FHIRString, DEVICE_NAMETYPE, LitSeq[Extension], LitSeq[Extension])] =
+      Some((o.id, o.name, o.`type`, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val `type`: FHIRComponentFieldMeta[DEVICE_NAMETYPE] =
       FHIRComponentFieldMeta("type", lTagOf[DEVICE_NAMETYPE], false, lTagOf[DEVICE_NAMETYPE])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -135,7 +135,7 @@ object Device extends CompanionFor[Device] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: DeviceName): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](name, t.name),
+      FHIRComponentField[FHIRString](name, t.name),
       FHIRComponentField[DEVICE_NAMETYPE](`type`, t.`type`),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -147,7 +147,7 @@ object Device extends CompanionFor[Device] {
         Try(
           new DeviceName(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("name", None),
+            cursor.decodeAs[FHIRString]("name", None),
             cursor.decodeAs[DEVICE_NAMETYPE]("type", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -158,7 +158,7 @@ object Device extends CompanionFor[Device] {
   @POJOBoilerplate
   class DeviceName(
       override val id: Option[String] = None,
-      val name: String,
+      val name: FHIRString,
       val `type`: DEVICE_NAMETYPE,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -175,10 +175,10 @@ object Device extends CompanionFor[Device] {
         issuer: Option[UriStr] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         entryType: Option[UDI_ENTRY_TYPE] = None,
-        carrierHRF: Option[String] = None,
+        carrierHRF: Option[FHIRString] = None,
         carrierAIDC: Option[Base64Binary] = None,
         jurisdiction: Option[UriStr] = None,
-        deviceIdentifier: Option[String] = None,
+        deviceIdentifier: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): UdiCarrier = new UdiCarrier(
@@ -194,7 +194,7 @@ object Device extends CompanionFor[Device] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: UdiCarrier): Option[(Option[String], Option[UriStr], LitSeq[Extension], Option[UDI_ENTRY_TYPE], Option[String], Option[Base64Binary], Option[UriStr], Option[String], LitSeq[Extension])] =
+        o: UdiCarrier): Option[(Option[String], Option[UriStr], LitSeq[Extension], Option[UDI_ENTRY_TYPE], Option[FHIRString], Option[Base64Binary], Option[UriStr], Option[FHIRString], LitSeq[Extension])] =
       Some(
         (
           o.id,
@@ -214,14 +214,14 @@ object Device extends CompanionFor[Device] {
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val entryType: FHIRComponentFieldMeta[Option[UDI_ENTRY_TYPE]] =
       FHIRComponentFieldMeta("entryType", lTagOf[Option[UDI_ENTRY_TYPE]], false, lTagOf[UDI_ENTRY_TYPE])
-    val carrierHRF: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("carrierHRF", lTagOf[Option[String]], false, lTagOf[String])
+    val carrierHRF: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("carrierHRF", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val carrierAIDC: FHIRComponentFieldMeta[Option[Base64Binary]] =
       FHIRComponentFieldMeta("carrierAIDC", lTagOf[Option[Base64Binary]], false, lTagOf[Base64Binary])
     val jurisdiction: FHIRComponentFieldMeta[Option[UriStr]] =
       FHIRComponentFieldMeta("jurisdiction", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
-    val deviceIdentifier: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("deviceIdentifier", lTagOf[Option[String]], false, lTagOf[String])
+    val deviceIdentifier: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("deviceIdentifier", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -232,10 +232,10 @@ object Device extends CompanionFor[Device] {
       FHIRComponentField[Option[UriStr]](issuer, t.issuer),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[UDI_ENTRY_TYPE]](entryType, t.entryType),
-      FHIRComponentField[Option[String]](carrierHRF, t.carrierHRF),
+      FHIRComponentField[Option[FHIRString]](carrierHRF, t.carrierHRF),
       FHIRComponentField[Option[Base64Binary]](carrierAIDC, t.carrierAIDC),
       FHIRComponentField[Option[UriStr]](jurisdiction, t.jurisdiction),
-      FHIRComponentField[Option[String]](deviceIdentifier, t.deviceIdentifier),
+      FHIRComponentField[Option[FHIRString]](deviceIdentifier, t.deviceIdentifier),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[UdiCarrier] = this
@@ -248,10 +248,10 @@ object Device extends CompanionFor[Device] {
             cursor.decodeAs[Option[UriStr]]("issuer", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[UDI_ENTRY_TYPE]]("entryType", Some(None)),
-            cursor.decodeAs[Option[String]]("carrierHRF", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("carrierHRF", Some(None)),
             cursor.decodeAs[Option[Base64Binary]]("carrierAIDC", Some(None)),
             cursor.decodeAs[Option[UriStr]]("jurisdiction", Some(None)),
-            cursor.decodeAs[Option[String]]("deviceIdentifier", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("deviceIdentifier", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -263,10 +263,10 @@ object Device extends CompanionFor[Device] {
       val issuer: Option[UriStr] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val entryType: Option[UDI_ENTRY_TYPE] = None,
-      val carrierHRF: Option[String] = None,
+      val carrierHRF: Option[FHIRString] = None,
       val carrierAIDC: Option[Base64Binary] = None,
       val jurisdiction: Option[UriStr] = None,
-      val deviceIdentifier: Option[String] = None,
+      val deviceIdentifier: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -353,7 +353,7 @@ object Device extends CompanionFor[Device] {
     def apply(
         id: Option[String] = None,
         `type`: Option[CodeableConcept] = None,
-        value: String,
+        value: FHIRString,
         extension: LitSeq[Extension] = LitSeq.empty,
         component: Option[Identifier] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -368,14 +368,14 @@ object Device extends CompanionFor[Device] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Version): Option[(Option[String], Option[CodeableConcept], String, LitSeq[Extension], Option[Identifier], LitSeq[Extension])] =
+        o: Version): Option[(Option[String], Option[CodeableConcept], FHIRString, LitSeq[Extension], Option[Identifier], LitSeq[Extension])] =
       Some((o.id, o.`type`, o.value, o.extension, o.component, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val value: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("value", lTagOf[String], false, lTagOf[String])
+    val value: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("value", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val component: FHIRComponentFieldMeta[Option[Identifier]] =
@@ -387,7 +387,7 @@ object Device extends CompanionFor[Device] {
     override def fields(t: Version): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-      FHIRComponentField[String](value, t.value),
+      FHIRComponentField[FHIRString](value, t.value),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Identifier]](component, t.component),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -400,7 +400,7 @@ object Device extends CompanionFor[Device] {
           new Version(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-            cursor.decodeAs[String]("value", None),
+            cursor.decodeAs[FHIRString]("value", None),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Identifier]]("component", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -412,7 +412,7 @@ object Device extends CompanionFor[Device] {
   class Version(
       override val id: Option[String] = None,
       val `type`: Option[CodeableConcept] = None,
-      val value: String,
+      val value: FHIRString,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val component: Option[Identifier] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -435,19 +435,19 @@ object Device extends CompanionFor[Device] {
       location: Option[Reference] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      lotNumber: Option[String] = None,
+      lotNumber: Option[FHIRString] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       definition: Option[Reference] = None,
-      partNumber: Option[String] = None,
-      modelNumber: Option[String] = None,
+      partNumber: Option[FHIRString] = None,
+      modelNumber: Option[FHIRString] = None,
       statusReason: LitSeq[CodeableConcept] = LitSeq.empty,
-      manufacturer: Option[String] = None,
-      serialNumber: Option[String] = None,
+      manufacturer: Option[FHIRString] = None,
+      serialNumber: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       expirationDate: Option[FHIRDateTime] = None,
       manufactureDate: Option[FHIRDateTime] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      distinctIdentifier: Option[String] = None,
+      distinctIdentifier: Option[FHIRString] = None,
       version: LitSeq[Device.Version] = LitSeq.empty,
       property: LitSeq[Device.Property] = LitSeq.empty,
       udiCarrier: LitSeq[Device.UdiCarrier] = LitSeq.empty,
@@ -523,22 +523,22 @@ object Device extends CompanionFor[Device] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val lotNumber: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("lotNumber", lTagOf[Option[String]], false, lTagOf[String])
+  val lotNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("lotNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
   val definition: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("definition", lTagOf[Option[Reference]], false, lTagOf[Reference])
-  val partNumber: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("partNumber", lTagOf[Option[String]], false, lTagOf[String])
-  val modelNumber: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("modelNumber", lTagOf[Option[String]], false, lTagOf[String])
+  val partNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("partNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val modelNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("modelNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val statusReason: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("statusReason", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val manufacturer: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("manufacturer", lTagOf[Option[String]], false, lTagOf[String])
-  val serialNumber: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("serialNumber", lTagOf[Option[String]], false, lTagOf[String])
+  val manufacturer: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("manufacturer", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val serialNumber: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("serialNumber", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val expirationDate: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
@@ -547,8 +547,8 @@ object Device extends CompanionFor[Device] {
     FHIRComponentFieldMeta("manufactureDate", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val distinctIdentifier: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("distinctIdentifier", lTagOf[Option[String]], false, lTagOf[String])
+  val distinctIdentifier: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("distinctIdentifier", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val version: FHIRComponentFieldMeta[LitSeq[Device.Version]] =
     FHIRComponentFieldMeta("version", lTagOf[LitSeq[Device.Version]], false, lTagOf[Device.Version])
   val property: FHIRComponentFieldMeta[LitSeq[Device.Property]] =
@@ -613,19 +613,19 @@ object Device extends CompanionFor[Device] {
     FHIRComponentField[Option[Reference]](location, t.location),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](lotNumber, t.lotNumber),
+    FHIRComponentField[Option[FHIRString]](lotNumber, t.lotNumber),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[Option[Reference]](definition, t.definition),
-    FHIRComponentField[Option[String]](partNumber, t.partNumber),
-    FHIRComponentField[Option[String]](modelNumber, t.modelNumber),
+    FHIRComponentField[Option[FHIRString]](partNumber, t.partNumber),
+    FHIRComponentField[Option[FHIRString]](modelNumber, t.modelNumber),
     FHIRComponentField[LitSeq[CodeableConcept]](statusReason, t.statusReason),
-    FHIRComponentField[Option[String]](manufacturer, t.manufacturer),
-    FHIRComponentField[Option[String]](serialNumber, t.serialNumber),
+    FHIRComponentField[Option[FHIRString]](manufacturer, t.manufacturer),
+    FHIRComponentField[Option[FHIRString]](serialNumber, t.serialNumber),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Option[FHIRDateTime]](expirationDate, t.expirationDate),
     FHIRComponentField[Option[FHIRDateTime]](manufactureDate, t.manufactureDate),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-    FHIRComponentField[Option[String]](distinctIdentifier, t.distinctIdentifier),
+    FHIRComponentField[Option[FHIRString]](distinctIdentifier, t.distinctIdentifier),
     FHIRComponentField[LitSeq[Device.Version]](version, t.version),
     FHIRComponentField[LitSeq[Device.Property]](property, t.property),
     FHIRComponentField[LitSeq[Device.UdiCarrier]](udiCarrier, t.udiCarrier),
@@ -648,19 +648,19 @@ object Device extends CompanionFor[Device] {
   def extractLocation(t: Device): Option[Reference]                   = t.location
   def extractContained(t: Device): LitSeq[Resource]                   = t.contained
   def extractExtension(t: Device): LitSeq[Extension]                  = t.extension
-  def extractLotNumber(t: Device): Option[String]                     = t.lotNumber
+  def extractLotNumber(t: Device): Option[FHIRString]                 = t.lotNumber
   def extractIdentifier(t: Device): LitSeq[Identifier]                = t.identifier
   def extractDefinition(t: Device): Option[Reference]                 = t.definition
-  def extractPartNumber(t: Device): Option[String]                    = t.partNumber
-  def extractModelNumber(t: Device): Option[String]                   = t.modelNumber
+  def extractPartNumber(t: Device): Option[FHIRString]                = t.partNumber
+  def extractModelNumber(t: Device): Option[FHIRString]               = t.modelNumber
   def extractStatusReason(t: Device): LitSeq[CodeableConcept]         = t.statusReason
-  def extractManufacturer(t: Device): Option[String]                  = t.manufacturer
-  def extractSerialNumber(t: Device): Option[String]                  = t.serialNumber
+  def extractManufacturer(t: Device): Option[FHIRString]              = t.manufacturer
+  def extractSerialNumber(t: Device): Option[FHIRString]              = t.serialNumber
   def extractImplicitRules(t: Device): Option[UriStr]                 = t.implicitRules
   def extractExpirationDate(t: Device): Option[FHIRDateTime]          = t.expirationDate
   def extractManufactureDate(t: Device): Option[FHIRDateTime]         = t.manufactureDate
   def extractModifierExtension(t: Device): LitSeq[Extension]          = t.modifierExtension
-  def extractDistinctIdentifier(t: Device): Option[String]            = t.distinctIdentifier
+  def extractDistinctIdentifier(t: Device): Option[FHIRString]        = t.distinctIdentifier
   def extractVersion(t: Device): LitSeq[Device.Version]               = t.version
   def extractProperty(t: Device): LitSeq[Device.Property]             = t.property
   def extractUdiCarrier(t: Device): LitSeq[Device.UdiCarrier]         = t.udiCarrier
@@ -705,19 +705,19 @@ object Device extends CompanionFor[Device] {
           cursor.decodeAs[Option[Reference]]("location", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("lotNumber", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("lotNumber", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("definition", Some(None)),
-          cursor.decodeAs[Option[String]]("partNumber", Some(None)),
-          cursor.decodeAs[Option[String]]("modelNumber", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("partNumber", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("modelNumber", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("statusReason", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("manufacturer", Some(None)),
-          cursor.decodeAs[Option[String]]("serialNumber", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("manufacturer", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("serialNumber", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("expirationDate", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("manufactureDate", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("distinctIdentifier", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("distinctIdentifier", Some(None)),
           cursor.decodeAs[LitSeq[Device.Version]]("version", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Device.Property]]("property", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Device.UdiCarrier]]("udiCarrier", Some(LitSeq.empty)),
@@ -846,19 +846,19 @@ class Device(
     val location: Option[Reference] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val lotNumber: Option[String] = None,
+    val lotNumber: Option[FHIRString] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val definition: Option[Reference] = None,
-    val partNumber: Option[String] = None,
-    val modelNumber: Option[String] = None,
+    val partNumber: Option[FHIRString] = None,
+    val modelNumber: Option[FHIRString] = None,
     val statusReason: LitSeq[CodeableConcept] = LitSeq.empty,
-    val manufacturer: Option[String] = None,
-    val serialNumber: Option[String] = None,
+    val manufacturer: Option[FHIRString] = None,
+    val serialNumber: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     val expirationDate: Option[FHIRDateTime] = None,
     val manufactureDate: Option[FHIRDateTime] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-    val distinctIdentifier: Option[String] = None,
+    val distinctIdentifier: Option[FHIRString] = None,
     val version: LitSeq[Device.Version] = LitSeq.empty,
     val property: LitSeq[Device.Property] = LitSeq.empty,
     val udiCarrier: LitSeq[Device.UdiCarrier] = LitSeq.empty,

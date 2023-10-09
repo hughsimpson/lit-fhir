@@ -43,44 +43,44 @@ public interface Us_core_conditionBuilder extends ConditionBuilder {
         code.build(), subject.build(), new LitSeq<>(category).map(CodeableConceptBuilder::build));
   }
 
-  public static Choice01474038381 onset(Age a) {
-    return new Choice01474038381(a);
+  public static Choice_0461247536 onset(Age a) {
+    return new Choice_0461247536(a);
   }
 
-  public static Choice01474038381 onset(FHIRDateTime f) {
-    return new Choice01474038381(f);
+  public static Choice_0461247536 onset(FHIRDateTime f) {
+    return new Choice_0461247536(f);
   }
 
-  public static Choice01474038381 onset(Period p) {
-    return new Choice01474038381(p);
+  public static Choice_0461247536 onset(String s) {
+    return new Choice_0461247536(s);
   }
 
-  public static Choice01474038381 onset(Range r) {
-    return new Choice01474038381(r);
+  public static Choice_0461247536 onset(Period p) {
+    return new Choice_0461247536(p);
   }
 
-  public static Choice01474038381 onset(String s) {
-    return new Choice01474038381(s);
+  public static Choice_0461247536 onset(Range r) {
+    return new Choice_0461247536(r);
   }
 
-  public static Choice01474038381 abatement(Age a) {
-    return new Choice01474038381(a);
+  public static Choice_0461247536 abatement(Age a) {
+    return new Choice_0461247536(a);
   }
 
-  public static Choice01474038381 abatement(FHIRDateTime f) {
-    return new Choice01474038381(f);
+  public static Choice_0461247536 abatement(FHIRDateTime f) {
+    return new Choice_0461247536(f);
   }
 
-  public static Choice01474038381 abatement(Period p) {
-    return new Choice01474038381(p);
+  public static Choice_0461247536 abatement(String s) {
+    return new Choice_0461247536(s);
   }
 
-  public static Choice01474038381 abatement(Range r) {
-    return new Choice01474038381(r);
+  public static Choice_0461247536 abatement(Period p) {
+    return new Choice_0461247536(p);
   }
 
-  public static Choice01474038381 abatement(String s) {
-    return new Choice01474038381(s);
+  public static Choice_0461247536 abatement(Range r) {
+    return new Choice_0461247536(r);
   }
 
   public class Impl implements Us_core_conditionBuilder {
@@ -98,14 +98,14 @@ public interface Us_core_conditionBuilder extends ConditionBuilder {
     private Collection<CodeableConcept> category;
     private Optional<CodeableConcept> severity = Optional.empty();
     private Collection<CodeableConcept> bodySite = Collections.emptyList();
-    private Optional<Choice01474038381> onset = Optional.empty();
+    private Optional<Choice_0461247536> onset = Optional.empty();
     private Optional<Reference> recorder = Optional.empty();
     private Optional<Reference> asserter = Optional.empty();
     private Collection<Resource> contained = Collections.emptyList();
     private Collection<Extension> extension = Collections.emptyList();
     private Optional<Reference> encounter = Optional.empty();
     private Collection<Identifier> identifier = Collections.emptyList();
-    private Optional<Choice01474038381> abatement = Optional.empty();
+    private Optional<Choice_0461247536> abatement = Optional.empty();
     private Optional<FHIRDateTime> recordedDate = Optional.empty();
     private Optional<String> implicitRules = Optional.empty();
     private Optional<CodeableConcept> clinicalStatus = Optional.empty();
@@ -223,10 +223,10 @@ public interface Us_core_conditionBuilder extends ConditionBuilder {
     /**
      * @param onset - Estimated or actual date or date-time the condition began, in the opinion of
      *     the clinician. Field is a 'choice' field. Type should be one of Age, FHIRDateTime,
-     *     Period, Range, String. To pass the value in, wrap with one of the
+     *     String, Period, Range. To pass the value in, wrap with one of the
      *     Us_core_conditionBuilder.onset static methods
      */
-    public Us_core_conditionBuilder.Impl withOnset(@NonNull Choice01474038381 onset) {
+    public Us_core_conditionBuilder.Impl withOnset(@NonNull Choice_0461247536 onset) {
       this.onset = Optional.of(onset);
       return this;
     }
@@ -345,10 +345,10 @@ public interface Us_core_conditionBuilder extends ConditionBuilder {
      *     remission. This is called "abatement" because of the many overloaded connotations
      *     associated with "remission" or "resolution" - Conditions are never really resolved, but
      *     they can abate. Field is a 'choice' field. Type should be one of Age, FHIRDateTime,
-     *     Period, Range, String. To pass the value in, wrap with one of the
+     *     String, Period, Range. To pass the value in, wrap with one of the
      *     Us_core_conditionBuilder.abatement static methods
      */
-    public Us_core_conditionBuilder.Impl withAbatement(@NonNull Choice01474038381 abatement) {
+    public Us_core_conditionBuilder.Impl withAbatement(@NonNull Choice_0461247536 abatement) {
       this.abatement = Optional.of(abatement);
       return this;
     }

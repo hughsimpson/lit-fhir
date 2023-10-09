@@ -39,7 +39,7 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
     override val parentType: CompanionFor[ResourceType] = Objective
     def apply(
         id: Option[String] = None,
-        name: Option[String] = None,
+        name: Option[FHIRString] = None,
         `type`: Option[CodeableConcept] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -53,12 +53,12 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Objective): Option[(Option[String], Option[String], Option[CodeableConcept], LitSeq[Extension], LitSeq[Extension])] =
+        o: Objective): Option[(Option[String], Option[FHIRString], Option[CodeableConcept], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.name, o.`type`, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -69,7 +69,7 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Objective): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -81,7 +81,7 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
         Try(
           new Objective(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -92,7 +92,7 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
   @POJOBoilerplate
   class Objective(
       override val id: Option[String] = None,
-      val name: Option[String] = None,
+      val name: Option[FHIRString] = None,
       val `type`: Option[CodeableConcept] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -105,10 +105,10 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
     override val parentType: CompanionFor[ResourceType] = Arm
     def apply(
         id: Option[String] = None,
-        name: String,
+        name: FHIRString,
         `type`: Option[CodeableConcept] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Arm = new Arm(
@@ -121,28 +121,28 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Arm): Option[(Option[String], String, Option[CodeableConcept], LitSeq[Extension], Option[String], LitSeq[Extension])] =
+        o: Arm): Option[(Option[String], FHIRString, Option[CodeableConcept], LitSeq[Extension], Option[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.name, o.`type`, o.extension, o.description, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, name, `type`, extension, description, modifierExtension)
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Arm): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](name, t.name),
+      FHIRComponentField[FHIRString](name, t.name),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Arm] = this
@@ -152,10 +152,10 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
         Try(
           new Arm(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("name", None),
+            cursor.decodeAs[FHIRString]("name", None),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -164,10 +164,10 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
   @POJOBoilerplate
   class Arm(
       override val id: Option[String] = None,
-      val name: String,
+      val name: FHIRString,
       val `type`: Option[CodeableConcept] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -177,7 +177,7 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
       text: Option[Narrative] = None,
       site: LitSeq[Reference] = LitSeq.empty,
       note: LitSeq[Annotation] = LitSeq.empty,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       phase: Option[CodeableConcept] = None,
       focus: LitSeq[CodeableConcept] = LitSeq.empty,
       partOf: LitSeq[Reference] = LitSeq.empty,
@@ -250,8 +250,8 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
     FHIRComponentFieldMeta("site", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val note: FHIRComponentFieldMeta[LitSeq[Annotation]] =
     FHIRComponentFieldMeta("note", lTagOf[LitSeq[Annotation]], false, lTagOf[Annotation])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val phase: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("phase", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val focus: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -345,7 +345,7 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[LitSeq[Reference]](site, t.site),
     FHIRComponentField[LitSeq[Annotation]](note, t.note),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[Option[CodeableConcept]](phase, t.phase),
     FHIRComponentField[LitSeq[CodeableConcept]](focus, t.focus),
     FHIRComponentField[LitSeq[Reference]](partOf, t.partOf),
@@ -378,7 +378,7 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
   def extractText(t: ResearchStudy): Option[Narrative]                     = t.text
   def extractSite(t: ResearchStudy): LitSeq[Reference]                     = t.site
   def extractNote(t: ResearchStudy): LitSeq[Annotation]                    = t.note
-  def extractTitle(t: ResearchStudy): Option[String]                       = t.title
+  def extractTitle(t: ResearchStudy): Option[FHIRString]                   = t.title
   def extractPhase(t: ResearchStudy): Option[CodeableConcept]              = t.phase
   def extractFocus(t: ResearchStudy): LitSeq[CodeableConcept]              = t.focus
   def extractPartOf(t: ResearchStudy): LitSeq[Reference]                   = t.partOf
@@ -430,7 +430,7 @@ object ResearchStudy extends CompanionFor[ResearchStudy] {
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("site", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("phase", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("focus", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Reference]]("partOf", Some(LitSeq.empty)),
@@ -570,7 +570,7 @@ class ResearchStudy(
     override val text: Option[Narrative] = None,
     val site: LitSeq[Reference] = LitSeq.empty,
     val note: LitSeq[Annotation] = LitSeq.empty,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val phase: Option[CodeableConcept] = None,
     val focus: LitSeq[CodeableConcept] = LitSeq.empty,
     val partOf: LitSeq[Reference] = LitSeq.empty,

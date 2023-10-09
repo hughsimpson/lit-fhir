@@ -50,8 +50,8 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
         override type ResourceType = Benefit
         override type ParentType   = Benefit
         override val parentType: CompanionFor[ResourceType] = Benefit
-        type UsedChoice    = Choice[UnionMoneyOrStringOrUnsignedInt]
-        type AllowedChoice = Choice[UnionMoneyOrStringOrUnsignedInt]
+        type UsedChoice    = Choice[UnionFHIRStringOrMoneyOrUnsignedInt]
+        type AllowedChoice = Choice[UnionFHIRStringOrMoneyOrUnsignedInt]
         def apply(
             id: Option[String] = None,
             `type`: CodeableConcept,
@@ -77,11 +77,15 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
         val `type`: FHIRComponentFieldMeta[CodeableConcept] =
           FHIRComponentFieldMeta("type", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
         val used: FHIRComponentFieldMeta[Option[Benefit.UsedChoice]] =
-          FHIRComponentFieldMeta("used", lTagOf[Option[Benefit.UsedChoice]], true, lTagOf[UnionMoneyOrStringOrUnsignedInt])
+          FHIRComponentFieldMeta("used", lTagOf[Option[Benefit.UsedChoice]], true, lTagOf[UnionFHIRStringOrMoneyOrUnsignedInt])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val allowed: FHIRComponentFieldMeta[Option[Benefit.AllowedChoice]] =
-          FHIRComponentFieldMeta("allowed", lTagOf[Option[Benefit.AllowedChoice]], true, lTagOf[UnionMoneyOrStringOrUnsignedInt])
+          FHIRComponentFieldMeta(
+            "allowed",
+            lTagOf[Option[Benefit.AllowedChoice]],
+            true,
+            lTagOf[UnionFHIRStringOrMoneyOrUnsignedInt])
         val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, `type`, used, extension, allowed, modifierExtension)
@@ -102,9 +106,9 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
               new Benefit(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
                 cursor.decodeAs[CodeableConcept]("type", None),
-                cursor.decodeOptRef[UnionMoneyOrStringOrUnsignedInt]("used"),
+                cursor.decodeOptRef[UnionFHIRStringOrMoneyOrUnsignedInt]("used"),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-                cursor.decodeOptRef[UnionMoneyOrStringOrUnsignedInt]("allowed"),
+                cursor.decodeOptRef[UnionFHIRStringOrMoneyOrUnsignedInt]("allowed"),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
                 decodeAttributes(cursor)
               )
@@ -122,7 +126,7 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
           extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
       def apply(
           id: Option[String] = None,
-          name: Option[String] = None,
+          name: Option[FHIRString] = None,
           unit: Option[CodeableConcept] = None,
           term: Option[CodeableConcept] = None,
           network: Option[CodeableConcept] = None,
@@ -131,7 +135,7 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
           provider: Option[Reference] = None,
           excluded: Option[Boolean] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
-          description: Option[String] = None,
+          description: Option[FHIRString] = None,
           productOrService: Option[CodeableConcept] = None,
           authorizationUrl: Option[UriStr] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -160,7 +164,7 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Item): Option[(Option[String], Option[String], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], LitSeq[CodeableConcept], Option[Reference], Option[Boolean], LitSeq[Extension], Option[String], Option[CodeableConcept], Option[UriStr], LitSeq[Extension], Option[Boolean], LitSeq[CodeableConcept], LitSeq[Item.Benefit])] =
+          o: Item): Option[(Option[String], Option[FHIRString], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], Option[CodeableConcept], LitSeq[CodeableConcept], Option[Reference], Option[Boolean], LitSeq[Extension], Option[FHIRString], Option[CodeableConcept], Option[UriStr], LitSeq[Extension], Option[Boolean], LitSeq[CodeableConcept], LitSeq[Item.Benefit])] =
         Some(
           (
             o.id,
@@ -182,8 +186,8 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
             o.benefit))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val name: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+      val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val unit: FHIRComponentFieldMeta[Option[CodeableConcept]] =
         FHIRComponentFieldMeta("unit", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
       val term: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -200,8 +204,8 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
         FHIRComponentFieldMeta("excluded", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-      val description: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+      val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val productOrService: FHIRComponentFieldMeta[Option[CodeableConcept]] =
         FHIRComponentFieldMeta("productOrService", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
       val authorizationUrl: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -236,7 +240,7 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: Item): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[Option[String]](name, t.name),
+        FHIRComponentField[Option[FHIRString]](name, t.name),
         FHIRComponentField[Option[CodeableConcept]](unit, t.unit),
         FHIRComponentField[Option[CodeableConcept]](term, t.term),
         FHIRComponentField[Option[CodeableConcept]](network, t.network),
@@ -245,7 +249,7 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
         FHIRComponentField[Option[Reference]](provider, t.provider),
         FHIRComponentField[Option[Boolean]](excluded, t.excluded),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-        FHIRComponentField[Option[String]](description, t.description),
+        FHIRComponentField[Option[FHIRString]](description, t.description),
         FHIRComponentField[Option[CodeableConcept]](productOrService, t.productOrService),
         FHIRComponentField[Option[UriStr]](authorizationUrl, t.authorizationUrl),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -260,7 +264,7 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
           Try(
             new Item(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[Option[String]]("name", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
               cursor.decodeAs[Option[CodeableConcept]]("unit", Some(None)),
               cursor.decodeAs[Option[CodeableConcept]]("term", Some(None)),
               cursor.decodeAs[Option[CodeableConcept]]("network", Some(None)),
@@ -269,7 +273,7 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
               cursor.decodeAs[Option[Reference]]("provider", Some(None)),
               cursor.decodeAs[Option[Boolean]]("excluded", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("description", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
               cursor.decodeAs[Option[CodeableConcept]]("productOrService", Some(None)),
               cursor.decodeAs[Option[UriStr]]("authorizationUrl", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -283,7 +287,7 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
     @POJOBoilerplate
     class Item(
         override val id: Option[String] = None,
-        val name: Option[String] = None,
+        val name: Option[FHIRString] = None,
         val unit: Option[CodeableConcept] = None,
         val term: Option[CodeableConcept] = None,
         val network: Option[CodeableConcept] = None,
@@ -292,7 +296,7 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
         val provider: Option[Reference] = None,
         val excluded: Option[Boolean] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
-        val description: Option[String] = None,
+        val description: Option[FHIRString] = None,
         val productOrService: Option[CodeableConcept] = None,
         val authorizationUrl: Option[UriStr] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -453,9 +457,9 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
       extension: LitSeq[Extension] = LitSeq.empty,
       requestor: Option[Reference] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      preAuthRef: Option[String] = None,
+      preAuthRef: Option[FHIRString] = None,
       serviced: Option[CoverageEligibilityResponse.ServicedChoice] = None,
-      disposition: Option[String] = None,
+      disposition: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       error: LitSeq[CoverageEligibilityResponse.Error] = LitSeq.empty,
@@ -523,16 +527,16 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
     FHIRComponentFieldMeta("requestor", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val preAuthRef: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("preAuthRef", lTagOf[Option[String]], false, lTagOf[String])
+  val preAuthRef: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("preAuthRef", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val serviced: FHIRComponentFieldMeta[Option[CoverageEligibilityResponse.ServicedChoice]] =
     FHIRComponentFieldMeta(
       "serviced",
       lTagOf[Option[CoverageEligibilityResponse.ServicedChoice]],
       true,
       lTagOf[UnionDateOrPeriod])
-  val disposition: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("disposition", lTagOf[Option[String]], false, lTagOf[String])
+  val disposition: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("disposition", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -592,9 +596,9 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[Reference]](requestor, t.requestor),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](preAuthRef, t.preAuthRef),
+    FHIRComponentField[Option[FHIRString]](preAuthRef, t.preAuthRef),
     FHIRComponentField[Option[CoverageEligibilityResponse.ServicedChoice]](serviced, t.serviced),
-    FHIRComponentField[Option[String]](disposition, t.disposition),
+    FHIRComponentField[Option[FHIRString]](disposition, t.disposition),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[CoverageEligibilityResponse.Error]](error, t.error),
@@ -616,9 +620,9 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
   def extractExtension(t: CoverageEligibilityResponse): LitSeq[Extension]                                 = t.extension
   def extractRequestor(t: CoverageEligibilityResponse): Option[Reference]                                 = t.requestor
   def extractIdentifier(t: CoverageEligibilityResponse): LitSeq[Identifier]                               = t.identifier
-  def extractPreAuthRef(t: CoverageEligibilityResponse): Option[String]                                   = t.preAuthRef
+  def extractPreAuthRef(t: CoverageEligibilityResponse): Option[FHIRString]                               = t.preAuthRef
   def extractServiced(t: CoverageEligibilityResponse): Option[CoverageEligibilityResponse.ServicedChoice] = t.serviced
-  def extractDisposition(t: CoverageEligibilityResponse): Option[String]                                  = t.disposition
+  def extractDisposition(t: CoverageEligibilityResponse): Option[FHIRString]                              = t.disposition
   def extractImplicitRules(t: CoverageEligibilityResponse): Option[UriStr]                                = t.implicitRules
   def extractModifierExtension(t: CoverageEligibilityResponse): LitSeq[Extension]                         = t.modifierExtension
   def extractError(t: CoverageEligibilityResponse): LitSeq[CoverageEligibilityResponse.Error]             = t.error
@@ -655,9 +659,9 @@ object CoverageEligibilityResponse extends CompanionFor[CoverageEligibilityRespo
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("requestor", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("preAuthRef", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("preAuthRef", Some(None)),
           cursor.decodeOptRef[UnionDateOrPeriod]("serviced"),
-          cursor.decodeAs[Option[String]]("disposition", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("disposition", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CoverageEligibilityResponse.Error]]("error", Some(LitSeq.empty)),
@@ -758,9 +762,9 @@ class CoverageEligibilityResponse(
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val requestor: Option[Reference] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val preAuthRef: Option[String] = None,
+    val preAuthRef: Option[FHIRString] = None,
     val serviced: Option[CoverageEligibilityResponse.ServicedChoice] = None,
-    val disposition: Option[String] = None,
+    val disposition: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val error: LitSeq[CoverageEligibilityResponse.Error] = LitSeq.empty,

@@ -31,9 +31,9 @@ object Reference extends CompanionFor[Reference] {
   def apply(
       id: Option[String] = None,
       `type`: Option[UriStr] = None,
-      display: Option[String] = None,
+      display: Option[FHIRString] = None,
       extension: LitSeq[Extension] = LitSeq.empty,
-      reference: Option[String] = None,
+      reference: Option[FHIRString] = None,
       identifier: Option[Identifier] = None,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Reference = new Reference(
@@ -49,12 +49,12 @@ object Reference extends CompanionFor[Reference] {
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
   val `type`: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("type", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
-  val display: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("display", lTagOf[Option[String]], false, lTagOf[String])
+  val display: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("display", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val reference: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("reference", lTagOf[Option[String]], false, lTagOf[String])
+  val reference: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("reference", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val identifier: FHIRComponentFieldMeta[Option[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[Option[Identifier]], false, lTagOf[Identifier])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, `type`, display, extension, reference, identifier)
@@ -62,20 +62,20 @@ object Reference extends CompanionFor[Reference] {
   override def fields(t: Reference): Seq[FHIRComponentField[_]] = Seq(
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[UriStr]](`type`, t.`type`),
-    FHIRComponentField[Option[String]](display, t.display),
+    FHIRComponentField[Option[FHIRString]](display, t.display),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](reference, t.reference),
+    FHIRComponentField[Option[FHIRString]](reference, t.reference),
     FHIRComponentField[Option[Identifier]](identifier, t.identifier)
   )
   def extractId(t: Reference): Option[String]             = t.id
   def extractType(t: Reference): Option[UriStr]           = t.`type`
-  def extractDisplay(t: Reference): Option[String]        = t.display
+  def extractDisplay(t: Reference): Option[FHIRString]    = t.display
   def extractExtension(t: Reference): LitSeq[Extension]   = t.extension
-  def extractReference(t: Reference): Option[String]      = t.reference
+  def extractReference(t: Reference): Option[FHIRString]  = t.reference
   def extractIdentifier(t: Reference): Option[Identifier] = t.identifier
   override val thisName: String                           = "Reference"
   def unapply(
-      o: Reference): Option[(Option[String], Option[UriStr], Option[String], LitSeq[Extension], Option[String], Option[Identifier])] =
+      o: Reference): Option[(Option[String], Option[UriStr], Option[FHIRString], LitSeq[Extension], Option[FHIRString], Option[Identifier])] =
     Some((o.id, o.`type`, o.display, o.extension, o.reference, o.identifier))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Reference] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -83,9 +83,9 @@ object Reference extends CompanionFor[Reference] {
         new Reference(
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[UriStr]]("type", Some(None)),
-          cursor.decodeAs[Option[String]]("display", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("display", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("reference", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("reference", Some(None)),
           cursor.decodeAs[Option[Identifier]]("identifier", Some(None)),
           decodeAttributes(cursor)
         )
@@ -131,9 +131,9 @@ object Reference extends CompanionFor[Reference] {
 class Reference(
     override val id: Option[String] = None,
     val `type`: Option[UriStr] = None,
-    val display: Option[String] = None,
+    val display: Option[FHIRString] = None,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val reference: Option[String] = None,
+    val reference: Option[FHIRString] = None,
     val identifier: Option[Identifier] = None,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Element(id = id, extension = extension, primitiveAttributes = primitiveAttributes) {

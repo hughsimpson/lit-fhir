@@ -42,10 +42,10 @@ object OperationOutcome extends CompanionFor[OperationOutcome] {
         code: ISSUE_TYPE,
         details: Option[CodeableConcept] = None,
         severity: ISSUE_SEVERITY,
-        location: LitSeq[String] = LitSeq.empty,
+        location: LitSeq[FHIRString] = LitSeq.empty,
         extension: LitSeq[Extension] = LitSeq.empty,
-        expression: LitSeq[String] = LitSeq.empty,
-        diagnostics: Option[String] = None,
+        expression: LitSeq[FHIRString] = LitSeq.empty,
+        diagnostics: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Issue = new Issue(
@@ -61,7 +61,7 @@ object OperationOutcome extends CompanionFor[OperationOutcome] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Issue): Option[(Option[String], ISSUE_TYPE, Option[CodeableConcept], ISSUE_SEVERITY, LitSeq[String], LitSeq[Extension], LitSeq[String], Option[String], LitSeq[Extension])] =
+        o: Issue): Option[(Option[String], ISSUE_TYPE, Option[CodeableConcept], ISSUE_SEVERITY, LitSeq[FHIRString], LitSeq[Extension], LitSeq[FHIRString], Option[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.code, o.details, o.severity, o.location, o.extension, o.expression, o.diagnostics, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -71,14 +71,14 @@ object OperationOutcome extends CompanionFor[OperationOutcome] {
       FHIRComponentFieldMeta("details", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val severity: FHIRComponentFieldMeta[ISSUE_SEVERITY] =
       FHIRComponentFieldMeta("severity", lTagOf[ISSUE_SEVERITY], false, lTagOf[ISSUE_SEVERITY])
-    val location: FHIRComponentFieldMeta[LitSeq[String]] =
-      FHIRComponentFieldMeta("location", lTagOf[LitSeq[String]], false, lTagOf[String])
+    val location: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+      FHIRComponentFieldMeta("location", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val expression: FHIRComponentFieldMeta[LitSeq[String]] =
-      FHIRComponentFieldMeta("expression", lTagOf[LitSeq[String]], false, lTagOf[String])
-    val diagnostics: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("diagnostics", lTagOf[Option[String]], false, lTagOf[String])
+    val expression: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+      FHIRComponentFieldMeta("expression", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
+    val diagnostics: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("diagnostics", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -89,10 +89,10 @@ object OperationOutcome extends CompanionFor[OperationOutcome] {
       FHIRComponentField[ISSUE_TYPE](code, t.code),
       FHIRComponentField[Option[CodeableConcept]](details, t.details),
       FHIRComponentField[ISSUE_SEVERITY](severity, t.severity),
-      FHIRComponentField[LitSeq[String]](location, t.location),
+      FHIRComponentField[LitSeq[FHIRString]](location, t.location),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[LitSeq[String]](expression, t.expression),
-      FHIRComponentField[Option[String]](diagnostics, t.diagnostics),
+      FHIRComponentField[LitSeq[FHIRString]](expression, t.expression),
+      FHIRComponentField[Option[FHIRString]](diagnostics, t.diagnostics),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Issue] = this
@@ -105,10 +105,10 @@ object OperationOutcome extends CompanionFor[OperationOutcome] {
             cursor.decodeAs[ISSUE_TYPE]("code", None),
             cursor.decodeAs[Option[CodeableConcept]]("details", Some(None)),
             cursor.decodeAs[ISSUE_SEVERITY]("severity", None),
-            cursor.decodeAs[LitSeq[String]]("location", Some(LitSeq.empty)),
+            cursor.decodeAs[LitSeq[FHIRString]]("location", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[LitSeq[String]]("expression", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("diagnostics", Some(None)),
+            cursor.decodeAs[LitSeq[FHIRString]]("expression", Some(LitSeq.empty)),
+            cursor.decodeAs[Option[FHIRString]]("diagnostics", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -120,10 +120,10 @@ object OperationOutcome extends CompanionFor[OperationOutcome] {
       val code: ISSUE_TYPE,
       val details: Option[CodeableConcept] = None,
       val severity: ISSUE_SEVERITY,
-      val location: LitSeq[String] = LitSeq.empty,
+      val location: LitSeq[FHIRString] = LitSeq.empty,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val expression: LitSeq[String] = LitSeq.empty,
-      val diagnostics: Option[String] = None,
+      val expression: LitSeq[FHIRString] = LitSeq.empty,
+      val diagnostics: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)

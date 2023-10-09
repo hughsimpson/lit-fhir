@@ -28,12 +28,12 @@ public interface SpecimenDefinition_TypeTested_ContainerBuilder {
     return new Impl();
   }
 
-  public static ChoiceQuantityOrString minimumVolume(Quantity q) {
-    return new ChoiceQuantityOrString(q);
+  public static ChoiceFHIRStringOrQuantity minimumVolume(String s) {
+    return new ChoiceFHIRStringOrQuantity(s);
   }
 
-  public static ChoiceQuantityOrString minimumVolume(String s) {
-    return new ChoiceQuantityOrString(s);
+  public static ChoiceFHIRStringOrQuantity minimumVolume(Quantity q) {
+    return new ChoiceFHIRStringOrQuantity(q);
   }
 
   public class Impl implements SpecimenDefinition_TypeTested_ContainerBuilder {
@@ -45,7 +45,7 @@ public interface SpecimenDefinition_TypeTested_ContainerBuilder {
     private Collection<Extension> extension = Collections.emptyList();
     private Optional<String> description = Optional.empty();
     private Optional<String> preparation = Optional.empty();
-    private Optional<ChoiceQuantityOrString> minimumVolume = Optional.empty();
+    private Optional<ChoiceFHIRStringOrQuantity> minimumVolume = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
     private Collection<SpecimenDefinition$TypeTested$Container$Additive> additive =
         Collections.emptyList();
@@ -152,12 +152,12 @@ public interface SpecimenDefinition_TypeTested_ContainerBuilder {
       return this;
     }
     /**
-     * @param minimumVolume Field is a 'choice' field. Type should be one of Quantity, String. To
+     * @param minimumVolume Field is a 'choice' field. Type should be one of String, Quantity. To
      *     pass the value in, wrap with one of the
      *     SpecimenDefinition_TypeTested_ContainerBuilder.minimumVolume static methods
      */
     public SpecimenDefinition_TypeTested_ContainerBuilder.Impl withMinimumVolume(
-        @NonNull ChoiceQuantityOrString minimumVolume) {
+        @NonNull ChoiceFHIRStringOrQuantity minimumVolume) {
       this.minimumVolume = Optional.of(minimumVolume);
       return this;
     }

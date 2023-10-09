@@ -195,10 +195,10 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
     override val parentType: CompanionFor[ResourceType] = Applicability
     def apply(
         id: Option[String] = None,
-        language: Option[String] = None,
+        language: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        expression: Option[String] = None,
-        description: Option[String] = None,
+        expression: Option[FHIRString] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Applicability = new Applicability(
@@ -211,28 +211,28 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Applicability): Option[(Option[String], Option[String], LitSeq[Extension], Option[String], Option[String], LitSeq[Extension])] =
+        o: Applicability): Option[(Option[String], Option[FHIRString], LitSeq[Extension], Option[FHIRString], Option[FHIRString], LitSeq[Extension])] =
       Some((o.id, o.language, o.extension, o.expression, o.description, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val language: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("language", lTagOf[Option[String]], false, lTagOf[String])
+    val language: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("language", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val expression: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("expression", lTagOf[Option[String]], false, lTagOf[String])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val expression: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("expression", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, language, extension, expression, description, modifierExtension)
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Applicability): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](language, t.language),
+      FHIRComponentField[Option[FHIRString]](language, t.language),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](expression, t.expression),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](expression, t.expression),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Applicability] = this
@@ -242,10 +242,10 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
         Try(
           new Applicability(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("language", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("language", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("expression", Some(None)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("expression", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -254,10 +254,10 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
   @POJOBoilerplate
   class Applicability(
       override val id: Option[String] = None,
-      val language: Option[String] = None,
+      val language: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val expression: Option[String] = None,
-      val description: Option[String] = None,
+      val expression: Option[FHIRString] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -268,17 +268,17 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
       text: Option[Narrative] = None,
       date: Option[FHIRDateTime] = None,
       code: Option[CodeableConcept] = None,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       partOf: LitSeq[Canonical] = LitSeq.empty,
       status: PUBLICATION_STATUS,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
       replaces: LitSeq[Canonical] = LitSeq.empty,
       instance: LitSeq[Reference] = LitSeq.empty,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
@@ -340,14 +340,14 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val code: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("code", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val partOf: FHIRComponentFieldMeta[LitSeq[Canonical]] =
     FHIRComponentFieldMeta("partOf", lTagOf[LitSeq[Canonical]], false, lTagOf[Canonical])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
@@ -360,8 +360,8 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
@@ -439,17 +439,17 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
     FHIRComponentField[Option[CodeableConcept]](code, t.code),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[LitSeq[Canonical]](partOf, t.partOf),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Canonical]](replaces, t.replaces),
     FHIRComponentField[LitSeq[Reference]](instance, t.instance),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
@@ -471,17 +471,17 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
   def extractText(t: ChargeItemDefinition): Option[Narrative]                                   = t.text
   def extractDate(t: ChargeItemDefinition): Option[FHIRDateTime]                                = t.date
   def extractCode(t: ChargeItemDefinition): Option[CodeableConcept]                             = t.code
-  def extractTitle(t: ChargeItemDefinition): Option[String]                                     = t.title
+  def extractTitle(t: ChargeItemDefinition): Option[FHIRString]                                 = t.title
   def extractPartOf(t: ChargeItemDefinition): LitSeq[Canonical]                                 = t.partOf
   def extractStatus(t: ChargeItemDefinition): PUBLICATION_STATUS                                = t.status
-  def extractVersion(t: ChargeItemDefinition): Option[String]                                   = t.version
+  def extractVersion(t: ChargeItemDefinition): Option[FHIRString]                               = t.version
   def extractContact(t: ChargeItemDefinition): LitSeq[ContactDetail]                            = t.contact
   def extractLanguage(t: ChargeItemDefinition): Option[LANGUAGES]                               = t.language
   def extractReplaces(t: ChargeItemDefinition): LitSeq[Canonical]                               = t.replaces
   def extractInstance(t: ChargeItemDefinition): LitSeq[Reference]                               = t.instance
   def extractContained(t: ChargeItemDefinition): LitSeq[Resource]                               = t.contained
   def extractExtension(t: ChargeItemDefinition): LitSeq[Extension]                              = t.extension
-  def extractPublisher(t: ChargeItemDefinition): Option[String]                                 = t.publisher
+  def extractPublisher(t: ChargeItemDefinition): Option[FHIRString]                             = t.publisher
   def extractCopyright(t: ChargeItemDefinition): Option[Markdown]                               = t.copyright
   def extractIdentifier(t: ChargeItemDefinition): LitSeq[Identifier]                            = t.identifier
   def extractUseContext(t: ChargeItemDefinition): LitSeq[UsageContext]                          = t.useContext
@@ -526,17 +526,17 @@ object ChargeItemDefinition extends CompanionFor[ChargeItemDefinition] {
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("code", Some(None)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[LitSeq[Canonical]]("partOf", Some(LitSeq.empty)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Canonical]]("replaces", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Reference]]("instance", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
@@ -675,17 +675,17 @@ class ChargeItemDefinition(
     override val text: Option[Narrative] = None,
     val date: Option[FHIRDateTime] = None,
     val code: Option[CodeableConcept] = None,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val partOf: LitSeq[Canonical] = LitSeq.empty,
     val status: PUBLICATION_STATUS,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
     val replaces: LitSeq[Canonical] = LitSeq.empty,
     val instance: LitSeq[Reference] = LitSeq.empty,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,

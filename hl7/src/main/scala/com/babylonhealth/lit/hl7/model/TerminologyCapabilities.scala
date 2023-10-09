@@ -112,7 +112,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
           extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
       def apply(
           id: Option[String] = None,
-          code: Option[String] = None,
+          code: Option[FHIRString] = None,
           language: LitSeq[Code] = LitSeq.empty,
           property: LitSeq[Code] = LitSeq.empty,
           extension: LitSeq[Extension] = LitSeq.empty,
@@ -134,12 +134,12 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Version): Option[(Option[String], Option[String], LitSeq[Code], LitSeq[Code], LitSeq[Extension], Option[Boolean], Option[Boolean], LitSeq[Extension], LitSeq[Version.Filter])] =
+          o: Version): Option[(Option[String], Option[FHIRString], LitSeq[Code], LitSeq[Code], LitSeq[Extension], Option[Boolean], Option[Boolean], LitSeq[Extension], LitSeq[Version.Filter])] =
         Some((o.id, o.code, o.language, o.property, o.extension, o.isDefault, o.compositional, o.modifierExtension, o.filter))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-      val code: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("code", lTagOf[Option[String]], false, lTagOf[String])
+      val code: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("code", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val language: FHIRComponentFieldMeta[LitSeq[Code]] =
         FHIRComponentFieldMeta("language", lTagOf[LitSeq[Code]], false, lTagOf[Code])
       val property: FHIRComponentFieldMeta[LitSeq[Code]] =
@@ -159,7 +159,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
       override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
       override def fields(t: Version): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
-        FHIRComponentField[Option[String]](code, t.code),
+        FHIRComponentField[Option[FHIRString]](code, t.code),
         FHIRComponentField[LitSeq[Code]](language, t.language),
         FHIRComponentField[LitSeq[Code]](property, t.property),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -175,7 +175,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
           Try(
             new Version(
               cursor.decodeAs[Option[String]]("id", Some(None)),
-              cursor.decodeAs[Option[String]]("code", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("code", Some(None)),
               cursor.decodeAs[LitSeq[Code]]("language", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Code]]("property", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -190,7 +190,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
     @POJOBoilerplate
     class Version(
         override val id: Option[String] = None,
-        val code: Option[String] = None,
+        val code: Option[FHIRString] = None,
         val language: LitSeq[Code] = LitSeq.empty,
         val property: LitSeq[Code] = LitSeq.empty,
         override val extension: LitSeq[Extension] = LitSeq.empty,
@@ -284,7 +284,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
           id: Option[String] = None,
           name: Code,
           extension: LitSeq[Extension] = LitSeq.empty,
-          documentation: Option[String] = None,
+          documentation: Option[FHIRString] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
       ): Parameter = new Parameter(
@@ -295,7 +295,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
         modifierExtension,
         primitiveAttributes = primitiveAttributes
       )
-      def unapply(o: Parameter): Option[(Option[String], Code, LitSeq[Extension], Option[String], LitSeq[Extension])] = Some(
+      def unapply(o: Parameter): Option[(Option[String], Code, LitSeq[Extension], Option[FHIRString], LitSeq[Extension])] = Some(
         (o.id, o.name, o.extension, o.documentation, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -303,8 +303,8 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
         FHIRComponentFieldMeta("name", lTagOf[Code], false, lTagOf[Code])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-      val documentation: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("documentation", lTagOf[Option[String]], false, lTagOf[String])
+      val documentation: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("documentation", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, name, extension, documentation, modifierExtension)
@@ -313,7 +313,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[Code](name, t.name),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-        FHIRComponentField[Option[String]](documentation, t.documentation),
+        FHIRComponentField[Option[FHIRString]](documentation, t.documentation),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
       )
       val baseType: CompanionFor[Parameter] = this
@@ -325,7 +325,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[Code]("name", None),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("documentation", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("documentation", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
             )
@@ -336,7 +336,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
         override val id: Option[String] = None,
         val name: Code,
         override val extension: LitSeq[Extension] = LitSeq.empty,
-        val documentation: Option[String] = None,
+        val documentation: Option[FHIRString] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -433,7 +433,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
         id: Option[String] = None,
         url: Option[UrlStr] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: String,
+        description: FHIRString,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Implementation = new Implementation(
@@ -444,16 +444,16 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Implementation): Option[(Option[String], Option[UrlStr], LitSeq[Extension], String, LitSeq[Extension])] = Some(
-      (o.id, o.url, o.extension, o.description, o.modifierExtension))
+    def unapply(o: Implementation): Option[(Option[String], Option[UrlStr], LitSeq[Extension], FHIRString, LitSeq[Extension])] =
+      Some((o.id, o.url, o.extension, o.description, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val url: FHIRComponentFieldMeta[Option[UrlStr]] =
       FHIRComponentFieldMeta("url", lTagOf[Option[UrlStr]], false, lTagOf[UrlStr])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("description", lTagOf[String], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("description", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, url, extension, description, modifierExtension)
@@ -462,7 +462,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[UrlStr]](url, t.url),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[String](description, t.description),
+      FHIRComponentField[FHIRString](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Implementation] = this
@@ -474,7 +474,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[UrlStr]]("url", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[String]("description", None),
+            cursor.decodeAs[FHIRString]("description", None),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -485,7 +485,7 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
       override val id: Option[String] = None,
       val url: Option[UrlStr] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: String,
+      val description: FHIRString,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -615,8 +615,8 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
     override val parentType: CompanionFor[ResourceType] = Software
     def apply(
         id: Option[String] = None,
-        name: String,
-        version: Option[String] = None,
+        name: FHIRString,
+        version: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -628,14 +628,14 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Software): Option[(Option[String], String, Option[String], LitSeq[Extension], LitSeq[Extension])] = Some(
-      (o.id, o.name, o.version, o.extension, o.modifierExtension))
+    def unapply(o: Software): Option[(Option[String], FHIRString, Option[FHIRString], LitSeq[Extension], LitSeq[Extension])] =
+      Some((o.id, o.name, o.version, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
-    val version: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
+    val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -644,8 +644,8 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Software): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](name, t.name),
-      FHIRComponentField[Option[String]](version, t.version),
+      FHIRComponentField[FHIRString](name, t.name),
+      FHIRComponentField[Option[FHIRString]](version, t.version),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -656,8 +656,8 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
         Try(
           new Software(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("name", None),
-            cursor.decodeAs[Option[String]]("version", Some(None)),
+            cursor.decodeAs[FHIRString]("name", None),
+            cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -667,8 +667,8 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
   @POJOBoilerplate
   class Software(
       override val id: Option[String] = None,
-      val name: String,
-      val version: Option[String] = None,
+      val name: FHIRString,
+      val version: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -737,18 +737,18 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
       url: Option[UriStr] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       date: FHIRDateTime,
       kind: CAPABILITY_STATEMENT_KIND,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       status: PUBLICATION_STATUS,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
       lockedDate: Option[Boolean] = None,
@@ -809,18 +809,18 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[FHIRDateTime] =
     FHIRComponentFieldMeta("date", lTagOf[FHIRDateTime], false, lTagOf[FHIRDateTime])
   val kind: FHIRComponentFieldMeta[CAPABILITY_STATEMENT_KIND] =
     FHIRComponentFieldMeta("kind", lTagOf[CAPABILITY_STATEMENT_KIND], false, lTagOf[CAPABILITY_STATEMENT_KIND])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -831,8 +831,8 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val useContext: FHIRComponentFieldMeta[LitSeq[UsageContext]] =
@@ -933,18 +933,18 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
     FHIRComponentField[Option[UriStr]](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[FHIRDateTime](date, t.date),
     FHIRComponentField[CAPABILITY_STATEMENT_KIND](kind, t.kind),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
     FHIRComponentField[Option[Boolean]](lockedDate, t.lockedDate),
@@ -966,18 +966,18 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
   def extractUrl(t: TerminologyCapabilities): Option[UriStr]                                            = t.url
   def extractMeta(t: TerminologyCapabilities): Option[Meta]                                             = t.meta
   def extractText(t: TerminologyCapabilities): Option[Narrative]                                        = t.text
-  def extractName(t: TerminologyCapabilities): Option[String]                                           = t.name
+  def extractName(t: TerminologyCapabilities): Option[FHIRString]                                       = t.name
   def extractDate(t: TerminologyCapabilities): FHIRDateTime                                             = t.date
   def extractKind(t: TerminologyCapabilities): CAPABILITY_STATEMENT_KIND                                = t.kind
-  def extractTitle(t: TerminologyCapabilities): Option[String]                                          = t.title
+  def extractTitle(t: TerminologyCapabilities): Option[FHIRString]                                      = t.title
   def extractStatus(t: TerminologyCapabilities): PUBLICATION_STATUS                                     = t.status
-  def extractVersion(t: TerminologyCapabilities): Option[String]                                        = t.version
+  def extractVersion(t: TerminologyCapabilities): Option[FHIRString]                                    = t.version
   def extractContact(t: TerminologyCapabilities): LitSeq[ContactDetail]                                 = t.contact
   def extractPurpose(t: TerminologyCapabilities): Option[Markdown]                                      = t.purpose
   def extractLanguage(t: TerminologyCapabilities): Option[LANGUAGES]                                    = t.language
   def extractContained(t: TerminologyCapabilities): LitSeq[Resource]                                    = t.contained
   def extractExtension(t: TerminologyCapabilities): LitSeq[Extension]                                   = t.extension
-  def extractPublisher(t: TerminologyCapabilities): Option[String]                                      = t.publisher
+  def extractPublisher(t: TerminologyCapabilities): Option[FHIRString]                                  = t.publisher
   def extractCopyright(t: TerminologyCapabilities): Option[Markdown]                                    = t.copyright
   def extractUseContext(t: TerminologyCapabilities): LitSeq[UsageContext]                               = t.useContext
   def extractLockedDate(t: TerminologyCapabilities): Option[Boolean]                                    = t.lockedDate
@@ -1021,18 +1021,18 @@ object TerminologyCapabilities extends CompanionFor[TerminologyCapabilities] {
           cursor.decodeAs[Option[UriStr]]("url", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[FHIRDateTime]("date", None),
           cursor.decodeAs[CAPABILITY_STATEMENT_KIND]("kind", None),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Boolean]]("lockedDate", Some(None)),
@@ -1170,18 +1170,18 @@ class TerminologyCapabilities(
     val url: Option[UriStr] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val date: FHIRDateTime,
     val kind: CAPABILITY_STATEMENT_KIND,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val status: PUBLICATION_STATUS,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,
     val lockedDate: Option[Boolean] = None,

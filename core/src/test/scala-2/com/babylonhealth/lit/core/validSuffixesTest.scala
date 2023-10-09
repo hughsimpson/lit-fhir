@@ -6,13 +6,13 @@ import org.scalatest.matchers.should.Matchers
 class validSuffixesTest extends AnyFreeSpec with Matchers {
   "\\/.validSuffixes works" - {
     "for String \\/ Int" in {
-      \/.validSuffixes[String \/ Int] shouldEqual Set("String", "Integer")
+      \/.validSuffixes[FHIRString \/ Int] shouldEqual Set("String", "Integer")
     }
     "for String \\/ Code" in {
-      \/.validSuffixes[String \/ Code] shouldEqual Set("String", "Code")
+      \/.validSuffixes[FHIRString \/ Code] shouldEqual Set("String", "Code")
     }
     "for String \\/ Code \\/ OID" in {
-      \/.validSuffixes[String \/ Code \/ OID] shouldEqual Set("String", "Code", "Oid")
+      \/.validSuffixes[FHIRString \/ Code \/ OID] shouldEqual Set("String", "Code", "Oid")
     }
   }
 }

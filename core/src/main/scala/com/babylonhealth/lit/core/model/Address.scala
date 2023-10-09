@@ -32,15 +32,15 @@ object Address extends CompanionFor[Address] {
       id: Option[String] = None,
       use: Option[ADDRESS_USE] = None,
       `type`: Option[ADDRESS_TYPE] = None,
-      text: Option[String] = None,
-      line: LitSeq[String] = LitSeq.empty,
-      city: Option[String] = None,
-      state: Option[String] = None,
+      text: Option[FHIRString] = None,
+      line: LitSeq[FHIRString] = LitSeq.empty,
+      city: Option[FHIRString] = None,
+      state: Option[FHIRString] = None,
       period: Option[Period] = None,
-      country: Option[String] = None,
-      district: Option[String] = None,
+      country: Option[FHIRString] = None,
+      district: Option[FHIRString] = None,
       extension: LitSeq[Extension] = LitSeq.empty,
-      postalCode: Option[String] = None,
+      postalCode: Option[FHIRString] = None,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Address = new Address(
     id,
@@ -63,24 +63,24 @@ object Address extends CompanionFor[Address] {
     FHIRComponentFieldMeta("use", lTagOf[Option[ADDRESS_USE]], false, lTagOf[ADDRESS_USE])
   val `type`: FHIRComponentFieldMeta[Option[ADDRESS_TYPE]] =
     FHIRComponentFieldMeta("type", lTagOf[Option[ADDRESS_TYPE]], false, lTagOf[ADDRESS_TYPE])
-  val text: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
-  val line: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("line", lTagOf[LitSeq[String]], false, lTagOf[String])
-  val city: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("city", lTagOf[Option[String]], false, lTagOf[String])
-  val state: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("state", lTagOf[Option[String]], false, lTagOf[String])
+  val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val line: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("line", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
+  val city: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("city", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val state: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("state", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val period: FHIRComponentFieldMeta[Option[Period]] =
     FHIRComponentFieldMeta("period", lTagOf[Option[Period]], false, lTagOf[Period])
-  val country: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("country", lTagOf[Option[String]], false, lTagOf[String])
-  val district: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("district", lTagOf[Option[String]], false, lTagOf[String])
+  val country: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("country", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val district: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("district", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val postalCode: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("postalCode", lTagOf[Option[String]], false, lTagOf[String])
+  val postalCode: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("postalCode", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
     Seq(id, use, `type`, text, line, city, state, period, country, district, extension, postalCode)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
@@ -88,31 +88,31 @@ object Address extends CompanionFor[Address] {
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[ADDRESS_USE]](use, t.use),
     FHIRComponentField[Option[ADDRESS_TYPE]](`type`, t.`type`),
-    FHIRComponentField[Option[String]](text, t.text),
-    FHIRComponentField[LitSeq[String]](line, t.line),
-    FHIRComponentField[Option[String]](city, t.city),
-    FHIRComponentField[Option[String]](state, t.state),
+    FHIRComponentField[Option[FHIRString]](text, t.text),
+    FHIRComponentField[LitSeq[FHIRString]](line, t.line),
+    FHIRComponentField[Option[FHIRString]](city, t.city),
+    FHIRComponentField[Option[FHIRString]](state, t.state),
     FHIRComponentField[Option[Period]](period, t.period),
-    FHIRComponentField[Option[String]](country, t.country),
-    FHIRComponentField[Option[String]](district, t.district),
+    FHIRComponentField[Option[FHIRString]](country, t.country),
+    FHIRComponentField[Option[FHIRString]](district, t.district),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](postalCode, t.postalCode)
+    FHIRComponentField[Option[FHIRString]](postalCode, t.postalCode)
   )
-  def extractId(t: Address): Option[String]           = t.id
-  def extractUse(t: Address): Option[ADDRESS_USE]     = t.use
-  def extractType(t: Address): Option[ADDRESS_TYPE]   = t.`type`
-  def extractText(t: Address): Option[String]         = t.text
-  def extractLine(t: Address): LitSeq[String]         = t.line
-  def extractCity(t: Address): Option[String]         = t.city
-  def extractState(t: Address): Option[String]        = t.state
-  def extractPeriod(t: Address): Option[Period]       = t.period
-  def extractCountry(t: Address): Option[String]      = t.country
-  def extractDistrict(t: Address): Option[String]     = t.district
-  def extractExtension(t: Address): LitSeq[Extension] = t.extension
-  def extractPostalCode(t: Address): Option[String]   = t.postalCode
-  override val thisName: String                       = "Address"
+  def extractId(t: Address): Option[String]             = t.id
+  def extractUse(t: Address): Option[ADDRESS_USE]       = t.use
+  def extractType(t: Address): Option[ADDRESS_TYPE]     = t.`type`
+  def extractText(t: Address): Option[FHIRString]       = t.text
+  def extractLine(t: Address): LitSeq[FHIRString]       = t.line
+  def extractCity(t: Address): Option[FHIRString]       = t.city
+  def extractState(t: Address): Option[FHIRString]      = t.state
+  def extractPeriod(t: Address): Option[Period]         = t.period
+  def extractCountry(t: Address): Option[FHIRString]    = t.country
+  def extractDistrict(t: Address): Option[FHIRString]   = t.district
+  def extractExtension(t: Address): LitSeq[Extension]   = t.extension
+  def extractPostalCode(t: Address): Option[FHIRString] = t.postalCode
+  override val thisName: String                         = "Address"
   def unapply(
-      o: Address): Option[(Option[String], Option[ADDRESS_USE], Option[ADDRESS_TYPE], Option[String], LitSeq[String], Option[String], Option[String], Option[Period], Option[String], Option[String], LitSeq[Extension], Option[String])] =
+      o: Address): Option[(Option[String], Option[ADDRESS_USE], Option[ADDRESS_TYPE], Option[FHIRString], LitSeq[FHIRString], Option[FHIRString], Option[FHIRString], Option[Period], Option[FHIRString], Option[FHIRString], LitSeq[Extension], Option[FHIRString])] =
     Some((o.id, o.use, o.`type`, o.text, o.line, o.city, o.state, o.period, o.country, o.district, o.extension, o.postalCode))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Address] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -121,15 +121,15 @@ object Address extends CompanionFor[Address] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[ADDRESS_USE]]("use", Some(None)),
           cursor.decodeAs[Option[ADDRESS_TYPE]]("type", Some(None)),
-          cursor.decodeAs[Option[String]]("text", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("line", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("city", Some(None)),
-          cursor.decodeAs[Option[String]]("state", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
+          cursor.decodeAs[LitSeq[FHIRString]]("line", Some(LitSeq.empty)),
+          cursor.decodeAs[Option[FHIRString]]("city", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("state", Some(None)),
           cursor.decodeAs[Option[Period]]("period", Some(None)),
-          cursor.decodeAs[Option[String]]("country", Some(None)),
-          cursor.decodeAs[Option[String]]("district", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("country", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("district", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("postalCode", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("postalCode", Some(None)),
           decodeAttributes(cursor)
         )
       ))
@@ -182,15 +182,15 @@ class Address(
     override val id: Option[String] = None,
     val use: Option[ADDRESS_USE] = None,
     val `type`: Option[ADDRESS_TYPE] = None,
-    val text: Option[String] = None,
-    val line: LitSeq[String] = LitSeq.empty,
-    val city: Option[String] = None,
-    val state: Option[String] = None,
+    val text: Option[FHIRString] = None,
+    val line: LitSeq[FHIRString] = LitSeq.empty,
+    val city: Option[FHIRString] = None,
+    val state: Option[FHIRString] = None,
     val period: Option[Period] = None,
-    val country: Option[String] = None,
-    val district: Option[String] = None,
+    val country: Option[FHIRString] = None,
+    val district: Option[FHIRString] = None,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val postalCode: Option[String] = None,
+    val postalCode: Option[FHIRString] = None,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Element(id = id, extension = extension, primitiveAttributes = primitiveAttributes) {
   override val thisTypeName: String = "Address"

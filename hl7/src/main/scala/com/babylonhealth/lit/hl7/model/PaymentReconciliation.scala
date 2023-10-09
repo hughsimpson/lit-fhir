@@ -41,7 +41,7 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
     def apply(
         id: Option[String] = None,
         `type`: Option[NOTE_TYPE] = None,
-        text: Option[String] = None,
+        text: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -54,14 +54,14 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: ProcessNote): Option[(Option[String], Option[NOTE_TYPE], Option[String], LitSeq[Extension], LitSeq[Extension])] = Some(
-      (o.id, o.`type`, o.text, o.extension, o.modifierExtension))
+        o: ProcessNote): Option[(Option[String], Option[NOTE_TYPE], Option[FHIRString], LitSeq[Extension], LitSeq[Extension])] =
+      Some((o.id, o.`type`, o.text, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val `type`: FHIRComponentFieldMeta[Option[NOTE_TYPE]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[NOTE_TYPE]], false, lTagOf[NOTE_TYPE])
-    val text: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+    val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -71,7 +71,7 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
     override def fields(t: ProcessNote): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[NOTE_TYPE]](`type`, t.`type`),
-      FHIRComponentField[Option[String]](text, t.text),
+      FHIRComponentField[Option[FHIRString]](text, t.text),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -83,7 +83,7 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
           new ProcessNote(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[NOTE_TYPE]]("type", Some(None)),
-            cursor.decodeAs[Option[String]]("text", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -94,7 +94,7 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
   class ProcessNote(
       override val id: Option[String] = None,
       val `type`: Option[NOTE_TYPE] = None,
-      val text: Option[String] = None,
+      val text: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -264,7 +264,7 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
       extension: LitSeq[Extension] = LitSeq.empty,
       requestor: Option[Reference] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      disposition: Option[String] = None,
+      disposition: Option[FHIRString] = None,
       paymentDate: FHIRDate,
       implicitRules: Option[UriStr] = None,
       paymentIssuer: Option[Reference] = None,
@@ -328,8 +328,8 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
     FHIRComponentFieldMeta("requestor", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val disposition: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("disposition", lTagOf[Option[String]], false, lTagOf[String])
+  val disposition: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("disposition", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val paymentDate: FHIRComponentFieldMeta[FHIRDate] =
     FHIRComponentFieldMeta("paymentDate", lTagOf[FHIRDate], false, lTagOf[FHIRDate])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
@@ -391,7 +391,7 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[Reference]](requestor, t.requestor),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](disposition, t.disposition),
+    FHIRComponentField[Option[FHIRString]](disposition, t.disposition),
     FHIRComponentField[FHIRDate](paymentDate, t.paymentDate),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[Option[Reference]](paymentIssuer, t.paymentIssuer),
@@ -415,7 +415,7 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
   def extractExtension(t: PaymentReconciliation): LitSeq[Extension]                           = t.extension
   def extractRequestor(t: PaymentReconciliation): Option[Reference]                           = t.requestor
   def extractIdentifier(t: PaymentReconciliation): LitSeq[Identifier]                         = t.identifier
-  def extractDisposition(t: PaymentReconciliation): Option[String]                            = t.disposition
+  def extractDisposition(t: PaymentReconciliation): Option[FHIRString]                        = t.disposition
   def extractPaymentDate(t: PaymentReconciliation): FHIRDate                                  = t.paymentDate
   def extractImplicitRules(t: PaymentReconciliation): Option[UriStr]                          = t.implicitRules
   def extractPaymentIssuer(t: PaymentReconciliation): Option[Reference]                       = t.paymentIssuer
@@ -453,7 +453,7 @@ object PaymentReconciliation extends CompanionFor[PaymentReconciliation] {
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("requestor", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("disposition", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("disposition", Some(None)),
           cursor.decodeAs[FHIRDate]("paymentDate", None),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[Option[Reference]]("paymentIssuer", Some(None)),
@@ -553,7 +553,7 @@ class PaymentReconciliation(
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val requestor: Option[Reference] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val disposition: Option[String] = None,
+    val disposition: Option[FHIRString] = None,
     val paymentDate: FHIRDate,
     override val implicitRules: Option[UriStr] = None,
     val paymentIssuer: Option[Reference] = None,

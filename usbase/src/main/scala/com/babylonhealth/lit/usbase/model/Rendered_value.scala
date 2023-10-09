@@ -33,7 +33,7 @@ object Rendered_value extends CompanionFor[Rendered_value] {
   override val profileUrl: Option[String]           = Some("http://hl7.org/fhir/StructureDefinition/rendered-value")
   def apply(
       id: Option[String] = None,
-      value: String,
+      value: FHIRString,
       primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
   ): Rendered_value = new Rendered_value(
     id,
@@ -42,26 +42,26 @@ object Rendered_value extends CompanionFor[Rendered_value] {
   )
   val id: FHIRComponentFieldMeta[Option[String]] =
     FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-  val value: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("value", lTagOf[String], true, lTagOf[String])
+  val value: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("value", lTagOf[FHIRString], true, lTagOf[FHIRString])
   val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, value)
   override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Try(
     Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](value, t.value.get.toSubRefNonUnion[String])
+      FHIRComponentField[FHIRString](value, t.value.get.toSubRefNonUnion[FHIRString])
     ))
-  override def fields(t: Rendered_value): Seq[FHIRComponentField[_]] = fieldsFromParent(t).get
-  def extractId(t: Rendered_value): Option[String]                   = t.id
-  def extractValue(t: Rendered_value): String                        = t.value.get.toSubRefNonUnion[String]
-  override val thisName: String                                      = "Rendered_value"
-  override val searchParams: Map[String, Rendered_value => Seq[Any]] = Extension.searchParams
-  def unapply(o: Rendered_value): Option[(Option[String], String)]   = Some((o.id, o.value.get.toSubRefNonUnion[String]))
+  override def fields(t: Rendered_value): Seq[FHIRComponentField[_]]   = fieldsFromParent(t).get
+  def extractId(t: Rendered_value): Option[String]                     = t.id
+  def extractValue(t: Rendered_value): FHIRString                      = t.value.get.toSubRefNonUnion[FHIRString]
+  override val thisName: String                                        = "Rendered_value"
+  override val searchParams: Map[String, Rendered_value => Seq[Any]]   = Extension.searchParams
+  def unapply(o: Rendered_value): Option[(Option[String], FHIRString)] = Some((o.id, o.value.get.toSubRefNonUnion[FHIRString]))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Rendered_value] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
       Try(
         new Rendered_value(
           cursor.decodeAs[Option[String]]("id", Some(None)),
-          cursor.decodeAs[String]("valueString", None),
+          cursor.decodeAs[FHIRString]("valueString", None),
           decodeAttributes(cursor)
         )
       ))
@@ -89,7 +89,7 @@ object Rendered_value extends CompanionFor[Rendered_value] {
 @POJOBoilerplate
 class Rendered_value(
     override val id: Option[String] = None,
-    value: String,
+    value: FHIRString,
     override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
 ) extends Extension(
       id = id,

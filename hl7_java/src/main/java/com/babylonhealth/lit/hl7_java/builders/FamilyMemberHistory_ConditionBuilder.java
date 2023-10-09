@@ -28,20 +28,20 @@ public interface FamilyMemberHistory_ConditionBuilder {
     return new Impl(code.build());
   }
 
-  public static Choice_1204024681 onset(Age a) {
-    return new Choice_1204024681(a);
+  public static Choice01155656698 onset(Age a) {
+    return new Choice01155656698(a);
   }
 
-  public static Choice_1204024681 onset(Period p) {
-    return new Choice_1204024681(p);
+  public static Choice01155656698 onset(String s) {
+    return new Choice01155656698(s);
   }
 
-  public static Choice_1204024681 onset(Range r) {
-    return new Choice_1204024681(r);
+  public static Choice01155656698 onset(Period p) {
+    return new Choice01155656698(p);
   }
 
-  public static Choice_1204024681 onset(String s) {
-    return new Choice_1204024681(s);
+  public static Choice01155656698 onset(Range r) {
+    return new Choice01155656698(r);
   }
 
   public class Impl implements FamilyMemberHistory_ConditionBuilder {
@@ -49,7 +49,7 @@ public interface FamilyMemberHistory_ConditionBuilder {
     private CodeableConcept code;
     private Collection<Annotation> note = Collections.emptyList();
     private Optional<CodeableConcept> outcome = Optional.empty();
-    private Optional<Choice_1204024681> onset = Optional.empty();
+    private Optional<Choice01155656698> onset = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
     private Collection<Extension> modifierExtension = Collections.emptyList();
     private Optional<Boolean> contributedToDeath = Optional.empty();
@@ -107,11 +107,11 @@ public interface FamilyMemberHistory_ConditionBuilder {
       return this;
     }
     /**
-     * @param onset Field is a 'choice' field. Type should be one of Age, Period, Range, String. To
+     * @param onset Field is a 'choice' field. Type should be one of Age, String, Period, Range. To
      *     pass the value in, wrap with one of the FamilyMemberHistory_ConditionBuilder.onset static
      *     methods
      */
-    public FamilyMemberHistory_ConditionBuilder.Impl withOnset(@NonNull Choice_1204024681 onset) {
+    public FamilyMemberHistory_ConditionBuilder.Impl withOnset(@NonNull Choice01155656698 onset) {
       this.onset = Optional.of(onset);
       return this;
     }

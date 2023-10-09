@@ -38,8 +38,8 @@ object Us_core_organization extends CompanionFor[Us_core_organization] {
         new Meta(profile = LitSeq("http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"))),
       text: Option[Narrative] = None,
       `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-      name: String,
-      alias: LitSeq[String] = LitSeq.empty,
+      name: FHIRString,
+      alias: LitSeq[FHIRString] = LitSeq.empty,
       active: Boolean,
       partOf: Option[Reference] = None,
       telecom: LitSeq[ContactPoint] = LitSeq.empty,
@@ -82,10 +82,10 @@ object Us_core_organization extends CompanionFor[Us_core_organization] {
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
   val `type`: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
-  val alias: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
+  val alias: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val active: FHIRComponentFieldMeta[Boolean] =
     FHIRComponentFieldMeta("active", lTagOf[Boolean], false, lTagOf[Boolean])
   val partOf: FHIRComponentFieldMeta[Option[Reference]] =
@@ -135,8 +135,8 @@ object Us_core_organization extends CompanionFor[Us_core_organization] {
       FHIRComponentField[Option[Meta]](meta, t.meta),
       FHIRComponentField[Option[Narrative]](text, t.text),
       FHIRComponentField[LitSeq[CodeableConcept]](`type`, t.`type`),
-      FHIRComponentField[String](name, t.name.get),
-      FHIRComponentField[LitSeq[String]](alias, t.alias),
+      FHIRComponentField[FHIRString](name, t.name.get),
+      FHIRComponentField[LitSeq[FHIRString]](alias, t.alias),
       FHIRComponentField[Boolean](active, t.active.get),
       FHIRComponentField[Option[Reference]](partOf, t.partOf),
       FHIRComponentField[LitSeq[ContactPoint]](telecom, t.telecom),
@@ -155,8 +155,8 @@ object Us_core_organization extends CompanionFor[Us_core_organization] {
   def extractMeta(t: Us_core_organization): Option[Meta]                    = t.meta
   def extractText(t: Us_core_organization): Option[Narrative]               = t.text
   def extractType(t: Us_core_organization): LitSeq[CodeableConcept]         = t.`type`
-  def extractName(t: Us_core_organization): String                          = t.name.get
-  def extractAlias(t: Us_core_organization): LitSeq[String]                 = t.alias
+  def extractName(t: Us_core_organization): FHIRString                      = t.name.get
+  def extractAlias(t: Us_core_organization): LitSeq[FHIRString]             = t.alias
   def extractActive(t: Us_core_organization): Boolean                       = t.active.get
   def extractPartOf(t: Us_core_organization): Option[Reference]             = t.partOf
   def extractTelecom(t: Us_core_organization): LitSeq[ContactPoint]         = t.telecom
@@ -172,7 +172,7 @@ object Us_core_organization extends CompanionFor[Us_core_organization] {
   override val thisName: String                                             = "Us_core_organization"
   override val searchParams: Map[String, Us_core_organization => Seq[Any]]  = Organization.searchParams
   def unapply(
-      o: Us_core_organization): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[CodeableConcept], String, LitSeq[String], Boolean, Option[Reference], LitSeq[ContactPoint], Option[LANGUAGES], LitSeq[Reference], LitSeq[Resource], LitSeq[Extension], Option[UriStr], LitSeq[Extension], LitSeq[Address], LitSeq[Identifier], LitSeq[Organization.Contact])] =
+      o: Us_core_organization): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[CodeableConcept], FHIRString, LitSeq[FHIRString], Boolean, Option[Reference], LitSeq[ContactPoint], Option[LANGUAGES], LitSeq[Reference], LitSeq[Resource], LitSeq[Extension], Option[UriStr], LitSeq[Extension], LitSeq[Address], LitSeq[Identifier], LitSeq[Organization.Contact])] =
     Some(
       (
         o.id,
@@ -201,8 +201,8 @@ object Us_core_organization extends CompanionFor[Us_core_organization] {
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("type", Some(LitSeq.empty)),
-          cursor.decodeAs[String]("name", None),
-          cursor.decodeAs[LitSeq[String]]("alias", Some(LitSeq.empty)),
+          cursor.decodeAs[FHIRString]("name", None),
+          cursor.decodeAs[LitSeq[FHIRString]]("alias", Some(LitSeq.empty)),
           cursor.decodeAs[Boolean]("active", None),
           cursor.decodeAs[Option[Reference]]("partOf", Some(None)),
           cursor.decodeAs[LitSeq[ContactPoint]]("telecom", Some(LitSeq.empty)),
@@ -288,8 +288,8 @@ class Us_core_organization(
       new Meta(profile = LitSeq("http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"))),
     override val text: Option[Narrative] = None,
     override val `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-    name: String,
-    override val alias: LitSeq[String] = LitSeq.empty,
+    name: FHIRString,
+    override val alias: LitSeq[FHIRString] = LitSeq.empty,
     active: Boolean,
     override val partOf: Option[Reference] = None,
     override val telecom: LitSeq[ContactPoint] = LitSeq.empty,

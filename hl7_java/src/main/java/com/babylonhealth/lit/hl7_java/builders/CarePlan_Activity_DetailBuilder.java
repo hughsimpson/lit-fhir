@@ -38,16 +38,16 @@ public interface CarePlan_Activity_DetailBuilder {
     return new ChoiceCodeableConceptOrReference(r);
   }
 
-  public static ChoicePeriodOrStringOrTiming scheduled(Period p) {
-    return new ChoicePeriodOrStringOrTiming(p);
+  public static ChoiceFHIRStringOrPeriodOrTiming scheduled(String s) {
+    return new ChoiceFHIRStringOrPeriodOrTiming(s);
   }
 
-  public static ChoicePeriodOrStringOrTiming scheduled(String s) {
-    return new ChoicePeriodOrStringOrTiming(s);
+  public static ChoiceFHIRStringOrPeriodOrTiming scheduled(Period p) {
+    return new ChoiceFHIRStringOrPeriodOrTiming(p);
   }
 
-  public static ChoicePeriodOrStringOrTiming scheduled(Timing t) {
-    return new ChoicePeriodOrStringOrTiming(t);
+  public static ChoiceFHIRStringOrPeriodOrTiming scheduled(Timing t) {
+    return new ChoiceFHIRStringOrPeriodOrTiming(t);
   }
 
   public class Impl implements CarePlan_Activity_DetailBuilder {
@@ -66,7 +66,7 @@ public interface CarePlan_Activity_DetailBuilder {
     private Optional<String> description = Optional.empty();
     private Optional<CodeableConcept> statusReason = Optional.empty();
     private Optional<Boolean> doNotPerform = Optional.empty();
-    private Optional<ChoicePeriodOrStringOrTiming> scheduled = Optional.empty();
+    private Optional<ChoiceFHIRStringOrPeriodOrTiming> scheduled = Optional.empty();
     private Collection<String> instantiatesUri = Collections.emptyList();
     private Collection<Reference> reasonReference = Collections.emptyList();
     private Collection<Extension> modifierExtension = Collections.emptyList();
@@ -248,12 +248,12 @@ public interface CarePlan_Activity_DetailBuilder {
       return this;
     }
     /**
-     * @param scheduled Field is a 'choice' field. Type should be one of Period, String, Timing. To
+     * @param scheduled Field is a 'choice' field. Type should be one of String, Period, Timing. To
      *     pass the value in, wrap with one of the CarePlan_Activity_DetailBuilder.scheduled static
      *     methods
      */
     public CarePlan_Activity_DetailBuilder.Impl withScheduled(
-        @NonNull ChoicePeriodOrStringOrTiming scheduled) {
+        @NonNull ChoiceFHIRStringOrPeriodOrTiming scheduled) {
       this.scheduled = Optional.of(scheduled);
       return this;
     }

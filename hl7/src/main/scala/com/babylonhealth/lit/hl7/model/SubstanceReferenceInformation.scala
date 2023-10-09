@@ -193,7 +193,7 @@ object SubstanceReferenceInformation extends CompanionFor[SubstanceReferenceInfo
     override type ResourceType = Target
     override type ParentType   = Target
     override val parentType: CompanionFor[ResourceType] = Target
-    type AmountChoice = Choice[UnionQuantityOrRangeOrString]
+    type AmountChoice = Choice[UnionFHIRStringOrQuantityOrRange]
     def apply(
         id: Option[String] = None,
         `type`: Option[CodeableConcept] = None,
@@ -249,7 +249,7 @@ object SubstanceReferenceInformation extends CompanionFor[SubstanceReferenceInfo
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val amount: FHIRComponentFieldMeta[Option[Target.AmountChoice]] =
-      FHIRComponentFieldMeta("amount", lTagOf[Option[Target.AmountChoice]], true, lTagOf[UnionQuantityOrRangeOrString])
+      FHIRComponentFieldMeta("amount", lTagOf[Option[Target.AmountChoice]], true, lTagOf[UnionFHIRStringOrQuantityOrRange])
     val amountType: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("amountType", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
     val interaction: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -286,7 +286,7 @@ object SubstanceReferenceInformation extends CompanionFor[SubstanceReferenceInfo
             cursor.decodeAs[LitSeq[Reference]]("source", Some(LitSeq.empty)),
             cursor.decodeAs[Option[CodeableConcept]]("organism", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeOptRef[UnionQuantityOrRangeOrString]("amount"),
+            cursor.decodeOptRef[UnionFHIRStringOrQuantityOrRange]("amount"),
             cursor.decodeAs[Option[CodeableConcept]]("amountType", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("interaction", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("organismType", Some(None)),
@@ -387,7 +387,7 @@ object SubstanceReferenceInformation extends CompanionFor[SubstanceReferenceInfo
       id: Option[String] = None,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      comment: Option[String] = None,
+      comment: Option[FHIRString] = None,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
@@ -420,8 +420,8 @@ object SubstanceReferenceInformation extends CompanionFor[SubstanceReferenceInfo
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val comment: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+  val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
   val contained: FHIRComponentFieldMeta[LitSeq[Resource]] =
@@ -475,7 +475,7 @@ object SubstanceReferenceInformation extends CompanionFor[SubstanceReferenceInfo
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[Option[String]](comment, t.comment),
+    FHIRComponentField[Option[FHIRString]](comment, t.comment),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -489,7 +489,7 @@ object SubstanceReferenceInformation extends CompanionFor[SubstanceReferenceInfo
   def extractId(t: SubstanceReferenceInformation): Option[String]                                   = t.id
   def extractMeta(t: SubstanceReferenceInformation): Option[Meta]                                   = t.meta
   def extractText(t: SubstanceReferenceInformation): Option[Narrative]                              = t.text
-  def extractComment(t: SubstanceReferenceInformation): Option[String]                              = t.comment
+  def extractComment(t: SubstanceReferenceInformation): Option[FHIRString]                          = t.comment
   def extractLanguage(t: SubstanceReferenceInformation): Option[LANGUAGES]                          = t.language
   def extractContained(t: SubstanceReferenceInformation): LitSeq[Resource]                          = t.contained
   def extractExtension(t: SubstanceReferenceInformation): LitSeq[Extension]                         = t.extension
@@ -502,7 +502,7 @@ object SubstanceReferenceInformation extends CompanionFor[SubstanceReferenceInfo
     t.classification
   override val thisName: String = "SubstanceReferenceInformation"
   def unapply(
-      o: SubstanceReferenceInformation): Option[(Option[String], Option[Meta], Option[Narrative], Option[String], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[UriStr], LitSeq[Extension], LitSeq[SubstanceReferenceInformation.Gene], LitSeq[SubstanceReferenceInformation.Target], LitSeq[SubstanceReferenceInformation.GeneElement], LitSeq[SubstanceReferenceInformation.Classification])] =
+      o: SubstanceReferenceInformation): Option[(Option[String], Option[Meta], Option[Narrative], Option[FHIRString], Option[LANGUAGES], LitSeq[Resource], LitSeq[Extension], Option[UriStr], LitSeq[Extension], LitSeq[SubstanceReferenceInformation.Gene], LitSeq[SubstanceReferenceInformation.Target], LitSeq[SubstanceReferenceInformation.GeneElement], LitSeq[SubstanceReferenceInformation.Classification])] =
     Some(
       (
         o.id,
@@ -525,7 +525,7 @@ object SubstanceReferenceInformation extends CompanionFor[SubstanceReferenceInfo
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[Option[String]]("comment", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -594,7 +594,7 @@ class SubstanceReferenceInformation(
     override val id: Option[String] = None,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val comment: Option[String] = None,
+    val comment: Option[FHIRString] = None,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,

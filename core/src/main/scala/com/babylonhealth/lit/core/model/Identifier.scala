@@ -32,7 +32,7 @@ object Identifier extends CompanionFor[Identifier] {
       id: Option[String] = None,
       use: Option[IDENTIFIER_USE] = None,
       `type`: Option[CodeableConcept] = None,
-      value: Option[String] = None,
+      value: Option[FHIRString] = None,
       system: Option[UriStr] = None,
       period: Option[Period] = None,
       assigner: Option[Reference] = None,
@@ -55,8 +55,8 @@ object Identifier extends CompanionFor[Identifier] {
     FHIRComponentFieldMeta("use", lTagOf[Option[IDENTIFIER_USE]], false, lTagOf[IDENTIFIER_USE])
   val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val value: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("value", lTagOf[Option[String]], false, lTagOf[String])
+  val value: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("value", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val system: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("system", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val period: FHIRComponentFieldMeta[Option[Period]] =
@@ -71,7 +71,7 @@ object Identifier extends CompanionFor[Identifier] {
     FHIRComponentField[Option[String]](id, t.id),
     FHIRComponentField[Option[IDENTIFIER_USE]](use, t.use),
     FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-    FHIRComponentField[Option[String]](value, t.value),
+    FHIRComponentField[Option[FHIRString]](value, t.value),
     FHIRComponentField[Option[UriStr]](system, t.system),
     FHIRComponentField[Option[Period]](period, t.period),
     FHIRComponentField[Option[Reference]](assigner, t.assigner),
@@ -80,14 +80,14 @@ object Identifier extends CompanionFor[Identifier] {
   def extractId(t: Identifier): Option[String]            = t.id
   def extractUse(t: Identifier): Option[IDENTIFIER_USE]   = t.use
   def extractType(t: Identifier): Option[CodeableConcept] = t.`type`
-  def extractValue(t: Identifier): Option[String]         = t.value
+  def extractValue(t: Identifier): Option[FHIRString]     = t.value
   def extractSystem(t: Identifier): Option[UriStr]        = t.system
   def extractPeriod(t: Identifier): Option[Period]        = t.period
   def extractAssigner(t: Identifier): Option[Reference]   = t.assigner
   def extractExtension(t: Identifier): LitSeq[Extension]  = t.extension
   override val thisName: String                           = "Identifier"
   def unapply(
-      o: Identifier): Option[(Option[String], Option[IDENTIFIER_USE], Option[CodeableConcept], Option[String], Option[UriStr], Option[Period], Option[Reference], LitSeq[Extension])] =
+      o: Identifier): Option[(Option[String], Option[IDENTIFIER_USE], Option[CodeableConcept], Option[FHIRString], Option[UriStr], Option[Period], Option[Reference], LitSeq[Extension])] =
     Some((o.id, o.use, o.`type`, o.value, o.system, o.period, o.assigner, o.extension))
   def decodeThis(cursor: HCursor)(implicit params: DecoderParams): Try[Identifier] =
     checkUnknownFields(cursor, otherMetas, refMetas) flatMap (_ =>
@@ -96,7 +96,7 @@ object Identifier extends CompanionFor[Identifier] {
           cursor.decodeAs[Option[String]]("id", Some(None)),
           cursor.decodeAs[Option[IDENTIFIER_USE]]("use", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-          cursor.decodeAs[Option[String]]("value", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("value", Some(None)),
           cursor.decodeAs[Option[UriStr]]("system", Some(None)),
           cursor.decodeAs[Option[Period]]("period", Some(None)),
           cursor.decodeAs[Option[Reference]]("assigner", Some(None)),
@@ -140,7 +140,7 @@ class Identifier(
     override val id: Option[String] = None,
     val use: Option[IDENTIFIER_USE] = None,
     val `type`: Option[CodeableConcept] = None,
-    val value: Option[String] = None,
+    val value: Option[FHIRString] = None,
     val system: Option[UriStr] = None,
     val period: Option[Period] = None,
     val assigner: Option[Reference] = None,

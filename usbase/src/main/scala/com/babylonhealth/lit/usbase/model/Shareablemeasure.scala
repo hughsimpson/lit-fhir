@@ -38,28 +38,28 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
       url: UriStr,
       meta: Option[Meta] = Some(new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/shareablemeasure"))),
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       date: Option[FHIRDateTime] = None,
       `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-      title: Option[String] = None,
-      usage: Option[String] = None,
+      title: Option[FHIRString] = None,
+      usage: Option[FHIRString] = None,
       topic: LitSeq[CodeableConcept] = LitSeq.empty,
       status: PUBLICATION_STATUS,
       author: LitSeq[ContactDetail] = LitSeq.empty,
       editor: LitSeq[ContactDetail] = LitSeq.empty,
-      version: String,
+      version: FHIRString,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       library: LitSeq[Canonical] = LitSeq.empty,
       scoring: Option[CodeableConcept] = None,
       language: Option[LANGUAGES] = None,
-      subtitle: Option[String] = None,
+      subtitle: Option[FHIRString] = None,
       reviewer: LitSeq[ContactDetail] = LitSeq.empty,
       endorser: LitSeq[ContactDetail] = LitSeq.empty,
       guidance: Option[Markdown] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: String,
+      publisher: FHIRString,
       copyright: Option[Markdown] = None,
       rationale: Option[Markdown] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
@@ -73,10 +73,10 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
       approvalDate: Option[FHIRDate] = None,
       implicitRules: Option[UriStr] = None,
       lastReviewDate: Option[FHIRDate] = None,
-      riskAdjustment: Option[String] = None,
+      riskAdjustment: Option[FHIRString] = None,
       effectivePeriod: Option[Period] = None,
       relatedArtifact: LitSeq[RelatedArtifact] = LitSeq.empty,
-      rateAggregation: Option[String] = None,
+      rateAggregation: Option[FHIRString] = None,
       compositeScoring: Option[CodeableConcept] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       improvementNotation: Option[CodeableConcept] = None,
@@ -144,16 +144,16 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
   val `type`: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
-  val usage: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("usage", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val usage: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("usage", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val topic: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("topic", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
@@ -162,8 +162,8 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
     FHIRComponentFieldMeta("author", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val editor: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("editor", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
-  val version: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("version", lTagOf[String], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("version", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -174,8 +174,8 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
     FHIRComponentFieldMeta("scoring", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
-  val subtitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("subtitle", lTagOf[Option[String]], false, lTagOf[String])
+  val subtitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("subtitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val reviewer: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("reviewer", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val endorser: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
@@ -186,8 +186,8 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("publisher", lTagOf[String], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("publisher", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val rationale: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -218,14 +218,14 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val lastReviewDate: FHIRComponentFieldMeta[Option[FHIRDate]] =
     FHIRComponentFieldMeta("lastReviewDate", lTagOf[Option[FHIRDate]], false, lTagOf[FHIRDate])
-  val riskAdjustment: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("riskAdjustment", lTagOf[Option[String]], false, lTagOf[String])
+  val riskAdjustment: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("riskAdjustment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val effectivePeriod: FHIRComponentFieldMeta[Option[Period]] =
     FHIRComponentFieldMeta("effectivePeriod", lTagOf[Option[Period]], false, lTagOf[Period])
   val relatedArtifact: FHIRComponentFieldMeta[LitSeq[RelatedArtifact]] =
     FHIRComponentFieldMeta("relatedArtifact", lTagOf[LitSeq[RelatedArtifact]], false, lTagOf[RelatedArtifact])
-  val rateAggregation: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("rateAggregation", lTagOf[Option[String]], false, lTagOf[String])
+  val rateAggregation: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("rateAggregation", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val compositeScoring: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("compositeScoring", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -295,28 +295,28 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
       FHIRComponentField[UriStr](url, t.url.get),
       FHIRComponentField[Option[Meta]](meta, t.meta),
       FHIRComponentField[Option[Narrative]](text, t.text),
-      FHIRComponentField[String](name, t.name.get),
+      FHIRComponentField[FHIRString](name, t.name.get),
       FHIRComponentField[Option[FHIRDateTime]](date, t.date),
       FHIRComponentField[LitSeq[CodeableConcept]](`type`, t.`type`),
-      FHIRComponentField[Option[String]](title, t.title),
-      FHIRComponentField[Option[String]](usage, t.usage),
+      FHIRComponentField[Option[FHIRString]](title, t.title),
+      FHIRComponentField[Option[FHIRString]](usage, t.usage),
       FHIRComponentField[LitSeq[CodeableConcept]](topic, t.topic),
       FHIRComponentField[PUBLICATION_STATUS](status, t.status),
       FHIRComponentField[LitSeq[ContactDetail]](author, t.author),
       FHIRComponentField[LitSeq[ContactDetail]](editor, t.editor),
-      FHIRComponentField[String](version, t.version.get),
+      FHIRComponentField[FHIRString](version, t.version.get),
       FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
       FHIRComponentField[Option[Markdown]](purpose, t.purpose),
       FHIRComponentField[LitSeq[Canonical]](library, t.library),
       FHIRComponentField[Option[CodeableConcept]](scoring, t.scoring),
       FHIRComponentField[Option[LANGUAGES]](language, t.language),
-      FHIRComponentField[Option[String]](subtitle, t.subtitle),
+      FHIRComponentField[Option[FHIRString]](subtitle, t.subtitle),
       FHIRComponentField[LitSeq[ContactDetail]](reviewer, t.reviewer),
       FHIRComponentField[LitSeq[ContactDetail]](endorser, t.endorser),
       FHIRComponentField[Option[Markdown]](guidance, t.guidance),
       FHIRComponentField[LitSeq[Resource]](contained, t.contained),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[String](publisher, t.publisher.get),
+      FHIRComponentField[FHIRString](publisher, t.publisher.get),
       FHIRComponentField[Option[Markdown]](copyright, t.copyright),
       FHIRComponentField[Option[Markdown]](rationale, t.rationale),
       FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
@@ -330,10 +330,10 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
       FHIRComponentField[Option[FHIRDate]](approvalDate, t.approvalDate),
       FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
       FHIRComponentField[Option[FHIRDate]](lastReviewDate, t.lastReviewDate),
-      FHIRComponentField[Option[String]](riskAdjustment, t.riskAdjustment),
+      FHIRComponentField[Option[FHIRString]](riskAdjustment, t.riskAdjustment),
       FHIRComponentField[Option[Period]](effectivePeriod, t.effectivePeriod),
       FHIRComponentField[LitSeq[RelatedArtifact]](relatedArtifact, t.relatedArtifact),
-      FHIRComponentField[Option[String]](rateAggregation, t.rateAggregation),
+      FHIRComponentField[Option[FHIRString]](rateAggregation, t.rateAggregation),
       FHIRComponentField[Option[CodeableConcept]](compositeScoring, t.compositeScoring),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[Option[CodeableConcept]](improvementNotation, t.improvementNotation),
@@ -346,28 +346,28 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
   def extractUrl(t: Shareablemeasure): UriStr                                        = t.url.get
   def extractMeta(t: Shareablemeasure): Option[Meta]                                 = t.meta
   def extractText(t: Shareablemeasure): Option[Narrative]                            = t.text
-  def extractName(t: Shareablemeasure): String                                       = t.name.get
+  def extractName(t: Shareablemeasure): FHIRString                                   = t.name.get
   def extractDate(t: Shareablemeasure): Option[FHIRDateTime]                         = t.date
   def extractType(t: Shareablemeasure): LitSeq[CodeableConcept]                      = t.`type`
-  def extractTitle(t: Shareablemeasure): Option[String]                              = t.title
-  def extractUsage(t: Shareablemeasure): Option[String]                              = t.usage
+  def extractTitle(t: Shareablemeasure): Option[FHIRString]                          = t.title
+  def extractUsage(t: Shareablemeasure): Option[FHIRString]                          = t.usage
   def extractTopic(t: Shareablemeasure): LitSeq[CodeableConcept]                     = t.topic
   def extractStatus(t: Shareablemeasure): PUBLICATION_STATUS                         = t.status
   def extractAuthor(t: Shareablemeasure): LitSeq[ContactDetail]                      = t.author
   def extractEditor(t: Shareablemeasure): LitSeq[ContactDetail]                      = t.editor
-  def extractVersion(t: Shareablemeasure): String                                    = t.version.get
+  def extractVersion(t: Shareablemeasure): FHIRString                                = t.version.get
   def extractContact(t: Shareablemeasure): LitSeq[ContactDetail]                     = t.contact
   def extractPurpose(t: Shareablemeasure): Option[Markdown]                          = t.purpose
   def extractLibrary(t: Shareablemeasure): LitSeq[Canonical]                         = t.library
   def extractScoring(t: Shareablemeasure): Option[CodeableConcept]                   = t.scoring
   def extractLanguage(t: Shareablemeasure): Option[LANGUAGES]                        = t.language
-  def extractSubtitle(t: Shareablemeasure): Option[String]                           = t.subtitle
+  def extractSubtitle(t: Shareablemeasure): Option[FHIRString]                       = t.subtitle
   def extractReviewer(t: Shareablemeasure): LitSeq[ContactDetail]                    = t.reviewer
   def extractEndorser(t: Shareablemeasure): LitSeq[ContactDetail]                    = t.endorser
   def extractGuidance(t: Shareablemeasure): Option[Markdown]                         = t.guidance
   def extractContained(t: Shareablemeasure): LitSeq[Resource]                        = t.contained
   def extractExtension(t: Shareablemeasure): LitSeq[Extension]                       = t.extension
-  def extractPublisher(t: Shareablemeasure): String                                  = t.publisher.get
+  def extractPublisher(t: Shareablemeasure): FHIRString                              = t.publisher.get
   def extractCopyright(t: Shareablemeasure): Option[Markdown]                        = t.copyright
   def extractRationale(t: Shareablemeasure): Option[Markdown]                        = t.rationale
   def extractIdentifier(t: Shareablemeasure): LitSeq[Identifier]                     = t.identifier
@@ -381,10 +381,10 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
   def extractApprovalDate(t: Shareablemeasure): Option[FHIRDate]                     = t.approvalDate
   def extractImplicitRules(t: Shareablemeasure): Option[UriStr]                      = t.implicitRules
   def extractLastReviewDate(t: Shareablemeasure): Option[FHIRDate]                   = t.lastReviewDate
-  def extractRiskAdjustment(t: Shareablemeasure): Option[String]                     = t.riskAdjustment
+  def extractRiskAdjustment(t: Shareablemeasure): Option[FHIRString]                 = t.riskAdjustment
   def extractEffectivePeriod(t: Shareablemeasure): Option[Period]                    = t.effectivePeriod
   def extractRelatedArtifact(t: Shareablemeasure): LitSeq[RelatedArtifact]           = t.relatedArtifact
-  def extractRateAggregation(t: Shareablemeasure): Option[String]                    = t.rateAggregation
+  def extractRateAggregation(t: Shareablemeasure): Option[FHIRString]                = t.rateAggregation
   def extractCompositeScoring(t: Shareablemeasure): Option[CodeableConcept]          = t.compositeScoring
   def extractModifierExtension(t: Shareablemeasure): LitSeq[Extension]               = t.modifierExtension
   def extractImprovementNotation(t: Shareablemeasure): Option[CodeableConcept]       = t.improvementNotation
@@ -401,28 +401,28 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
         cursor.decodeAs[UriStr]("url", None),
         cursor.decodeAs[Option[Meta]]("meta", Some(None)),
         cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-        cursor.decodeAs[String]("name", None),
+        cursor.decodeAs[FHIRString]("name", None),
         cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
         cursor.decodeAs[LitSeq[CodeableConcept]]("type", Some(LitSeq.empty)),
-        cursor.decodeAs[Option[String]]("title", Some(None)),
-        cursor.decodeAs[Option[String]]("usage", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("usage", Some(None)),
         cursor.decodeAs[LitSeq[CodeableConcept]]("topic", Some(LitSeq.empty)),
         cursor.decodeAs[PUBLICATION_STATUS]("status", None),
         cursor.decodeAs[LitSeq[ContactDetail]]("author", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[ContactDetail]]("editor", Some(LitSeq.empty)),
-        cursor.decodeAs[String]("version", None),
+        cursor.decodeAs[FHIRString]("version", None),
         cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
         cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
         cursor.decodeAs[LitSeq[Canonical]]("library", Some(LitSeq.empty)),
         cursor.decodeAs[Option[CodeableConcept]]("scoring", Some(None)),
         cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
-        cursor.decodeAs[Option[String]]("subtitle", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("subtitle", Some(None)),
         cursor.decodeAs[LitSeq[ContactDetail]]("reviewer", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[ContactDetail]]("endorser", Some(LitSeq.empty)),
         cursor.decodeAs[Option[Markdown]]("guidance", Some(None)),
         cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
         cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-        cursor.decodeAs[String]("publisher", None),
+        cursor.decodeAs[FHIRString]("publisher", None),
         cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
         cursor.decodeAs[Option[Markdown]]("rationale", Some(None)),
         cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
@@ -436,10 +436,10 @@ object Shareablemeasure extends CompanionFor[Shareablemeasure] {
         cursor.decodeAs[Option[FHIRDate]]("approvalDate", Some(None)),
         cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
         cursor.decodeAs[Option[FHIRDate]]("lastReviewDate", Some(None)),
-        cursor.decodeAs[Option[String]]("riskAdjustment", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("riskAdjustment", Some(None)),
         cursor.decodeAs[Option[Period]]("effectivePeriod", Some(None)),
         cursor.decodeAs[LitSeq[RelatedArtifact]]("relatedArtifact", Some(LitSeq.empty)),
-        cursor.decodeAs[Option[String]]("rateAggregation", Some(None)),
+        cursor.decodeAs[Option[FHIRString]]("rateAggregation", Some(None)),
         cursor.decodeAs[Option[CodeableConcept]]("compositeScoring", Some(None)),
         cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
         cursor.decodeAs[Option[CodeableConcept]]("improvementNotation", Some(None)),
@@ -612,28 +612,28 @@ class Shareablemeasure(
     override val meta: Option[Meta] = Some(
       new Meta(profile = LitSeq("http://hl7.org/fhir/StructureDefinition/shareablemeasure"))),
     override val text: Option[Narrative] = None,
-    name: String,
+    name: FHIRString,
     override val date: Option[FHIRDateTime] = None,
     override val `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-    override val title: Option[String] = None,
-    override val usage: Option[String] = None,
+    override val title: Option[FHIRString] = None,
+    override val usage: Option[FHIRString] = None,
     override val topic: LitSeq[CodeableConcept] = LitSeq.empty,
     override val status: PUBLICATION_STATUS,
     override val author: LitSeq[ContactDetail] = LitSeq.empty,
     override val editor: LitSeq[ContactDetail] = LitSeq.empty,
-    version: String,
+    version: FHIRString,
     override val contact: LitSeq[ContactDetail] = LitSeq.empty,
     override val purpose: Option[Markdown] = None,
     override val library: LitSeq[Canonical] = LitSeq.empty,
     override val scoring: Option[CodeableConcept] = None,
     override val language: Option[LANGUAGES] = None,
-    override val subtitle: Option[String] = None,
+    override val subtitle: Option[FHIRString] = None,
     override val reviewer: LitSeq[ContactDetail] = LitSeq.empty,
     override val endorser: LitSeq[ContactDetail] = LitSeq.empty,
     override val guidance: Option[Markdown] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    publisher: String,
+    publisher: FHIRString,
     override val copyright: Option[Markdown] = None,
     override val rationale: Option[Markdown] = None,
     override val identifier: LitSeq[Identifier] = LitSeq.empty,
@@ -647,10 +647,10 @@ class Shareablemeasure(
     override val approvalDate: Option[FHIRDate] = None,
     override val implicitRules: Option[UriStr] = None,
     override val lastReviewDate: Option[FHIRDate] = None,
-    override val riskAdjustment: Option[String] = None,
+    override val riskAdjustment: Option[FHIRString] = None,
     override val effectivePeriod: Option[Period] = None,
     override val relatedArtifact: LitSeq[RelatedArtifact] = LitSeq.empty,
-    override val rateAggregation: Option[String] = None,
+    override val rateAggregation: Option[FHIRString] = None,
     override val compositeScoring: Option[CodeableConcept] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     override val improvementNotation: Option[CodeableConcept] = None,

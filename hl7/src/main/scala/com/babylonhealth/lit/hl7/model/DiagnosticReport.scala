@@ -40,7 +40,7 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
     def apply(
         id: Option[String] = None,
         link: Reference,
-        comment: Option[String] = None,
+        comment: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -52,14 +52,14 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
       modifierExtension,
       primitiveAttributes = primitiveAttributes
     )
-    def unapply(o: Media): Option[(Option[String], Reference, Option[String], LitSeq[Extension], LitSeq[Extension])] = Some(
+    def unapply(o: Media): Option[(Option[String], Reference, Option[FHIRString], LitSeq[Extension], LitSeq[Extension])] = Some(
       (o.id, o.link, o.comment, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val link: FHIRComponentFieldMeta[Reference] =
       FHIRComponentFieldMeta("link", lTagOf[Reference], false, lTagOf[Reference])
-    val comment: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("comment", lTagOf[Option[String]], false, lTagOf[String])
+    val comment: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("comment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -69,7 +69,7 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
     override def fields(t: Media): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Reference](link, t.link),
-      FHIRComponentField[Option[String]](comment, t.comment),
+      FHIRComponentField[Option[FHIRString]](comment, t.comment),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
@@ -81,7 +81,7 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
           new Media(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Reference]("link", None),
-            cursor.decodeAs[Option[String]]("comment", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("comment", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
@@ -92,7 +92,7 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
   class Media(
       override val id: Option[String] = None,
       val link: Reference,
-      val comment: Option[String] = None,
+      val comment: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -116,7 +116,7 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
       encounter: Option[Reference] = None,
       performer: LitSeq[Reference] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      conclusion: Option[String] = None,
+      conclusion: Option[FHIRString] = None,
       effective: Option[DiagnosticReport.EffectiveChoice] = None,
       imagingStudy: LitSeq[Reference] = LitSeq.empty,
       implicitRules: Option[UriStr] = None,
@@ -189,8 +189,8 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
     FHIRComponentFieldMeta("performer", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val conclusion: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("conclusion", lTagOf[Option[String]], false, lTagOf[String])
+  val conclusion: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("conclusion", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val effective: FHIRComponentFieldMeta[Option[DiagnosticReport.EffectiveChoice]] =
     FHIRComponentFieldMeta("effective", lTagOf[Option[DiagnosticReport.EffectiveChoice]], true, lTagOf[UnionDateTimeOrPeriod])
   val imagingStudy: FHIRComponentFieldMeta[LitSeq[Reference]] =
@@ -254,7 +254,7 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
     FHIRComponentField[Option[Reference]](encounter, t.encounter),
     FHIRComponentField[LitSeq[Reference]](performer, t.performer),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](conclusion, t.conclusion),
+    FHIRComponentField[Option[FHIRString]](conclusion, t.conclusion),
     FHIRComponentField[Option[DiagnosticReport.EffectiveChoice]](effective, t.effective),
     FHIRComponentField[LitSeq[Reference]](imagingStudy, t.imagingStudy),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
@@ -281,7 +281,7 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
   def extractEncounter(t: DiagnosticReport): Option[Reference]                        = t.encounter
   def extractPerformer(t: DiagnosticReport): LitSeq[Reference]                        = t.performer
   def extractIdentifier(t: DiagnosticReport): LitSeq[Identifier]                      = t.identifier
-  def extractConclusion(t: DiagnosticReport): Option[String]                          = t.conclusion
+  def extractConclusion(t: DiagnosticReport): Option[FHIRString]                      = t.conclusion
   def extractEffective(t: DiagnosticReport): Option[DiagnosticReport.EffectiveChoice] = t.effective
   def extractImagingStudy(t: DiagnosticReport): LitSeq[Reference]                     = t.imagingStudy
   def extractImplicitRules(t: DiagnosticReport): Option[UriStr]                       = t.implicitRules
@@ -332,7 +332,7 @@ object DiagnosticReport extends CompanionFor[DiagnosticReport] {
           cursor.decodeAs[Option[Reference]]("encounter", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("performer", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("conclusion", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("conclusion", Some(None)),
           cursor.decodeOptRef[UnionDateTimeOrPeriod]("effective"),
           cursor.decodeAs[LitSeq[Reference]]("imagingStudy", Some(LitSeq.empty)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
@@ -452,7 +452,7 @@ class DiagnosticReport(
     val encounter: Option[Reference] = None,
     val performer: LitSeq[Reference] = LitSeq.empty,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val conclusion: Option[String] = None,
+    val conclusion: Option[FHIRString] = None,
     val effective: Option[DiagnosticReport.EffectiveChoice] = None,
     val imagingStudy: LitSeq[Reference] = LitSeq.empty,
     override val implicitRules: Option[UriStr] = None,

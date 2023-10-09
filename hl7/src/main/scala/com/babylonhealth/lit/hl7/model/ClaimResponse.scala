@@ -887,7 +887,7 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
         extension: LitSeq[Extension] = LitSeq.empty,
         claimResponse: Option[Reference] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
-        businessArrangement: Option[String] = None,
+        businessArrangement: Option[FHIRString] = None,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Insurance = new Insurance(
       id,
@@ -901,7 +901,7 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Insurance): Option[(Option[String], Boolean, PositiveInt, Reference, LitSeq[Extension], Option[Reference], LitSeq[Extension], Option[String])] =
+        o: Insurance): Option[(Option[String], Boolean, PositiveInt, Reference, LitSeq[Extension], Option[Reference], LitSeq[Extension], Option[FHIRString])] =
       Some((o.id, o.focal, o.sequence, o.coverage, o.extension, o.claimResponse, o.modifierExtension, o.businessArrangement))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -917,8 +917,8 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
       FHIRComponentFieldMeta("claimResponse", lTagOf[Option[Reference]], false, lTagOf[Reference])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val businessArrangement: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("businessArrangement", lTagOf[Option[String]], false, lTagOf[String])
+    val businessArrangement: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("businessArrangement", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
       Seq(id, focal, sequence, coverage, extension, claimResponse, modifierExtension, businessArrangement)
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
@@ -930,7 +930,7 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Reference]](claimResponse, t.claimResponse),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-      FHIRComponentField[Option[String]](businessArrangement, t.businessArrangement)
+      FHIRComponentField[Option[FHIRString]](businessArrangement, t.businessArrangement)
     )
     val baseType: CompanionFor[Insurance] = this
     val thisName: String                  = "Insurance"
@@ -945,7 +945,7 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Reference]]("claimResponse", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("businessArrangement", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("businessArrangement", Some(None)),
             decodeAttributes(cursor)
           )
         ))
@@ -959,7 +959,7 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val claimResponse: Option[Reference] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-      val businessArrangement: Option[String] = None,
+      val businessArrangement: Option[FHIRString] = None,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
   object ProcessNote extends CompanionFor[ProcessNote] {
@@ -971,7 +971,7 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
     def apply(
         id: Option[String] = None,
         `type`: Option[NOTE_TYPE] = None,
-        text: String,
+        text: FHIRString,
         number: Option[PositiveInt] = None,
         language: Option[CodeableConcept] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
@@ -988,14 +988,14 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: ProcessNote): Option[(Option[String], Option[NOTE_TYPE], String, Option[PositiveInt], Option[CodeableConcept], LitSeq[Extension], LitSeq[Extension])] =
+        o: ProcessNote): Option[(Option[String], Option[NOTE_TYPE], FHIRString, Option[PositiveInt], Option[CodeableConcept], LitSeq[Extension], LitSeq[Extension])] =
       Some((o.id, o.`type`, o.text, o.number, o.language, o.extension, o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val `type`: FHIRComponentFieldMeta[Option[NOTE_TYPE]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[NOTE_TYPE]], false, lTagOf[NOTE_TYPE])
-    val text: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("text", lTagOf[String], false, lTagOf[String])
+    val text: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("text", lTagOf[FHIRString], false, lTagOf[FHIRString])
     val number: FHIRComponentFieldMeta[Option[PositiveInt]] =
       FHIRComponentFieldMeta("number", lTagOf[Option[PositiveInt]], false, lTagOf[PositiveInt])
     val language: FHIRComponentFieldMeta[Option[CodeableConcept]] =
@@ -1009,7 +1009,7 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
     override def fields(t: ProcessNote): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[NOTE_TYPE]](`type`, t.`type`),
-      FHIRComponentField[String](text, t.text),
+      FHIRComponentField[FHIRString](text, t.text),
       FHIRComponentField[Option[PositiveInt]](number, t.number),
       FHIRComponentField[Option[CodeableConcept]](language, t.language),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -1023,7 +1023,7 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
           new ProcessNote(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[NOTE_TYPE]]("type", Some(None)),
-            cursor.decodeAs[String]("text", None),
+            cursor.decodeAs[FHIRString]("text", None),
             cursor.decodeAs[Option[PositiveInt]]("number", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("language", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -1036,7 +1036,7 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
   class ProcessNote(
       override val id: Option[String] = None,
       val `type`: Option[NOTE_TYPE] = None,
-      val text: String,
+      val text: FHIRString,
       val number: Option[PositiveInt] = None,
       val language: Option[CodeableConcept] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
@@ -1308,8 +1308,8 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
       requestor: Option[Reference] = None,
       payeeType: Option[CodeableConcept] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      preAuthRef: Option[String] = None,
-      disposition: Option[String] = None,
+      preAuthRef: Option[FHIRString] = None,
+      disposition: Option[FHIRString] = None,
       adjudication: LitSeq[ClaimResponse.Item.Adjudication] = LitSeq.empty,
       fundsReserve: Option[CodeableConcept] = None,
       implicitRules: Option[UriStr] = None,
@@ -1402,10 +1402,10 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
     FHIRComponentFieldMeta("payeeType", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val preAuthRef: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("preAuthRef", lTagOf[Option[String]], false, lTagOf[String])
-  val disposition: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("disposition", lTagOf[Option[String]], false, lTagOf[String])
+  val preAuthRef: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("preAuthRef", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val disposition: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("disposition", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val adjudication: FHIRComponentFieldMeta[LitSeq[ClaimResponse.Item.Adjudication]] =
     FHIRComponentFieldMeta(
       "adjudication",
@@ -1495,8 +1495,8 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
     FHIRComponentField[Option[Reference]](requestor, t.requestor),
     FHIRComponentField[Option[CodeableConcept]](payeeType, t.payeeType),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](preAuthRef, t.preAuthRef),
-    FHIRComponentField[Option[String]](disposition, t.disposition),
+    FHIRComponentField[Option[FHIRString]](preAuthRef, t.preAuthRef),
+    FHIRComponentField[Option[FHIRString]](disposition, t.disposition),
     FHIRComponentField[LitSeq[ClaimResponse.Item.Adjudication]](adjudication, t.adjudication),
     FHIRComponentField[Option[CodeableConcept]](fundsReserve, t.fundsReserve),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
@@ -1531,8 +1531,8 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
   def extractRequestor(t: ClaimResponse): Option[Reference]                          = t.requestor
   def extractPayeeType(t: ClaimResponse): Option[CodeableConcept]                    = t.payeeType
   def extractIdentifier(t: ClaimResponse): LitSeq[Identifier]                        = t.identifier
-  def extractPreAuthRef(t: ClaimResponse): Option[String]                            = t.preAuthRef
-  def extractDisposition(t: ClaimResponse): Option[String]                           = t.disposition
+  def extractPreAuthRef(t: ClaimResponse): Option[FHIRString]                        = t.preAuthRef
+  def extractDisposition(t: ClaimResponse): Option[FHIRString]                       = t.disposition
   def extractAdjudication(t: ClaimResponse): LitSeq[ClaimResponse.Item.Adjudication] = t.adjudication
   def extractFundsReserve(t: ClaimResponse): Option[CodeableConcept]                 = t.fundsReserve
   def extractImplicitRules(t: ClaimResponse): Option[UriStr]                         = t.implicitRules
@@ -1584,8 +1584,8 @@ object ClaimResponse extends CompanionFor[ClaimResponse] {
           cursor.decodeAs[Option[Reference]]("requestor", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("payeeType", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("preAuthRef", Some(None)),
-          cursor.decodeAs[Option[String]]("disposition", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("preAuthRef", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("disposition", Some(None)),
           cursor.decodeAs[LitSeq[ClaimResponse.Item.Adjudication]]("adjudication", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CodeableConcept]]("fundsReserve", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
@@ -1728,8 +1728,8 @@ class ClaimResponse(
     val requestor: Option[Reference] = None,
     val payeeType: Option[CodeableConcept] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val preAuthRef: Option[String] = None,
-    val disposition: Option[String] = None,
+    val preAuthRef: Option[FHIRString] = None,
+    val disposition: Option[FHIRString] = None,
     val adjudication: LitSeq[ClaimResponse.Item.Adjudication] = LitSeq.empty,
     val fundsReserve: Option[CodeableConcept] = None,
     override val implicitRules: Option[UriStr] = None,

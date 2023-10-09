@@ -22,41 +22,41 @@ import scala.jdk.javaapi.OptionConverters;
 public interface Questionnaire_Item_AnswerOptionBuilder {
   public Questionnaire$Item$AnswerOption build();
 
-  public static Impl init(@NonNull Choice00857130015 value) {
+  public static Impl init(@NonNull Choice00617434070 value) {
     return new Impl(value);
   }
 
-  public static Impl builder(@NonNull Choice00857130015 value) {
+  public static Impl builder(@NonNull Choice00617434070 value) {
     return new Impl(value);
   }
 
-  public static Choice00857130015 value(Coding c) {
-    return new Choice00857130015(c);
+  public static Choice00617434070 value(Coding c) {
+    return new Choice00617434070(c);
   }
 
-  public static Choice00857130015 value(FHIRDate f) {
-    return new Choice00857130015(f);
+  public static Choice00617434070 value(FHIRDate f) {
+    return new Choice00617434070(f);
   }
 
-  public static Choice00857130015 value(Integer i) {
-    return new Choice00857130015(i);
+  public static Choice00617434070 value(String s) {
+    return new Choice00617434070(s);
   }
 
-  public static Choice00857130015 value(LocalTime l) {
-    return new Choice00857130015(l);
+  public static Choice00617434070 value(Integer i) {
+    return new Choice00617434070(i);
   }
 
-  public static Choice00857130015 value(Reference r) {
-    return new Choice00857130015(r);
+  public static Choice00617434070 value(LocalTime l) {
+    return new Choice00617434070(l);
   }
 
-  public static Choice00857130015 value(String s) {
-    return new Choice00857130015(s);
+  public static Choice00617434070 value(Reference r) {
+    return new Choice00617434070(r);
   }
 
   public class Impl implements Questionnaire_Item_AnswerOptionBuilder {
     private Optional<String> id = Optional.empty();
-    private Choice00857130015 value;
+    private Choice00617434070 value;
     private Collection<Extension> extension = Collections.emptyList();
     private Optional<Boolean> initialSelected = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
@@ -64,11 +64,11 @@ public interface Questionnaire_Item_AnswerOptionBuilder {
     /**
      * Required fields for {@link Questionnaire$Item$AnswerOption}
      *
-     * @param value Field is a 'choice' field. Type should be one of Coding, FHIRDate, Integer,
-     *     LocalTime, Reference, String. To pass the value in, wrap with one of the
+     * @param value Field is a 'choice' field. Type should be one of Coding, FHIRDate, String,
+     *     Integer, LocalTime, Reference. To pass the value in, wrap with one of the
      *     Questionnaire_Item_AnswerOptionBuilder.value static methods
      */
-    public Impl(@NonNull Choice00857130015 value) {
+    public Impl(@NonNull Choice00617434070 value) {
       this.value = value;
     }
 

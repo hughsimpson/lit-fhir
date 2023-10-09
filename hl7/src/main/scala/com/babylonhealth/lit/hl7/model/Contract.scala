@@ -116,7 +116,7 @@ object Contract extends CompanionFor[Contract] {
         override type ResourceType = Answer
         override type ParentType   = Answer
         override val parentType: CompanionFor[ResourceType] = Answer
-        type ValueChoice = Choice[Union01113166363]
+        type ValueChoice = Choice[Union_1180501282]
         def apply(
             id: Option[String] = None,
             value: Answer.ValueChoice,
@@ -135,7 +135,7 @@ object Contract extends CompanionFor[Contract] {
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
         val value: FHIRComponentFieldMeta[Answer.ValueChoice] =
-          FHIRComponentFieldMeta("value", lTagOf[Answer.ValueChoice], true, lTagOf[Union01113166363])
+          FHIRComponentFieldMeta("value", lTagOf[Answer.ValueChoice], true, lTagOf[Union_1180501282])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -155,7 +155,7 @@ object Contract extends CompanionFor[Contract] {
             Try(
               new Answer(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
-                cursor.decodeRef[Union01113166363]("value"),
+                cursor.decodeRef[Union_1180501282]("value"),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
                 decodeAttributes(cursor)
@@ -173,9 +173,9 @@ object Contract extends CompanionFor[Contract] {
       def apply(
           id: Option[String] = None,
           `type`: Option[CodeableConcept] = None,
-          text: Option[String] = None,
+          text: Option[FHIRString] = None,
           topic: Option[Reference] = None,
-          linkId: LitSeq[String] = LitSeq.empty,
+          linkId: LitSeq[FHIRString] = LitSeq.empty,
           decision: Option[CodeableConcept] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           identifier: LitSeq[Identifier] = LitSeq.empty,
@@ -202,7 +202,7 @@ object Contract extends CompanionFor[Contract] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Offer): Option[(Option[String], Option[CodeableConcept], Option[String], Option[Reference], LitSeq[String], Option[CodeableConcept], LitSeq[Extension], LitSeq[Identifier], LitSeq[CodeableConcept], LitSeq[Extension], LitSeq[UnsignedInt], LitSeq[Offer.Party], LitSeq[Offer.Answer])] =
+          o: Offer): Option[(Option[String], Option[CodeableConcept], Option[FHIRString], Option[Reference], LitSeq[FHIRString], Option[CodeableConcept], LitSeq[Extension], LitSeq[Identifier], LitSeq[CodeableConcept], LitSeq[Extension], LitSeq[UnsignedInt], LitSeq[Offer.Party], LitSeq[Offer.Answer])] =
         Some(
           (
             o.id,
@@ -222,12 +222,12 @@ object Contract extends CompanionFor[Contract] {
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
       val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
         FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-      val text: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+      val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val topic: FHIRComponentFieldMeta[Option[Reference]] =
         FHIRComponentFieldMeta("topic", lTagOf[Option[Reference]], false, lTagOf[Reference])
-      val linkId: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("linkId", lTagOf[LitSeq[String]], false, lTagOf[String])
+      val linkId: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("linkId", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
       val decision: FHIRComponentFieldMeta[Option[CodeableConcept]] =
         FHIRComponentFieldMeta("decision", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -262,9 +262,9 @@ object Contract extends CompanionFor[Contract] {
       override def fields(t: Offer): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-        FHIRComponentField[Option[String]](text, t.text),
+        FHIRComponentField[Option[FHIRString]](text, t.text),
         FHIRComponentField[Option[Reference]](topic, t.topic),
-        FHIRComponentField[LitSeq[String]](linkId, t.linkId),
+        FHIRComponentField[LitSeq[FHIRString]](linkId, t.linkId),
         FHIRComponentField[Option[CodeableConcept]](decision, t.decision),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
@@ -282,9 +282,9 @@ object Contract extends CompanionFor[Contract] {
             new Offer(
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-              cursor.decodeAs[Option[String]]("text", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
               cursor.decodeAs[Option[Reference]]("topic", Some(None)),
-              cursor.decodeAs[LitSeq[String]]("linkId", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("linkId", Some(LitSeq.empty)),
               cursor.decodeAs[Option[CodeableConcept]]("decision", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
@@ -301,9 +301,9 @@ object Contract extends CompanionFor[Contract] {
     class Offer(
         override val id: Option[String] = None,
         val `type`: Option[CodeableConcept] = None,
-        val text: Option[String] = None,
+        val text: Option[FHIRString] = None,
         val topic: Option[Reference] = None,
-        val linkId: LitSeq[String] = LitSeq.empty,
+        val linkId: LitSeq[FHIRString] = LitSeq.empty,
         val decision: Option[CodeableConcept] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val identifier: LitSeq[Identifier] = LitSeq.empty,
@@ -475,22 +475,22 @@ object Contract extends CompanionFor[Contract] {
           `type`: CodeableConcept,
           note: LitSeq[Annotation] = LitSeq.empty,
           intent: CodeableConcept,
-          linkId: LitSeq[String] = LitSeq.empty,
+          linkId: LitSeq[FHIRString] = LitSeq.empty,
           status: CodeableConcept,
-          reason: LitSeq[String] = LitSeq.empty,
+          reason: LitSeq[FHIRString] = LitSeq.empty,
           context: Option[Reference] = None,
           extension: LitSeq[Extension] = LitSeq.empty,
           requester: LitSeq[Reference] = LitSeq.empty,
           performer: Option[Reference] = None,
           reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
           doNotPerform: Option[Boolean] = None,
-          reasonLinkId: LitSeq[String] = LitSeq.empty,
-          contextLinkId: LitSeq[String] = LitSeq.empty,
+          reasonLinkId: LitSeq[FHIRString] = LitSeq.empty,
+          contextLinkId: LitSeq[FHIRString] = LitSeq.empty,
           occurrence: Option[Action.OccurrenceChoice] = None,
           performerType: LitSeq[CodeableConcept] = LitSeq.empty,
           performerRole: Option[CodeableConcept] = None,
-          requesterLinkId: LitSeq[String] = LitSeq.empty,
-          performerLinkId: LitSeq[String] = LitSeq.empty,
+          requesterLinkId: LitSeq[FHIRString] = LitSeq.empty,
+          performerLinkId: LitSeq[FHIRString] = LitSeq.empty,
           reasonReference: LitSeq[Reference] = LitSeq.empty,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           securityLabelNumber: LitSeq[UnsignedInt] = LitSeq.empty,
@@ -531,12 +531,12 @@ object Contract extends CompanionFor[Contract] {
         FHIRComponentFieldMeta("note", lTagOf[LitSeq[Annotation]], false, lTagOf[Annotation])
       val intent: FHIRComponentFieldMeta[CodeableConcept] =
         FHIRComponentFieldMeta("intent", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
-      val linkId: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("linkId", lTagOf[LitSeq[String]], false, lTagOf[String])
+      val linkId: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("linkId", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
       val status: FHIRComponentFieldMeta[CodeableConcept] =
         FHIRComponentFieldMeta("status", lTagOf[CodeableConcept], false, lTagOf[CodeableConcept])
-      val reason: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("reason", lTagOf[LitSeq[String]], false, lTagOf[String])
+      val reason: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("reason", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
       val context: FHIRComponentFieldMeta[Option[Reference]] =
         FHIRComponentFieldMeta("context", lTagOf[Option[Reference]], false, lTagOf[Reference])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -549,20 +549,20 @@ object Contract extends CompanionFor[Contract] {
         FHIRComponentFieldMeta("reasonCode", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
       val doNotPerform: FHIRComponentFieldMeta[Option[Boolean]] =
         FHIRComponentFieldMeta("doNotPerform", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
-      val reasonLinkId: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("reasonLinkId", lTagOf[LitSeq[String]], false, lTagOf[String])
-      val contextLinkId: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("contextLinkId", lTagOf[LitSeq[String]], false, lTagOf[String])
+      val reasonLinkId: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("reasonLinkId", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
+      val contextLinkId: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("contextLinkId", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
       val occurrence: FHIRComponentFieldMeta[Option[Action.OccurrenceChoice]] =
         FHIRComponentFieldMeta("occurrence", lTagOf[Option[Action.OccurrenceChoice]], true, lTagOf[UnionDateTimeOrPeriodOrTiming])
       val performerType: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
         FHIRComponentFieldMeta("performerType", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
       val performerRole: FHIRComponentFieldMeta[Option[CodeableConcept]] =
         FHIRComponentFieldMeta("performerRole", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-      val requesterLinkId: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("requesterLinkId", lTagOf[LitSeq[String]], false, lTagOf[String])
-      val performerLinkId: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("performerLinkId", lTagOf[LitSeq[String]], false, lTagOf[String])
+      val requesterLinkId: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("requesterLinkId", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
+      val performerLinkId: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("performerLinkId", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
       val reasonReference: FHIRComponentFieldMeta[LitSeq[Reference]] =
         FHIRComponentFieldMeta("reasonReference", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -603,22 +603,22 @@ object Contract extends CompanionFor[Contract] {
         FHIRComponentField[CodeableConcept](`type`, t.`type`),
         FHIRComponentField[LitSeq[Annotation]](note, t.note),
         FHIRComponentField[CodeableConcept](intent, t.intent),
-        FHIRComponentField[LitSeq[String]](linkId, t.linkId),
+        FHIRComponentField[LitSeq[FHIRString]](linkId, t.linkId),
         FHIRComponentField[CodeableConcept](status, t.status),
-        FHIRComponentField[LitSeq[String]](reason, t.reason),
+        FHIRComponentField[LitSeq[FHIRString]](reason, t.reason),
         FHIRComponentField[Option[Reference]](context, t.context),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[LitSeq[Reference]](requester, t.requester),
         FHIRComponentField[Option[Reference]](performer, t.performer),
         FHIRComponentField[LitSeq[CodeableConcept]](reasonCode, t.reasonCode),
         FHIRComponentField[Option[Boolean]](doNotPerform, t.doNotPerform),
-        FHIRComponentField[LitSeq[String]](reasonLinkId, t.reasonLinkId),
-        FHIRComponentField[LitSeq[String]](contextLinkId, t.contextLinkId),
+        FHIRComponentField[LitSeq[FHIRString]](reasonLinkId, t.reasonLinkId),
+        FHIRComponentField[LitSeq[FHIRString]](contextLinkId, t.contextLinkId),
         FHIRComponentField[Option[Action.OccurrenceChoice]](occurrence, t.occurrence),
         FHIRComponentField[LitSeq[CodeableConcept]](performerType, t.performerType),
         FHIRComponentField[Option[CodeableConcept]](performerRole, t.performerRole),
-        FHIRComponentField[LitSeq[String]](requesterLinkId, t.requesterLinkId),
-        FHIRComponentField[LitSeq[String]](performerLinkId, t.performerLinkId),
+        FHIRComponentField[LitSeq[FHIRString]](requesterLinkId, t.requesterLinkId),
+        FHIRComponentField[LitSeq[FHIRString]](performerLinkId, t.performerLinkId),
         FHIRComponentField[LitSeq[Reference]](reasonReference, t.reasonReference),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
         FHIRComponentField[LitSeq[UnsignedInt]](securityLabelNumber, t.securityLabelNumber),
@@ -634,22 +634,22 @@ object Contract extends CompanionFor[Contract] {
               cursor.decodeAs[CodeableConcept]("type", None),
               cursor.decodeAs[LitSeq[Annotation]]("note", Some(LitSeq.empty)),
               cursor.decodeAs[CodeableConcept]("intent", None),
-              cursor.decodeAs[LitSeq[String]]("linkId", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("linkId", Some(LitSeq.empty)),
               cursor.decodeAs[CodeableConcept]("status", None),
-              cursor.decodeAs[LitSeq[String]]("reason", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("reason", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Reference]]("context", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Reference]]("requester", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Reference]]("performer", Some(None)),
               cursor.decodeAs[LitSeq[CodeableConcept]]("reasonCode", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Boolean]]("doNotPerform", Some(None)),
-              cursor.decodeAs[LitSeq[String]]("reasonLinkId", Some(LitSeq.empty)),
-              cursor.decodeAs[LitSeq[String]]("contextLinkId", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("reasonLinkId", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("contextLinkId", Some(LitSeq.empty)),
               cursor.decodeOptRef[UnionDateTimeOrPeriodOrTiming]("occurrence"),
               cursor.decodeAs[LitSeq[CodeableConcept]]("performerType", Some(LitSeq.empty)),
               cursor.decodeAs[Option[CodeableConcept]]("performerRole", Some(None)),
-              cursor.decodeAs[LitSeq[String]]("requesterLinkId", Some(LitSeq.empty)),
-              cursor.decodeAs[LitSeq[String]]("performerLinkId", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("requesterLinkId", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("performerLinkId", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Reference]]("reasonReference", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[UnsignedInt]]("securityLabelNumber", Some(LitSeq.empty)),
@@ -664,22 +664,22 @@ object Contract extends CompanionFor[Contract] {
         val `type`: CodeableConcept,
         val note: LitSeq[Annotation] = LitSeq.empty,
         val intent: CodeableConcept,
-        val linkId: LitSeq[String] = LitSeq.empty,
+        val linkId: LitSeq[FHIRString] = LitSeq.empty,
         val status: CodeableConcept,
-        val reason: LitSeq[String] = LitSeq.empty,
+        val reason: LitSeq[FHIRString] = LitSeq.empty,
         val context: Option[Reference] = None,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val requester: LitSeq[Reference] = LitSeq.empty,
         val performer: Option[Reference] = None,
         val reasonCode: LitSeq[CodeableConcept] = LitSeq.empty,
         val doNotPerform: Option[Boolean] = None,
-        val reasonLinkId: LitSeq[String] = LitSeq.empty,
-        val contextLinkId: LitSeq[String] = LitSeq.empty,
+        val reasonLinkId: LitSeq[FHIRString] = LitSeq.empty,
+        val contextLinkId: LitSeq[FHIRString] = LitSeq.empty,
         val occurrence: Option[Action.OccurrenceChoice] = None,
         val performerType: LitSeq[CodeableConcept] = LitSeq.empty,
         val performerRole: Option[CodeableConcept] = None,
-        val requesterLinkId: LitSeq[String] = LitSeq.empty,
-        val performerLinkId: LitSeq[String] = LitSeq.empty,
+        val requesterLinkId: LitSeq[FHIRString] = LitSeq.empty,
+        val performerLinkId: LitSeq[FHIRString] = LitSeq.empty,
         val reasonReference: LitSeq[Reference] = LitSeq.empty,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         val securityLabelNumber: LitSeq[UnsignedInt] = LitSeq.empty,
@@ -701,7 +701,7 @@ object Contract extends CompanionFor[Contract] {
         def apply(
             id: Option[String] = None,
             code: LitSeq[CodeableConcept] = LitSeq.empty,
-            text: Option[String] = None,
+            text: Option[FHIRString] = None,
             extension: LitSeq[Extension] = LitSeq.empty,
             reference: Option[Reference] = None,
             modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -716,14 +716,14 @@ object Contract extends CompanionFor[Contract] {
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: Context): Option[(Option[String], LitSeq[CodeableConcept], Option[String], LitSeq[Extension], Option[Reference], LitSeq[Extension])] =
+            o: Context): Option[(Option[String], LitSeq[CodeableConcept], Option[FHIRString], LitSeq[Extension], Option[Reference], LitSeq[Extension])] =
           Some((o.id, o.code, o.text, o.extension, o.reference, o.modifierExtension))
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
         val code: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
           FHIRComponentFieldMeta("code", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-        val text: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+        val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val reference: FHIRComponentFieldMeta[Option[Reference]] =
@@ -735,7 +735,7 @@ object Contract extends CompanionFor[Contract] {
         override def fields(t: Context): Seq[FHIRComponentField[_]] = Seq(
           FHIRComponentField[Option[String]](id, t.id),
           FHIRComponentField[LitSeq[CodeableConcept]](code, t.code),
-          FHIRComponentField[Option[String]](text, t.text),
+          FHIRComponentField[Option[FHIRString]](text, t.text),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[Option[Reference]](reference, t.reference),
           FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -748,7 +748,7 @@ object Contract extends CompanionFor[Contract] {
               new Context(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
                 cursor.decodeAs[LitSeq[CodeableConcept]]("code", Some(LitSeq.empty)),
-                cursor.decodeAs[Option[String]]("text", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[Option[Reference]]("reference", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -760,7 +760,7 @@ object Contract extends CompanionFor[Contract] {
       class Context(
           override val id: Option[String] = None,
           val code: LitSeq[CodeableConcept] = LitSeq.empty,
-          val text: Option[String] = None,
+          val text: Option[FHIRString] = None,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           val reference: Option[Reference] = None,
           override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -778,8 +778,8 @@ object Contract extends CompanionFor[Contract] {
             net: Option[Money] = None,
             factor: Option[BigDecimal] = None,
             points: Option[BigDecimal] = None,
-            linkId: LitSeq[String] = LitSeq.empty,
-            payment: Option[String] = None,
+            linkId: LitSeq[FHIRString] = LitSeq.empty,
+            payment: Option[FHIRString] = None,
             quantity: Option[Quantity] = None,
             extension: LitSeq[Extension] = LitSeq.empty,
             entity: Option[ValuedItem.EntityChoice] = None,
@@ -813,7 +813,7 @@ object Contract extends CompanionFor[Contract] {
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: ValuedItem): Option[(Option[String], Option[Money], Option[BigDecimal], Option[BigDecimal], LitSeq[String], Option[String], Option[Quantity], LitSeq[Extension], Option[ValuedItem.EntityChoice], Option[Money], Option[Reference], Option[Identifier], Option[FHIRDateTime], Option[Reference], Option[FHIRDateTime], LitSeq[Extension], LitSeq[UnsignedInt])] =
+            o: ValuedItem): Option[(Option[String], Option[Money], Option[BigDecimal], Option[BigDecimal], LitSeq[FHIRString], Option[FHIRString], Option[Quantity], LitSeq[Extension], Option[ValuedItem.EntityChoice], Option[Money], Option[Reference], Option[Identifier], Option[FHIRDateTime], Option[Reference], Option[FHIRDateTime], LitSeq[Extension], LitSeq[UnsignedInt])] =
           Some(
             (
               o.id,
@@ -841,10 +841,10 @@ object Contract extends CompanionFor[Contract] {
           FHIRComponentFieldMeta("factor", lTagOf[Option[BigDecimal]], false, lTagOf[BigDecimal])
         val points: FHIRComponentFieldMeta[Option[BigDecimal]] =
           FHIRComponentFieldMeta("points", lTagOf[Option[BigDecimal]], false, lTagOf[BigDecimal])
-        val linkId: FHIRComponentFieldMeta[LitSeq[String]] =
-          FHIRComponentFieldMeta("linkId", lTagOf[LitSeq[String]], false, lTagOf[String])
-        val payment: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("payment", lTagOf[Option[String]], false, lTagOf[String])
+        val linkId: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+          FHIRComponentFieldMeta("linkId", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
+        val payment: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("payment", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val quantity: FHIRComponentFieldMeta[Option[Quantity]] =
           FHIRComponentFieldMeta("quantity", lTagOf[Option[Quantity]], false, lTagOf[Quantity])
         val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -892,8 +892,8 @@ object Contract extends CompanionFor[Contract] {
           FHIRComponentField[Option[Money]](net, t.net),
           FHIRComponentField[Option[BigDecimal]](factor, t.factor),
           FHIRComponentField[Option[BigDecimal]](points, t.points),
-          FHIRComponentField[LitSeq[String]](linkId, t.linkId),
-          FHIRComponentField[Option[String]](payment, t.payment),
+          FHIRComponentField[LitSeq[FHIRString]](linkId, t.linkId),
+          FHIRComponentField[Option[FHIRString]](payment, t.payment),
           FHIRComponentField[Option[Quantity]](quantity, t.quantity),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[Option[ValuedItem.EntityChoice]](entity, t.entity),
@@ -916,8 +916,8 @@ object Contract extends CompanionFor[Contract] {
                 cursor.decodeAs[Option[Money]]("net", Some(None)),
                 cursor.decodeAs[Option[BigDecimal]]("factor", Some(None)),
                 cursor.decodeAs[Option[BigDecimal]]("points", Some(None)),
-                cursor.decodeAs[LitSeq[String]]("linkId", Some(LitSeq.empty)),
-                cursor.decodeAs[Option[String]]("payment", Some(None)),
+                cursor.decodeAs[LitSeq[FHIRString]]("linkId", Some(LitSeq.empty)),
+                cursor.decodeAs[Option[FHIRString]]("payment", Some(None)),
                 cursor.decodeAs[Option[Quantity]]("quantity", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeOptRef[UnionCodeableConceptOrReference]("entity"),
@@ -939,8 +939,8 @@ object Contract extends CompanionFor[Contract] {
           val net: Option[Money] = None,
           val factor: Option[BigDecimal] = None,
           val points: Option[BigDecimal] = None,
-          val linkId: LitSeq[String] = LitSeq.empty,
-          val payment: Option[String] = None,
+          val linkId: LitSeq[FHIRString] = LitSeq.empty,
+          val payment: Option[FHIRString] = None,
           val quantity: Option[Quantity] = None,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           val entity: Option[ValuedItem.EntityChoice] = None,
@@ -957,14 +957,14 @@ object Contract extends CompanionFor[Contract] {
       def apply(
           id: Option[String] = None,
           `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-          text: Option[String] = None,
+          text: Option[FHIRString] = None,
           scope: Option[CodeableConcept] = None,
           period: LitSeq[Period] = LitSeq.empty,
-          linkId: LitSeq[String] = LitSeq.empty,
+          linkId: LitSeq[FHIRString] = LitSeq.empty,
           answer: LitSeq[Contract.Term.Offer.Answer] = LitSeq.empty,
           subtype: LitSeq[CodeableConcept] = LitSeq.empty,
           extension: LitSeq[Extension] = LitSeq.empty,
-          condition: Option[String] = None,
+          condition: Option[FHIRString] = None,
           usePeriod: LitSeq[Period] = LitSeq.empty,
           periodType: LitSeq[CodeableConcept] = LitSeq.empty,
           relationship: Option[Coding] = None,
@@ -996,7 +996,7 @@ object Contract extends CompanionFor[Contract] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Asset): Option[(Option[String], LitSeq[CodeableConcept], Option[String], Option[CodeableConcept], LitSeq[Period], LitSeq[String], LitSeq[Contract.Term.Offer.Answer], LitSeq[CodeableConcept], LitSeq[Extension], Option[String], LitSeq[Period], LitSeq[CodeableConcept], Option[Coding], LitSeq[Reference], LitSeq[Extension], LitSeq[UnsignedInt], LitSeq[Asset.Context], LitSeq[Asset.ValuedItem])] =
+          o: Asset): Option[(Option[String], LitSeq[CodeableConcept], Option[FHIRString], Option[CodeableConcept], LitSeq[Period], LitSeq[FHIRString], LitSeq[Contract.Term.Offer.Answer], LitSeq[CodeableConcept], LitSeq[Extension], Option[FHIRString], LitSeq[Period], LitSeq[CodeableConcept], Option[Coding], LitSeq[Reference], LitSeq[Extension], LitSeq[UnsignedInt], LitSeq[Asset.Context], LitSeq[Asset.ValuedItem])] =
         Some(
           (
             o.id,
@@ -1021,22 +1021,22 @@ object Contract extends CompanionFor[Contract] {
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
       val `type`: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
         FHIRComponentFieldMeta("type", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-      val text: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+      val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val scope: FHIRComponentFieldMeta[Option[CodeableConcept]] =
         FHIRComponentFieldMeta("scope", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
       val period: FHIRComponentFieldMeta[LitSeq[Period]] =
         FHIRComponentFieldMeta("period", lTagOf[LitSeq[Period]], false, lTagOf[Period])
-      val linkId: FHIRComponentFieldMeta[LitSeq[String]] =
-        FHIRComponentFieldMeta("linkId", lTagOf[LitSeq[String]], false, lTagOf[String])
+      val linkId: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+        FHIRComponentFieldMeta("linkId", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
       val answer: FHIRComponentFieldMeta[LitSeq[Contract.Term.Offer.Answer]] =
         FHIRComponentFieldMeta("answer", lTagOf[LitSeq[Contract.Term.Offer.Answer]], false, lTagOf[Contract.Term.Offer.Answer])
       val subtype: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
         FHIRComponentFieldMeta("subtype", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-      val condition: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("condition", lTagOf[Option[String]], false, lTagOf[String])
+      val condition: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("condition", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val usePeriod: FHIRComponentFieldMeta[LitSeq[Period]] =
         FHIRComponentFieldMeta("usePeriod", lTagOf[LitSeq[Period]], false, lTagOf[Period])
       val periodType: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
@@ -1077,14 +1077,14 @@ object Contract extends CompanionFor[Contract] {
       override def fields(t: Asset): Seq[FHIRComponentField[_]] = Seq(
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[LitSeq[CodeableConcept]](`type`, t.`type`),
-        FHIRComponentField[Option[String]](text, t.text),
+        FHIRComponentField[Option[FHIRString]](text, t.text),
         FHIRComponentField[Option[CodeableConcept]](scope, t.scope),
         FHIRComponentField[LitSeq[Period]](period, t.period),
-        FHIRComponentField[LitSeq[String]](linkId, t.linkId),
+        FHIRComponentField[LitSeq[FHIRString]](linkId, t.linkId),
         FHIRComponentField[LitSeq[Contract.Term.Offer.Answer]](answer, t.answer),
         FHIRComponentField[LitSeq[CodeableConcept]](subtype, t.subtype),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-        FHIRComponentField[Option[String]](condition, t.condition),
+        FHIRComponentField[Option[FHIRString]](condition, t.condition),
         FHIRComponentField[LitSeq[Period]](usePeriod, t.usePeriod),
         FHIRComponentField[LitSeq[CodeableConcept]](periodType, t.periodType),
         FHIRComponentField[Option[Coding]](relationship, t.relationship),
@@ -1102,14 +1102,14 @@ object Contract extends CompanionFor[Contract] {
             new Asset(
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[LitSeq[CodeableConcept]]("type", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("text", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
               cursor.decodeAs[Option[CodeableConcept]]("scope", Some(None)),
               cursor.decodeAs[LitSeq[Period]]("period", Some(LitSeq.empty)),
-              cursor.decodeAs[LitSeq[String]]("linkId", Some(LitSeq.empty)),
+              cursor.decodeAs[LitSeq[FHIRString]]("linkId", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Contract.Term.Offer.Answer]]("answer", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[CodeableConcept]]("subtype", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("condition", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("condition", Some(None)),
               cursor.decodeAs[LitSeq[Period]]("usePeriod", Some(LitSeq.empty)),
               cursor.decodeAs[LitSeq[CodeableConcept]]("periodType", Some(LitSeq.empty)),
               cursor.decodeAs[Option[Coding]]("relationship", Some(None)),
@@ -1126,14 +1126,14 @@ object Contract extends CompanionFor[Contract] {
     class Asset(
         override val id: Option[String] = None,
         val `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-        val text: Option[String] = None,
+        val text: Option[FHIRString] = None,
         val scope: Option[CodeableConcept] = None,
         val period: LitSeq[Period] = LitSeq.empty,
-        val linkId: LitSeq[String] = LitSeq.empty,
+        val linkId: LitSeq[FHIRString] = LitSeq.empty,
         val answer: LitSeq[Contract.Term.Offer.Answer] = LitSeq.empty,
         val subtype: LitSeq[CodeableConcept] = LitSeq.empty,
         override val extension: LitSeq[Extension] = LitSeq.empty,
-        val condition: Option[String] = None,
+        val condition: Option[FHIRString] = None,
         val usePeriod: LitSeq[Period] = LitSeq.empty,
         val periodType: LitSeq[CodeableConcept] = LitSeq.empty,
         val relationship: Option[Coding] = None,
@@ -1148,7 +1148,7 @@ object Contract extends CompanionFor[Contract] {
     def apply(
         id: Option[String] = None,
         `type`: Option[CodeableConcept] = None,
-        text: Option[String] = None,
+        text: Option[FHIRString] = None,
         group: LitSeq[Contract.Term] = LitSeq.empty,
         issued: Option[FHIRDateTime] = None,
         applies: Option[Period] = None,
@@ -1181,7 +1181,7 @@ object Contract extends CompanionFor[Contract] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Term): Option[(Option[String], Option[CodeableConcept], Option[String], LitSeq[Contract.Term], Option[FHIRDateTime], Option[Period], Option[CodeableConcept], Option[Term.TopicChoice], LitSeq[Extension], Option[Identifier], LitSeq[Extension], Term.Offer, LitSeq[Term.SecurityLabel], LitSeq[Term.Action], LitSeq[Term.Asset])] =
+        o: Term): Option[(Option[String], Option[CodeableConcept], Option[FHIRString], LitSeq[Contract.Term], Option[FHIRDateTime], Option[Period], Option[CodeableConcept], Option[Term.TopicChoice], LitSeq[Extension], Option[Identifier], LitSeq[Extension], Term.Offer, LitSeq[Term.SecurityLabel], LitSeq[Term.Action], LitSeq[Term.Asset])] =
       Some(
         (
           o.id,
@@ -1203,8 +1203,8 @@ object Contract extends CompanionFor[Contract] {
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
     val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
       FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-    val text: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("text", lTagOf[Option[String]], false, lTagOf[String])
+    val text: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("text", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val group: FHIRComponentFieldMeta[LitSeq[Contract.Term]] =
       FHIRComponentFieldMeta("group", lTagOf[LitSeq[Contract.Term]], false, lTagOf[Contract.Term])
     val issued: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
@@ -1249,7 +1249,7 @@ object Contract extends CompanionFor[Contract] {
     override def fields(t: Term): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
       FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-      FHIRComponentField[Option[String]](text, t.text),
+      FHIRComponentField[Option[FHIRString]](text, t.text),
       FHIRComponentField[LitSeq[Contract.Term]](group, t.group),
       FHIRComponentField[Option[FHIRDateTime]](issued, t.issued),
       FHIRComponentField[Option[Period]](applies, t.applies),
@@ -1271,7 +1271,7 @@ object Contract extends CompanionFor[Contract] {
           new Term(
             cursor.decodeAs[Option[String]]("id", Some(None)),
             cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-            cursor.decodeAs[Option[String]]("text", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("text", Some(None)),
             cursor.decodeAs[LitSeq[Contract.Term]]("group", Some(LitSeq.empty)),
             cursor.decodeAs[Option[FHIRDateTime]]("issued", Some(None)),
             cursor.decodeAs[Option[Period]]("applies", Some(None)),
@@ -1292,7 +1292,7 @@ object Contract extends CompanionFor[Contract] {
   class Term(
       override val id: Option[String] = None,
       val `type`: Option[CodeableConcept] = None,
-      val text: Option[String] = None,
+      val text: Option[FHIRString] = None,
       val group: LitSeq[Contract.Term] = LitSeq.empty,
       val issued: Option[FHIRDateTime] = None,
       val applies: Option[Period] = None,
@@ -1675,21 +1675,21 @@ object Contract extends CompanionFor[Contract] {
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
       site: LitSeq[Reference] = LitSeq.empty,
-      name: Option[String] = None,
+      name: Option[FHIRString] = None,
       `type`: Option[CodeableConcept] = None,
-      title: Option[String] = None,
-      alias: LitSeq[String] = LitSeq.empty,
+      title: Option[FHIRString] = None,
+      alias: LitSeq[FHIRString] = LitSeq.empty,
       scope: Option[CodeableConcept] = None,
       status: Option[CONTRACT_STATUS] = None,
       issued: Option[FHIRDateTime] = None,
       domain: LitSeq[Reference] = LitSeq.empty,
       author: Option[Reference] = None,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       applies: Option[Period] = None,
       subject: LitSeq[Reference] = LitSeq.empty,
       subType: LitSeq[CodeableConcept] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
-      subtitle: Option[String] = None,
+      subtitle: Option[FHIRString] = None,
       topic: Option[Contract.TopicChoice] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
@@ -1766,14 +1766,14 @@ object Contract extends CompanionFor[Contract] {
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
   val site: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("site", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val `type`: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
-  val alias: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val alias: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val scope: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("scope", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val status: FHIRComponentFieldMeta[Option[CONTRACT_STATUS]] =
@@ -1784,8 +1784,8 @@ object Contract extends CompanionFor[Contract] {
     FHIRComponentFieldMeta("domain", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
   val author: FHIRComponentFieldMeta[Option[Reference]] =
     FHIRComponentFieldMeta("author", lTagOf[Option[Reference]], false, lTagOf[Reference])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val applies: FHIRComponentFieldMeta[Option[Period]] =
     FHIRComponentFieldMeta("applies", lTagOf[Option[Period]], false, lTagOf[Period])
   val subject: FHIRComponentFieldMeta[LitSeq[Reference]] =
@@ -1794,8 +1794,8 @@ object Contract extends CompanionFor[Contract] {
     FHIRComponentFieldMeta("subType", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
-  val subtitle: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("subtitle", lTagOf[Option[String]], false, lTagOf[String])
+  val subtitle: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("subtitle", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val topic: FHIRComponentFieldMeta[Option[Contract.TopicChoice]] =
     FHIRComponentFieldMeta("topic", lTagOf[Option[Contract.TopicChoice]], true, lTagOf[UnionCodeableConceptOrReference])
   val contained: FHIRComponentFieldMeta[LitSeq[Resource]] =
@@ -1896,21 +1896,21 @@ object Contract extends CompanionFor[Contract] {
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[LitSeq[Reference]](site, t.site),
-    FHIRComponentField[Option[String]](name, t.name),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
     FHIRComponentField[Option[CodeableConcept]](`type`, t.`type`),
-    FHIRComponentField[Option[String]](title, t.title),
-    FHIRComponentField[LitSeq[String]](alias, t.alias),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
+    FHIRComponentField[LitSeq[FHIRString]](alias, t.alias),
     FHIRComponentField[Option[CodeableConcept]](scope, t.scope),
     FHIRComponentField[Option[CONTRACT_STATUS]](status, t.status),
     FHIRComponentField[Option[FHIRDateTime]](issued, t.issued),
     FHIRComponentField[LitSeq[Reference]](domain, t.domain),
     FHIRComponentField[Option[Reference]](author, t.author),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[Option[Period]](applies, t.applies),
     FHIRComponentField[LitSeq[Reference]](subject, t.subject),
     FHIRComponentField[LitSeq[CodeableConcept]](subType, t.subType),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
-    FHIRComponentField[Option[String]](subtitle, t.subtitle),
+    FHIRComponentField[Option[FHIRString]](subtitle, t.subtitle),
     FHIRComponentField[Option[Contract.TopicChoice]](topic, t.topic),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
@@ -1938,21 +1938,21 @@ object Contract extends CompanionFor[Contract] {
   def extractMeta(t: Contract): Option[Meta]                                    = t.meta
   def extractText(t: Contract): Option[Narrative]                               = t.text
   def extractSite(t: Contract): LitSeq[Reference]                               = t.site
-  def extractName(t: Contract): Option[String]                                  = t.name
+  def extractName(t: Contract): Option[FHIRString]                              = t.name
   def extractType(t: Contract): Option[CodeableConcept]                         = t.`type`
-  def extractTitle(t: Contract): Option[String]                                 = t.title
-  def extractAlias(t: Contract): LitSeq[String]                                 = t.alias
+  def extractTitle(t: Contract): Option[FHIRString]                             = t.title
+  def extractAlias(t: Contract): LitSeq[FHIRString]                             = t.alias
   def extractScope(t: Contract): Option[CodeableConcept]                        = t.scope
   def extractStatus(t: Contract): Option[CONTRACT_STATUS]                       = t.status
   def extractIssued(t: Contract): Option[FHIRDateTime]                          = t.issued
   def extractDomain(t: Contract): LitSeq[Reference]                             = t.domain
   def extractAuthor(t: Contract): Option[Reference]                             = t.author
-  def extractVersion(t: Contract): Option[String]                               = t.version
+  def extractVersion(t: Contract): Option[FHIRString]                           = t.version
   def extractApplies(t: Contract): Option[Period]                               = t.applies
   def extractSubject(t: Contract): LitSeq[Reference]                            = t.subject
   def extractSubType(t: Contract): LitSeq[CodeableConcept]                      = t.subType
   def extractLanguage(t: Contract): Option[LANGUAGES]                           = t.language
-  def extractSubtitle(t: Contract): Option[String]                              = t.subtitle
+  def extractSubtitle(t: Contract): Option[FHIRString]                          = t.subtitle
   def extractTopic(t: Contract): Option[Contract.TopicChoice]                   = t.topic
   def extractContained(t: Contract): LitSeq[Resource]                           = t.contained
   def extractExtension(t: Contract): LitSeq[Extension]                          = t.extension
@@ -1996,21 +1996,21 @@ object Contract extends CompanionFor[Contract] {
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("site", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("type", Some(None)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("alias", Some(LitSeq.empty)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
+          cursor.decodeAs[LitSeq[FHIRString]]("alias", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CodeableConcept]]("scope", Some(None)),
           cursor.decodeAs[Option[CONTRACT_STATUS]]("status", Some(None)),
           cursor.decodeAs[Option[FHIRDateTime]]("issued", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("domain", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("author", Some(None)),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[Option[Period]]("applies", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("subject", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("subType", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
-          cursor.decodeAs[Option[String]]("subtitle", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("subtitle", Some(None)),
           cursor.decodeOptRef[UnionCodeableConceptOrReference]("topic"),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
@@ -2176,21 +2176,21 @@ class Contract(
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
     val site: LitSeq[Reference] = LitSeq.empty,
-    val name: Option[String] = None,
+    val name: Option[FHIRString] = None,
     val `type`: Option[CodeableConcept] = None,
-    val title: Option[String] = None,
-    val alias: LitSeq[String] = LitSeq.empty,
+    val title: Option[FHIRString] = None,
+    val alias: LitSeq[FHIRString] = LitSeq.empty,
     val scope: Option[CodeableConcept] = None,
     val status: Option[CONTRACT_STATUS] = None,
     val issued: Option[FHIRDateTime] = None,
     val domain: LitSeq[Reference] = LitSeq.empty,
     val author: Option[Reference] = None,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val applies: Option[Period] = None,
     val subject: LitSeq[Reference] = LitSeq.empty,
     val subType: LitSeq[CodeableConcept] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
-    val subtitle: Option[String] = None,
+    val subtitle: Option[FHIRString] = None,
     val topic: Option[Contract.TopicChoice] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,

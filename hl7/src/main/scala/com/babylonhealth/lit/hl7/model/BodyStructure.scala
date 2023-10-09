@@ -43,7 +43,7 @@ object BodyStructure extends CompanionFor[BodyStructure] {
       extension: LitSeq[Extension] = LitSeq.empty,
       identifier: LitSeq[Identifier] = LitSeq.empty,
       morphology: Option[CodeableConcept] = None,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       implicitRules: Option[UriStr] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       locationQualifier: LitSeq[CodeableConcept] = LitSeq.empty,
@@ -91,8 +91,8 @@ object BodyStructure extends CompanionFor[BodyStructure] {
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
   val morphology: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("morphology", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val implicitRules: FHIRComponentFieldMeta[Option[UriStr]] =
     FHIRComponentFieldMeta("implicitRules", lTagOf[Option[UriStr]], false, lTagOf[UriStr])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -131,7 +131,7 @@ object BodyStructure extends CompanionFor[BodyStructure] {
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
     FHIRComponentField[Option[CodeableConcept]](morphology, t.morphology),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[CodeableConcept]](locationQualifier, t.locationQualifier)
@@ -148,7 +148,7 @@ object BodyStructure extends CompanionFor[BodyStructure] {
   def extractExtension(t: BodyStructure): LitSeq[Extension]               = t.extension
   def extractIdentifier(t: BodyStructure): LitSeq[Identifier]             = t.identifier
   def extractMorphology(t: BodyStructure): Option[CodeableConcept]        = t.morphology
-  def extractDescription(t: BodyStructure): Option[String]                = t.description
+  def extractDescription(t: BodyStructure): Option[FHIRString]            = t.description
   def extractImplicitRules(t: BodyStructure): Option[UriStr]              = t.implicitRules
   def extractModifierExtension(t: BodyStructure): LitSeq[Extension]       = t.modifierExtension
   def extractLocationQualifier(t: BodyStructure): LitSeq[CodeableConcept] = t.locationQualifier
@@ -160,7 +160,7 @@ object BodyStructure extends CompanionFor[BodyStructure] {
     "patient"    -> (obj => Seq(obj.patient))
   )
   def unapply(
-      o: BodyStructure): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[Attachment], Option[Boolean], Reference, Option[LANGUAGES], Option[CodeableConcept], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[CodeableConcept], Option[String], Option[UriStr], LitSeq[Extension], LitSeq[CodeableConcept])] =
+      o: BodyStructure): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[Attachment], Option[Boolean], Reference, Option[LANGUAGES], Option[CodeableConcept], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[CodeableConcept], Option[FHIRString], Option[UriStr], LitSeq[Extension], LitSeq[CodeableConcept])] =
     Some(
       (
         o.id,
@@ -195,7 +195,7 @@ object BodyStructure extends CompanionFor[BodyStructure] {
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
           cursor.decodeAs[Option[CodeableConcept]]("morphology", Some(None)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("locationQualifier", Some(LitSeq.empty)),
@@ -276,7 +276,7 @@ class BodyStructure(
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
     val morphology: Option[CodeableConcept] = None,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     override val implicitRules: Option[UriStr] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val locationQualifier: LitSeq[CodeableConcept] = LitSeq.empty,

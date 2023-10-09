@@ -59,30 +59,30 @@ object TestScript extends CompanionFor[TestScript] {
         override val parentType: CompanionFor[ResourceType] = Assert
         def apply(
             id: Option[String] = None,
-            path: Option[String] = None,
-            label: Option[String] = None,
-            value: Option[String] = None,
+            path: Option[FHIRString] = None,
+            label: Option[FHIRString] = None,
+            value: Option[FHIRString] = None,
             operator: Option[ASSERT_OPERATOR_CODES] = None,
             resource: Option[DEFINED_TYPES] = None,
             response: Option[ASSERT_RESPONSE_CODE_TYPES] = None,
             sourceId: Option[Id] = None,
             extension: LitSeq[Extension] = LitSeq.empty,
             direction: Option[ASSERT_DIRECTION_CODES] = None,
-            minimumId: Option[String] = None,
-            expression: Option[String] = None,
-            requestURL: Option[String] = None,
-            description: Option[String] = None,
+            minimumId: Option[FHIRString] = None,
+            expression: Option[FHIRString] = None,
+            requestURL: Option[FHIRString] = None,
+            description: Option[FHIRString] = None,
             contentType: Option[Code] = None,
-            headerField: Option[String] = None,
+            headerField: Option[FHIRString] = None,
             warningOnly: Boolean,
-            responseCode: Option[String] = None,
+            responseCode: Option[FHIRString] = None,
             requestMethod: Option[HTTP_OPERATIONS] = None,
             navigationLinks: Option[Boolean] = None,
             modifierExtension: LitSeq[Extension] = LitSeq.empty,
-            compareToSourceId: Option[String] = None,
+            compareToSourceId: Option[FHIRString] = None,
             validateProfileId: Option[Id] = None,
-            compareToSourcePath: Option[String] = None,
-            compareToSourceExpression: Option[String] = None,
+            compareToSourcePath: Option[FHIRString] = None,
+            compareToSourceExpression: Option[FHIRString] = None,
             primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
         ): Assert = new Assert(
           id,
@@ -114,12 +114,12 @@ object TestScript extends CompanionFor[TestScript] {
         )
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-        val path: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("path", lTagOf[Option[String]], false, lTagOf[String])
-        val label: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("label", lTagOf[Option[String]], false, lTagOf[String])
-        val value: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("value", lTagOf[Option[String]], false, lTagOf[String])
+        val path: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("path", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+        val label: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("label", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+        val value: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("value", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val operator: FHIRComponentFieldMeta[Option[ASSERT_OPERATOR_CODES]] =
           FHIRComponentFieldMeta("operator", lTagOf[Option[ASSERT_OPERATOR_CODES]], false, lTagOf[ASSERT_OPERATOR_CODES])
         val resource: FHIRComponentFieldMeta[Option[DEFINED_TYPES]] =
@@ -136,36 +136,36 @@ object TestScript extends CompanionFor[TestScript] {
           FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
         val direction: FHIRComponentFieldMeta[Option[ASSERT_DIRECTION_CODES]] =
           FHIRComponentFieldMeta("direction", lTagOf[Option[ASSERT_DIRECTION_CODES]], false, lTagOf[ASSERT_DIRECTION_CODES])
-        val minimumId: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("minimumId", lTagOf[Option[String]], false, lTagOf[String])
-        val expression: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("expression", lTagOf[Option[String]], false, lTagOf[String])
-        val requestURL: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("requestURL", lTagOf[Option[String]], false, lTagOf[String])
-        val description: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+        val minimumId: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("minimumId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+        val expression: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("expression", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+        val requestURL: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("requestURL", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+        val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val contentType: FHIRComponentFieldMeta[Option[Code]] =
           FHIRComponentFieldMeta("contentType", lTagOf[Option[Code]], false, lTagOf[Code])
-        val headerField: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("headerField", lTagOf[Option[String]], false, lTagOf[String])
+        val headerField: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("headerField", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val warningOnly: FHIRComponentFieldMeta[Boolean] =
           FHIRComponentFieldMeta("warningOnly", lTagOf[Boolean], false, lTagOf[Boolean])
-        val responseCode: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("responseCode", lTagOf[Option[String]], false, lTagOf[String])
+        val responseCode: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("responseCode", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val requestMethod: FHIRComponentFieldMeta[Option[HTTP_OPERATIONS]] =
           FHIRComponentFieldMeta("requestMethod", lTagOf[Option[HTTP_OPERATIONS]], false, lTagOf[HTTP_OPERATIONS])
         val navigationLinks: FHIRComponentFieldMeta[Option[Boolean]] =
           FHIRComponentFieldMeta("navigationLinks", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
         val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
           FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-        val compareToSourceId: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("compareToSourceId", lTagOf[Option[String]], false, lTagOf[String])
+        val compareToSourceId: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("compareToSourceId", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val validateProfileId: FHIRComponentFieldMeta[Option[Id]] =
           FHIRComponentFieldMeta("validateProfileId", lTagOf[Option[Id]], false, lTagOf[Id])
-        val compareToSourcePath: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("compareToSourcePath", lTagOf[Option[String]], false, lTagOf[String])
-        val compareToSourceExpression: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("compareToSourceExpression", lTagOf[Option[String]], false, lTagOf[String])
+        val compareToSourcePath: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("compareToSourcePath", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+        val compareToSourceExpression: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("compareToSourceExpression", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(
           id,
           path,
@@ -196,30 +196,30 @@ object TestScript extends CompanionFor[TestScript] {
         override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
         override def fields(t: Assert): Seq[FHIRComponentField[_]] = Seq(
           FHIRComponentField[Option[String]](id, t.id),
-          FHIRComponentField[Option[String]](path, t.path),
-          FHIRComponentField[Option[String]](label, t.label),
-          FHIRComponentField[Option[String]](value, t.value),
+          FHIRComponentField[Option[FHIRString]](path, t.path),
+          FHIRComponentField[Option[FHIRString]](label, t.label),
+          FHIRComponentField[Option[FHIRString]](value, t.value),
           FHIRComponentField[Option[ASSERT_OPERATOR_CODES]](operator, t.operator),
           FHIRComponentField[Option[DEFINED_TYPES]](resource, t.resource),
           FHIRComponentField[Option[ASSERT_RESPONSE_CODE_TYPES]](response, t.response),
           FHIRComponentField[Option[Id]](sourceId, t.sourceId),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[Option[ASSERT_DIRECTION_CODES]](direction, t.direction),
-          FHIRComponentField[Option[String]](minimumId, t.minimumId),
-          FHIRComponentField[Option[String]](expression, t.expression),
-          FHIRComponentField[Option[String]](requestURL, t.requestURL),
-          FHIRComponentField[Option[String]](description, t.description),
+          FHIRComponentField[Option[FHIRString]](minimumId, t.minimumId),
+          FHIRComponentField[Option[FHIRString]](expression, t.expression),
+          FHIRComponentField[Option[FHIRString]](requestURL, t.requestURL),
+          FHIRComponentField[Option[FHIRString]](description, t.description),
           FHIRComponentField[Option[Code]](contentType, t.contentType),
-          FHIRComponentField[Option[String]](headerField, t.headerField),
+          FHIRComponentField[Option[FHIRString]](headerField, t.headerField),
           FHIRComponentField[Boolean](warningOnly, t.warningOnly),
-          FHIRComponentField[Option[String]](responseCode, t.responseCode),
+          FHIRComponentField[Option[FHIRString]](responseCode, t.responseCode),
           FHIRComponentField[Option[HTTP_OPERATIONS]](requestMethod, t.requestMethod),
           FHIRComponentField[Option[Boolean]](navigationLinks, t.navigationLinks),
           FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
-          FHIRComponentField[Option[String]](compareToSourceId, t.compareToSourceId),
+          FHIRComponentField[Option[FHIRString]](compareToSourceId, t.compareToSourceId),
           FHIRComponentField[Option[Id]](validateProfileId, t.validateProfileId),
-          FHIRComponentField[Option[String]](compareToSourcePath, t.compareToSourcePath),
-          FHIRComponentField[Option[String]](compareToSourceExpression, t.compareToSourceExpression)
+          FHIRComponentField[Option[FHIRString]](compareToSourcePath, t.compareToSourcePath),
+          FHIRComponentField[Option[FHIRString]](compareToSourceExpression, t.compareToSourceExpression)
         )
         val baseType: CompanionFor[Assert] = this
         val thisName: String               = "Assert"
@@ -228,30 +228,30 @@ object TestScript extends CompanionFor[TestScript] {
             Try(
               new Assert(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
-                cursor.decodeAs[Option[String]]("path", Some(None)),
-                cursor.decodeAs[Option[String]]("label", Some(None)),
-                cursor.decodeAs[Option[String]]("value", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("path", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("label", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("value", Some(None)),
                 cursor.decodeAs[Option[ASSERT_OPERATOR_CODES]]("operator", Some(None)),
                 cursor.decodeAs[Option[DEFINED_TYPES]]("resource", Some(None)),
                 cursor.decodeAs[Option[ASSERT_RESPONSE_CODE_TYPES]]("response", Some(None)),
                 cursor.decodeAs[Option[Id]]("sourceId", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[Option[ASSERT_DIRECTION_CODES]]("direction", Some(None)),
-                cursor.decodeAs[Option[String]]("minimumId", Some(None)),
-                cursor.decodeAs[Option[String]]("expression", Some(None)),
-                cursor.decodeAs[Option[String]]("requestURL", Some(None)),
-                cursor.decodeAs[Option[String]]("description", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("minimumId", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("expression", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("requestURL", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
                 cursor.decodeAs[Option[Code]]("contentType", Some(None)),
-                cursor.decodeAs[Option[String]]("headerField", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("headerField", Some(None)),
                 cursor.decodeAs[Boolean]("warningOnly", None),
-                cursor.decodeAs[Option[String]]("responseCode", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("responseCode", Some(None)),
                 cursor.decodeAs[Option[HTTP_OPERATIONS]]("requestMethod", Some(None)),
                 cursor.decodeAs[Option[Boolean]]("navigationLinks", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
-                cursor.decodeAs[Option[String]]("compareToSourceId", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("compareToSourceId", Some(None)),
                 cursor.decodeAs[Option[Id]]("validateProfileId", Some(None)),
-                cursor.decodeAs[Option[String]]("compareToSourcePath", Some(None)),
-                cursor.decodeAs[Option[String]]("compareToSourceExpression", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("compareToSourcePath", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("compareToSourceExpression", Some(None)),
                 decodeAttributes(cursor)
               )
             ))
@@ -259,30 +259,30 @@ object TestScript extends CompanionFor[TestScript] {
       @POJOBoilerplate
       class Assert(
           override val id: Option[String] = None,
-          val path: Option[String] = None,
-          val label: Option[String] = None,
-          val value: Option[String] = None,
+          val path: Option[FHIRString] = None,
+          val label: Option[FHIRString] = None,
+          val value: Option[FHIRString] = None,
           val operator: Option[ASSERT_OPERATOR_CODES] = None,
           val resource: Option[DEFINED_TYPES] = None,
           val response: Option[ASSERT_RESPONSE_CODE_TYPES] = None,
           val sourceId: Option[Id] = None,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           val direction: Option[ASSERT_DIRECTION_CODES] = None,
-          val minimumId: Option[String] = None,
-          val expression: Option[String] = None,
-          val requestURL: Option[String] = None,
-          val description: Option[String] = None,
+          val minimumId: Option[FHIRString] = None,
+          val expression: Option[FHIRString] = None,
+          val requestURL: Option[FHIRString] = None,
+          val description: Option[FHIRString] = None,
           val contentType: Option[Code] = None,
-          val headerField: Option[String] = None,
+          val headerField: Option[FHIRString] = None,
           val warningOnly: Boolean,
-          val responseCode: Option[String] = None,
+          val responseCode: Option[FHIRString] = None,
           val requestMethod: Option[HTTP_OPERATIONS] = None,
           val navigationLinks: Option[Boolean] = None,
           override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
-          val compareToSourceId: Option[String] = None,
+          val compareToSourceId: Option[FHIRString] = None,
           val validateProfileId: Option[Id] = None,
-          val compareToSourcePath: Option[String] = None,
-          val compareToSourceExpression: Option[String] = None,
+          val compareToSourcePath: Option[FHIRString] = None,
+          val compareToSourceExpression: Option[FHIRString] = None,
           override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
           extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
       object Operation extends CompanionFor[Operation] {
@@ -299,8 +299,8 @@ object TestScript extends CompanionFor[TestScript] {
           override val parentType: CompanionFor[ResourceType] = RequestHeader
           def apply(
               id: Option[String] = None,
-              field: String,
-              value: String,
+              field: FHIRString,
+              value: FHIRString,
               extension: LitSeq[Extension] = LitSeq.empty,
               modifierExtension: LitSeq[Extension] = LitSeq.empty,
               primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -312,14 +312,14 @@ object TestScript extends CompanionFor[TestScript] {
             modifierExtension,
             primitiveAttributes = primitiveAttributes
           )
-          def unapply(o: RequestHeader): Option[(Option[String], String, String, LitSeq[Extension], LitSeq[Extension])] = Some(
-            (o.id, o.field, o.value, o.extension, o.modifierExtension))
+          def unapply(o: RequestHeader): Option[(Option[String], FHIRString, FHIRString, LitSeq[Extension], LitSeq[Extension])] =
+            Some((o.id, o.field, o.value, o.extension, o.modifierExtension))
           val id: FHIRComponentFieldMeta[Option[String]] =
             FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-          val field: FHIRComponentFieldMeta[String] =
-            FHIRComponentFieldMeta("field", lTagOf[String], false, lTagOf[String])
-          val value: FHIRComponentFieldMeta[String] =
-            FHIRComponentFieldMeta("value", lTagOf[String], false, lTagOf[String])
+          val field: FHIRComponentFieldMeta[FHIRString] =
+            FHIRComponentFieldMeta("field", lTagOf[FHIRString], false, lTagOf[FHIRString])
+          val value: FHIRComponentFieldMeta[FHIRString] =
+            FHIRComponentFieldMeta("value", lTagOf[FHIRString], false, lTagOf[FHIRString])
           val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
             FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
           val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
@@ -328,8 +328,8 @@ object TestScript extends CompanionFor[TestScript] {
           override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
           override def fields(t: RequestHeader): Seq[FHIRComponentField[_]] = Seq(
             FHIRComponentField[Option[String]](id, t.id),
-            FHIRComponentField[String](field, t.field),
-            FHIRComponentField[String](value, t.value),
+            FHIRComponentField[FHIRString](field, t.field),
+            FHIRComponentField[FHIRString](value, t.value),
             FHIRComponentField[LitSeq[Extension]](extension, t.extension),
             FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
           )
@@ -340,8 +340,8 @@ object TestScript extends CompanionFor[TestScript] {
               Try(
                 new RequestHeader(
                   cursor.decodeAs[Option[String]]("id", Some(None)),
-                  cursor.decodeAs[String]("field", None),
-                  cursor.decodeAs[String]("value", None),
+                  cursor.decodeAs[FHIRString]("field", None),
+                  cursor.decodeAs[FHIRString]("value", None),
                   cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                   cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
                   decodeAttributes(cursor)
@@ -351,28 +351,28 @@ object TestScript extends CompanionFor[TestScript] {
         @POJOBoilerplate
         class RequestHeader(
             override val id: Option[String] = None,
-            val field: String,
-            val value: String,
+            val field: FHIRString,
+            val value: FHIRString,
             override val extension: LitSeq[Extension] = LitSeq.empty,
             override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
             override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
             extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
         def apply(
             id: Option[String] = None,
-            url: Option[String] = None,
+            url: Option[FHIRString] = None,
             `type`: Option[Coding] = None,
-            label: Option[String] = None,
+            label: Option[FHIRString] = None,
             accept: Option[Code] = None,
             method: Option[HTTP_OPERATIONS] = None,
             origin: Option[Int] = None,
-            params: Option[String] = None,
+            params: Option[FHIRString] = None,
             resource: Option[DEFINED_TYPES] = None,
             sourceId: Option[Id] = None,
             targetId: Option[Id] = None,
             extension: LitSeq[Extension] = LitSeq.empty,
             requestId: Option[Id] = None,
             responseId: Option[Id] = None,
-            description: Option[String] = None,
+            description: Option[FHIRString] = None,
             contentType: Option[Code] = None,
             destination: Option[Int] = None,
             encodeRequestUrl: Boolean,
@@ -403,7 +403,7 @@ object TestScript extends CompanionFor[TestScript] {
           primitiveAttributes = primitiveAttributes
         )
         def unapply(
-            o: Operation): Option[(Option[String], Option[String], Option[Coding], Option[String], Option[Code], Option[HTTP_OPERATIONS], Option[Int], Option[String], Option[DEFINED_TYPES], Option[Id], Option[Id], LitSeq[Extension], Option[Id], Option[Id], Option[String], Option[Code], Option[Int], Boolean, LitSeq[Extension], LitSeq[Operation.RequestHeader])] =
+            o: Operation): Option[(Option[String], Option[FHIRString], Option[Coding], Option[FHIRString], Option[Code], Option[HTTP_OPERATIONS], Option[Int], Option[FHIRString], Option[DEFINED_TYPES], Option[Id], Option[Id], LitSeq[Extension], Option[Id], Option[Id], Option[FHIRString], Option[Code], Option[Int], Boolean, LitSeq[Extension], LitSeq[Operation.RequestHeader])] =
           Some(
             (
               o.id,
@@ -428,20 +428,20 @@ object TestScript extends CompanionFor[TestScript] {
               o.requestHeader))
         val id: FHIRComponentFieldMeta[Option[String]] =
           FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-        val url: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("url", lTagOf[Option[String]], false, lTagOf[String])
+        val url: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("url", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val `type`: FHIRComponentFieldMeta[Option[Coding]] =
           FHIRComponentFieldMeta("type", lTagOf[Option[Coding]], false, lTagOf[Coding])
-        val label: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("label", lTagOf[Option[String]], false, lTagOf[String])
+        val label: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("label", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val accept: FHIRComponentFieldMeta[Option[Code]] =
           FHIRComponentFieldMeta("accept", lTagOf[Option[Code]], false, lTagOf[Code])
         val method: FHIRComponentFieldMeta[Option[HTTP_OPERATIONS]] =
           FHIRComponentFieldMeta("method", lTagOf[Option[HTTP_OPERATIONS]], false, lTagOf[HTTP_OPERATIONS])
         val origin: FHIRComponentFieldMeta[Option[Int]] =
           FHIRComponentFieldMeta("origin", lTagOf[Option[Int]], false, lTagOf[Int])
-        val params: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("params", lTagOf[Option[String]], false, lTagOf[String])
+        val params: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("params", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val resource: FHIRComponentFieldMeta[Option[DEFINED_TYPES]] =
           FHIRComponentFieldMeta("resource", lTagOf[Option[DEFINED_TYPES]], false, lTagOf[DEFINED_TYPES])
         val sourceId: FHIRComponentFieldMeta[Option[Id]] =
@@ -454,8 +454,8 @@ object TestScript extends CompanionFor[TestScript] {
           FHIRComponentFieldMeta("requestId", lTagOf[Option[Id]], false, lTagOf[Id])
         val responseId: FHIRComponentFieldMeta[Option[Id]] =
           FHIRComponentFieldMeta("responseId", lTagOf[Option[Id]], false, lTagOf[Id])
-        val description: FHIRComponentFieldMeta[Option[String]] =
-          FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+        val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+          FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
         val contentType: FHIRComponentFieldMeta[Option[Code]] =
           FHIRComponentFieldMeta("contentType", lTagOf[Option[Code]], false, lTagOf[Code])
         val destination: FHIRComponentFieldMeta[Option[Int]] =
@@ -491,20 +491,20 @@ object TestScript extends CompanionFor[TestScript] {
         override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
         override def fields(t: Operation): Seq[FHIRComponentField[_]] = Seq(
           FHIRComponentField[Option[String]](id, t.id),
-          FHIRComponentField[Option[String]](url, t.url),
+          FHIRComponentField[Option[FHIRString]](url, t.url),
           FHIRComponentField[Option[Coding]](`type`, t.`type`),
-          FHIRComponentField[Option[String]](label, t.label),
+          FHIRComponentField[Option[FHIRString]](label, t.label),
           FHIRComponentField[Option[Code]](accept, t.accept),
           FHIRComponentField[Option[HTTP_OPERATIONS]](method, t.method),
           FHIRComponentField[Option[Int]](origin, t.origin),
-          FHIRComponentField[Option[String]](params, t.params),
+          FHIRComponentField[Option[FHIRString]](params, t.params),
           FHIRComponentField[Option[DEFINED_TYPES]](resource, t.resource),
           FHIRComponentField[Option[Id]](sourceId, t.sourceId),
           FHIRComponentField[Option[Id]](targetId, t.targetId),
           FHIRComponentField[LitSeq[Extension]](extension, t.extension),
           FHIRComponentField[Option[Id]](requestId, t.requestId),
           FHIRComponentField[Option[Id]](responseId, t.responseId),
-          FHIRComponentField[Option[String]](description, t.description),
+          FHIRComponentField[Option[FHIRString]](description, t.description),
           FHIRComponentField[Option[Code]](contentType, t.contentType),
           FHIRComponentField[Option[Int]](destination, t.destination),
           FHIRComponentField[Boolean](encodeRequestUrl, t.encodeRequestUrl),
@@ -518,20 +518,20 @@ object TestScript extends CompanionFor[TestScript] {
             Try(
               new Operation(
                 cursor.decodeAs[Option[String]]("id", Some(None)),
-                cursor.decodeAs[Option[String]]("url", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("url", Some(None)),
                 cursor.decodeAs[Option[Coding]]("type", Some(None)),
-                cursor.decodeAs[Option[String]]("label", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("label", Some(None)),
                 cursor.decodeAs[Option[Code]]("accept", Some(None)),
                 cursor.decodeAs[Option[HTTP_OPERATIONS]]("method", Some(None)),
                 cursor.decodeAs[Option[Int]]("origin", Some(None)),
-                cursor.decodeAs[Option[String]]("params", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("params", Some(None)),
                 cursor.decodeAs[Option[DEFINED_TYPES]]("resource", Some(None)),
                 cursor.decodeAs[Option[Id]]("sourceId", Some(None)),
                 cursor.decodeAs[Option[Id]]("targetId", Some(None)),
                 cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
                 cursor.decodeAs[Option[Id]]("requestId", Some(None)),
                 cursor.decodeAs[Option[Id]]("responseId", Some(None)),
-                cursor.decodeAs[Option[String]]("description", Some(None)),
+                cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
                 cursor.decodeAs[Option[Code]]("contentType", Some(None)),
                 cursor.decodeAs[Option[Int]]("destination", Some(None)),
                 cursor.decodeAs[Boolean]("encodeRequestUrl", None),
@@ -544,20 +544,20 @@ object TestScript extends CompanionFor[TestScript] {
       @POJOBoilerplate
       class Operation(
           override val id: Option[String] = None,
-          val url: Option[String] = None,
+          val url: Option[FHIRString] = None,
           val `type`: Option[Coding] = None,
-          val label: Option[String] = None,
+          val label: Option[FHIRString] = None,
           val accept: Option[Code] = None,
           val method: Option[HTTP_OPERATIONS] = None,
           val origin: Option[Int] = None,
-          val params: Option[String] = None,
+          val params: Option[FHIRString] = None,
           val resource: Option[DEFINED_TYPES] = None,
           val sourceId: Option[Id] = None,
           val targetId: Option[Id] = None,
           override val extension: LitSeq[Extension] = LitSeq.empty,
           val requestId: Option[Id] = None,
           val responseId: Option[Id] = None,
-          val description: Option[String] = None,
+          val description: Option[FHIRString] = None,
           val contentType: Option[Code] = None,
           val destination: Option[Int] = None,
           val encodeRequestUrl: Boolean,
@@ -695,7 +695,7 @@ object TestScript extends CompanionFor[TestScript] {
           id: Option[String] = None,
           url: UriStr,
           extension: LitSeq[Extension] = LitSeq.empty,
-          description: Option[String] = None,
+          description: Option[FHIRString] = None,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
           primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
       ): Link = new Link(
@@ -706,7 +706,7 @@ object TestScript extends CompanionFor[TestScript] {
         modifierExtension,
         primitiveAttributes = primitiveAttributes
       )
-      def unapply(o: Link): Option[(Option[String], UriStr, LitSeq[Extension], Option[String], LitSeq[Extension])] = Some(
+      def unapply(o: Link): Option[(Option[String], UriStr, LitSeq[Extension], Option[FHIRString], LitSeq[Extension])] = Some(
         (o.id, o.url, o.extension, o.description, o.modifierExtension))
       val id: FHIRComponentFieldMeta[Option[String]] =
         FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
@@ -714,8 +714,8 @@ object TestScript extends CompanionFor[TestScript] {
         FHIRComponentFieldMeta("url", lTagOf[UriStr], false, lTagOf[UriStr])
       val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-      val description: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+      val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
         FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] = Seq(id, url, extension, description, modifierExtension)
@@ -724,7 +724,7 @@ object TestScript extends CompanionFor[TestScript] {
         FHIRComponentField[Option[String]](id, t.id),
         FHIRComponentField[UriStr](url, t.url),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-        FHIRComponentField[Option[String]](description, t.description),
+        FHIRComponentField[Option[FHIRString]](description, t.description),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
       )
       val baseType: CompanionFor[Link] = this
@@ -736,7 +736,7 @@ object TestScript extends CompanionFor[TestScript] {
               cursor.decodeAs[Option[String]]("id", Some(None)),
               cursor.decodeAs[UriStr]("url", None),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-              cursor.decodeAs[Option[String]]("description", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
               decodeAttributes(cursor)
             )
@@ -747,7 +747,7 @@ object TestScript extends CompanionFor[TestScript] {
         override val id: Option[String] = None,
         val url: UriStr,
         override val extension: LitSeq[Extension] = LitSeq.empty,
-        val description: Option[String] = None,
+        val description: Option[FHIRString] = None,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
         override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -764,7 +764,7 @@ object TestScript extends CompanionFor[TestScript] {
           required: Boolean,
           extension: LitSeq[Extension] = LitSeq.empty,
           validated: Boolean,
-          description: Option[String] = None,
+          description: Option[FHIRString] = None,
           destination: Option[Int] = None,
           capabilities: Canonical,
           modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -783,7 +783,7 @@ object TestScript extends CompanionFor[TestScript] {
         primitiveAttributes = primitiveAttributes
       )
       def unapply(
-          o: Capability): Option[(Option[String], LitSeq[UriStr], LitSeq[Int], Boolean, LitSeq[Extension], Boolean, Option[String], Option[Int], Canonical, LitSeq[Extension])] =
+          o: Capability): Option[(Option[String], LitSeq[UriStr], LitSeq[Int], Boolean, LitSeq[Extension], Boolean, Option[FHIRString], Option[Int], Canonical, LitSeq[Extension])] =
         Some(
           (
             o.id,
@@ -808,8 +808,8 @@ object TestScript extends CompanionFor[TestScript] {
         FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
       val validated: FHIRComponentFieldMeta[Boolean] =
         FHIRComponentFieldMeta("validated", lTagOf[Boolean], false, lTagOf[Boolean])
-      val description: FHIRComponentFieldMeta[Option[String]] =
-        FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+      val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+        FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
       val destination: FHIRComponentFieldMeta[Option[Int]] =
         FHIRComponentFieldMeta("destination", lTagOf[Option[Int]], false, lTagOf[Int])
       val capabilities: FHIRComponentFieldMeta[Canonical] =
@@ -826,7 +826,7 @@ object TestScript extends CompanionFor[TestScript] {
         FHIRComponentField[Boolean](required, t.required),
         FHIRComponentField[LitSeq[Extension]](extension, t.extension),
         FHIRComponentField[Boolean](validated, t.validated),
-        FHIRComponentField[Option[String]](description, t.description),
+        FHIRComponentField[Option[FHIRString]](description, t.description),
         FHIRComponentField[Option[Int]](destination, t.destination),
         FHIRComponentField[Canonical](capabilities, t.capabilities),
         FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
@@ -843,7 +843,7 @@ object TestScript extends CompanionFor[TestScript] {
               cursor.decodeAs[Boolean]("required", None),
               cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
               cursor.decodeAs[Boolean]("validated", None),
-              cursor.decodeAs[Option[String]]("description", Some(None)),
+              cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
               cursor.decodeAs[Option[Int]]("destination", Some(None)),
               cursor.decodeAs[Canonical]("capabilities", None),
               cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -859,7 +859,7 @@ object TestScript extends CompanionFor[TestScript] {
         val required: Boolean,
         override val extension: LitSeq[Extension] = LitSeq.empty,
         val validated: Boolean,
-        val description: Option[String] = None,
+        val description: Option[FHIRString] = None,
         val destination: Option[Int] = None,
         val capabilities: Canonical,
         override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -1131,9 +1131,9 @@ object TestScript extends CompanionFor[TestScript] {
         extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
     def apply(
         id: Option[String] = None,
-        name: Option[String] = None,
+        name: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        description: Option[String] = None,
+        description: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         action: NonEmptyLitSeq[Test.Action],
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
@@ -1147,16 +1147,16 @@ object TestScript extends CompanionFor[TestScript] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Test): Option[(Option[String], Option[String], LitSeq[Extension], Option[String], LitSeq[Extension], NonEmptyLitSeq[Test.Action])] =
+        o: Test): Option[(Option[String], Option[FHIRString], LitSeq[Extension], Option[FHIRString], LitSeq[Extension], NonEmptyLitSeq[Test.Action])] =
       Some((o.id, o.name, o.extension, o.description, o.modifierExtension, o.action))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val action: FHIRComponentFieldMeta[NonEmptyLitSeq[Test.Action]] =
@@ -1165,9 +1165,9 @@ object TestScript extends CompanionFor[TestScript] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Test): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](name, t.name),
+      FHIRComponentField[Option[FHIRString]](name, t.name),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
       FHIRComponentField[NonEmptyLitSeq[Test.Action]](action, t.action)
     )
@@ -1178,9 +1178,9 @@ object TestScript extends CompanionFor[TestScript] {
         Try(
           new Test(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("name", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             cursor.decodeAs[NonEmptyLitSeq[Test.Action]]("action", None),
             decodeAttributes(cursor)
@@ -1190,9 +1190,9 @@ object TestScript extends CompanionFor[TestScript] {
   @POJOBoilerplate
   class Test(
       override val id: Option[String] = None,
-      val name: Option[String] = None,
+      val name: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val description: Option[String] = None,
+      val description: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       val action: NonEmptyLitSeq[Test.Action],
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
@@ -1271,15 +1271,15 @@ object TestScript extends CompanionFor[TestScript] {
     override val parentType: CompanionFor[ResourceType] = Variable
     def apply(
         id: Option[String] = None,
-        name: String,
-        hint: Option[String] = None,
-        path: Option[String] = None,
+        name: FHIRString,
+        hint: Option[FHIRString] = None,
+        path: Option[FHIRString] = None,
         sourceId: Option[Id] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
-        expression: Option[String] = None,
-        description: Option[String] = None,
-        headerField: Option[String] = None,
-        defaultValue: Option[String] = None,
+        expression: Option[FHIRString] = None,
+        description: Option[FHIRString] = None,
+        headerField: Option[FHIRString] = None,
+        defaultValue: Option[FHIRString] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
         primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts
     ): Variable = new Variable(
@@ -1297,7 +1297,7 @@ object TestScript extends CompanionFor[TestScript] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Variable): Option[(Option[String], String, Option[String], Option[String], Option[Id], LitSeq[Extension], Option[String], Option[String], Option[String], Option[String], LitSeq[Extension])] =
+        o: Variable): Option[(Option[String], FHIRString, Option[FHIRString], Option[FHIRString], Option[Id], LitSeq[Extension], Option[FHIRString], Option[FHIRString], Option[FHIRString], Option[FHIRString], LitSeq[Extension])] =
       Some(
         (
           o.id,
@@ -1313,24 +1313,24 @@ object TestScript extends CompanionFor[TestScript] {
           o.modifierExtension))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val name: FHIRComponentFieldMeta[String] =
-      FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
-    val hint: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("hint", lTagOf[Option[String]], false, lTagOf[String])
-    val path: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("path", lTagOf[Option[String]], false, lTagOf[String])
+    val name: FHIRComponentFieldMeta[FHIRString] =
+      FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
+    val hint: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("hint", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val path: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("path", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val sourceId: FHIRComponentFieldMeta[Option[Id]] =
       FHIRComponentFieldMeta("sourceId", lTagOf[Option[Id]], false, lTagOf[Id])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-    val expression: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("expression", lTagOf[Option[String]], false, lTagOf[String])
-    val description: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
-    val headerField: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("headerField", lTagOf[Option[String]], false, lTagOf[String])
-    val defaultValue: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("defaultValue", lTagOf[Option[String]], false, lTagOf[String])
+    val expression: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("expression", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val headerField: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("headerField", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+    val defaultValue: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("defaultValue", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val fieldsMeta: Seq[FHIRComponentFieldMeta[_]] =
@@ -1338,15 +1338,15 @@ object TestScript extends CompanionFor[TestScript] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Variable): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[String](name, t.name),
-      FHIRComponentField[Option[String]](hint, t.hint),
-      FHIRComponentField[Option[String]](path, t.path),
+      FHIRComponentField[FHIRString](name, t.name),
+      FHIRComponentField[Option[FHIRString]](hint, t.hint),
+      FHIRComponentField[Option[FHIRString]](path, t.path),
       FHIRComponentField[Option[Id]](sourceId, t.sourceId),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-      FHIRComponentField[Option[String]](expression, t.expression),
-      FHIRComponentField[Option[String]](description, t.description),
-      FHIRComponentField[Option[String]](headerField, t.headerField),
-      FHIRComponentField[Option[String]](defaultValue, t.defaultValue),
+      FHIRComponentField[Option[FHIRString]](expression, t.expression),
+      FHIRComponentField[Option[FHIRString]](description, t.description),
+      FHIRComponentField[Option[FHIRString]](headerField, t.headerField),
+      FHIRComponentField[Option[FHIRString]](defaultValue, t.defaultValue),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension)
     )
     val baseType: CompanionFor[Variable] = this
@@ -1356,15 +1356,15 @@ object TestScript extends CompanionFor[TestScript] {
         Try(
           new Variable(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[String]("name", None),
-            cursor.decodeAs[Option[String]]("hint", Some(None)),
-            cursor.decodeAs[Option[String]]("path", Some(None)),
+            cursor.decodeAs[FHIRString]("name", None),
+            cursor.decodeAs[Option[FHIRString]]("hint", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("path", Some(None)),
             cursor.decodeAs[Option[Id]]("sourceId", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-            cursor.decodeAs[Option[String]]("expression", Some(None)),
-            cursor.decodeAs[Option[String]]("description", Some(None)),
-            cursor.decodeAs[Option[String]]("headerField", Some(None)),
-            cursor.decodeAs[Option[String]]("defaultValue", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("expression", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("headerField", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("defaultValue", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
             decodeAttributes(cursor)
           )
@@ -1373,15 +1373,15 @@ object TestScript extends CompanionFor[TestScript] {
   @POJOBoilerplate
   class Variable(
       override val id: Option[String] = None,
-      val name: String,
-      val hint: Option[String] = None,
-      val path: Option[String] = None,
+      val name: FHIRString,
+      val hint: Option[FHIRString] = None,
+      val path: Option[FHIRString] = None,
       val sourceId: Option[Id] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
-      val expression: Option[String] = None,
-      val description: Option[String] = None,
-      val headerField: Option[String] = None,
-      val defaultValue: Option[String] = None,
+      val expression: Option[FHIRString] = None,
+      val description: Option[FHIRString] = None,
+      val headerField: Option[FHIRString] = None,
+      val defaultValue: Option[FHIRString] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
       override val primitiveAttributes: TreeMap[FHIRComponentFieldMeta[_], PrimitiveElementInfo] = FHIRObject.emptyAtts)
       extends BackboneElement(id = id, extension = extension, modifierExtension = modifierExtension)
@@ -1529,18 +1529,18 @@ object TestScript extends CompanionFor[TestScript] {
       url: UriStr,
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
-      name: String,
+      name: FHIRString,
       date: Option[FHIRDateTime] = None,
-      title: Option[String] = None,
+      title: Option[FHIRString] = None,
       status: PUBLICATION_STATUS,
-      version: Option[String] = None,
+      version: Option[FHIRString] = None,
       contact: LitSeq[ContactDetail] = LitSeq.empty,
       purpose: Option[Markdown] = None,
       profile: LitSeq[Reference] = LitSeq.empty,
       language: Option[LANGUAGES] = None,
       contained: LitSeq[Resource] = LitSeq.empty,
       extension: LitSeq[Extension] = LitSeq.empty,
-      publisher: Option[String] = None,
+      publisher: Option[FHIRString] = None,
       copyright: Option[Markdown] = None,
       identifier: Option[Identifier] = None,
       useContext: LitSeq[UsageContext] = LitSeq.empty,
@@ -1601,16 +1601,16 @@ object TestScript extends CompanionFor[TestScript] {
     FHIRComponentFieldMeta("meta", lTagOf[Option[Meta]], false, lTagOf[Meta])
   val text: FHIRComponentFieldMeta[Option[Narrative]] =
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
-  val name: FHIRComponentFieldMeta[String] =
-    FHIRComponentFieldMeta("name", lTagOf[String], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[FHIRString] =
+    FHIRComponentFieldMeta("name", lTagOf[FHIRString], false, lTagOf[FHIRString])
   val date: FHIRComponentFieldMeta[Option[FHIRDateTime]] =
     FHIRComponentFieldMeta("date", lTagOf[Option[FHIRDateTime]], false, lTagOf[FHIRDateTime])
-  val title: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("title", lTagOf[Option[String]], false, lTagOf[String])
+  val title: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("title", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val status: FHIRComponentFieldMeta[PUBLICATION_STATUS] =
     FHIRComponentFieldMeta("status", lTagOf[PUBLICATION_STATUS], false, lTagOf[PUBLICATION_STATUS])
-  val version: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("version", lTagOf[Option[String]], false, lTagOf[String])
+  val version: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("version", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val contact: FHIRComponentFieldMeta[LitSeq[ContactDetail]] =
     FHIRComponentFieldMeta("contact", lTagOf[LitSeq[ContactDetail]], false, lTagOf[ContactDetail])
   val purpose: FHIRComponentFieldMeta[Option[Markdown]] =
@@ -1623,8 +1623,8 @@ object TestScript extends CompanionFor[TestScript] {
     FHIRComponentFieldMeta("contained", lTagOf[LitSeq[Resource]], false, lTagOf[Resource])
   val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
-  val publisher: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("publisher", lTagOf[Option[String]], false, lTagOf[String])
+  val publisher: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("publisher", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val copyright: FHIRComponentFieldMeta[Option[Markdown]] =
     FHIRComponentFieldMeta("copyright", lTagOf[Option[Markdown]], false, lTagOf[Markdown])
   val identifier: FHIRComponentFieldMeta[Option[Identifier]] =
@@ -1697,18 +1697,18 @@ object TestScript extends CompanionFor[TestScript] {
     FHIRComponentField[UriStr](url, t.url),
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
-    FHIRComponentField[String](name, t.name),
+    FHIRComponentField[FHIRString](name, t.name),
     FHIRComponentField[Option[FHIRDateTime]](date, t.date),
-    FHIRComponentField[Option[String]](title, t.title),
+    FHIRComponentField[Option[FHIRString]](title, t.title),
     FHIRComponentField[PUBLICATION_STATUS](status, t.status),
-    FHIRComponentField[Option[String]](version, t.version),
+    FHIRComponentField[Option[FHIRString]](version, t.version),
     FHIRComponentField[LitSeq[ContactDetail]](contact, t.contact),
     FHIRComponentField[Option[Markdown]](purpose, t.purpose),
     FHIRComponentField[LitSeq[Reference]](profile, t.profile),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[LitSeq[Resource]](contained, t.contained),
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
-    FHIRComponentField[Option[String]](publisher, t.publisher),
+    FHIRComponentField[Option[FHIRString]](publisher, t.publisher),
     FHIRComponentField[Option[Markdown]](copyright, t.copyright),
     FHIRComponentField[Option[Identifier]](identifier, t.identifier),
     FHIRComponentField[LitSeq[UsageContext]](useContext, t.useContext),
@@ -1730,18 +1730,18 @@ object TestScript extends CompanionFor[TestScript] {
   def extractUrl(t: TestScript): UriStr                                 = t.url
   def extractMeta(t: TestScript): Option[Meta]                          = t.meta
   def extractText(t: TestScript): Option[Narrative]                     = t.text
-  def extractName(t: TestScript): String                                = t.name
+  def extractName(t: TestScript): FHIRString                            = t.name
   def extractDate(t: TestScript): Option[FHIRDateTime]                  = t.date
-  def extractTitle(t: TestScript): Option[String]                       = t.title
+  def extractTitle(t: TestScript): Option[FHIRString]                   = t.title
   def extractStatus(t: TestScript): PUBLICATION_STATUS                  = t.status
-  def extractVersion(t: TestScript): Option[String]                     = t.version
+  def extractVersion(t: TestScript): Option[FHIRString]                 = t.version
   def extractContact(t: TestScript): LitSeq[ContactDetail]              = t.contact
   def extractPurpose(t: TestScript): Option[Markdown]                   = t.purpose
   def extractProfile(t: TestScript): LitSeq[Reference]                  = t.profile
   def extractLanguage(t: TestScript): Option[LANGUAGES]                 = t.language
   def extractContained(t: TestScript): LitSeq[Resource]                 = t.contained
   def extractExtension(t: TestScript): LitSeq[Extension]                = t.extension
-  def extractPublisher(t: TestScript): Option[String]                   = t.publisher
+  def extractPublisher(t: TestScript): Option[FHIRString]               = t.publisher
   def extractCopyright(t: TestScript): Option[Markdown]                 = t.copyright
   def extractIdentifier(t: TestScript): Option[Identifier]              = t.identifier
   def extractUseContext(t: TestScript): LitSeq[UsageContext]            = t.useContext
@@ -1787,18 +1787,18 @@ object TestScript extends CompanionFor[TestScript] {
           cursor.decodeAs[UriStr]("url", None),
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
-          cursor.decodeAs[String]("name", None),
+          cursor.decodeAs[FHIRString]("name", None),
           cursor.decodeAs[Option[FHIRDateTime]]("date", Some(None)),
-          cursor.decodeAs[Option[String]]("title", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("title", Some(None)),
           cursor.decodeAs[PUBLICATION_STATUS]("status", None),
-          cursor.decodeAs[Option[String]]("version", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("version", Some(None)),
           cursor.decodeAs[LitSeq[ContactDetail]]("contact", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Markdown]]("purpose", Some(None)),
           cursor.decodeAs[LitSeq[Reference]]("profile", Some(LitSeq.empty)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[LitSeq[Resource]]("contained", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("publisher", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("publisher", Some(None)),
           cursor.decodeAs[Option[Markdown]]("copyright", Some(None)),
           cursor.decodeAs[Option[Identifier]]("identifier", Some(None)),
           cursor.decodeAs[LitSeq[UsageContext]]("useContext", Some(LitSeq.empty)),
@@ -1930,18 +1930,18 @@ class TestScript(
     val url: UriStr,
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
-    val name: String,
+    val name: FHIRString,
     val date: Option[FHIRDateTime] = None,
-    val title: Option[String] = None,
+    val title: Option[FHIRString] = None,
     val status: PUBLICATION_STATUS,
-    val version: Option[String] = None,
+    val version: Option[FHIRString] = None,
     val contact: LitSeq[ContactDetail] = LitSeq.empty,
     val purpose: Option[Markdown] = None,
     val profile: LitSeq[Reference] = LitSeq.empty,
     override val language: Option[LANGUAGES] = None,
     override val contained: LitSeq[Resource] = LitSeq.empty,
     override val extension: LitSeq[Extension] = LitSeq.empty,
-    val publisher: Option[String] = None,
+    val publisher: Option[FHIRString] = None,
     val copyright: Option[Markdown] = None,
     val identifier: Option[Identifier] = None,
     val useContext: LitSeq[UsageContext] = LitSeq.empty,

@@ -116,8 +116,8 @@ object Organization extends CompanionFor[Organization] {
       meta: Option[Meta] = None,
       text: Option[Narrative] = None,
       `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-      name: Option[String] = None,
-      alias: LitSeq[String] = LitSeq.empty,
+      name: Option[FHIRString] = None,
+      alias: LitSeq[FHIRString] = LitSeq.empty,
       active: Option[Boolean] = None,
       partOf: Option[Reference] = None,
       telecom: LitSeq[ContactPoint] = LitSeq.empty,
@@ -160,10 +160,10 @@ object Organization extends CompanionFor[Organization] {
     FHIRComponentFieldMeta("text", lTagOf[Option[Narrative]], false, lTagOf[Narrative])
   val `type`: FHIRComponentFieldMeta[LitSeq[CodeableConcept]] =
     FHIRComponentFieldMeta("type", lTagOf[LitSeq[CodeableConcept]], false, lTagOf[CodeableConcept])
-  val name: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("name", lTagOf[Option[String]], false, lTagOf[String])
-  val alias: FHIRComponentFieldMeta[LitSeq[String]] =
-    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[String]], false, lTagOf[String])
+  val name: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("name", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
+  val alias: FHIRComponentFieldMeta[LitSeq[FHIRString]] =
+    FHIRComponentFieldMeta("alias", lTagOf[LitSeq[FHIRString]], false, lTagOf[FHIRString])
   val active: FHIRComponentFieldMeta[Option[Boolean]] =
     FHIRComponentFieldMeta("active", lTagOf[Option[Boolean]], false, lTagOf[Boolean])
   val partOf: FHIRComponentFieldMeta[Option[Reference]] =
@@ -213,8 +213,8 @@ object Organization extends CompanionFor[Organization] {
     FHIRComponentField[Option[Meta]](meta, t.meta),
     FHIRComponentField[Option[Narrative]](text, t.text),
     FHIRComponentField[LitSeq[CodeableConcept]](`type`, t.`type`),
-    FHIRComponentField[Option[String]](name, t.name),
-    FHIRComponentField[LitSeq[String]](alias, t.alias),
+    FHIRComponentField[Option[FHIRString]](name, t.name),
+    FHIRComponentField[LitSeq[FHIRString]](alias, t.alias),
     FHIRComponentField[Option[Boolean]](active, t.active),
     FHIRComponentField[Option[Reference]](partOf, t.partOf),
     FHIRComponentField[LitSeq[ContactPoint]](telecom, t.telecom),
@@ -232,8 +232,8 @@ object Organization extends CompanionFor[Organization] {
   def extractMeta(t: Organization): Option[Meta]                    = t.meta
   def extractText(t: Organization): Option[Narrative]               = t.text
   def extractType(t: Organization): LitSeq[CodeableConcept]         = t.`type`
-  def extractName(t: Organization): Option[String]                  = t.name
-  def extractAlias(t: Organization): LitSeq[String]                 = t.alias
+  def extractName(t: Organization): Option[FHIRString]              = t.name
+  def extractAlias(t: Organization): LitSeq[FHIRString]             = t.alias
   def extractActive(t: Organization): Option[Boolean]               = t.active
   def extractPartOf(t: Organization): Option[Reference]             = t.partOf
   def extractTelecom(t: Organization): LitSeq[ContactPoint]         = t.telecom
@@ -265,7 +265,7 @@ object Organization extends CompanionFor[Organization] {
     "address"  -> (obj => obj.address.toSeq)
   )
   def unapply(
-      o: Organization): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[CodeableConcept], Option[String], LitSeq[String], Option[Boolean], Option[Reference], LitSeq[ContactPoint], LitSeq[Address], Option[LANGUAGES], LitSeq[Reference], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[UriStr], LitSeq[Extension], LitSeq[Organization.Contact])] =
+      o: Organization): Option[(Option[String], Option[Meta], Option[Narrative], LitSeq[CodeableConcept], Option[FHIRString], LitSeq[FHIRString], Option[Boolean], Option[Reference], LitSeq[ContactPoint], LitSeq[Address], Option[LANGUAGES], LitSeq[Reference], LitSeq[Resource], LitSeq[Extension], LitSeq[Identifier], Option[UriStr], LitSeq[Extension], LitSeq[Organization.Contact])] =
     Some(
       (
         o.id,
@@ -294,8 +294,8 @@ object Organization extends CompanionFor[Organization] {
           cursor.decodeAs[Option[Meta]]("meta", Some(None)),
           cursor.decodeAs[Option[Narrative]]("text", Some(None)),
           cursor.decodeAs[LitSeq[CodeableConcept]]("type", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("name", Some(None)),
-          cursor.decodeAs[LitSeq[String]]("alias", Some(LitSeq.empty)),
+          cursor.decodeAs[Option[FHIRString]]("name", Some(None)),
+          cursor.decodeAs[LitSeq[FHIRString]]("alias", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Boolean]]("active", Some(None)),
           cursor.decodeAs[Option[Reference]]("partOf", Some(None)),
           cursor.decodeAs[LitSeq[ContactPoint]]("telecom", Some(LitSeq.empty)),
@@ -380,8 +380,8 @@ class Organization(
     override val meta: Option[Meta] = None,
     override val text: Option[Narrative] = None,
     val `type`: LitSeq[CodeableConcept] = LitSeq.empty,
-    val name: Option[String] = None,
-    val alias: LitSeq[String] = LitSeq.empty,
+    val name: Option[FHIRString] = None,
+    val alias: LitSeq[FHIRString] = LitSeq.empty,
     val active: Option[Boolean] = None,
     val partOf: Option[Reference] = None,
     val telecom: LitSeq[ContactPoint] = LitSeq.empty,

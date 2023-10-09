@@ -106,7 +106,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
     override val parentType: CompanionFor[ResourceType] = Finding
     def apply(
         id: Option[String] = None,
-        basis: Option[String] = None,
+        basis: Option[FHIRString] = None,
         extension: LitSeq[Extension] = LitSeq.empty,
         itemReference: Option[Reference] = None,
         modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -122,12 +122,12 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
       primitiveAttributes = primitiveAttributes
     )
     def unapply(
-        o: Finding): Option[(Option[String], Option[String], LitSeq[Extension], Option[Reference], LitSeq[Extension], Option[CodeableConcept])] =
+        o: Finding): Option[(Option[String], Option[FHIRString], LitSeq[Extension], Option[Reference], LitSeq[Extension], Option[CodeableConcept])] =
       Some((o.id, o.basis, o.extension, o.itemReference, o.modifierExtension, o.itemCodeableConcept))
     val id: FHIRComponentFieldMeta[Option[String]] =
       FHIRComponentFieldMeta("id", lTagOf[Option[String]], false, lTagOf[String])
-    val basis: FHIRComponentFieldMeta[Option[String]] =
-      FHIRComponentFieldMeta("basis", lTagOf[Option[String]], false, lTagOf[String])
+    val basis: FHIRComponentFieldMeta[Option[FHIRString]] =
+      FHIRComponentFieldMeta("basis", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
     val extension: FHIRComponentFieldMeta[LitSeq[Extension]] =
       FHIRComponentFieldMeta("extension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
     val itemReference: FHIRComponentFieldMeta[Option[Reference]] =
@@ -141,7 +141,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
     override def fieldsFromParent(t: ResourceType): Try[Seq[FHIRComponentField[_]]] = Success(fields(t))
     override def fields(t: Finding): Seq[FHIRComponentField[_]] = Seq(
       FHIRComponentField[Option[String]](id, t.id),
-      FHIRComponentField[Option[String]](basis, t.basis),
+      FHIRComponentField[Option[FHIRString]](basis, t.basis),
       FHIRComponentField[LitSeq[Extension]](extension, t.extension),
       FHIRComponentField[Option[Reference]](itemReference, t.itemReference),
       FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
@@ -154,7 +154,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
         Try(
           new Finding(
             cursor.decodeAs[Option[String]]("id", Some(None)),
-            cursor.decodeAs[Option[String]]("basis", Some(None)),
+            cursor.decodeAs[Option[FHIRString]]("basis", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
             cursor.decodeAs[Option[Reference]]("itemReference", Some(None)),
             cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
@@ -166,7 +166,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
   @POJOBoilerplate
   class Finding(
       override val id: Option[String] = None,
-      val basis: Option[String] = None,
+      val basis: Option[FHIRString] = None,
       override val extension: LitSeq[Extension] = LitSeq.empty,
       val itemReference: Option[Reference] = None,
       override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
@@ -184,7 +184,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
       status: CLINICALIMPRESSION_STATUS,
       subject: Reference,
       problem: LitSeq[Reference] = LitSeq.empty,
-      summary: Option[String] = None,
+      summary: Option[FHIRString] = None,
       language: Option[LANGUAGES] = None,
       assessor: Option[Reference] = None,
       previous: Option[Reference] = None,
@@ -193,7 +193,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
       extension: LitSeq[Extension] = LitSeq.empty,
       encounter: Option[Reference] = None,
       identifier: LitSeq[Identifier] = LitSeq.empty,
-      description: Option[String] = None,
+      description: Option[FHIRString] = None,
       statusReason: Option[CodeableConcept] = None,
       effective: Option[ClinicalImpression.EffectiveChoice] = None,
       implicitRules: Option[UriStr] = None,
@@ -253,8 +253,8 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
     FHIRComponentFieldMeta("subject", lTagOf[Reference], false, lTagOf[Reference])
   val problem: FHIRComponentFieldMeta[LitSeq[Reference]] =
     FHIRComponentFieldMeta("problem", lTagOf[LitSeq[Reference]], false, lTagOf[Reference])
-  val summary: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("summary", lTagOf[Option[String]], false, lTagOf[String])
+  val summary: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("summary", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val language: FHIRComponentFieldMeta[Option[LANGUAGES]] =
     FHIRComponentFieldMeta("language", lTagOf[Option[LANGUAGES]], false, lTagOf[LANGUAGES])
   val assessor: FHIRComponentFieldMeta[Option[Reference]] =
@@ -271,8 +271,8 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
     FHIRComponentFieldMeta("encounter", lTagOf[Option[Reference]], false, lTagOf[Reference])
   val identifier: FHIRComponentFieldMeta[LitSeq[Identifier]] =
     FHIRComponentFieldMeta("identifier", lTagOf[LitSeq[Identifier]], false, lTagOf[Identifier])
-  val description: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("description", lTagOf[Option[String]], false, lTagOf[String])
+  val description: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("description", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val statusReason: FHIRComponentFieldMeta[Option[CodeableConcept]] =
     FHIRComponentFieldMeta("statusReason", lTagOf[Option[CodeableConcept]], false, lTagOf[CodeableConcept])
   val effective: FHIRComponentFieldMeta[Option[ClinicalImpression.EffectiveChoice]] =
@@ -336,7 +336,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
     FHIRComponentField[CLINICALIMPRESSION_STATUS](status, t.status),
     FHIRComponentField[Reference](subject, t.subject),
     FHIRComponentField[LitSeq[Reference]](problem, t.problem),
-    FHIRComponentField[Option[String]](summary, t.summary),
+    FHIRComponentField[Option[FHIRString]](summary, t.summary),
     FHIRComponentField[Option[LANGUAGES]](language, t.language),
     FHIRComponentField[Option[Reference]](assessor, t.assessor),
     FHIRComponentField[Option[Reference]](previous, t.previous),
@@ -345,7 +345,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
     FHIRComponentField[LitSeq[Extension]](extension, t.extension),
     FHIRComponentField[Option[Reference]](encounter, t.encounter),
     FHIRComponentField[LitSeq[Identifier]](identifier, t.identifier),
-    FHIRComponentField[Option[String]](description, t.description),
+    FHIRComponentField[Option[FHIRString]](description, t.description),
     FHIRComponentField[Option[CodeableConcept]](statusReason, t.statusReason),
     FHIRComponentField[Option[ClinicalImpression.EffectiveChoice]](effective, t.effective),
     FHIRComponentField[Option[UriStr]](implicitRules, t.implicitRules),
@@ -365,7 +365,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
   def extractStatus(t: ClinicalImpression): CLINICALIMPRESSION_STATUS                       = t.status
   def extractSubject(t: ClinicalImpression): Reference                                      = t.subject
   def extractProblem(t: ClinicalImpression): LitSeq[Reference]                              = t.problem
-  def extractSummary(t: ClinicalImpression): Option[String]                                 = t.summary
+  def extractSummary(t: ClinicalImpression): Option[FHIRString]                             = t.summary
   def extractLanguage(t: ClinicalImpression): Option[LANGUAGES]                             = t.language
   def extractAssessor(t: ClinicalImpression): Option[Reference]                             = t.assessor
   def extractPrevious(t: ClinicalImpression): Option[Reference]                             = t.previous
@@ -374,7 +374,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
   def extractExtension(t: ClinicalImpression): LitSeq[Extension]                            = t.extension
   def extractEncounter(t: ClinicalImpression): Option[Reference]                            = t.encounter
   def extractIdentifier(t: ClinicalImpression): LitSeq[Identifier]                          = t.identifier
-  def extractDescription(t: ClinicalImpression): Option[String]                             = t.description
+  def extractDescription(t: ClinicalImpression): Option[FHIRString]                         = t.description
   def extractStatusReason(t: ClinicalImpression): Option[CodeableConcept]                   = t.statusReason
   def extractEffective(t: ClinicalImpression): Option[ClinicalImpression.EffectiveChoice]   = t.effective
   def extractImplicitRules(t: ClinicalImpression): Option[UriStr]                           = t.implicitRules
@@ -413,7 +413,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
           cursor.decodeAs[CLINICALIMPRESSION_STATUS]("status", None),
           cursor.decodeAs[Reference]("subject", None),
           cursor.decodeAs[LitSeq[Reference]]("problem", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("summary", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("summary", Some(None)),
           cursor.decodeAs[Option[LANGUAGES]]("language", Some(None)),
           cursor.decodeAs[Option[Reference]]("assessor", Some(None)),
           cursor.decodeAs[Option[Reference]]("previous", Some(None)),
@@ -422,7 +422,7 @@ object ClinicalImpression extends CompanionFor[ClinicalImpression] {
           cursor.decodeAs[LitSeq[Extension]]("extension", Some(LitSeq.empty)),
           cursor.decodeAs[Option[Reference]]("encounter", Some(None)),
           cursor.decodeAs[LitSeq[Identifier]]("identifier", Some(LitSeq.empty)),
-          cursor.decodeAs[Option[String]]("description", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("description", Some(None)),
           cursor.decodeAs[Option[CodeableConcept]]("statusReason", Some(None)),
           cursor.decodeOptRef[UnionDateTimeOrPeriod]("effective"),
           cursor.decodeAs[Option[UriStr]]("implicitRules", Some(None)),
@@ -542,7 +542,7 @@ class ClinicalImpression(
     val status: CLINICALIMPRESSION_STATUS,
     val subject: Reference,
     val problem: LitSeq[Reference] = LitSeq.empty,
-    val summary: Option[String] = None,
+    val summary: Option[FHIRString] = None,
     override val language: Option[LANGUAGES] = None,
     val assessor: Option[Reference] = None,
     val previous: Option[Reference] = None,
@@ -551,7 +551,7 @@ class ClinicalImpression(
     override val extension: LitSeq[Extension] = LitSeq.empty,
     val encounter: Option[Reference] = None,
     val identifier: LitSeq[Identifier] = LitSeq.empty,
-    val description: Option[String] = None,
+    val description: Option[FHIRString] = None,
     val statusReason: Option[CodeableConcept] = None,
     val effective: Option[ClinicalImpression.EffectiveChoice] = None,
     override val implicitRules: Option[UriStr] = None,

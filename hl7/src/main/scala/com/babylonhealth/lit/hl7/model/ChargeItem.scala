@@ -128,7 +128,7 @@ object ChargeItem extends CompanionFor[ChargeItem] {
       occurrence: Option[ChargeItem.OccurrenceChoice] = None,
       priceOverride: Option[Money] = None,
       factorOverride: Option[BigDecimal] = None,
-      overrideReason: Option[String] = None,
+      overrideReason: Option[FHIRString] = None,
       modifierExtension: LitSeq[Extension] = LitSeq.empty,
       definitionCanonical: LitSeq[Canonical] = LitSeq.empty,
       supportingInformation: LitSeq[Reference] = LitSeq.empty,
@@ -227,8 +227,8 @@ object ChargeItem extends CompanionFor[ChargeItem] {
     FHIRComponentFieldMeta("priceOverride", lTagOf[Option[Money]], false, lTagOf[Money])
   val factorOverride: FHIRComponentFieldMeta[Option[BigDecimal]] =
     FHIRComponentFieldMeta("factorOverride", lTagOf[Option[BigDecimal]], false, lTagOf[BigDecimal])
-  val overrideReason: FHIRComponentFieldMeta[Option[String]] =
-    FHIRComponentFieldMeta("overrideReason", lTagOf[Option[String]], false, lTagOf[String])
+  val overrideReason: FHIRComponentFieldMeta[Option[FHIRString]] =
+    FHIRComponentFieldMeta("overrideReason", lTagOf[Option[FHIRString]], false, lTagOf[FHIRString])
   val modifierExtension: FHIRComponentFieldMeta[LitSeq[Extension]] =
     FHIRComponentFieldMeta("modifierExtension", lTagOf[LitSeq[Extension]], false, lTagOf[Extension])
   val definitionCanonical: FHIRComponentFieldMeta[LitSeq[Canonical]] =
@@ -306,7 +306,7 @@ object ChargeItem extends CompanionFor[ChargeItem] {
     FHIRComponentField[Option[ChargeItem.OccurrenceChoice]](occurrence, t.occurrence),
     FHIRComponentField[Option[Money]](priceOverride, t.priceOverride),
     FHIRComponentField[Option[BigDecimal]](factorOverride, t.factorOverride),
-    FHIRComponentField[Option[String]](overrideReason, t.overrideReason),
+    FHIRComponentField[Option[FHIRString]](overrideReason, t.overrideReason),
     FHIRComponentField[LitSeq[Extension]](modifierExtension, t.modifierExtension),
     FHIRComponentField[LitSeq[Canonical]](definitionCanonical, t.definitionCanonical),
     FHIRComponentField[LitSeq[Reference]](supportingInformation, t.supportingInformation),
@@ -341,7 +341,7 @@ object ChargeItem extends CompanionFor[ChargeItem] {
   def extractOccurrence(t: ChargeItem): Option[ChargeItem.OccurrenceChoice] = t.occurrence
   def extractPriceOverride(t: ChargeItem): Option[Money]                    = t.priceOverride
   def extractFactorOverride(t: ChargeItem): Option[BigDecimal]              = t.factorOverride
-  def extractOverrideReason(t: ChargeItem): Option[String]                  = t.overrideReason
+  def extractOverrideReason(t: ChargeItem): Option[FHIRString]              = t.overrideReason
   def extractModifierExtension(t: ChargeItem): LitSeq[Extension]            = t.modifierExtension
   def extractDefinitionCanonical(t: ChargeItem): LitSeq[Canonical]          = t.definitionCanonical
   def extractSupportingInformation(t: ChargeItem): LitSeq[Reference]        = t.supportingInformation
@@ -399,7 +399,7 @@ object ChargeItem extends CompanionFor[ChargeItem] {
           cursor.decodeOptRef[UnionDateTimeOrPeriodOrTiming]("occurrence"),
           cursor.decodeAs[Option[Money]]("priceOverride", Some(None)),
           cursor.decodeAs[Option[BigDecimal]]("factorOverride", Some(None)),
-          cursor.decodeAs[Option[String]]("overrideReason", Some(None)),
+          cursor.decodeAs[Option[FHIRString]]("overrideReason", Some(None)),
           cursor.decodeAs[LitSeq[Extension]]("modifierExtension", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Canonical]]("definitionCanonical", Some(LitSeq.empty)),
           cursor.decodeAs[LitSeq[Reference]]("supportingInformation", Some(LitSeq.empty)),
@@ -536,7 +536,7 @@ class ChargeItem(
     val occurrence: Option[ChargeItem.OccurrenceChoice] = None,
     val priceOverride: Option[Money] = None,
     val factorOverride: Option[BigDecimal] = None,
-    val overrideReason: Option[String] = None,
+    val overrideReason: Option[FHIRString] = None,
     override val modifierExtension: LitSeq[Extension] = LitSeq.empty,
     val definitionCanonical: LitSeq[Canonical] = LitSeq.empty,
     val supportingInformation: LitSeq[Reference] = LitSeq.empty,

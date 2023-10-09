@@ -19,26 +19,26 @@ import scala.jdk.javaapi.OptionConverters;
 public interface AuditEvent_Entity_DetailBuilder {
   public AuditEvent$Entity$Detail build();
 
-  public static Impl init(String _type, @NonNull ChoiceBase64BinaryOrString value) {
+  public static Impl init(String _type, @NonNull ChoiceBase64BinaryOrFHIRString value) {
     return new Impl(_type, value);
   }
 
-  public static Impl builder(String _type, @NonNull ChoiceBase64BinaryOrString value) {
+  public static Impl builder(String _type, @NonNull ChoiceBase64BinaryOrFHIRString value) {
     return new Impl(_type, value);
   }
 
-  public static ChoiceBase64BinaryOrString value(byte[] b) {
-    return new ChoiceBase64BinaryOrString(b);
+  public static ChoiceBase64BinaryOrFHIRString value(byte[] b) {
+    return new ChoiceBase64BinaryOrFHIRString(b);
   }
 
-  public static ChoiceBase64BinaryOrString value(String s) {
-    return new ChoiceBase64BinaryOrString(s);
+  public static ChoiceBase64BinaryOrFHIRString value(String s) {
+    return new ChoiceBase64BinaryOrFHIRString(s);
   }
 
   public class Impl implements AuditEvent_Entity_DetailBuilder {
     private Optional<String> id = Optional.empty();
     private String _type;
-    private ChoiceBase64BinaryOrString value;
+    private ChoiceBase64BinaryOrFHIRString value;
     private Collection<Extension> extension = Collections.emptyList();
     private Collection<Extension> modifierExtension = Collections.emptyList();
 
@@ -50,7 +50,7 @@ public interface AuditEvent_Entity_DetailBuilder {
      * @param value Field is a 'choice' field. Type should be one of byte[], String. To pass the
      *     value in, wrap with one of the AuditEvent_Entity_DetailBuilder.value static methods
      */
-    public Impl(String _type, @NonNull ChoiceBase64BinaryOrString value) {
+    public Impl(String _type, @NonNull ChoiceBase64BinaryOrFHIRString value) {
       this._type = _type;
       this.value = value;
     }

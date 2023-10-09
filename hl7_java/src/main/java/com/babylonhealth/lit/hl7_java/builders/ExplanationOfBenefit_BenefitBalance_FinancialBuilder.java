@@ -36,16 +36,16 @@ public interface ExplanationOfBenefit_BenefitBalance_FinancialBuilder {
     return new ChoiceMoneyOrUnsignedInt(i);
   }
 
-  public static ChoiceMoneyOrStringOrUnsignedInt allowed(Money m) {
-    return new ChoiceMoneyOrStringOrUnsignedInt(m);
+  public static ChoiceFHIRStringOrMoneyOrUnsignedInt allowed(String s) {
+    return new ChoiceFHIRStringOrMoneyOrUnsignedInt(s);
   }
 
-  public static ChoiceMoneyOrStringOrUnsignedInt allowed(String s) {
-    return new ChoiceMoneyOrStringOrUnsignedInt(s);
+  public static ChoiceFHIRStringOrMoneyOrUnsignedInt allowed(Money m) {
+    return new ChoiceFHIRStringOrMoneyOrUnsignedInt(m);
   }
 
-  public static ChoiceMoneyOrStringOrUnsignedInt allowed(Integer i) {
-    return new ChoiceMoneyOrStringOrUnsignedInt(i);
+  public static ChoiceFHIRStringOrMoneyOrUnsignedInt allowed(Integer i) {
+    return new ChoiceFHIRStringOrMoneyOrUnsignedInt(i);
   }
 
   public class Impl implements ExplanationOfBenefit_BenefitBalance_FinancialBuilder {
@@ -53,7 +53,7 @@ public interface ExplanationOfBenefit_BenefitBalance_FinancialBuilder {
     private CodeableConcept _type;
     private Optional<ChoiceMoneyOrUnsignedInt> used = Optional.empty();
     private Collection<Extension> extension = Collections.emptyList();
-    private Optional<ChoiceMoneyOrStringOrUnsignedInt> allowed = Optional.empty();
+    private Optional<ChoiceFHIRStringOrMoneyOrUnsignedInt> allowed = Optional.empty();
     private Collection<Extension> modifierExtension = Collections.emptyList();
 
     /**
@@ -115,12 +115,12 @@ public interface ExplanationOfBenefit_BenefitBalance_FinancialBuilder {
       return this;
     }
     /**
-     * @param allowed Field is a 'choice' field. Type should be one of Money, String, Integer. To
+     * @param allowed Field is a 'choice' field. Type should be one of String, Money, Integer. To
      *     pass the value in, wrap with one of the
      *     ExplanationOfBenefit_BenefitBalance_FinancialBuilder.allowed static methods
      */
     public ExplanationOfBenefit_BenefitBalance_FinancialBuilder.Impl withAllowed(
-        @NonNull ChoiceMoneyOrStringOrUnsignedInt allowed) {
+        @NonNull ChoiceFHIRStringOrMoneyOrUnsignedInt allowed) {
       this.allowed = Optional.of(allowed);
       return this;
     }
